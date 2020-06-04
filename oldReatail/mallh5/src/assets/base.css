@@ -1,0 +1,232 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+}
+
+.dispinlbloc {
+    display: inline-block;
+}
+
+.disblock {
+    display: block;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.textal {
+    text-align: left;
+}
+
+.textar {
+    text-align: right;
+}
+
+
+/* 文本居左 */
+
+
+/* .van-cell__title,
+.van-cell__value {
+    text-align: left;
+} */
+
+.van-nav-bar {
+    /* background-color: #CD2518; */
+    background: linear-gradient(90deg, rgba(208, 36, 25, 1), rgba(205, 37, 24, 1));
+}
+
+.van-nav-bar__title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    /* font-family: '黑体'; */
+    ;
+}
+
+.van-nav-bar__text,
+.van-nav-bar .van-icon {
+    color: #fff;
+}
+
+
+/* 内容主体部分 */
+
+.bodyContent {
+    margin-top: 46px;
+}
+
+.fontSizeColor {
+    font-size: 12px;
+    color: #333;
+}
+
+html,
+body {
+    /* height: 100%;
+    background-color: #F5F5F5; */
+}
+
+#myOrder .van-button::before {
+    background-color: #FC2E2E;
+    color: #fff;
+}
+
+.van-step--finish .van-step__circle,
+.van-step--finish .van-step__line {
+    background-color: #333;
+}
+
+#register .van-field__control {
+    margin-left: 8px;
+}
+
+#login .van-field__control {
+    margin-left: 8px;
+}
+
+#addressEdit .van-cell__title {
+    text-align: left;
+    color: #999;
+    font-size: 12px;
+}
+
+#addressEdit .van-field__body,
+#addressEdit .van-cell__value {
+    font-size: 12px;
+    color: #333;
+    /* text-align: left; */
+}
+
+
+/* 顶部返回箭头样式 */
+
+.topimgstyle {
+    width: 16px;
+    height: 15px;
+    vertical-align: middle;
+}
+
+.van-cell__title {
+    text-align: left;
+}
+
+.van-cell__value {
+    text-align: right;
+}
+
+[class*=van-hairline]::after {
+    border: auto;
+    border: none;
+}
+
+
+/* body {
+    padding-top: constant(safe-area-inset-top);
+    padding-left: constant(safe-area-inset-left);
+    padding-right: constant(safe-area-inset-right);
+    padding-bottom: constant(safe-area-inset-bottom);
+} */
+
+
+/* zdj */
+
+body {
+    background: #f5f5f5;
+}
+
+
+/* 首页九宫格去掉边框 */
+
+.home .van-hairline::after,
+.Classification .van-hairline::after {
+    border: none;
+}
+
+.home .van-grid-item__content,
+.shopsInfo .van-grid-item__content--center {
+    background: #f5f5f5;
+    padding: 5px 8px;
+}
+
+.Classification .van-grid-item__content--center {
+    /* width: 79px;
+    height: 79px; */
+}
+
+.Classification .van-tree-select__nav {
+    width: 77px;
+    font-size: 12px;
+    flex: none;
+}
+
+.Classification .van-sidebar-item__text {
+    font-size: 12px;
+}
+
+
+/* .Classification .van-hairline::after{
+    border: none;
+} */
+
+.Classification .van-grid-item__content {
+    padding: 0;
+}
+
+.Card .van-nav-bar__text:active {
+    background-color: #CD2518;
+}
+
+
+/*  flex  兼容写法 */
+
+
+/* 
+        display: flex;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+         */

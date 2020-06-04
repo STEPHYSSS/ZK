@@ -1,0 +1,362 @@
+/* 当前题 */
+
+#look-d .curQ::before {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    right: 9px;
+    bottom: -3px;
+    width: 5px;
+    height: 5px;
+    background-color: rgb(12, 226, 241);
+    z-index: 9;
+}
+
+
+/* 查看详情的card */
+
+#look-d div.el-card__body {
+    padding: 0;
+}
+
+#look-d .el-tabs__content {
+    background-color: #fff;
+    border: 1px solid #e4e7ed;
+    border-top: 0px solid #fff;
+}
+
+#look-d .el-tabs__header {
+    margin: 0;
+}
+
+#look-d .el-tabs--card>.el-tabs__header .el-tabs__nav {
+    /* background-color: #fff; */
+    border: 0px solid #e4e7ed;
+    border-bottom: none;
+}
+
+#lookDetails-left .el-tabs--card>.el-tabs__header .el-tabs__item {
+    /* border-radius: 5px 5px 0 0; */
+    background-color: #fff;
+    border: 1px solid #e4e7ed;
+    margin-left: 5px;
+}
+
+#look-d .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    border-bottom-color: #fff;
+}
+
+#look-d .el-tabs--card>.el-tabs__header .el-tabs__item:first-child {
+    border-right: 1px solid #e4e7ed;
+    border-left: 1px solid #e4e7ed;
+    margin-left: 0;
+}
+
+#lookDetails-left .el-tabs__item.is-active {
+    color: #444;
+}
+
+#lookDetails-left .el-tabs__item.is-active::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    /* border-radius: 5px 5px 0 0; */
+    background-color: #e71517;
+}
+
+
+/* 右边的tab */
+
+#lookDetail-right-info .el-tabs__item {
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+}
+
+#lookDetail-right-info .el-tabs__content {
+    padding: 15px;
+}
+
+#lookDetail-right-info .el-tabs--card>.el-tabs__header .el-tabs__item {
+    /* border-radius: 3px 3px 0 0; */
+    background-color: #f3f3f3;
+    color: #acabab;
+    border: 1px solid #e4e7ed;
+    margin-left: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    -webkit-transition: color 0s cubic-bezier(.645, .045, .355, 1), padding 0s cubic-bezier(.645, .045, .355, 1);
+    transition: color 0s cubic-bezier(.645, .045, .355, 1), padding 0s cubic-bezier(.645, .045, .355, 1);
+}
+
+#lookDetail-right-info .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    background-color: #e71517;
+    color: #fff;
+}
+
+#lookDetail-right-info .el-table td {
+    padding: 5px 0;
+}
+
+#look-d.el-card {
+    /* background-color: #f1f5f7; */
+}
+
+#look-d.el-card>div.el-card__body {
+    padding: 0;
+}
+
+#look-d div.el-card__body {
+    padding: 0 !important;
+}
+
+#look-d .row-bg {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*============左侧题目============*/
+
+#look-d .row-bg .left {
+    width: 80%;
+    margin-right: 44px;
+    /* border: 1px solid #ccc; */
+    margin-top: 15px;
+}
+
+
+/*标签页*/
+
+#look-d .left .section {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    padding: 15px 20px 10px;
+    background: #f1f5f7;
+}
+
+
+/*试题内容*/
+
+#look-d .left .questions-two {
+    height: 635px;
+    overflow: auto;
+    padding: 0 97px 0 20px;
+    background-color: #fff;
+}
+
+#look-d .left .questions-two .option {
+    padding-bottom: 30px;
+    border-bottom: 2px dotted #AEE1FE;
+}
+
+#look-d .stem {
+    padding-bottom: 30px;
+    border-bottom: 2px dotted #AEE1FE;
+}
+
+#look-d .left .questions-two .option {
+    /* border-bottom: 0px dotted #AEE1FE; */
+}
+
+#look-d .left .questions-two .option .option-p {
+    padding-left: 75px;
+    padding-top: 15px;
+    font-size: 12px;
+}
+
+#look-d .left .questions-two .option .option-p .option-p-an {
+    padding-left: 40px;
+}
+
+#look-d .left .questions-two .option .option-p.an {
+    font-weight: 700;
+    display: inline-block;
+}
+
+#look-d .left .questions-two h3 img {
+    vertical-align: text-top;
+    margin-right: 10px;
+}
+
+#look-d .left .questions-two h3 a {
+    font-weight: normal;
+    font-size: 14px;
+}
+
+#look-d .left .questions-two h3 a:hover {
+    color: #444;
+}
+
+#look-d .left .questions-two p {
+    padding-left: 47px;
+}
+
+
+/*==========右侧信息===========*/
+
+#look-d .row-bg .info {
+    width: 264px;
+    height: 735px;
+    margin-top: 55px;
+    background-color: #fff;
+    border: 1px solid #e4e7ed;
+}
+
+
+/*右侧信息*/
+
+#look-d .info .personalInfo,
+.tableInfo {
+    border-bottom: 2px dotted #AEE1FE;
+    margin-bottom: 5px;
+    padding: 15px;
+    position: relative;
+}
+
+#look-d .tableInfo {
+    padding-bottom: 60px;
+    max-height: 220px;
+    overflow: auto;
+}
+
+#look-d .info .tableInfo span {
+    display: inline-block;
+    position: absolute;
+}
+
+#look-d .info .el-tab-pane {
+    max-height: 112px;
+    min-height: 112px;
+    overflow: auto;
+}
+
+#look-d .info .tableInfo .table-info-logo {
+    left: 15px;
+    bottom: 0px
+}
+
+#look-d .info .tableInfo .table-info-chou {
+    right: 0px;
+    bottom: -10px;
+}
+
+#look-d .info .personalInfo .per-info-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
+    overflow: hidden;
+}
+
+#look-d .info .personalInfo .per-info-img img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+#look-d .info .topicInfo {
+    border-bottom: 2px dotted #AEE1FE;
+    margin-bottom: 5px;
+    padding: 15px;
+}
+
+#look-d .info .topicInfo .isSign {
+    padding: 15px 0 0px;
+    position: relative;
+    left: 0px;
+}
+
+#look-d .info .topicInfo .isSign span {
+    color: #acabab;
+    padding: 3px 18px;
+    background-color: #f3f3f3;
+}
+
+#look-d .info .topicInfo .isSign span:nth-child(2) {
+    margin: 0 5px;
+}
+
+#look-d .info .topicInfo .info-question {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    background-color: #f3f3f3;
+    color: #acabab;
+    margin-right: 9px;
+    margin-bottom: 5px;
+}
+
+#look-d .info .topicInfo a:nth-child(6n + 6) .info-question {
+    margin-right: 0px;
+}
+
+#look-d .info .topicInfo a {
+    color: #333;
+    margin-right: 3px;
+}
+
+#look-d .redB {
+    background-color: #ef6f6e !important;
+    color: #fff !important;
+}
+
+#look-d .greenB {
+    background-color: #65da9d !important;
+    color: #fff !important;
+}
+
+#look-d .redQ {
+    color: #ef6f6e !important;
+}
+
+#look-d .greenQ {
+    color: #65da9d !important;
+}
+
+#look-d .bgc-yellow {
+    color: #f7b844;
+    font-size: 16px;
+}
+
+#look-d .bgc-ccc {
+    color: #ccc;
+    font-size: 16px;
+}
+
+#look-d .bgc-ccc:hover {
+    color: #ccc !important;
+}
+
+#look-d .look-mg-left {
+    margin-left: 20px;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+#look-d .el-tabs--border-card>.el-tabs__content {
+    padding: 0px;
+}
+
+#look-d .pd-header-span {
+    padding: 15px 0 15px 15px;
+    display: inline-block;
+}
+
+.detailsHistoryExam .el-dialog__headerbtn {
+    position: absolute;
+    top: 5px;
+    right: 9px;
+    padding: 0;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    font-size: 16px;
+}

@@ -1,0 +1,395 @@
+/* 常规收货 */
+/* .receiving{
+    width: 100%;
+    height: 100%;
+    background: #f1f6fa !important;
+}
+.info{
+    width: 97%;
+    height: 100%;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #f0f2f4;
+    margin: 0px 20px;
+    border-radius: 5x;
+}
+.block{
+    width: 97%;
+    margin: 0px 20px;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #f0f2f4;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.demonstration{
+    margin-left: 30px;
+}
+.box,.box2{
+    margin-left: 30px;
+}
+.box{
+    margin-bottom: 20px
+}
+.incent{
+    display: inline-block;
+    width: 114px;
+    text-align: justify;
+}
+.mar{
+    margin-left: 74px;
+}
+.mar-l{
+    margin-left: 58px;
+}
+.ins{
+    width: 201px;
+    height: 35px;
+    border-radius: 5px;
+    border-style: ridge;
+    border:1px solid #e0e4eb;
+    padding-left: 13px;
+}
+.inquiry,.reset{
+    width: 80px;
+    height: 40px;
+    background-color: #01c8dc;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    margin: 25px 25px 25px 0px;
+    float: right;
+}
+.info_box{
+    margin: 0 20px;
+}
+.info_box table th{
+    color: #444444;
+}
+.info_box table th,.info_box table td{
+    text-align: center;
+} */
+/* 待配送 */
+/* .delivered{
+    width: 100%;
+}
+.wait,.info2{
+    width: 97%;
+    margin: 0 auto;
+}
+.wait{
+    padding-bottom: 6%;
+    background: #f1f6fa;
+    border-radius: 5px;
+}
+.wait h3{
+    padding: 20px 0 0px 40px;
+}
+.tips{
+    margin: 0 0 20px 40px;
+    color: #c2c2c2;
+}
+.wait table{
+    margin: 0 auto;
+    width: 94%;
+    border: 1px solid #ccd3df;
+}
+.wait table th{
+    width: 142px;
+    background: #dcf9fc;
+    color: #444444;
+    font-size: 16px;
+    font-family: '微软雅黑'
+}
+.wait table td{
+    text-align: center;
+    width: 8%;
+    height: 50px;
+}
+.wait .tds{
+    border-right: none;
+}
+.info2{
+    width: 97%;
+    margin-top: 30px;
+    background: #f1f6fa;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+.info2-box{
+    margin: 0 auto;
+    width: 94%;
+    text-align: justify;
+    text-align: center;
+}
+
+.info2-box table th{
+    padding: 0;
+    background: #01c8dc;
+    font-size: 16px;
+    color: #fff;
+} */
+/* 配送完成（已验收） */
+/* .acceptance{
+    width: 100%;
+}
+.accep,.info3{
+    width: 97%;
+    margin: 0 auto;
+}
+.accep{
+    padding-bottom: 6%;
+    background: #f1f6fa;
+    border-radius: 5px;
+}
+.accep h3{
+    padding: 20px 0 0px 40px;
+}
+.accep h3 span{
+
+    font-weight: 100;
+    font-size: 16px;
+}
+.tips2{
+    margin: 0 0 20px 40px;
+    color: #c2c2c2;
+}
+.accep table{
+    margin: 0 auto;
+    width: 94%;
+    border: 1px solid #ccd3df;
+}
+.accep table th{
+    width: 142px;
+    background: #dcf9fc;
+    color: #444444;
+    font-size: 16px;
+    font-family: '微软雅黑'
+}
+.accep table td{
+    text-align: center;
+    width: 8%;
+    height: 50px;
+}
+.info3{
+    width: 97%;
+    margin-top: 30px;
+    background: #f1f6fa;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+.info3-box{
+    margin: 0 auto;
+    width: 94%;
+    padding-bottom: 30px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.info3-box table th{
+    padding: 0;
+    background: #01c8dc;
+    font-size: 16px;
+    color: #fff;
+} */
+/* 配送完成（未验收） */
+/* 返回 */
+.nav{
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+}
+ .btnback{
+    text-decoration:none;
+    width: 80px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    color: #01c8dc;
+    border: 1px solid #01c8dc;
+    border-radius: 5px;
+    float: right;
+    margin-right: 2%;
+}
+.btnback:hover{
+    background-color:#01c8dc;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.wait_Box .title{
+    padding-top: 20px;
+}
+.wait_Box .title span{
+    font-weight: 100;
+    font-size: 16px;
+}
+.tip{
+    margin: 0 0 20px 0px;
+    color: #c2c2c2;
+}
+.checked table{
+    margin: 0 auto;
+    width: 94%;
+    border: 1px solid #ccd3df;
+}
+.checked table th{
+    width: 142px;
+    background: #dcf9fc;
+    color: #444444;
+    font-size: 16px;
+    font-family: '微软雅黑'
+}
+.checked table td{
+    text-align: center;
+    width: 8%;
+    height: 50px;
+}
+.issure{ 
+    width: 100px;
+    height: 40px;
+    margin: 36px 40px 0px 0;
+}
+.info4{
+    width: 97%;
+    margin-top: 30px;
+    background: #f1f6fa;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+.info4-box{
+    margin: 0 auto;
+    width: 94%;
+    padding-bottom: 30px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.info4-box table th{
+    padding: 0;
+    background: #01c8dc;
+    font-size: 16px;
+    color: #fff;
+}
+.back{
+    padding: 0 15px;
+    line-height: 20px;
+    height: 30px;
+    margin-top: 3%;
+    margin-right: 50px;
+}
+.back,.issure{
+    float: right;
+    font-size: 16px;
+    color: #fff;
+    background: #01c8dc;
+    border: none;
+    border-radius: 5px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .waitCheck{
+    width: 100%;
+    height: 100%;
+    background: #f1f6fa;
+}
+.acceptance{
+    height: 395px;
+    background: #fff;
+    margin: 10px 20px;
+}
+.info2{
+    width: 97%;
+    margin: 0 auto;
+}
+.title,span{
+    display: inline-block;
+    color: #444444
+}
+.title{
+    font-size: 20px;
+    margin: 30px 0 25px 55px;
+}
+.tip{
+    margin: 0 0 30px 55px;
+    color: #aaaaaa;
+}
+span{
+    font-size: 16px;
+}
+.back{
+    width: 90px;
+    height: 30px;
+}
+table{
+    margin: 0 65px 0 55px;
+}
+th{
+    color: #585b5c;
+    background: #dcf9fc;
+    text-align: right;
+}
+th,td{
+    height: 50px;
+}
+.issure{
+    width: 100px;
+    height: 40px;
+    margin: 35px 0;
+    float: right;
+    font-size: 16px;
+}
+.back,.issure{
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    background-color: #01c8dc;
+} */

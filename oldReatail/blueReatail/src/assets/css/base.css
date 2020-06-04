@@ -1,0 +1,469 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+body {
+    overflow: auto;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: text;
+}
+
+body,
+dl,
+dd,
+dt,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+img,
+div,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* font-weight: normal; */
+}
+
+body {
+    font: 12px/25px '微软雅黑', Arial, Helvetica, sans-serif;
+    height: 100%;
+    color: #333;
+    font-size: 14px;
+}
+
+html,
+body,
+h2 {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #454545;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #31b5ff;
+}
+
+a.router-link-exact-active,
+a.router-link-active {
+    color: #31b5ff;
+}
+
+ol,
+ul,
+i {
+    font-style: normal;
+    list-style: none;
+    padding: 0;
+    margin: 0px;
+}
+
+#login .content .el-input__inner {
+    font-size: 16px;
+    border: none;
+}
+
+
+/* select:focus {
+    border: none;
+    outline: none
+} */
+
+
+/* input:-webkit-autofill {
+    -webkit-text-fill-color: rgb(229, 229, 229) !important;
+    transition: background-color 5000s ease-in-out 0s;
+} */
+
+
+/* 字体颜色 */
+
+
+/* .font-color-82 {
+    color: #828283;
+} */
+
+
+/* 字体大小 */
+
+
+/* .font-size-12 {
+    font-size: 12px;
+}
+
+.font-size-16 {
+    font-size: 16px;
+} */
+
+
+/* 右浮动 */
+
+
+/* .fr {
+    float: right;
+} */
+
+
+/* 左浮动 */
+
+
+/* .fl {
+    float: left;
+}
+
+.fn-clear:after,
+.fn-clear:before {
+    content: "";
+    display: table
+}
+
+.fn-clear:after {
+    clear: both
+}
+
+.fn-clear {
+    zoom: 1
+} */
+
+
+/* 图片宽度百分百 */
+
+
+/* .imgbfb {
+    width: 100%;
+} */
+
+
+/* 水平居中 */
+
+
+/* .txalign {
+    text-align: center;
+} */
+
+
+/* 右对齐 */
+
+
+/* .txalign-c {
+    text-align: right;
+} */
+
+
+/* 左对齐 */
+
+
+/* .txalign-l {
+    text-align: left;
+} */
+
+
+/* 强制不换行 */
+
+
+/* .qzbhh {
+    white-space: nowrap;
+} */
+
+
+/* 背景色 */
+
+.main {
+    /* background-color: #f1f4f6; */
+    /* height: 100%; */
+}
+
+
+/* 按钮边框色 */
+
+
+/* .el-button {
+    border: 1px solid #31b5ff;
+    color: #31b5ff;
+    padding: 7px 20px;
+} */
+
+[v-cloak] {
+    display: none;
+}
+
+
+/*==========================element-ui样式====================================*/
+
+
+/*                            分页                             */
+
+
+/* .el-pagination {
+    padding-top: 20px;
+    text-align: right;
+    padding-right: 60px;
+} */
+
+
+/* 点击后字体颜色 */
+
+
+/* .el-menu-item.is-active {
+    color: rgb(248, 244, 244);
+} */
+
+
+/* 点击后背景色和hove颜色色 */
+
+
+/* .el-menu-item:focus,
+.el-menu-item:hover {
+    outline: 0;
+    background-color: #ccc;
+} */
+
+
+/* main里面的内容 */
+
+
+/* .el-card {
+    border: 0px solid #ebeef5;
+    background-color: #fff;
+    color: #333;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.el-card__body {
+    padding: 20px 22px;
+} */
+
+
+/* 去除el-card阴影 */
+
+
+/* .el-card.is-always-shadow,
+.el-card.is-hover-shadow:focus,
+.el-card.is-hover-shadow:hover {
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, .1);
+} */
+
+
+/*==================删除弹框样式（公共）========================*/
+
+
+/* 删除框样式 */
+
+
+/* .el-message-box {
+    width: 380px;
+    background-color: #fff;
+    border-radius: 0px;
+    border: 0px solid #ebeef5;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, .1);
+}
+
+.el-message-box__content {
+    text-align: center;
+    padding: 42px 0;
+}
+
+.el-message-box__btns {
+    text-align: center;
+}
+
+.el-message-box__btns .el-button {
+    background-color: #fff;
+    color: #31b5ff;
+    padding: 8px 30px;
+}
+
+.el-message-box__header {
+    background-color: #54c8de;
+    padding: 10px 15px 6px;
+}
+
+.el-message-box__title {
+    font-size: 16px;
+    color: #fff;
+}
+
+.el-message-box__title span::before {
+    display: inline-block;
+    content: "";
+    position: relative;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+}
+
+.el-message-box__headerbtn {
+    top: 11px;
+    font-size: 20px;
+}
+
+.el-message-box__headerbtn .el-message-box__close {
+    color: #fff;
+} */
+
+
+/*==================删除弹框样式结束========================*/
+
+
+/*表格每行悬停高亮效果*/
+
+
+/* .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: #c7eff5 !important;
+} */
+
+
+/* 表格隔行变色 */
+
+
+/* .el-table--striped .el-table__body tr.el-table__row--striped td {
+    background: #f1f7f9;
+} */
+
+
+/* 所有表格头部描边消失 */
+
+
+/* .el-table--border th {
+    border-right: 0px solid #ebeef5;
+} */
+
+
+/* =================加载中================= */
+
+
+/* .el-loading-spinner .el-loading-text {
+    color: #444;
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+.el-loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -21px;
+    width: 150px;
+    height: 85px;
+    text-align: center;
+    padding-top: 65px;
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 10px;
+}
+
+.el-loading-spinner .el-loading-text::before {
+    display: inline-block;
+    font-family: "iconfont" !important;
+    font-size: 40px;
+    color: #31b5ff;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e657";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+ */
+
+
+/* =================加载中================= */
+
+
+/**********所有input文本框样式************/
+
+
+/* 
+input[type=text],
+input[type=password] {
+    border-radius: 4px;
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    background-image: none;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: 12px;
+    height: 30px;
+    line-height: 40px;
+    outline: 0;
+    padding: 0 5px;
+    -webkit-transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+} */
+
+
+/*********所有input文本框样式结束*************/
+
+
+/* .el-button:hover {
+    color: #fff;
+    background-color: #31b5ff;
+}
+
+.el-menu-vertical-demo {
+    position: fixed;
+    z-index: 9999999;
+} */
+
+
+/* @font-face {
+    font-family: Bold;
+    src: url('../font/思源黑体-Bold.otf');
+}
+
+@font-face {
+    font-family: ExtraLight;
+    src: url('../font/思源黑体-ExtraLight.otf');
+}
+
+@font-face {
+    font-family: Heavy;
+    src: url('../font/思源黑体-Heavy.otf');
+}
+
+@font-face {
+    font-family: Light;
+    src: url('../font/思源黑体-Light.otf');
+}
+
+@font-face {
+    font-family: Medium;
+    src: url('../font/思源黑体-Medium.otf');
+}
+
+@font-face {
+    font-family: Normal;
+    src: url('../font/思源黑体-Normal.otf');
+}
+
+@font-face {
+    font-family: Regular;
+    src: url('../font/思源黑体-Regular.otf');
+} */

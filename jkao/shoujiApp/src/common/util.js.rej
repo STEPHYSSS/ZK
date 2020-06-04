@@ -1,0 +1,9 @@
+diff a/teacher_retail_app/src/common/util.js b/teacher_retail_app/src/common/util.js	(rejected hunks)
+@@ -2,6 +2,7 @@
+ let baseUrl = '/'
+ if (process.env.NODE_ENV == 'development') {
+     // baseUrl = 'http://192.168.1.168:8086/';
++    baseUrl = 'http://192.168.1.202:8086/';
+ } else if (process.env.NODE_ENV == 'production') {
+     baseUrl = '/';
+ }

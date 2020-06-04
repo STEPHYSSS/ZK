@@ -1,0 +1,323 @@
+.box {
+  position: relative;
+  margin-top: 60px;
+}
+
+.List {
+  margin-top: 60px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.ListBoxPwd {
+  margin-top: 10px;
+}
+
+.personalInfo .List {
+  margin-top: 0px;
+}
+
+.spLeft {
+  box-sizing: border-box;
+  padding-left: 16px;
+}
+
+.only {
+    text-align: center;
+}
+
+.only2 {
+    text-align: right;
+}
+
+.oneBox {
+    display: flex;
+}
+
+.oneBox #showTitle,
+.oneBox .chooseMsg {
+    flex: 1;
+}
+
+#showTitle {
+    padding-top: 10px;
+}
+
+.van-nav-bar__title {
+    width: 100%;
+}
+
+
+/* 出勤请假 */
+
+.new-tabs {
+    /* background-color: #f1f4f6;
+  border-bottom: 1px solid #dbe0e5; */
+    /* width: 724px; */
+    /* height: 37px;
+  font-size: 12px; */
+}
+
+.new-tabs-child {
+    /* width: 100px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #444;
+  position: relative;
+  padding: 10px 26px; */
+}
+
+.new-tabs .active {
+    /* background-color: #fff; */
+}
+
+.new-tabs .active::before {
+    /* content: "";
+  display: inline-block;
+  width: 100px;
+  height: 4px;
+  background-color: #e71517;
+  position: absolute;
+  top: 0;
+  left: 0; */
+}
+
+.fontSty {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* 通讯录 */
+
+.PhoneBox {
+    height: 200px;
+    text-align: center;
+    position: relative;
+    background-color: #f5f5f5;
+    opacity: 0.5;
+}
+
+.PhoneBox .imgPhoto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    position: absolute;
+    top: 20%;
+    left: 38%;
+}
+
+
+/* 我的 - 设置*/
+
+.logOut {
+    margin: 50px 16px 0;
+}
+
+.versionNum {
+    margin-left: 16px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.versionNum em {
+    color: #4489FE;
+}
+
+.ListBoxPwd .van-cell {
+    margin-bottom: 12px;
+}
+
+.contact {
+    color: #3A8FF6
+}
+
+#imgSt img {
+    width: 13px;
+}
+
+.userName{
+  font-size: 16px;
+  position: absolute;
+  bottom: 12%;
+  left: 38%;
+  text-align: center;
+  width: 25%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap
+}
+/* 登录 */
+
+.login {
+    height: 100vh;
+    background-image: url('../assets/images/bg@2x.png');
+    background-size: 100% 100%;
+    position: relative;
+    background-repeat-y: no-repeat;
+}
+
+.login .entryInput {
+    position: absolute;
+    top: 55%;
+    width: 100vw;
+}
+
+.entryInput .user {
+    margin: 0 16% 10px;
+    border-bottom: 1px solid #f5f5f5;
+    position: relative;
+}
+
+.entryInput .user img {
+    width: 14px;
+    position: absolute;
+    top: 28%;
+    left: 0px;
+    z-index: 66;
+    padding-right: 8px;
+}
+
+.input-wid {
+    width: 100% !important;
+}
+
+.dengLu {
+    margin: 12% 16% 0;
+    text-align: center;
+}
+
+.company {
+    position: absolute;
+    bottom: 10px;
+    color: #666666;
+    bottom: 3%;
+    font-size: 14px;
+    left: 19%;
+}
+
+
+/* 打卡 */
+
+.clockBox {
+    height: 50vh;
+    background-color: #fff;
+    text-align: center;
+}
+
+.clockBox2 {
+    background-color: #fff;
+    text-align: center;
+}
+
+.calendarBox {
+    height: 44px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.year_mouth {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 41px;
+    line-height: 41px;
+    box-sizing: border-box;
+    margin-left: 25px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+.year_mouth img {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+}
+.calendarBox .year_mouth span {
+  color: #4489FE;
+  font-size: 16px;
+}
+.daySty{
+  position: absolute;
+  top: 2px;
+  right: 25px;
+}
+.calendarBox .year_mouth img {
+    width: 16px;
+    color: #4489FE;
+    font-size: 16px;
+}
+.ArrowL,
+.ArrowR {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    font-size: 16px;
+    top: 19px;
+}
+
+.ArrowL {
+    left: 20%;
+}
+
+.ArrowR {
+    right: 20%;
+}
+
+.clockList {
+    margin-top: 6px;
+}
+
+.calendar {
+    height: 100%;
+}
+
+.toWork,
+.offWork {
+    overflow: hidden;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.toWork {
+    background-color: #10c157ff;
+}
+
+.offWork {
+    background-color: #ff3000ff;
+}
+
+
+/* 图片上传 */
+
+#showTitle li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+
+/* 岗位详情 */
+
+.ListDetail {
+    margin: 5px 16px 0;
+    box-sizing: border-box;
+}
+
+.ListDetail div {
+    font-size: 16px;
+    text-indent: 2px;
+    padding-top: 5px;
+}
+.van-field--min-height .van-field__control{
+  min-height: 2.26rem;
+}

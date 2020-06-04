@@ -1,0 +1,329 @@
+.my-index {
+    height: 100%;
+    min-width: 1090px;
+}
+
+
+/*===================头部===================*/
+
+.my-index .header {
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    height: 68px !important;
+}
+
+.my-index header .logo {
+    line-height: 68px;
+}
+
+.my-index header .goHome {
+    display: inline-block;
+    position: absolute;
+    left: 265px;
+    top: 18px;
+    width: 20px;
+    height: 15px;
+    background-image: url('../assets/images/Back-icon.png');
+    background-size: 20px 15px;
+}
+
+.my-index header .first_ul {
+    list-style: none;
+    position: absolute;
+    left: 300px;
+    top: 0;
+    line-height: 67px;
+}
+
+.my-index header .first_ul li {
+    float: left;
+    padding: 0 20px;
+}
+
+.my-index header .first_ul li span {
+    /* margin-left: 18px; */
+    color: #808080;
+}
+
+.my-index header .first_ul li:nth-child(1),
+.my-index header .first_ul li:nth-child(2),
+.my-index header .first_ul li:nth-child(3) {
+    margin-right: 30px;
+}
+
+.my-index header .first_ul li:hover {
+    background-color: #eef1f5;
+}
+
+.my-index header .first_ul li a {
+    color: #444;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.my-index header .first_ul li a img {
+    vertical-align: middle;
+    margin-right: 12px;
+    width: 16px;
+    height: 16px;
+}
+
+.my-index header .header_right {
+    float: right;
+    line-height: 68px;
+    margin-right: 20px;
+}
+
+.my-index header .header_right .header_first_img {
+    vertical-align: sub;
+    /* margin-right: 12px; */
+    width: 20px;
+    height: 20px;
+}
+
+.my-index header .header_right .hovering {
+    display: inline-block;
+    vertical-align: middle;
+    top: 0;
+    line-height: 47px;
+}
+
+.my-index header .header_right .hovering a {
+    color: #444;
+}
+
+.my-index header .header_right .hovering .arrows {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7px;
+    color: #000;
+}
+
+.my-index header .header_right .hovering:hover .arrows {
+    transform: rotateX(180deg);
+}
+
+header .header_right .hovering:hover .secondary_menu {
+    display: block;
+}
+
+
+/*'我的'悬停二级菜单*/
+
+.my-index header .header_right .secondary_menu {
+    width: 135px;
+    height: 100px;
+    /* background: url("../assets/images/secondary_menu.png") no-repeat; */
+    /* background-size: 135px 87px; */
+    position: absolute;
+    top: 45px;
+    right: 11px;
+    display: none;
+    z-index: 99;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.my-index header .header_right .secondary_menu ul {
+    list-style: none;
+    height: 100%;
+}
+
+.my-index header .header_right .secondary_menu ul li {
+    /* height: 25%; */
+    text-align: center;
+    height: 25px;
+}
+
+.my-index header .header_right .secondary_menu ul li:hover a {
+    color: #3EB9FA;
+}
+
+.my-index header .header_right .secondary_menu ul li a {
+    color: #000;
+    height: 100%;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.my-index header .header_right .secondary_menu ul li img {
+    width: 12px;
+    height: 12px;
+    margin-top: 1px;
+}
+
+
+/*===================头部结束===================*/
+
+.my-index .el-menu-vertical-demo {
+    /* position: fixed; */
+    height: 100%;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.my-index .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 144px;
+    min-height: 400px;
+    /* min-width: 144px;
+    transform: none;
+    transition: none; */
+}
+
+
+/* 侧边栏最小宽度 */
+
+.my-index .el-menu--collapse {
+    width: 64px;
+    /* min-width: 64px;
+    transform: none;
+    transition: none; */
+}
+
+.my-index .acne:hover,
+.acne1 {
+    background-color: #f1f4f6;
+}
+
+.my-index .el-menu-item {
+    color: #444;
+}
+
+.my-index .el-menu-item span {
+    margin-left: 10px;
+}
+
+.my-index .acne:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #e51818;
+}
+
+.my-index .el-menu-item.is-active {
+    background-color: #f1f4f6;
+}
+
+.my-index .el-menu-item.is-active::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #e51818;
+}
+
+.my-index .fontsIcon {
+    font-size: 20px;
+    color: #444 !important;
+    font-weight: 600;
+}
+
+.my-index i.iconfont.icon-_huabanfuben.fontsIcon,
+.my-index i.iconfont.icon-ren1.fontsIcon {
+    font-size: 24px;
+}
+
+.my-index i.iconfont.icon-tikuguanli.fontsIcon {
+    font-size: 18px;
+}
+
+.my-index .el-menu-item:focus,
+.el-menu-item:hover {
+    outline: 0;
+    background-color: #f1f4f6;
+}
+
+.my-index .el-menu-item:focus::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #e71517;
+}
+
+
+/* 三角 */
+
+.my-index .acne:hover::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 110px;
+    top: 16px;
+    width: 0px;
+    height: 0px;
+    border-top: 8px solid rgba(250, 39, 250, 0);
+    border-left: 12px solid rgba(129, 51, 255, 0);
+    border-bottom: 8px solid rgba(68, 255, 51, 0);
+    border-right: 16px solid #fff;
+}
+
+
+/* 侧边导航 */
+
+.my-index .aside-menu {
+    position: relative;
+    padding: 5px 15px;
+    width: 100%;
+    min-width: 120px;
+    height: 100%;
+    border: 1px solid #f1f1f1;
+    box-shadow: 3px 3px 3px #ccc;
+    border-radius: 2px;
+    background-color: #fff;
+    text-align: center;
+    z-index: 9999;
+}
+
+.my-index .aside-menu a {
+    color: #666;
+    display: block;
+    ;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 3px;
+}
+
+.my-index .aside-menu a:hover {
+    background-color: #a3c7ec;
+}
+
+
+/* a.router-link-exact-active,
+a.router-link-active {
+  color: #000000;
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 3px;
+} */
+
+
+/* 导航定位 */
+
+.my-index .el-menu-item-group {
+    position: absolute;
+    top: 0px;
+    left: 135px;
+}
+
+.my-index a.router-link {
+    display: block
+}
+
+
+/*  Main  */
+
+
+/* .my-index .main {
+    height: 100%;
+  } */

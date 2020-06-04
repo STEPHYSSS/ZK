@@ -1,0 +1,337 @@
+/* 考试界面大div */
+
+.exam-box {
+    height: calc(100vh - 108px);
+    /* width: 100vw; */
+    background-color: #fff;
+    overflow: hidden;
+}
+
+
+/* 考试界面头部 */
+
+.exam-head {
+    width: 100%;
+    height: 68px;
+    line-height: 68px;
+    background-color: #fff;
+}
+
+
+/* 考试界面身体 */
+
+.exam-body {
+    display: flex;
+    height: 100%;
+}
+
+
+/* 试题部分 */
+
+.exam-question {
+    width: calc(100% - 320px);
+    height: 100%;
+    /* background-color: rgb(13, 138, 44); */
+    /* padding: 16px; */
+    padding: 40px 15px;
+}
+
+
+/* tabs */
+
+.tab-btn {
+    /*  position: relative;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    margin-right: 1px;
+    border-radius: 3px 3px 0 0;
+    cursor: pointer; */
+    padding: 0 20px;
+    height: 40px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 40px;
+    display: inline-block;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #303133;
+    position: relative;
+    border: 1px solid #E4E7ED;
+    cursor: pointer;
+    margin-left: -1px;
+}
+
+.marginLeft {
+    margin-left: -5px;
+}
+
+
+/* tab中的内容 */
+
+.tab-content {
+    height: calc(100% - 159px);
+    /* height: calc(100% - 130px); */
+    background-color: #fff;
+    padding: 16px;
+    border: 1px solid #dadcec;
+    overflow-y: scroll;
+}
+
+
+/* 公共tab切换 */
+
+.dis-inline-block {
+    background-color: #fff;
+}
+
+
+/* 题目样式 */
+
+.stem {
+    height: 30px;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.timujiexi {
+  /* margin-left: 29px; */
+
+}
+.jiexi,.timujiexi {
+  background-color: #d9f3f3;
+  /* height: 300px;
+  overflow-y: scroll; */
+  /* border: 1px solid #ccc; */
+}
+.jiexi,
+.stem,
+.question-option {
+    margin: 8px 0;
+}
+
+
+/* 开始答题按钮 */
+
+.startQuestion {
+  margin: 10px 0 !important;
+  position: absolute;
+  background: #444444;
+  color: #fff;
+  /* bottom: 40px;
+  left: 60px; */
+  bottom: 40px;
+  left: 165px;
+  padding: 10px 20px;
+}
+
+.startQuestion:focus,
+.startQuestion:hover {
+    color: #000 !important;
+    background-color: #c4c4c4 !important;
+    border: 1px solid #DCDFE6;
+}
+/* 题型title */
+
+.typeTitle {
+    height: 30px;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #454545;
+    margin-bottom: 10px;
+}
+
+
+/* 选项内容 */
+
+.option-content {
+    width: calc(100% - 40px);
+    border: 1px dashed #000;
+    cursor: pointer;
+    padding: 4px 6px;
+}
+
+.active::before {
+    /* active */
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: #e50109;
+    margin-top: -1px;
+}
+
+.answerColor {
+    background-color: #ddd;
+}
+
+
+/* 学生信息 */
+
+.exam-detail {
+  width: 333px;
+    /* width: 280px; */
+    height: 100%;
+    padding: 40px 14px 0;
+}
+
+
+/* detailTabs */
+
+.detail-tabs {
+    cursor: pointer;
+    font-size: 0;
+}
+
+.questionOrder {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 20px;
+    border: 1px solid #000;
+}
+
+.question-num a:nth-child(8n + 8) .questionOrder {
+    margin-right: 0;
+}
+
+.alAnswer {
+    color: #000;
+    background-color: #ddd;
+}
+
+.cur-question::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    right: 0;
+    width: 4px;
+    height: 4px;
+    background-color: rgb(238, 22, 22);
+}
+
+.question-num {
+    height: 200px;
+    border: 1px dashed #000;
+    overflow: auto;
+    padding: 12px;
+    background-color: #fff;
+}
+
+.btnstyle {
+    background: #444;
+    border-color: #444;
+    color: #fff;
+    height: 35px;
+    padding: 0 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.btnstyle:hover {
+    background: #c4c4c4;
+    border-color: #c4c4c4;
+    color: #000;
+}
+
+/* 按钮颜色 */
+
+.el-button--primary.is-plain {
+    color: #fff;
+    background: #444;
+    border-color: #444;
+    margin-right: 10px;
+}
+
+.el-button--primary.is-plain:focus,
+.el-button--primary.is-plain:hover {
+    background: #c4c4c4;
+    border-color: #c4c4c4;
+    color: #000;
+}
+
+.el-button+.el-button {
+    margin-left: 0px;
+}
+
+.buttonSty {
+    margin-top: 16px;
+}
+
+.bgc-yellow {
+    color: #f7b844;
+    font-size: 16px;
+}
+
+.delStyle {
+    position: absolute;
+    right: 0px;
+    top: 28px;
+    cursor: pointer;
+}
+
+#examBox .el-message-box__title {
+    padding: 5px 0px 4px 13px;
+}
+
+#examBox .el-message-box__status {
+    left: 0;
+    top: -58px;
+}
+
+.tipsText {
+    display: block;
+    text-align: center;
+    height: 30px;
+}
+
+.examScore {
+    padding: 7px 20px;
+    border: none;
+    background: #ef5353;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.examScore:hover {
+    background: rgb(234, 133, 133);
+}
+
+.exam-tabs {
+    font-size: 0;
+}
+
+
+/* 学生答案 */
+
+.question-answer {
+    margin-left: 29px;
+}
+
+.question-answer span:nth-child(1) {
+    margin-right: 15px;
+}
+
+.rateText {
+    position: absolute;
+    right: 10px;
+    top: 93px;
+}
+
+.rateColor {
+    font-weight: 700;
+    font-size: 14px;
+    color: #31cb97;
+}

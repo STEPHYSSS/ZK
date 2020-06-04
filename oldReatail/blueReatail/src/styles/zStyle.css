@@ -1,0 +1,145 @@
+.storeBox,
+.storeInfo {
+    margin: 0 auto;
+    background: #fff;
+    font-size: 12px;
+}
+
+.storeInfo {
+    max-height: 634px;
+    /* overflow-y: scroll; */
+}
+
+.storeBox {
+    /* border-bottom: 1px solid #555555; */
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.store_Box {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.store_tit {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    font-weight: 900;
+    display: inline-block;
+}
+
+.addStore {
+    display: inline-block;
+    box-sizing: border-box;
+    /* margin-bottom: 16px; */
+    text-align: right;
+    width: 100%;
+    margin-bottom: 10px;
+    /* padding-right: 20px; */
+}
+
+.addStore button {
+    margin-right: 20px;
+}
+
+.imgSize {
+    width: 14px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.TongCenter {
+    text-align: center;
+}
+
+.TongRight {
+    text-align: right;
+}
+
+.chaxunBtn {
+    background-color: #434444;
+    color: #fff;
+    border: none;
+}
+
+.chongzhiBtn {
+    background-color: #fff;
+    color: #444444;
+    border: 1px solid #555555;
+    margin-left: 10px;
+}
+
+.chaxunBtn,
+.chongzhiBtn {
+    width: 69px;
+    height: 32px;
+    border-radius: 5px;
+    line-height: 10px;
+}
+
+.chaxunBtn,
+.chongzhiBtn:hover {
+    cursor: pointer;
+}
+
+#app .AllquedingBtn {
+    width: auto;
+    height: 32px;
+    border-radius: 5px;
+    background-color: #e6000b;
+    border: 1px solid #e6000b;
+    color: #fff;
+    margin-right: 15px;
+    padding: 0px 20px;
+}
+
+#app .AllquedingBtn:hover {
+    cursor: pointer;
+    border-color: #e50109;
+    background-color: rgba(229, 1, 9, .6);
+    color: #fff;
+}
+
+.paginStyle {
+    height: 50px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.widOne {
+    width: 93.3px;
+}
+
+.widOne:nth-child(3) {
+    margin: 0 10px;
+}
+#app .el-radio__input.is-checked .el-radio__inner{
+    background: #e6000b;
+    border-color: #e6000b;
+}
+#app .el-radio__input.is-checked+.el-radio__label{
+    color: #e6000b;;
+}
+#app .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+    background: #e6000b;
+    border-color: #e6000b;
+}
+#app .el-checkbox__input.is-checked+.el-checkbox__label{
+    color: #e6000b;
+}
+#app .el-checkbox__inner:hover{
+    border-color: #e6000b;
+}
+#app .el-radio__inner:hover{
+    border-color: #e6000b;
+}
+#content .el-tabs__item.is-active{
+    border-color: #e6000b;
+}
+#content .el-tabs__item.is-active{
+    color: #e6000b;
+}
+#content .el-tabs__active-bar{
+    background-color: #e6000b;
+}

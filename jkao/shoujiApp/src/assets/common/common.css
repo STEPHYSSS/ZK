@@ -1,0 +1,71 @@
+.mui-bar {
+    position: relative;
+}
+
+.mui-bar-tab {
+    top: 0;
+}
+
+.mint-cell-title {
+    flex: none
+}
+
+.present-btn {
+    color: #fff;
+    margin-bottom: 20px;
+    background-color: #31b5ff;
+}
+
+.colorRed {
+    color: red;
+}
+
+.codesty {
+    color: #01c8df;
+    cursor: pointer;
+    margin-left: 14px;
+    font-size: 16px;
+}
+
+.present-btn {
+    color: #fff;
+    margin-bottom: 20px;
+    background-color: #31b5ff;
+    cursor: pointer;
+}
+.countDown{
+    height: 33px;
+    float: left;
+    margin: 0 10px;
+}
+.countDown button{
+    border: none;
+}
+.Top_right .fanhuiSide{
+    padding: 0 15px;
+    height: 30px;
+    margin-top: 9px;
+    margin-right: 15px;
+  }
+  .Top_left {
+    display: inline-flex;
+    float: left;
+  }
+  .Top_left .logo {
+    width: 28px;
+    margin: 14px 15px 0 15px;
+  }
+  .Top_left .logo2 {
+    width: 19px;
+    margin: 11px 15px 0 15px;
+  }
+/* .diashow .erweima {
+    width: 1.4rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.diashow .hCenter {
+    text-align: center;
+    margin-bottom: 0.1rem;
+} */

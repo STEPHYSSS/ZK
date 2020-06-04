@@ -1,0 +1,14 @@
+window.apiUrl = 'http://192.168.1.202:8080/sys/';
+window.apiStore = 'http://192.168.1.202:8080/store/';
+window.apiSuppli = 'http://192.168.1.202:8080/supplier/';
+window.apiWare = 'http://192.168.1.202:8080/warehouse/';
+window.apiMall = 'http://192.168.1.202:8080/mall/'
+window.apiImg = 'http://192.168.1.202:8080/image/';
+window.apiImg2 = 'http://192.168.1.202:8080';
+// window.apiUrl = '/sys/';
+// window.apiStore = '/store/';
+// window.apiSuppli = '/supplier/';
+// window.apiWare = '/warehouse/';
+// window.apiImg = '/image/';
+// window.apiMall = '/mall/';
+// window.apiImg2 = '';

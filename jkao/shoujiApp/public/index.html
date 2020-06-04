@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>智慧新零售教学实训平台</title>
+    <!-- <script type="text/javascript" src="../src/rem.js"></script> -->
+    <script>
+        // window.onload = function() {
+        //     /*720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+        //       为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等*/
+        //     getRem(2048, 100)
+        // };
+        // window.onresize = function() {
+        //     getRem(2048, 100)
+        // };
+
+        // function getRem(pwidth, prem) {
+        //     var html = document.getElementsByTagName("html")[0];
+        //     var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+        //     html.style.fontSize = oWidth / pwidth * prem + "px";
+        // }
+        (function() {
+            //获取html元素
+            var html = document.getElementsByTagName('html')[0];
+            //屏幕的宽度（兼容处理）
+            var width = document.documentElement.clientWidth || document.body.clientWidth;
+            //375这个数字是根据你的设计图的实际大小来的，所以值具体根据设计图的大小,根据苹果6的尺寸布局设计
+            html.style.fontSize = width / 375 * 50 * 2 + 'px';
+        })()
+    </script>
+</head>
+
+<body>
+    <noscript>
+      <strong>We're sorry but retail-app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <!-- <script src="../src/flex.js"></script> -->
+
+</body>
+
+
+</html>

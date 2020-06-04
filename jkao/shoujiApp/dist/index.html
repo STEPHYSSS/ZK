@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=favicon.ico><title>智慧新零售教学实训平台</title><script>// window.onload = function() {
+        //     /*720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+        //       为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等*/
+        //     getRem(2048, 100)
+        // };
+        // window.onresize = function() {
+        //     getRem(2048, 100)
+        // };
+
+        // function getRem(pwidth, prem) {
+        //     var html = document.getElementsByTagName("html")[0];
+        //     var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+        //     html.style.fontSize = oWidth / pwidth * prem + "px";
+        // }
+        (function() {
+            //获取html元素
+            var html = document.getElementsByTagName('html')[0];
+            //屏幕的宽度（兼容处理）
+            var width = document.documentElement.clientWidth || document.body.clientWidth;
+            //375这个数字是根据你的设计图的实际大小来的，所以值具体根据设计图的大小,根据苹果6的尺寸布局设计
+            html.style.fontSize = width / 375 * 50 * 2 + 'px';
+        })()</script><link href=css/chunk-4b85837b.3fef92dd.css rel=prefetch><link href=css/chunk-4bc85e29.51fcf639.css rel=prefetch><link href=css/chunk-538a827b.2bb9cb4b.css rel=prefetch><link href=css/chunk-5da91bf2.a366396c.css rel=prefetch><link href=css/chunk-64dbf804.24a9acb0.css rel=prefetch><link href=css/chunk-f4cc88b6.757cf58a.css rel=prefetch><link href=js/chunk-4b85837b.3cf6bb18.js rel=prefetch><link href=js/chunk-4bc85e29.e15e4065.js rel=prefetch><link href=js/chunk-538a827b.0bfeec28.js rel=prefetch><link href=js/chunk-5da91bf2.318502e4.js rel=prefetch><link href=js/chunk-64dbf804.23274464.js rel=prefetch><link href=js/chunk-6de4a0c6.fe1c91d9.js rel=prefetch><link href=js/chunk-f4cc88b6.d35e8e6e.js rel=prefetch><link href=css/app.c7151d9c.css rel=preload as=style><link href=css/chunk-vendors.fb8177d8.css rel=preload as=style><link href=js/app.f76a2ebf.js rel=preload as=script><link href=js/chunk-vendors.502c6c8f.js rel=preload as=script><link href=css/chunk-vendors.fb8177d8.css rel=stylesheet><link href=css/app.c7151d9c.css rel=stylesheet></head><body><noscript><strong>We're sorry but retail-app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=js/chunk-vendors.502c6c8f.js></script><script src=js/app.f76a2ebf.js></script></body></html>

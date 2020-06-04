@@ -1,0 +1,543 @@
+/* 表单lable内边距 */
+
+
+/* 表单lable内边距 */
+
+.el-form-item__label {
+    padding: 0 32px 0 0;
+    padding: 0 32px 0 0;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 12px !important;
+    font-size: 12px !important;
+}
+
+.el-input__inner:focus {
+    border-color: #ccc;
+    outline: 0;
+    border-color: #ccc;
+    outline: 0;
+}
+
+
+/* 对话框的确认取消居中显示 */
+
+.container .el-dialog__footer {
+    text-align: center;
+    text-align: center;
+}
+
+
+/* 对话框样式 */
+
+.container .el-dialog__header {
+    /* padding: 0; */
+}
+
+.container .el-dialog__body {
+    padding: 0px;
+    padding: 0px;
+}
+
+
+/* 新零售案例新增对话框样式 */
+
+#showAddLog .el-dialog__header {
+    height: 35px;
+    line-height: 35px;
+    background-color: #01c8dc;
+}
+
+#showAddLog .el-dialog__header {
+    height: 35px;
+    line-height: 35px;
+    background-color: #fff;
+}
+
+#showAddLog .el-dialog__title {
+    line-height: 24px;
+    font-size: 16px;
+    color: #444;
+    padding-left: 20px;
+    line-height: 24px;
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+
+/* 按钮颜色 */
+
+.present-btn {
+    color: #fff !important;
+    margin-bottom: 20px;
+    background-color: #e71537;
+    color: #fff !important;
+    margin-bottom: 20px;
+    background-color: #e71537;
+}
+
+.search-btn {
+    color: #fff !important;
+    background-color: #444;
+    color: #fff !important;
+    background-color: #444;
+}
+
+.search-btn:hover .search-btn:focus {
+    /* color: #fff !important;
+                            background-color: #444; */
+    /* color: #fff !important;
+                            background-color: #444; */
+}
+
+.search-btn.el-button:focus,
+.search-btn.el-button:hover {
+    background-color: #444;
+}
+
+.ql-editor {
+    height: 300px !important;
+    height: 300px !important;
+}
+
+
+/* disabled背景色 */
+
+input:disabled {
+    background-color: #ededed;
+    opacity: 1;
+}
+
+input:disabled {
+    background-color: #ededed;
+    opacity: 1;
+}
+
+
+/* 表单标题左对齐 */
+
+label.el-form-item__label {
+    /* text-align: left; */
+    float: left;
+    font-size: 12px;
+    color: #606266;
+    line-height: 40px;
+    padding: 0 12px 0 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    /* text-align: left; */
+    float: left;
+    font-size: 12px;
+    color: #606266;
+    line-height: 40px;
+    padding: 0 12px 0 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+/* 公共部分结束 */
+
+
+/* 公共部分结束 */
+
+
+/*                          首页                         */
+
+#home-page .el-table td {
+    /* padding: 8px 0;
+  padding: 8px 0; */
+}
+
+
+/*                        主页头部                       */
+
+
+/* #index-header a.router-link-exact-active[data-v-a83bd3b0], a.router-link-active[data-v-a83bd3b0] {
+  display: inline-block;
+  height: 0;
+  line-height: 0;
+  border-radius: 0;
+} */
+
+.el-breadcrumb__separator[class*="icon"] {
+    margin: 0 0px;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0 0px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/*                      登录教师学生图标                     */
+
+#login-btn .el-input-group__prepend {
+    border-radius: 0 !important;
+    padding: 0 10px;
+    border-radius: 0 !important;
+    padding: 0 10px;
+}
+
+
+/*                      试卷配置样式                     */
+
+#config-select .el-input__suffix {
+    right: 0px;
+    right: 0px;
+}
+
+#config-select .el-input--suffix .el-input__inner {
+    padding-right: 22px;
+    padding-right: 22px;
+}
+
+.el-button:active {
+    color: #31b5ff;
+    border-color: #31b5ff;
+    outline: 0;
+    color: #31b5ff;
+    border-color: #31b5ff;
+    outline: 0;
+}
+
+.my-index .lt-css .el-button:hover {
+    /* border-color: #31b5ff; */
+    /* border-color: #31b5ff; */
+}
+
+
+/*              用户管理的考试记录                 */
+
+#user-exam .el-dialog {
+    width: 60%;
+    width: 60%;
+}
+
+#user-exam .analyzeBody .el-table th {
+    font-size: 14px;
+    font-size: 14px;
+}
+
+#user-exam .analyzeBody .el-table {
+    font-size: 12px;
+    font-size: 12px;
+}
+
+
+/*              颜色选择器                         */
+
+.el-color-picker {
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    height: 40px;
+    vertical-align: middle;
+    display: inline-block;
+    position: relative;
+    line-height: normal;
+    height: 40px;
+    vertical-align: middle;
+}
+
+
+/*               新增案例的表格               */
+
+#add-case .el-table th {
+    padding: 0px 0;
+    padding: 0px 0;
+}
+
+#add-case .el-table td {
+    border-bottom: 1px solid #c2cad8;
+    border-bottom: 1px solid #c2cad8;
+}
+
+#add-case .el-table th.is-leaf {
+    border-bottom: 1px solid #c2cad8;
+    border-bottom: 1px solid #c2cad8;
+}
+
+#add-case .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: #fff;
+    background-color: #fff;
+}
+
+#add-case .el-table__body tr:hover .edit-icon,
+#invoice-info .el-table__body tr:hover .edit-icon {
+    display: inline-block;
+    z-index: 9;
+}
+
+#add-case .el-table__body tr:hover .edit-icon,
+#invoice-info .el-table__body tr:hover .edit-icon {
+    display: inline-block;
+    z-index: 9;
+}
+
+
+/*                    纳税人信息的内边距                    */
+
+
+/*                    纳税人信息的内边距                    */
+
+#taxpayer-info .el-card__body {
+    padding: 0px 0px;
+    padding: 0px 0px;
+}
+
+#taxpayer-info label.el-form-item__label {
+    padding: 0 12px 0 8px;
+    font-size: 12px;
+    text-align: right;
+    padding: 0 12px 0 8px;
+    font-size: 12px;
+    text-align: right;
+}
+
+
+/* 富文本 */
+
+.ql-toolbar.ql-snow {
+    background: -webkit-gradient( linear, 0 0, 0 100%, from(#f3f3f3), to(#ddd)) !important;
+    background: -webkit-gradient( linear, 0 0, 0 100%, from(#f3f3f3), to(#ddd)) !important;
+}
+
+.ql-snow .ql-picker {
+    height: 38px !important;
+    height: 38px !important;
+}
+
+.el-breadcrumb__inner a,
+.el-breadcrumb__inner.is-link {
+    font-weight: 400;
+    color: #444;
+}
+
+.el-breadcrumb__inner a,
+.el-breadcrumb__inner.is-link {
+    font-weight: 400;
+    color: #444;
+}
+
+.new-class .el-input__icon {
+    line-height: 30px;
+    line-height: 30px;
+}
+
+.box-card .avatar-uploader .el-upload {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.searchWid-1 {
+    width: 90px !important;
+    width: 90px !important;
+}
+
+.searchWid-2 {
+    width: 130px !important;
+    width: 130px !important;
+}
+
+.searchWid-3 {
+    width: 115px !important;
+    width: 115px !important;
+}
+
+.searchWid-4 {
+    width: 100px !important;
+    width: 100px !important;
+}
+
+.img-wid-table {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+
+/* 选择试卷身体 */
+
+.analy-q .analyzeBody {
+    /* padding: 30px; */
+}
+
+.analy-q .analyzeHead {}
+
+
+/* 选择试卷头部 */
+
+.analy-q .analyzeHead {
+    padding: 8px 6px;
+    background-color: #fff;
+    color: #444;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+.analy-q .analyzeHead img {
+    width: 25px;
+    height: 25px;
+    vertical-align: top;
+}
+
+.analy-q .analyzeHead a {
+    padding-top: 3px;
+    font-size: 16px;
+    color: #444;
+    font-weight: 700;
+}
+
+.analy-q .analyzeHead span:nth-child(3) {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 700;
+}
+
+h4 {
+    height: 40px;
+    line-height: 40px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.el-card .el-button:focus {
+    /* color: #fff !important;
+    background-color: #31b5ff; */
+}
+
+.box-card .el-input__icon {
+    line-height: 30px;
+}
+
+#shixunIndexdecss .el-card__body {
+    padding: 0;
+}
+
+#shixunIndexdecss .el-card {
+    background-color: #f1f4f6;
+}
+
+.my-slh {
+    /* overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:1; */
+    display: inherit;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+}
+
+.tax-css-body .el-card__body {
+    padding: 0px;
+}
+
+#bwhj .el-table__footer-wrapper tr td {
+    text-align: right !important;
+}
+
+#bwhj .el-table__footer-wrapper tr td:nth-child(1) {
+    text-align: center !important;
+}
+
+
+/* #bwhj .el-table__body tr.current-row>td {
+
+/* #bwhj .el-table__body tr.current-row>td {
+    background: #f57878 !important;
+  } */
+
+.awinhs .el-tooltip {
+    padding: 0 17px !important;
+}
+
+
+/* 仿新零售tabs */
+
+.f-new .el-card__body {
+    padding: 0 0 15px 0;
+}
+
+.f-new-inp .el-form-item {
+    width: 100%;
+}
+
+.f-new-inp .el-form-item__label {
+    width: 64px;
+}
+
+.f-new-inp .el-form-item__content {
+    width: calc(100% - 85px);
+}
+
+.f-new-inp .el-select {
+    width: 100%;
+}
+
+.f-new button.el-button.modifyPsd.el-button--danger.is-plain.modifyPsd {
+    background-color: #fff;
+    border: 1px solid #f56c6c;
+    color: #f56c6c;
+}
+
+.f-new button.el-button.modifyPsd.el-button--danger.is-plain.modifyPsd:hover {
+    background-color: #f56c6c;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.f-new .el-dialog--center .el-dialog__body {
+    padding: 5px 50px;
+}
+
+.f-new .el-dialog--center .el-button:last-child {
+    /* color: #fff;
+                            border: 1px solid #fff; */
+}
+
+.addBox {
+    text-align: right;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.el-tooltip__popper {
+    font-size: 14px;
+    max-width: 600px;
+}
+
+
+/* #accountSet .box-card .el-input__icon {
+  line-height: 22px;
+} */
+
+#accountSet .el-icon-date {
+    line-height: 23px;
+}
+
+.previousPage {
+    /* position: absolute; */
+    /* top: 30px;
+    right: 35px; */
+    cursor: pointer;
+    z-index: 55;
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+}

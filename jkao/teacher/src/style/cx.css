@@ -1,0 +1,1084 @@
+/* el-table表格表头上边框 */
+
+
+/* #app .topBorder.el-table {
+    color: #444;
+    border-top: 1px solid #444;
+} */
+
+#app .el-table {
+    color: #444;
+    border-top: 1px solid #444;
+    width: calc(100% - 20px)!important;
+}
+
+
+/* 所有表格的表头 */
+
+.el-table thead tr th {
+    background-color: #f7f9fd;
+}
+
+
+/* el-table表格表头上边框结束 */
+
+
+/* 文本框选中边框改变 */
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input.el-input__inner:focus {
+    border: 1px solid #444;
+}
+
+
+/* 文本框选中边框改变结束 */
+
+
+/* 试卷页面（题干、选项、解析） */
+
+.fontSize {
+    font-size: 14px;
+}
+
+.fontSize img {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* 试卷页面（题干、选项、解析）结束 */
+
+
+/*自我检测记录详情界面--中的标签页去掉左右按钮*/
+
+.info .topicInfo .el-tabs__nav-wrap.is-scrollable {
+    padding: 0 0;
+}
+
+.info .topicInfo .el-tabs__nav-prev,
+.info .topicInfo .el-tabs__nav-next {
+    display: none;
+}
+
+#cxdcss .el-button {
+    color: #fff;
+    background-color: #444;
+    border: 0;
+}
+
+#cxdcss .el-button+.el-button {
+    /* color: #31b5ff; */
+}
+
+
+/* 所有页面返回按钮 & 标签页*/
+
+
+/* ###########首页新闻公告弹框滚动条样式########### */
+
+.hgC .detailsHead::-webkit-scrollbar {
+    width: 5px;
+    height: 5px !important;
+}
+
+.hgC .detailsHead::-webkit-scrollbar-thumb {
+    background-color: #ff02f2;
+    border-radius: 3px;
+}
+
+
+/*=================登录================*/
+
+
+/*tab样式*/
+
+#register-c .el-tabs.el-tabs--top {
+    margin-top: 25px;
+}
+
+#register-c .el-tabs__header {
+    /* width: 46%; */
+    float: right;
+}
+
+#register-c .el-tabs__item {
+    padding: 0 4px;
+    font-size: 15px;
+}
+
+#register-c .el-tabs__nav-scroll {
+    float: right;
+}
+
+
+/*输入框样式*/
+
+#register-c .el-input {
+    margin-bottom: 20px;
+}
+
+#register-c .el-input--prefix .el-input__inner:focus+.el-input__prefix {
+    color: #70b3f7;
+}
+
+#register-c .el-input__prefix,
+#register-c .el-input__suffix {
+    position: absolute;
+    top: -7px;
+}
+
+#register-c .iconfont {
+    font-size: 20px;
+}
+
+#register-c .el-input--prefix .el-input__inner {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+#register-c .el-input--prefix .el-input__inner:focus {
+    color: #a0b9d2 !important;
+}
+
+#register-c .el-button.is-round {
+    margin-top: 15px;
+    width: 99%;
+}
+
+
+/*=================登录结束================*/
+
+
+/*=================首页================*/
+
+.hgC .el-dialog {
+    border-radius: 10px;
+    padding-bottom: 15px;
+}
+
+.hgC .el-dialog__header {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 5px 10px 15px;
+}
+
+.hgC .el-dialog__header .el-dialog__title {
+    line-height: 24px;
+    font-size: 17px;
+    color: #444;
+}
+
+.hgC .el-dialog__headerbtn {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    padding: 0;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.hgC .el-dialog__headerbtn .el-dialog__close {
+    color: #444;
+    font-size: 15px;
+}
+
+.hgC .el-dialog__body {
+    padding: 0px;
+    margin-top: 30px;
+}
+
+.hgC .dialog-footer .el-button.el-button--primary {
+    color: #fff;
+    width: 265px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+
+/*=================首页结束================*/
+
+
+/*=================新闻详情列表================*/
+
+.announceList .el-dialog {
+    border-radius: 10px;
+    padding-bottom: 15px;
+}
+
+.announceList .el-dialog__header {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 5px 10px 15px;
+}
+
+.announceList .el-dialog__header .el-dialog__title {
+    line-height: 24px;
+    font-size: 20px;
+    color: #c0c0c0;
+}
+
+.announceList .el-dialog__headerbtn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 0;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.announceList .el-dialog__body {
+    padding: 0px;
+    margin-top: 30px;
+}
+
+.announceList .dialog-footer .el-button.el-button--primary {
+    color: #fff;
+    width: 265px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+
+/*=================新闻详情列表结束================*/
+
+
+/*****************自测详情页面*******************/
+
+.self-testDetails .el-dialog__body {
+    padding: 0;
+}
+
+.self-testDetails .analyzeHead {
+    border-bottom: 2px solid #ccc;
+    padding: 8px 10px 8px 10px;
+    color: #444;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.self-testDetails .analyzeHead img {
+    vertical-align: top;
+}
+
+.self-testDetails .analyzeHead .fr {
+    color: #444;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.self-testDetails .analyzeBody {
+    padding: 5px 20px 30px 20px;
+}
+
+.self-testDetails .analyzeBody table {
+    border-collapse: collapse;
+    border: 1px solid #c3cbdb;
+    width: 400px;
+}
+
+.self-testDetails .analyzeBody table tr td:first-child {
+    text-align: center;
+    font-size: 12px;
+    /* background-color: #c5f1f9; */
+    /* font-weight: 700; */
+}
+
+.self-testDetails .analyzeBody table tr td:last-child {
+    padding: 6px 10px 6px 10px;
+}
+
+.self-testDetails .analyzeBody table tr .remark {
+    width: 220px;
+}
+
+.self-testDetails .analyzeBody .el-button {
+    margin: 20px auto;
+    display: block;
+}
+
+
+/*****************自测详情页面结束*******************/
+
+
+/************我的考试******************/
+
+
+/*我的试卷列表*/
+
+.myTest .el-button:hover,
+.myTest .el-button:focus {
+    color: #fff;
+}
+
+.myTest button.el-button.el-button--default.el-button--small.el-button--primary:hover,
+.myTest button.el-button.el-button--default.el-button--small.el-button--primary:focus {
+    color: #fff!important;
+}
+
+.myTest button.el-button.el-button--default.el-button--small:hover,
+.myTest button.el-button.el-button--default.el-button--small:focus {
+    color: #fff!important;
+}
+
+
+/*我的试卷列表结束*/
+
+
+/*form表单左侧提示字体*/
+
+.el-form--inline .el-form-item__label {
+    float: none;
+    display: inline-block;
+    font-weight: 600;
+    white-space: nowrap;
+    /* width: 85px; */
+}
+
+
+/*准备考试界面按钮样式*/
+
+.prepareForTheExamination .button .el-button {
+    padding: 20px 65px;
+    font-size: 17px;
+}
+
+.prepareForTheExamination .button .el-button:nth-child(1) {
+    border: 2px solid #31b5ff;
+    color: #31b5ff;
+}
+
+.prepareForTheExamination .button .el-button:nth-child(1):hover {
+    background-color: #fff;
+}
+
+.prepareForTheExamination .button .el-button:nth-child(2) {
+    background-color: #31b5ff;
+    color: #fff;
+}
+
+
+/*===========考试详情=================*/
+
+
+/*左侧tab*/
+
+#examDetails .left .el-tabs__content {
+    background-color: #fff;
+    margin-top: -14px;
+    padding: 12px 23px 12px 23px;
+}
+
+#examDetails .el-tabs--card>.el-tabs__header .el-tabs__nav {
+    border: 0;
+}
+
+#examDetails .left .el-tabs--card>.el-tabs__header .el-tabs__item {
+    background-color: #fff;
+    /* border-radius: 5px 5px 0 0; */
+    /* border: 1px solid #e4e7ed; */
+}
+
+#examDetails .left .el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(1),
+#examDetails .left .el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(2) {
+    /* margin-right: 5px; */
+}
+
+#examDetails .left .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    border-bottom-color: #fff;
+}
+
+.detailsHistoryExam .el-tabs--card>.el-tabs__header .el-tabs__item:first-child {
+    border-right: 1px solid #e4e7ed;
+    border-left: 1px solid #e4e7ed;
+    margin-left: 0;
+}
+
+#examDetails .left .el-tabs__item.is-active {
+    color: #444;
+}
+
+#examDetails .left .el-tabs__item.is-active::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    /* border-radius: 5px 5px 0 0; */
+    background-color: #e71517;
+}
+
+#examDetails .left .el-tabs--card>.el-tabs__header .el-tabs__nav {
+    border: 0;
+}
+
+
+/*左侧tab结束*/
+
+#examDetails .info .el-tabs__item {
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+}
+
+#examDetails .info .el-tabs__content {
+    padding: 15px;
+    border: 1px solid #f5f3f7;
+}
+
+#examDetails .info .el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(2),
+#examDetails .info .el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(3) {
+    /* margin-left: 5px; */
+}
+
+#examDetails .info .el-tabs--card>.el-tabs__header .el-tabs__item {
+    /* border-radius: 3px 3px 0 0; */
+    background-color: #f3f3f3;
+    color: #acabab;
+    font-size: 12px;
+    font-weight: normal;
+    -webkit-transition: color 0s cubic-bezier(.645, .045, .355, 1), padding 0s cubic-bezier(.645, .045, .355, 1);
+    transition: color 0s cubic-bezier(.645, .045, .355, 1), padding 0s cubic-bezier(.645, .045, .355, 1);
+}
+
+#examDetails .info .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    background-color: #e71517;
+    color: #fff;
+}
+
+#examDetails .info .el-table td {
+    padding: 5px 0;
+}
+
+#examDetails .info #look-d.el-card {
+    background-color: #f1f5f7;
+}
+
+#examDetails .info #look-d.el-card>div.el-card__body {
+    padding: 0;
+}
+
+#examDetails .info #look-d div.el-card__body {
+    padding: 0 !important;
+}
+
+#examDetails .info #look-d .row-bg {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*右侧tab*/
+
+
+/*右侧tab结束*/
+
+#examDetails .left .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+#examDetails .promptAndSubmit .handInExaminationPaper {
+    /*交卷按钮*/
+    position: absolute;
+    right: 10px;
+    background-color: #e71517;
+}
+
+
+/*===========考试详情结束=================*/
+
+
+/*===================历史考试详情====================*/
+
+.detailsHistoryExam .el-tabs--card>.el-tabs__header {
+    margin: 0 0 1px;
+}
+
+.detailsHistoryExam .el-tabs--card>.el-tabs__header .el-tabs__item.is-active,
+.detailsHistoryExam .el-tabs--top.el-tabs--card .el-tabs__item:last-child {
+    background-color: #fff;
+}
+
+
+/*tab样式修改*/
+
+.detailsHistoryExam #lookDetails-left .el-tabs--card>.el-tabs__header .el-tabs__item {
+    /* border-radius: 5px 5px 0 0; */
+    background-color: #fff;
+    border: 1px solid #e4e7ed;
+}
+
+.detailsHistoryExam #lookDetails-left .el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(2),
+.detailsHistoryExam #lookDetails-left .el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(3) {
+    /* margin-left: 5px; */
+    margin-left: 0 !important;
+}
+
+.detailsHistoryExam .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    border-bottom-color: #fff;
+}
+
+.detailsHistoryExam .el-tabs--card>.el-tabs__header .el-tabs__item:first-child {
+    border-right: 1px solid #e4e7ed;
+    border-left: 1px solid #e4e7ed;
+    margin-left: 0;
+}
+
+.detailsHistoryExam #lookDetails-left .el-tabs__item.is-active {
+    color: #444;
+}
+
+.detailsHistoryExam #lookDetails-left .el-tabs__item.is-active::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    /* border-radius: 5px 5px 0 0; */
+    background-color: #e71517;
+}
+
+.detailsHistoryExam .el-tabs--card>.el-tabs__header .el-tabs__nav {
+    border: 0;
+}
+
+
+/*右侧tab*/
+
+#lookDetail-right-info .el-tabs__item {
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.detailsHistoryExam #lookDetail-right-info .el-tabs__content {
+    padding: 15px;
+}
+
+.detailsHistoryExam #lookDetail-right-info .el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(2),
+.detailsHistoryExam #lookDetail-right-info .el-tabs--card>.el-tabs__header .el-tabs__item:nth-child(3) {
+    /* margin-left: 5px; */
+    margin-left: 0;
+}
+
+.detailsHistoryExam #lookDetail-right-info .el-tabs--card>.el-tabs__header .el-tabs__item {
+    /* border-radius: 3px 3px 0 0; */
+    background-color: #f3f3f3;
+    color: #acabab;
+    border: 1px solid #e4e7ed;
+    font-size: 12px;
+    font-weight: normal;
+    -webkit-transition: color 0s cubic-bezier(.645, .045, .355, 1), padding 0s cubic-bezier(.645, .045, .355, 1);
+    transition: color 0s cubic-bezier(.645, .045, .355, 1), padding 0s cubic-bezier(.645, .045, .355, 1);
+}
+
+.detailsHistoryExam #lookDetail-right-info .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
+    background-color: #e71517;
+    color: #fff;
+}
+
+.detailsHistoryExam #lookDetail-right-info .el-table td {
+    padding: 5px 0;
+}
+
+.detailsHistoryExam #look-d.el-card {
+    background-color: #f1f5f7;
+}
+
+.detailsHistoryExam #look-d.el-card>div.el-card__body {
+    padding: 0;
+}
+
+.detailsHistoryExam #look-d div.el-card__body {
+    padding: 0 !important;
+}
+
+.detailsHistoryExam #look-d .row-bg {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/********历史考试详情弹框********/
+
+
+/* 数据分析身体 */
+
+.detailsHistoryExam .analyzeBody {
+    padding: 30px;
+}
+
+.detailsHistoryExam .analyzeBody table {
+    border-color: #e4e9ec;
+    border-collapse: collapse;
+    border: 1px solid #e4e9ec;
+}
+
+.detailsHistoryExam .analyzeBody tr td:nth-child(1) {
+    padding: 3px 17px;
+    /* background-color: #d7f8fc; */
+    word-break: keep-all;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.detailsHistoryExam .analyzeBody tr .limitedWidth {
+    padding: 2px 25px 2px 5px;
+}
+
+.detailsHistoryExam .analyzeBody tr td:nth-child(2) {
+    width: 100%;
+    padding: 7px;
+}
+
+.detailsHistoryExam .analyzeBody tr td:nth-child(2) .remark {
+    border: 1px solid #ccc;
+    height: 29px;
+    width: 193px;
+}
+
+
+/* 数据分析头部 */
+
+.detailsHistoryExam .analyzeHead {
+    padding: 9px 12px;
+    color: #444;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid #ccc;
+}
+
+.detailsHistoryExam .analyzeHead img {
+    width: 28px;
+    height: 28px;
+    vertical-align: top;
+}
+
+.detailsHistoryExam .analyzeHead a {
+    font-size: 15px;
+    color: #444;
+    font-weight: 600;
+}
+
+.detailsHistoryExam .analyzeHead span:nth-child(3) {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.detailsHistoryExam .el-dialog__body {
+    padding: 0;
+    color: #606266;
+    font-size: 14px;
+}
+
+.detailsHistoryExam .el-button--small {
+    padding: 9px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+    display: block;
+    margin: 15px auto 0;
+}
+
+.detailsHistoryExam .el-dialog__header {
+    padding: 0;
+}
+
+.scorePT .el-dialog__header {
+    margin-bottom: 15px;
+    padding-top: 15px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.detailsHistoryExam .scorePT .el-dialog__headerbtn {
+    position: absolute;
+    top: 5px;
+    right: 9px;
+    padding: 0;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.detailsHistoryExam .analyzeBody .warmPrompt img {
+    width: 21px;
+    height: 21px;
+}
+
+
+/*弹框分类名称，可输入可下拉*/
+
+.detailsHistoryExam .limitedWidth input.el-select__input {
+    border: 0;
+    background-color: transparent;
+}
+
+
+/********历史考试详情弹框结束********/
+
+
+/*===================历史考试详情结束====================*/
+
+
+/*==================创建自测========================*/
+
+.selfTest .addBtn .el-button--primary {
+    text-align: center;
+    line-height: 12px;
+}
+
+.selfTest .el-input .el-input__inner {
+    width: 158px;
+}
+
+.selfTest .addBtn .el-button--primary {
+    margin-left: 16px !important;
+    color: #e71517 !important;
+    border: 1px solid #e71517 !important;
+    background-color: #fff !important;
+}
+
+.selfTest .el-input {
+    width: 158px;
+}
+
+.selfTest .el-input .el-input--mini {
+    display: inline-block;
+    width: 158px;
+}
+
+.selfTest .el-select__caret .el-input__icon .el-icon-arrow-up {
+    line-height: 30px;
+}
+
+.selfTest button.el-button.el-button--default.el-button--small.el-button--primary {
+    color: #31b5ff!important;
+}
+
+.selfTest button.el-button.el-button--default.el-button--small.el-button--primary:hover,
+.selfTest button.el-button.el-button--default.el-button--small.el-button--primary:focus {
+    color: #fff !important;
+}
+
+.selfTest .outerSphere .tableHint img[data-v-173fd722] {
+    width: 20px;
+    height: 22px;
+    margin-left: 10px;
+}
+
+
+/*==================创建自测结束========================*/
+
+
+/*==================我的错题集==================*/
+
+
+/****收藏夹分类弹框*****/
+
+.myWrongTopicSet .el-button+.el-button {
+    color: #fff;
+}
+
+.myWrongTopicSet .favoritesCategory .el-table_2_column_4 .ico {
+    display: none;
+    margin: 0 auto;
+}
+
+.myWrongTopicSet button.el-button.el-button--primary.is-plain:hover {
+    color: #fff!important;
+}
+
+.myWrongTopicSet .favoritesCategory .el-table__row:hover .el-table_2_column_4 .ico {
+    display: block;
+}
+
+.myWrongTopicSet .favoritesCategory .el-table__row .el-table_2_column_4 .ico:hover {
+    color: deepskyblue!important;
+}
+
+.myWrongTopicSet .favoritesCategory .categoryInfo .addClassify input {
+    height: 29px;
+}
+
+.myWrongTopicSet .favoritesCategory .el-table_2_column_3 .el-table_8_column_24 {
+    padding: 0;
+}
+
+.myWrongTopicSet .favoritesCategory .el-table_2_column_3 input[type=text],
+.myWrongTopicSet .favoritesCategory .el-table_2_column_3 input[type=password] {
+    width: 65px;
+    height: 30px;
+}
+
+
+/****收藏夹分类弹框结束*****/
+
+
+/*==================我的错题集结束==================*/
+
+
+/*==================自定义自测==================*/
+
+
+/*左侧章节目折叠面板*/
+
+
+/*表格高亮 文字对齐*/
+
+#customSelf-test .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: #fff !important;
+}
+
+#customSelf-test .el-table thead>tr:first-child>th:nth-child(2) {
+    text-align: left !important;
+    padding-left: 25px;
+}
+
+#customSelf-test .el-table thead>tr:first-child>th:nth-child(3) {
+    padding-left: 44px;
+}
+
+#customSelf-test .el-table__expanded-cell[class*=cell] {
+    padding: 0 0 0 50px;
+}
+
+#customSelf-test .el-rate__icon {
+    font-size: 17px;
+}
+
+#customSelf-test .right-progressBar .el-progress {
+    width: 330px;
+    margin: 0 auto;
+}
+
+#customSelf-test .right-progressBar .el-progress-bar__outer {
+    height: 12px !important;
+}
+
+#customSelf-test .cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/*==================自定义自测结束==================*/
+
+
+/*清除面包屑浮动*/
+
+.el-breadcrumb__item {
+    float: none;
+}
+
+.exam-pd0 .el-card__body {
+    padding: 0;
+    /* display: inline-block; */
+}
+
+.zjm-loading .el-loading-spinner {
+    padding-top: 40px !important;
+}
+
+.cx-margin .el-card__body {
+    padding: 0px;
+}
+
+
+/* ================== 用户信息（报错修改密码） ==================*/
+
+
+/* 弹框 */
+
+.studentInfo .el-dialog,
+.teacherInfo .el-dialog {
+    width: 30%;
+}
+
+
+/* 弹框头*/
+
+.studentInfo .el-dialog .el-dialog__header,
+.teacherInfo .el-dialog .el-dialog__header {
+    padding: 5px 7px 5px 13px;
+    margin-bottom: 15px;
+}
+
+
+/* 弹框头 修改密码 */
+
+.studentInfo .el-dialog .el-dialog__header .el-dialog__title,
+.teacherInfo .el-dialog .el-dialog__header .el-dialog__title {
+    font-size: 15px;
+}
+
+
+/* 弹框头 × */
+
+.studentInfo .el-dialog .el-dialog__header .el-dialog__headerbtn,
+.teacherInfo .el-dialog .el-dialog__header .el-dialog__headerbtn {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    padding: 0;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* 弹框中的密码输入框 */
+
+.studentInfo .el-dialog .el-dialog__body .inpPassword,
+.teacherInfo .el-dialog .el-dialog__body .inpPassword {
+    display: flex;
+    justify-content: space-evenly;
+    line-height: 40px;
+}
+
+.studentInfo .el-dialog .el-dialog__body .inpPassword .el-input,
+.teacherInfo .el-dialog .el-dialog__body .inpPassword .el-input {
+    width: 280px;
+}
+
+.studentInfo .el-dialog .el-dialog__body .inpPassword .el-input:first-child,
+.teacherInfo .el-dialog .el-dialog__body .inpPassword .el-input:first-child {
+    margin-bottom: 15px;
+}
+
+.studentInfo .el-dialog .el-dialog__body .inpPassword .el-input:last-child,
+.teacherInfo .el-dialog .el-dialog__body .inpPassword .el-input:last-child {
+    width: 300px;
+}
+
+
+/* 两个输入框父盒子填充 */
+
+.teacherInfo .container .el-dialog__body {
+    padding: 0px 15px !important;
+}
+
+.studentInfo .el-dialog__body {
+    padding: 0px 15px !important;
+}
+
+
+/* 弹框取消&确定 */
+
+.studentInfo .el-dialog .dialog-footer .el-button.cancel,
+.studentInfo .el-dialog .dialog-footer .el-button.cancel:hover,
+.studentInfo .el-dialog .dialog-footer .el-button.cancel:focus {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    background-color: #fff !important;
+}
+
+.studentInfo .el-dialog .dialog-footer .el-button.cancel,
+.studentInfo .el-dialog .dialog-footer .el-button.cancel:hover,
+.studentInfo .el-dialog .dialog-footer .el-button.cancel:focus {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+    background-color: #fff !important;
+}
+
+.teacherInfo .el-dialog .dialog-footer .el-button.sure,
+.teacherInfo .el-dialog .dialog-footer .el-button.sure:hover,
+.teacherInfo .el-dialog .dialog-footer .el-button.sure:focus {
+    color: #fff !important;
+    border: 0 !important;
+    background-color: #000 !important;
+}
+
+.studentInfo .el-dialog .dialog-footer .el-button.sure,
+.studentInfo .el-dialog .dialog-footer .el-button.sure:hover,
+.studentInfo .el-dialog .dialog-footer .el-button.sure:focus {
+    color: #fff !important;
+    border: 0 !important;
+    background-color: #000 !important;
+}
+
+
+/* 确认关闭弹框 */
+
+.studentInfo .el-message-box__header,
+.teacherInfo .el-message-box__header {
+    padding: 5px 15px 6px !important;
+}
+
+.studentInfo .el-message-box__headerbtn,
+.teacherInfo .el-message-box__headerbtn {
+    top: 4px !important;
+}
+
+
+/* ================== 用户信息（报错修改密码）结束 ==================*/
+
+
+/* 资源库 */
+
+.zyk-tabs .el-tabs__header {
+    /* padding-left: 20px;
+  width: calc(100% - 170px); */
+}
+
+.fangda .el-button {
+    color: #c8c8c8;
+}
+
+.principalPart2 .el-button {
+    /* color: #c8c8c8; */
+    color: #31b6ff !important;
+}
+
+.flexBottom .el-button {
+    color: #31b6ff !important;
+    background: rgba(255, 255, 255, 0);
+}
+
+.flexBottom .el-button:focus {
+    color: #31b6ff !important;
+}
+
+.downloadDetail .el-tabs--border-card {
+    border: 0px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0), 0 0 6px 0 rgba(0, 0, 0, 0);
+}
+
+.downloadDetail .el-tabs--border-card>.el-tabs__content {
+    padding: 0px;
+}
+
+.downloadDetail .el-tabs--border-card>.el-tabs__header {
+    border-bottom: 0px;
+}
+
+.zyk-tabs .el-tabs__nav-prev,
+.zyk-tabs .el-tabs__nav-next {
+    font-size: 27px;
+}
+
+.zyk-tabs .el-tabs__nav-prev {
+    left: 2px;
+}
+
+.zyk-tabs .el-tabs__nav-wrap.is-scrollable {
+    padding: 0 30px;
+}
+
+.zyk-tabs .el-tabs__content {
+    width: 100%;
+}
