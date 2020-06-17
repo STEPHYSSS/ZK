@@ -42,9 +42,14 @@
           {{ $utils.momentDate(scope.row.modifydate)}}
         </template>
       </el-table-column>
-      <el-table-column align="center" width="150" label="操作">
+      <el-table-column align="center" width="150" label="操作" fixed="right">
         <template slot-scope="scope">
-          <a href="javascript:;" @click="examine(scope.row)">查看课程详情</a>
+          <!-- <a href="javascript:;" @click="examine(scope.row)">查看课程详情</a> -->
+          <el-tooltip class="item" effect="dark" content="查看课程详情" placement="bottom">
+            <span class="cur-point" @click="examine(scope.row)">
+              <img src="@/assets/images/chaxun_icon.png" alt />
+            </span>
+          </el-tooltip>
         </template>
       </el-table-column>
     </el-table>

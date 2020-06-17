@@ -7,8 +7,8 @@
           <el-button class="whiteBtn" @click="addQuestion">新增</el-button>
         </div>
         <!-- 表格 -->
-        <el-table :data="tableData" border class="topBorder" style="width: 100%"
-        
+        <el-table :data="tableData" class="topBorder" style="width: 100%"
+
         >
           <el-table-column align="center" prop="name" label="题库名称"></el-table-column>
           <el-table-column align="center" label="状态">
@@ -32,7 +32,7 @@
               {{ scope.row.update_time | fmtDate }}
               </template>
           </el-table-column>
-          <el-table-column align="center" label="操作" width="180">
+          <el-table-column align="center" label="操作" width="180" fixed="right">
             <template slot-scope="scope">
               <el-tooltip class="item" effect="dark" content="数据分析" placement="bottom">
                 <span class="cur-point dis-inline-block" @click="questionData(scope.row)">
@@ -52,7 +52,7 @@
             </template>
           </el-table-column>
         </el-table>
-      
+
         <!-- 分页 -->
         <div class="block">
           <el-pagination
@@ -72,8 +72,8 @@
         <div class="buttonStyle">
           <el-button class="whiteBtn" @click="addQuestion2">新增</el-button>
         </div>
-        <el-table :data="tableData2" border class="topBorder" style="width: 100%"
-        
+        <el-table :data="tableData2" class="topBorder" style="width: 100%"
+
         >
           <el-table-column align="center" prop="name" label="题库名称"></el-table-column>
           <el-table-column align="center" label="状态">
@@ -96,7 +96,7 @@
               {{ scope.row.update_time | fmtDate }}
               </template>
           </el-table-column>
-          <el-table-column align="center" label="操作" width="180">
+          <el-table-column align="center" label="操作" width="180" fixed="right">
             <template slot-scope="scope">
               <el-tooltip class="item" effect="dark" content="数据分析" placement="bottom">
                 <span class="cur-point dis-inline-block" @click="questionData2(scope.row)">
@@ -313,7 +313,7 @@ export default {
                 // this.echartsData.splice(index,1)
               }
             })
-            
+
             this.$nextTick(() => this.ehcharsT())
           }
         })
@@ -456,7 +456,7 @@ export default {
             });
             this.$nextTick(() => this.ehcharsT())
             }
-            
+
           }
         })
     },

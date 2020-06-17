@@ -43,7 +43,7 @@
       </div>
       <div class="konge"></div>
       <div class="billboxTab">
-        <el-table :data="tableData" style="width: 100%" border>
+        <el-table :data="tableData" style="width: 100%">
           <el-table-column prop="goodsCode" label="货号" align="center"></el-table-column>
           <el-table-column prop="goodsName" label="品名" align="center"></el-table-column>
           <el-table-column prop="barcode" label="国际条码" align="center"></el-table-column>

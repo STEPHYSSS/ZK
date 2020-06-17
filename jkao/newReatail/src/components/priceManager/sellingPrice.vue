@@ -73,7 +73,7 @@
             </div>
             <div class="konge"></div>
             <!-- <div class="tab"> -->
-              <el-table :data="tableData" style="width: 100%" border>
+              <el-table :data="tableData" style="width: 100%">
                 <el-table-column align="center" prop="code" label="货号"></el-table-column>
                 <el-table-column align="center" prop="name" label="品名"></el-table-column>
                 <el-table-column align="center" prop="unit" label="单位"></el-table-column>

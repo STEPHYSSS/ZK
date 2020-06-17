@@ -86,7 +86,7 @@
                 <span class="info-question" v-else :class="[item1.edata === item1.tmQuestion.qkey ? 'greenB' : 'redB']" @click="singleChoiceCb(index)">{{index + 1}}</span>
               </a>
             </el-tab-pane>
-            <div class="qzbhh isSign txalign font-size-12">
+            <div class="qzbhh isSign text-center font-size-12">
               <span class="greenB">对题</span>
               <span class="redB">错题</span>
               <span>未答</span>

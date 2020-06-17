@@ -55,16 +55,16 @@
                 <el-table-column prop="realname" label="姓名" align="center"></el-table-column>
                 <el-table-column prop="email" label="电子邮箱" align="center"></el-table-column>
                 <el-table-column prop="phone" label="联系电话" align="center"></el-table-column>
-                <el-table-column label="操作" align="center">
+                <el-table-column label="操作" align="center" fixed="right">
                     <template slot-scope="scope">
-                        <!-- <el-tooltip class="item" effect="dark" content="删除" placement="bottom"> -->
+                        <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
                         <span
                             class="cur-point dis-inline-block"
                             @click="delTea(scope.$index,scope.row.id)"
                         >
                             <img src="@/assets/images/shanchu_icon.png" alt />
                         </span>
-                        <!-- </el-tooltip> -->
+                        </el-tooltip>
                     </template>
                 </el-table-column>
             </el-table>
@@ -204,7 +204,7 @@ export default {
 .inputWidth {
     width: 200px;
     margin-right: 15px;
-    
+
 }
 .inputWidth .el-input--suffix .el-input__inner {
     height: 28px;

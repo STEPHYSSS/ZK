@@ -1,5 +1,5 @@
 <template>
-  <div class="procurementDetail minimum minWidth1600" id="procurementDetail">
+  <div class="procurementDetail" id="procurementDetail">
     <div class="billBox">
       <div class="detailBackBtn">
         <router-link :to="{ path: '/otherWarehouseList' }">
@@ -38,7 +38,7 @@
         </el-row>
       </div>
       <div>
-        <el-table :data="tableData" style="width: 100%" border max-height="600">
+        <el-table :data="tableData" style="width: 100%" max-height="600">
           <el-table-column prop="code" label="货号" align="center"></el-table-column>
           <el-table-column prop="name" label="品名" align="center"></el-table-column>
           <el-table-column prop="barcode" label="国际条码" align="center"></el-table-column>
@@ -107,7 +107,7 @@ export default {
 <style scoped>
 #procurementDetail {
   min-height: 647px;
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 #procurementDetail .billBox {
   margin: 0 auto;
@@ -115,8 +115,8 @@ export default {
   border-radius: 10px;
 }
 #procurementDetail .billboxTab {
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
   padding-bottom: 30px;
 }
 #procurementDetail .billboxTab .billtit {

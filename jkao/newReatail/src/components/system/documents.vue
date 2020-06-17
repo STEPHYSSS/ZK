@@ -20,7 +20,7 @@
         <el-col :span="6"><span>订购总数:{{purchaseSheet.count}}</span></el-col>
       </el-row>
       <div class="konge"></div>
-      <el-table :data="tableData" stripe style="width: 100%" border>
+      <el-table :data="tableData" stripe style="width: 100%">
           <el-table-column label="序号" align="center">
             <template scope="scope">
               <span>{{scope.$index+1}}</span>

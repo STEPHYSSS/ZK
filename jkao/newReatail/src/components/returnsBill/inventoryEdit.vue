@@ -89,7 +89,7 @@
         <span>选择盘点日期：{{item.inventoryTime | converTime('YYYY-MM-DD')}}</span>
       </div>
       <div class="pantabl">
-        <el-table :data="tableData2" style="width: 100%;" border max-height="600">
+        <el-table :data="tableData2" style="width: 100%;" max-height="600">
           <el-table-column prop="name" label="品名" align="center"></el-table-column>
           <el-table-column label="商品分类" align="center" width="280">
             <template scope="scope">

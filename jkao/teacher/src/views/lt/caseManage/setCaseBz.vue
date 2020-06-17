@@ -29,7 +29,7 @@
             @keydown.enter="hiddenEdit($index)"
             type="text"
             v-focus
-            class="txalign inputSmall"/>
+            class="text-center inputSmall"/>
             <span v-else>{{row.bzz}}</span>
             <a href="javascript:;" @click="showEdit($index)" class="edit-icon el-icon-edit-outline">
               <span class="edit-word font-size-12">编辑</span>
@@ -46,7 +46,7 @@
             @keydown.enter="hiddenEdit($index)"
             type="text"
             v-focus
-            class="txalign inputSmall"/>
+            class="text-center inputSmall"/>
             <span v-else>{{row.fs}}</span>
             <a href="javascript:;" @click="showEditFs($index)" class="edit-icon el-icon-edit-outline">
               <span class="edit-word font-size-12">编辑</span>
@@ -69,7 +69,7 @@
       </el-pagination>
     </div>
     <add-btn
-    class="txalign"
+    class="text-center"
     level1="提 交" level2="取 消"
     @submitForm="submitForm"
     @cancelForm="caseList">

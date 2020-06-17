@@ -46,7 +46,7 @@
               </el-col>
             </el-row>
           </div>
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
             <el-table-column prop="code" label="货号" align="center"></el-table-column>
             <el-table-column prop="name" label="品名" align="center"></el-table-column>
             <el-table-column prop="spec" label="规格" align="center"></el-table-column>
@@ -64,7 +64,7 @@
             <span>数量：{{sum}}</span>
           </div>
           <el-dialog :visible.sync="dialogTableVisible">
-            <el-table :data="tableData2" style="width: 100%;" border>
+            <el-table :data="tableData2" style="width: 100%;">
               <el-table-column prop="code" label="支付流水号" align="center"></el-table-column>
               <el-table-column prop="channel" label="支付渠道" align="center"></el-table-column>
               <el-table-column prop="money" label="支付金额（元）" align="center"></el-table-column>

@@ -3,7 +3,7 @@
     <!-- <my-bread2 level1="管理案例" level2="纳税人信息"></my-bread2> -->
     <!-- <div class="font-weight-700 teacher-title">纳税人信息</div> -->
 
-    <div class="big-box txalign">
+    <div class="big-box text-center">
       <h3>纳税人信息</h3>
       <div class="small-box">
 
@@ -73,7 +73,7 @@
           </el-row>
         </el-form>
         <add-btn
-        class="txalign"
+        class="text-center"
         style="margin-top: 60px;"
         level1="确 定" level2="取 消"
         @submitForm="submitForm"

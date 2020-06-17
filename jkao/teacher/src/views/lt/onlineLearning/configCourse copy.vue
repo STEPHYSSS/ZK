@@ -6,8 +6,8 @@
             <el-button class="backBtn">返回</el-button>
         </router-link> -->
         <previous-page goPreviousPage="/configuration"></previous-page>
-        <!-- <h3 class="txalign">{{object.cname}}</h3>
-        <div class="txalign">配置章节目</div> -->
+        <!-- <h3 class="text-center">{{object.cname}}</h3>
+        <div class="text-center">配置章节目</div> -->
 
         <div>
             <el-button type="primary" size="mini" @click="addContent" class="addChapter">添加章</el-button>

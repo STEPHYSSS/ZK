@@ -47,7 +47,7 @@ Vue.component('v-distpicker', VDistpicker)
 Vue.prototype.uploadUrl = ''
 
 if (process.env.NODE_ENV == 'development') {
-    Vue.prototype.uploadUrl = 'http://192.168.1.202:8086'
+    // Vue.prototype.uploadUrl = 'http://192.168.1.202:8086'
 }
 
 

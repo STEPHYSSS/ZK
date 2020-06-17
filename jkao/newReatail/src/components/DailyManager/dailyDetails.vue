@@ -18,7 +18,7 @@
             <li>退款金额：{{item.refund}}</li>
           </ul>
           <div class="daily_tab">
-            <el-table :data="tableData" border style="width: 100%;" max-height="600">
+            <el-table :data="tableData" style="width: 100%;" max-height="600">
               <el-table-column prop="payTime" label="支付时间" align="center">
                 <template scope="scope">{{scope.row.payTime | converTime('YYYY-MM-DD HH:mm:ss')}}</template>
               </el-table-column>

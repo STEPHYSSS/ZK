@@ -73,7 +73,7 @@
       <el-table-column align="center" label="更新时间">
         <template slot-scope="scope">{{scope.row.updateTime | converTime('YYYY-MM-DD')}}</template>
       </el-table-column>
-      <el-table-column align="center" label="操作">
+      <el-table-column align="center" label="操作" >
         <template slot-scope="scope">
           <span class="hoveSty xiugai" @click="handlePut(scope.row.code)">修改</span>
           <span class="hoveSty" @click="open(scope.row.code)" v-if="scope.row.status =='0'">启用</span>

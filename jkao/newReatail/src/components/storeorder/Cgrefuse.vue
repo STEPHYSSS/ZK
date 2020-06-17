@@ -74,7 +74,7 @@
             </el-row>
           </div>
           <div class="list_tab">
-            <el-table :data="subList" style="width: 100%;" border>
+            <el-table :data="subList" style="width: 100%;">
               <el-table-column prop="goodsCode" label="货号" align="center" width="100"></el-table-column>
               <el-table-column prop="goodsName" label="品名" align="center" width="150"></el-table-column>
               <el-table-column prop="spec" label="规格" align="center"></el-table-column>

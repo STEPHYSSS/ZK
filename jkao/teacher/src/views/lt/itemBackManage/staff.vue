@@ -20,7 +20,7 @@
                                 slot-scope="scope"
                             >{{scope.row.createTime | fmtDate2('YYYY-MM-DD')}}</template>
                         </el-table-column>
-                        <el-table-column prop="opeartion" label="操作" align="center">
+                        <el-table-column prop="opeartion" label="操作" align="center" fixed="right">
                             <template slot-scope="scope">
                                 <div class="tootip">
                                     <el-tooltip

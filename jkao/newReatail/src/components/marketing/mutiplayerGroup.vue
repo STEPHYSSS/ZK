@@ -91,7 +91,6 @@
                     :data="selectGoodsList"
                     v-show="flag1"
                     style="width: 90%"
-                    border
                     max-height="300"
                 >
                     <el-table-column align="center" prop="code" label="货号"></el-table-column>

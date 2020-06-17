@@ -20,7 +20,7 @@
         </div>
 
         <div class="table">
-          <el-table :data="rankGoodsStock" border max-height="440px" style="width: 100%">
+          <el-table :data="rankGoodsStock" max-height="440px" style="width: 100%">
             <el-table-column prop="goodsName" label="单品名称" align="center"></el-table-column>
             <el-table-column prop="stockMoney" label="库存金额" align="center"></el-table-column>
             <el-table-column prop="stock" label="库存数量" align="center"></el-table-column>

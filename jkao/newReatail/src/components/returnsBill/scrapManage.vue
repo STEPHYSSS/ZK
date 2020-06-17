@@ -66,7 +66,7 @@
           </div>
         </div>
         </div>
-        <el-table :data="tableData" style="width: 100%;" border>
+        <el-table :data="tableData" style="width: 100%;">
           <el-table-column label="报废单编号" align="center" width="220">
             <template scope="scope">
               <span class="codesty" @click="scrapdetai(scope.row.code)">{{scope.row.code}}</span>

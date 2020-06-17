@@ -9,7 +9,7 @@
                         </el-button>
                     <!-- </router-link> -->
                 </div>
-     
+
         <div class="wsettingB2">
             <div class="wsettingBList2">
                 <el-table :data="tableData" style="width: 100%;" border max-height="700px">
@@ -31,7 +31,7 @@
                     <el-table-column label="状态" align="center">
                         <template slot-scope="scope">{{scope.row.status | statusTip}}</template>
                     </el-table-column>
-                    <el-table-column label="操作" align="center">
+                    <el-table-column label="操作" align="center" fixed="right">
                         <template slot-scope="scope">
                             <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
                                 <!-- <div class="dis"> -->
@@ -92,7 +92,7 @@ export default {
                 code: ""
             },
             tableData: [],
-           
+
         };
     },
     created() {
@@ -163,7 +163,7 @@ export default {
                 }
             });
         },
-     
+
     },
     filters: {
         statusTip(value) {
@@ -260,6 +260,7 @@ p {
 .addStore {
     text-align: right;
     margin-bottom: 20px;
+    margin-right: 20px;
 }
 .styleBox {
     text-align: center;

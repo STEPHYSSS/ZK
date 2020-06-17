@@ -36,7 +36,7 @@
       </div>
 
       <el-tabs class="detai_mar">
-        <el-table :data="tableData" style="width: 100%;" border max-height="600">
+        <el-table :data="tableData" style="width: 100%;" max-height="600">
           <el-table-column label="营业日期" align="center">
             <template scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
           </el-table-column>

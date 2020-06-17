@@ -50,11 +50,17 @@
       <el-table-column label="考试时长">
         <template slot-scope="scope">{{scope.row.duration}} 分钟</template>
       </el-table-column>
-      <el-table-column prop="pcid" label="操作">
+      <el-table-column prop="pcid" label="操作" fixed="right">
         <template slot-scope="scope">
-          <a v-if="curTime >= scope.row.start_time && curTime < scope.row.end_time" @click="start(scope.row)">开始考试</a>
+          <el-tooltip class="item" effect="dark" content="开始考试" placement="bottom">
+            <span class="cur-point"  @click="start(scope.row)" v-if="curTime >= scope.row.start_time && curTime < scope.row.end_time">
+              <img src="@/assets/images/kaishikaoshi_icon.png" alt />
+            </span>
+          </el-tooltip>
           <a v-if="curTime < scope.row.start_time">未开始</a>
-          <a v-if="curTime > scope.row.end_time">已结束</a>
+          <!-- <a v-if="curTime >= scope.row.start_time && curTime < scope.row.end_time" @click="start(scope.row)">开始考试</a>
+          <a v-if="curTime < scope.row.start_time">未开始</a>
+          <a v-if="curTime > scope.row.end_time">已结束</a> -->
         </template>
       </el-table-column>
     </el-table>

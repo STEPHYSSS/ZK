@@ -1,5 +1,5 @@
 <template>
-  <div id="procurementList" class="minimum minWidth1600">
+  <div id="procurementList">
     <div class="content">
       <h3>采购入库</h3>
       <el-row>
@@ -64,7 +64,7 @@
       </el-row>
     </div>
     <div class>
-      <el-table :data="tableData" style="width: 100%;" height="650" border>
+      <el-table :data="tableData" style="width: 100%;">
         <el-table-column label="单据编号" align="center">
           <template scope="scope">
             <span>{{scope.row.code}}</span>
@@ -238,7 +238,7 @@ export default {
 }
 #procurementList .content .el-input__inner {
   border: 1px solid #dcdfe6;
-  width: 80%;
+  width: 65%;
 }
 #procurementList .pinName {
   text-align: right;

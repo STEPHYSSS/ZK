@@ -81,7 +81,7 @@
     <div class="storeInfo">
       <div class="store_Box12">
         <div class="hideScool">
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
           <el-table-column label="创建日期" align="center">
             <template scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
           </el-table-column>
@@ -97,7 +97,7 @@
           <el-table-column prop="item" label="报废品项数" align="center"></el-table-column>
           <el-table-column prop="count" label="报废总数" align="center"></el-table-column>
           <el-table-column prop="amount" label="报废总金额" align="center"></el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <el-tooltip
                 class="item"

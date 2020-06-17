@@ -61,7 +61,6 @@ export default {
     },
     methods: {
         handleNodeClick(data) {
-            console.log(data.url)
             // this.$router.push(data.url);
             this.key = this.$refs.tree.getCurrentKey();
             // console.log(this.key,'this.key')

@@ -23,7 +23,7 @@
                     <el-table-column label="状态" align="center">
                         <template slot-scope="scope">{{scope.row.status|statusTip}}</template>
                     </el-table-column>
-                    <el-table-column label="操作" align="center">
+                    <el-table-column label="操作" align="center" fixed="right">
                         <template slot-scope="scope">
                             <el-tooltip
                                 class="item codesty"
@@ -255,7 +255,7 @@ export default {
                 if (valid) {
                     this.$utils
                         .post(
-                            this.reqApi.xinls + "/exam/member/addLevel",
+                            this.reqApi.xinls + "/exam/member/editLevel",
                             qs.stringify({
                                 id: this.lineForm.id,
                                 name: this.lineForm.name,

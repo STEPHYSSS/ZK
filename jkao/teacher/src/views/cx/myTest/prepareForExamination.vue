@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="button txalign">
+    <div class="button text-center">
       <el-button class="el-icon-edit enterTheTest" style="color:#444" @click="enterTest(exam.id)">&nbsp; 进入考试</el-button>
     </div>
   </el-card>

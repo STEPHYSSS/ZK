@@ -1,5 +1,5 @@
 <template>
-  <div class="chooseShelv minWidth1600">
+  <div class="chooseShelv">
     <div class="storehousebox">
       <div class="storehouse_box">
         <div class="detailBackBtn">
@@ -10,9 +10,9 @@
           <el-button class="themeColor" @click="SelectionArea">选择库区</el-button>
           <el-button class="resetButton choosesGoods" @click="SelectionGoods">选择商品</el-button>
           <p class="colo" v-show="hideK">关联库区：{{AreaCode.name}}-{{AreaCode.warehouseName}}</p>
-          <div class="konge"></div>
+          <!-- <div class="konge"></div> -->
           </div>
-          <el-table :data="goodsSet" style="width: 100%;" v-show="hideG" border max-height="600">
+          <el-table :data="goodsSet" style="width: 100%;" v-show="hideG" max-height="600">
             <el-table-column prop="code" label="货号" align="center"></el-table-column>
             <el-table-column prop="name" label="品名" align="center"></el-table-column>
             <el-table-column prop="unit" label="单位" align="center"></el-table-column>
@@ -77,7 +77,6 @@
                 max-height="250"
                 id="hiegLine"
                 @row-click="CAreaCode"
-                border
               >
                 <el-table-column align="center" width="80">
                   <template slot-scope="scope">
@@ -132,54 +131,54 @@
                   </el-col>
                  
                 </el-row>
-                  <el-row>
-                  <el-col :span="12" >
-                    <div class="classify">
-                      <span class="textTitle70px">商品分类：</span>
-                      <div class="classify1">
-                        <el-select
-                          v-model="typeLevel1"
-                          size="mini"
-                          style="margin-left:0"
-                          @change="choose"
-                        >
-                          <el-option
-                            v-for="item in TypeLevel1"
-                            :key="item.value"
-                            :label="item.name"
-                            :value="item.code"
-                          ></el-option>
-                        </el-select>
-                        <el-select
-                          v-model="typeLevel2"
-                          size="mini"
-                          
-                          @change="choose2"
-                        >
-                          <el-option
-                            v-for="item in TypeLevel2"
-                            :key="item.value"
-                            :label="item.name"
-                            :value="item.code"
-                          ></el-option>
-                        </el-select>
-                        <el-select v-model="typeLevel3" size="mini" >
-                          <el-option
-                            v-for="item in TypeLevel3"
-                            :key="item.value"
-                            :label="item.name"
-                            :value="item.code"
-                          ></el-option>
-                        </el-select>
+                <el-row>
+                    <el-col :span="12" >
+                      <div class="classify">
+                        <span class="textTitle70px">商品分类：</span>
+                        <div class="classify1">
+                          <el-select
+                            v-model="typeLevel1"
+                            size="mini"
+                            style="margin-left:0"
+                            @change="choose"
+                          >
+                            <el-option
+                              v-for="item in TypeLevel1"
+                              :key="item.value"
+                              :label="item.name"
+                              :value="item.code"
+                            ></el-option>
+                          </el-select>
+                          <el-select
+                            v-model="typeLevel2"
+                            size="mini"
+                            
+                            @change="choose2"
+                          >
+                            <el-option
+                              v-for="item in TypeLevel2"
+                              :key="item.value"
+                              :label="item.name"
+                              :value="item.code"
+                            ></el-option>
+                          </el-select>
+                          <el-select v-model="typeLevel3" size="mini" >
+                            <el-option
+                              v-for="item in TypeLevel3"
+                              :key="item.value"
+                              :label="item.name"
+                              :value="item.code"
+                            ></el-option>
+                          </el-select>
+                        </div>
                       </div>
-                    </div>
-                  </el-col>
-                   <el-col :span="12" class="textAlignRight">
-                    <div class="btnbox11" style="text-align:right">
-                      <el-button class="theBtn queryButton" @click="goodsChaxun">查询</el-button>
-                      <el-button class="theBtn resetButton" @click="goodsReset">重置</el-button>
-                    </div>
-                  </el-col>
+                    </el-col>
+                    <el-col :span="12" class="textAlignRight">
+                      <div class="btnbox11" style="text-align:right">
+                        <el-button class="theBtn queryButton" @click="goodsChaxun">查询</el-button>
+                        <el-button class="theBtn resetButton" @click="goodsReset">重置</el-button>
+                      </div>
+                    </el-col>
                   <!-- <el-col :span="8" class="textAlignRight">
                     <div class="btnbox11">
                       <span class="textTitle70px textTitleR">温层：</span>
@@ -195,12 +194,7 @@
                       </div>
                     </div>
                   </el-col> -->
-                 
-                  
                 </el-row>
-              </div>
-              <div>
-                <!-- <el-button class="theBtn queryButton" @click="isSureGoods">确定</el-button> -->
               </div>
               <div class="konge"></div>
               <div class="chooseBox2">
@@ -384,8 +378,8 @@ export default {
           goodsName: this.goodsName,
           temperature: this.temperature,
           pageNum: this.pageNum,
-          pageSize: this.pageSize,
-          supplyMode:"W"
+          pageSize: this.pageSize
+          // supplyMode:"W"
         })
       }).then(res => {
         if (res.data.code == "0000") {
@@ -598,8 +592,8 @@ export default {
 <style scoped>
 .chooseShelv {
   /* background-color: #f1f6fa; */
-  min-height: 647px;
-  min-width: 1200px;
+  /* min-height: 647px;
+  min-width: 1200px; */
 }
 .storehousebox {
   margin: 0 auto;

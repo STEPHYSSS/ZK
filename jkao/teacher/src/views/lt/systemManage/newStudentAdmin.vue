@@ -26,10 +26,14 @@
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
             <el-form-item label="用户名:" prop="username">
-                <input maxlength="50" v-if="this.$route.query.id" oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')" type="text" v-model="form.username" :disabled="disabledName" />
-                <input maxlength="50" v-else oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')" type="text" v-model="form.username" />
+                <input maxlength="50" v-if="form.username" oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')" type="text" v-model="form.username" :disabled="disabledName" />
+                <input maxlength="50" v-else oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')" type="text"
+                    @blur="checkUsername" v-model="username" />
                 <span>
-                    <span class="redB">*</span>填写英文和数字组成的用户名
+                    <template v-if="!msg">
+                        <span class="redB">*</span>填写英文和数字组成的用户名
+                    </template>
+                    <span v-else>{{usermsg}}</span>
                 </span>
             </el-form-item>
             <el-form-item label="姓名:" prop="realname">
@@ -37,6 +41,24 @@
                 <span>
                     <span class="redB">*</span>填写用户的真实姓名
                 </span>
+            </el-form-item>
+            <el-form-item label="工号:" prop="num">
+                <input
+                    v-if="form.num"
+                    :disabled="disabledName"
+                    maxlength="50"
+                    oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
+                    type="text"
+                    v-model="form.num"
+                />
+                <input
+                    v-else
+                    maxlength="50"
+                    oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
+                    type="text"
+                    @blur="checknum"
+                    v-model="number"
+                />{{nummsg}}
             </el-form-item>
             <el-form-item label="联系电话:">
                 <input  maxlength="11"
@@ -119,7 +141,16 @@ export default {
                 // aPhoto: "",
                 // aId: ""
             },
+            number: '',
+            username: '',
             rules: {
+                num: [
+                    {
+                        required: true,
+                        message: "请输入工号",
+                        trigger: "change"
+                    }
+                ],
                 username: [
                     {
                         required: true,
@@ -144,6 +175,8 @@ export default {
             },
             dialogFormVisible: false,
             formLabelWidth: '120px',
+            usermsg: '',
+            nummsg: '',
             psw: {
                 oldPsw: '',
                 newPsw: '',
@@ -173,6 +206,40 @@ export default {
     },
 
     methods: {
+        checkUsername () {
+            if (!this.username) return false
+            this.$utils.post(
+                this.reqApi.shuiwuUrl + "/user/checkUsername",
+                qs.stringify({
+                    username: this.username
+                })
+            )
+            .then(res => {
+                const { code, msg } = res.data;
+                if (code === "0000") {
+                    this.msg = msg;
+                } else {
+                    this.msg = msg;
+                }
+            });
+        },
+        checknum () {
+            if (!this.number) return false
+            this.$utils.post(
+                this.reqApi.shuiwuUrl + "/user/checkNum",
+                qs.stringify({
+                    number: this.number
+                })
+            )
+            .then(res => {
+                const { code, msg } = res.data;
+                if (code === "0000") {
+                    this.usermsg = msg;
+                } else {
+                    this.usermsg = msg;
+                }
+            });
+        },
         getAdminInfo() {
             const that = this;
             // that.form = JSON.parse(sessionStorage.getItem("oneTeacher"))
@@ -248,6 +315,8 @@ export default {
 
         // 提交
         submitForm(formName) {
+            if (this.username) this.form.username = this.username
+            if (this.number) this.form.num = this.number
             this.$refs[formName].validate(valid => {
                 if (valid) {
                      if (this.form.email) {

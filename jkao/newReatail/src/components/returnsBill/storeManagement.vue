@@ -105,7 +105,7 @@
           </div>
         </div>
         <!-- </div> -->
-        <el-table :data="tableData" style="width: 100%;" border>
+        <el-table :data="tableData" style="width: 100%;">
           <el-table-column prop="code" label="盘点单编号" align="center" ></el-table-column>
           <el-table-column label="盘点日期" align="center">
             <template scope="scope">{{scope.row.inventoryTime | converTime('YYYY-MM-DD')}}</template>
@@ -120,7 +120,7 @@
           <el-table-column label="状态" align="center">
             <template scope="scope">{{scope.row.status | statusTip}}</template>
           </el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <el-tooltip
                 class="item"

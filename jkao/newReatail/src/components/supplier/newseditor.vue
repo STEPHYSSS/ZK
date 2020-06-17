@@ -216,7 +216,6 @@
               highlight-current-row
               id="hiegLine"
               style="width: 100%;"
-              border
               height="500"
               @current-change="handleSelectionChange"
             >

@@ -100,7 +100,7 @@
             </div>
           </div>
         </div>
-        <el-table :data="tableData" style="width: 100%;" border>
+        <el-table :data="tableData" style="width: 100%;">
           <el-table-column label="退货单编号" align="center" class="codesty" width="220">
             <template scope="scope">
               <span class="codesty" @click="billdetai(scope.row.code)">{{scope.row.code}}</span>

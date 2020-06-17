@@ -47,15 +47,23 @@
       <el-table-column prop="endtime"  label="结束时间">
         <template slot-scope="scope">{{scope.row.end_time|fmtDate}}</template>
       </el-table-column>
-      <el-table-column label="操作">
+      <el-table-column label="操作" fixed="right">
         <template slot-scope="scope">
           <!-- <a @click="particulars(scope.row)">详情</a> -->
-          <a
+           <el-tooltip class="item" effect="dark" content="详情" placement="bottom" v-if="currentTime >= scope.row.end_time && scope.row.finished == '1'">
+            <span class="cur-point"  @click="particulars(scope.row)">
+              <img src="@/assets/images/chaxun_icon.png" alt />
+            </span>
+          </el-tooltip>
+          <el-tooltip class="item" effect="dark" content="考试未评分" placement="bottom" v-else>
+            <span class="cur-point" >——</span>
+          </el-tooltip>
+          <!-- <a
             href="javascript:;"
             v-if="currentTime >= scope.row.end_time && scope.row.finished == '1'"
             @click="particulars(scope.row)"
-          >详情</a>
-          <a href="javascript:;" v-else>——</a>
+          >详情</a> -->
+          <!-- <a href="javascript:;" v-else>——</a> -->
         </template>
       </el-table-column>
     </el-table>
@@ -119,6 +127,7 @@ export default {
         this.$router.push({
           name: 'historyExamDetails',
           query: {
+            keepAlive: '1',
             exam_id: data.id,
             examFlow:data.exam_flow
           }

@@ -1,32 +1,11 @@
 <template>
   <div class="login" id="loginTurn">
-    <div class="loginBox">
+    <img src="@/assets/images/returnbutton.png" class="reBack" @click="returnBack" />
+    <!-- <div class="loginBox">
       <span class="operation" @click="operation">操作流程</span>
       <h3>请选择您要进入的系统模块</h3>
       <div class="user">
         <div class="inputBox1">
-          <!-- <ul>
-            <li @click="toNewra(1)">
-              <img src="@/assets/images/yunying_icon.png" />
-              <p>运营后台</p>
-            </li>
-            <li @click="toNewra(2)">
-              <img src="@/assets/images/mendian_icon.png" />
-              <p>门店</p>
-            </li>
-            <li @click="toNewra(3)">
-              <img src="@/assets/images/gongyingshang_icon.png" />
-              <p>供应商</p>
-            </li>
-            <li @click="toNewra(4)">
-              <img src="@/assets/images/cangku_icon.png" />
-              <p>仓库后台</p>
-            </li>
-            <li @click="toNewra(5)">
-              <img src="@/assets/images/pos_icon.png" />
-              <p>收银POS</p>
-            </li>
-          </ul> -->
           <el-tabs v-model="activeName">
             <el-tab-pane label="运营后台" name="sys">
               <el-input class="chooseSys" v-model="account" prefix-icon="iconfont icon-ren" clearable placeholder="请输入账号"></el-input>
@@ -53,6 +32,60 @@
     </div>
     <el-dialog :visible.sync="dialogVisible" :before-close="handleClose" width="80%">
       <img src="@/assets/images/img1.png" style="width:100%" alt="操作流程" />
+    </el-dialog>-->
+    <div class="bigBox">
+      <div class="boxShow">
+        <span class="operation" @click="operation">操作流程</span>
+        <!-- <span class="positionRight" @click="returnBack">
+          <i class="el-icon-back">返回</i>
+        </span>-->
+        <div class="logFlex">
+          <h3>请选择您要进入的系统模块</h3>
+          <div class="topicon">
+            <ul>
+              <li
+                v-for="(item,index) in Imgs"
+                :key="index"
+                :class="{active:index == ins}"
+                @click="CheckSys(item.activeName,index)"
+              >
+                <img :src="index == ins ? item.active : item.normal" />
+                <p>{{item.title}}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="bottonicon">
+            <img src="@/assets/images/newImgBg.png" alt class="bottonimg" />
+            <div class="inputBox">
+              <!--用户名-->
+              <el-input
+                placeholder="请输入账号"
+                prefix-icon="iconfont icon-ren"
+                clearable
+                @keydown.enter.native="toNewra(activeName)"
+                v-model.trim="ruleForm.account"
+              ></el-input>
+
+              <!--密码-->
+              <el-input
+                placeholder="请输入密码"
+                prefix-icon="iconfont icon-mima"
+                type="password"
+                clearable
+                @keydown.enter.native="toNewra(activeName)"
+                show-password
+                v-model.trim="ruleForm.password"
+              ></el-input>
+              <br />
+
+              <el-button type="primary" round class="newLoginBtn" @click="toNewra(activeName)">登录</el-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <el-dialog :visible.sync="dialogVisible" :before-close="handleClose" width="80%">
+      <img src="@/assets/images/img1.png" style="width:100%" alt="操作流程" />
     </el-dialog>
   </div>
 </template>
@@ -73,9 +106,57 @@ export default {
       examFlow: this.$route.query.examFlow,
       examType: this.$route.query.examType,
       questionCode: this.$route.query.questionCode,
-      testDetail:this.$route.query.testDetail,////试题回顾所需的参数
+      testDetail: this.$route.query.testDetail, ////试题回顾所需的参数
       activeName: "sys",
-      account:""//用户输入的账号
+      ruleForm: {
+        username: "",
+        password: ""
+      },
+      Imgs: [
+        {
+          title: "运营后台",
+          activeName: "sys",
+          normal: require("@/assets/images/yunying_icon.png"),
+          active: require("@/assets/images/shouyinpos_icon1@2x.png")
+        },
+        {
+          title: "门店",
+          activeName: "store",
+          normal: require("@/assets/images/mendian_icon.png"),
+          active: require("@/assets/images/mendian_icon1@2x.png")
+        },
+        {
+          title: "供应商",
+          activeName: "supplier",
+          normal: require("@/assets/images/gongyingshang_icon.png"),
+          active: require("@/assets/images/gongyingshang_icon1@2x.png")
+        },
+        {
+          title: "仓库后台",
+          activeName: "warehouse",
+          normal: require("@/assets/images/cangku_icon.png"),
+          active: require("@/assets/images/cangku_icon1@2x.png")
+        },
+        {
+          title: "商城后台",
+          activeName: "mall",
+          normal: require("@/assets/images/shangcheng_icon.png"),
+          active: require("@/assets/images/shangcheng_icon1@2x.png")
+        },
+        {
+          title: "收银POS",
+          activeName: "clerk",
+          normal: require("@/assets/images/pos_icon.png"),
+          active: require("@/assets/images/shouyinpos_icon1@2x.png")
+        },
+        {
+          title: "手机商城",
+          activeName: "shop",
+          normal: require("@/assets/images/shoujishangcheng_icon.png"),
+          active: require("@/assets/images/shouji_icon 1@2x.png")
+        }
+      ],
+      ins: 0
       // questionInfo:this.$route.query.questionInfo
     };
   },
@@ -111,6 +192,22 @@ export default {
     //     };
     //   }
     // },
+    // 登录开始
+    CheckSys(val, index) {
+      this.activeName = val;
+      this.ins = index;
+    },
+    returnBack() {
+      this.$router.push({
+        name: "historyExamDetails",
+        query: {
+          exam_id: this.$route.query.exam_id,
+          examFlow: this.$route.query.examFlow,
+          testDetail: this.$route.query.testDetail
+        }
+      });
+    },
+    // 登录结束
     // 点击跳转
     toNewra(activeName) {
       if (this.examType == "T") {
@@ -125,66 +222,107 @@ export default {
               questionCode: this.questionCode,
               questionInfo: sessionStorage.getItem("questionInfo"),
               system: activeName,
-              account: this.account
+              account: this.ruleForm.account,
+              password: this.ruleForm.password
             })
           )
           .then(res => {
             if (res.data.code == "0000") {
               let flag = res.data.data;
               if (activeName == "clerk") {
-                window.location.href = this.reqApi.xinls +  "/pay/#/kongbai?flag=" +  flag +  "&type=" +  activeName;
+                window.location.href =
+                  this.reqApi.xinls +
+                  "/pay/#/kongbai?flag=" +
+                  flag +
+                  "&type=" +
+                  activeName;
                 // window.location.href = "http://192.168.1.144:8082" +  "/#/kongbai?flag=" +  flag +  "&type=" +  activeName;
-
+              } else if (activeName == "shop") {
+                //手机商城
+                // window.location.href = this.reqApi.xinls + "/#/transferDirectory?flag=" + flag + "&type=" + activeName + "&flagT=" + "Tea"
+                // window.location.href =
+                //   "http://192.168.1.144:8081" +
+                //   "/#/transferDirectory?flag=" +
+                //   flag +
+                //   "&type=" +
+                //   activeName;
               } else {
+                //运营，门店，商城，供应商，仓库后台
                 // window.location.href =  "http://192.168.1.144:8081" +  "/#/transferDirectory?flag=" +  flag +  "&type=" +  activeName;
-                window.location.href =  this.reqApi.xinls +  "/#/transferDirectory?flag=" +  flag +  "&type=" +  activeName;
+                // window.location.href =  this.reqApi.xinls +  "/#/transferDirectory?flag=" +  flag +  "&type=" +  activeName;
+                let url = "http://192.168.1.30:8081";
+                window.location.href =
+                  this.reqApi.xinls +
+                  "/#/transferDirectory?flag=" +
+                  flag +
+                  "&type=" +
+                  activeName;
               }
-            }else return this.$message.error(res.data.msg)
+            } else return this.$message.error(res.data.msg);
           });
-      }else if(this.examType == "E") {
+      } else if (this.examType == "E") {
         this.$utils
-        .post(
-          this.reqApi.xinls + `/exam/docking/review/login`,
-          qs.stringify({
-            token: sessionStorage.getItem("token"),
-            examId: this.exam_id,
-            examFlow: this.examFlow,
-            examType: this.examType,
-            questionCode: this.questionCode,
-            questionInfo: sessionStorage.getItem("questionInfo"),
-            system: activeName,
-            account: this.account
-          })
-        )
-        .then(res => {
-          if (res.data.code == "0000") {
-            let flag = res.data.data;
-            if (activeName == "clerk") {
-              window.location.href = this.reqApi.xinls +"/pay/#/kongbai?flag=" +flag +"&type=" +activeName;
-              // window.location.href = "http://192.168.1.144:8082" +"/#/kongbai?flag=" +flag +"&type=" +activeName;
-            } else {
-              window.location.href = this.reqApi.xinls +"/#/transferDirectory?flag=" +flag +"&type=" +activeName;
-              // window.location.href = "http://192.168.1.144:8081" +"/#/transferDirectory?flag=" +flag +"&type=" +activeName;
-            }
-          }else return this.$message.error(res.data.msg);
-        });
+          .post(
+            this.reqApi.xinls + `/exam/docking/review/login`,
+            qs.stringify({
+              token: sessionStorage.getItem("token"),
+              examId: this.exam_id,
+              examFlow: this.examFlow,
+              examType: this.examType,
+              questionCode: this.questionCode,
+              questionInfo: sessionStorage.getItem("questionInfo"),
+              system: activeName,
+              account: this.ruleForm.account,
+              password: this.ruleForm.password
+            })
+          )
+          .then(res => {
+            if (res.data.code == "0000") {
+              let flag = res.data.data;
+              if (activeName == "clerk") {
+                //收银
+                window.location.href =
+                  this.reqApi.xinls +
+                  "/pay/#/kongbai?flag=" +
+                  flag +
+                  "&type=" +
+                  activeName;
+                // window.location.href = "http://192.168.1.144:8082" +"/#/kongbai?flag=" +flag +"&type=" +activeName;
+              } else if (activeName == "shop") {
+                //手机商城
+                // window.location.href = this.reqApi.xinls + "/#/transferDirectory?flag=" + flag + "&type=" + activeName
+                // window.location.href = "http://192.168.1.144:8081" + "/#/transferDirectory?flag=" + flag + "&type=" + activeName ;
+              } else {
+                //运营，门店，商城，供应商，仓库后台
+                // window.location.href = this.reqApi.xinls +"/#/transferDirectory?flag=" +flag +"&type=" +activeName;
+                // let url = "http://192.168.1.30:8081";
+                window.location.href =
+                  this.reqApi.xinls +
+                  "/#/transferDirectory?flag=" +
+                  flag +
+                  "&type=" +
+                  activeName;
+                // window.location.href = "http://192.168.1.144:8081" +"/#/transferDirectory?flag=" +flag +"&type=" +activeName;
+              }
+            } else return this.$message.error(res.data.msg);
+          });
       }
     },
     autoHandInExaminationPaper() {},
-    returnBack(){
-      if(!this.testDetail){
+    returnBack() {
+      if (!this.testDetail) {
         this.$router.push({
           name: "historyExamDetails",
           query: {
             exam_id: this.exam_id
           }
         });
-      }else{
+      } else {
         this.$router.push({
           name: "historyExamDetails",
           query: {
             exam_id: this.exam_id,
-            testDetail:this.testDetail
+            testDetail: this.testDetail
           }
         });
       }
@@ -196,30 +334,125 @@ export default {
 #loginTurn {
   width: 100%;
   height: 100%;
-  background: url("../../../assets/images/newLoginBg.png");
+  /* background: url("../../../assets/images/newImgBg.png"); */
+  background-color: #fff;
   background-size: 100% 100%;
   position: relative;
   box-sizing: border-box;
 }
 #loginTurn .operation {
   position: absolute;
-  top: 5%;
+  top: 3%;
   right: 3%;
   color: #4e84e1;
   cursor: pointer;
 }
 .loginBox {
-  width: auto;
+  /* background: url("../../../assets/images/newImgBg.png"); */
+  width: 800px;
   height: 320px;
-  background: #fff;
   border-radius: 10px;
-  position: absolute;
+  /* position: absolute;
   top: 30%;
-  right: 3%;
+  right: 3%; */
 }
-.loginBox h3 {
+
+.bigBox {
+  padding-top: 85px;
+}
+.boxShow {
+  max-width: 975px;
+  min-width: 800px;
+  /* width: 975px; */
+  height: 657px;
+  border: 1px solid #d0e9f4;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 2px 6px 16px 3px #dfeaf4;
+  min-width: 800px;
+}
+.boxShow h3 {
+  display: block;
   text-align: center;
-  margin-left: 0;
+  padding: 0;
+  font-size: 20px;
+}
+.logFlex {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 55px auto 0;
+  box-sizing: border-box;
+}
+.topicon {
+  flex: 1;
+  margin: 5% 0;
+}
+.topicon ul li {
+  float: left;
+  width: 60px;
+  height: 94px;
+  text-align: center;
+  position: relative;
+  margin: 0 20px;
+  cursor: pointer;
+}
+.topicon ul li img {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 22px;
+}
+.topicon ul li .IMG {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 13px;
+}
+.topicon ul {
+  margin-left: 5%;
+}
+.active img {
+  position: absolute;
+  top: -10px;
+  left: 4px;
+  width: 60px !important;
+  height: 60px !important;
+  margin-bottom: 13px !important;
+}
+.active p {
+  position: absolute;
+  bottom: 13px;
+  left: -15px;
+  width: 100px;
+  text-align: center;
+  font-size: 16px;
+}
+.inputBox .newLoginBtn {
+  width: 323px;
+  height: 50px;
+  position: absolute;
+  bottom: 0px;
+  background: #4e84e1 !important;
+  font-size: 18px;
+  letter-spacing: 10px;
+}
+.bottonicon {
+  flex: 1;
+  display: flex;
+}
+.bottonicon .bottonimg {
+  width: 320px;
+  box-sizing: border-box;
+}
+.inputBox {
+  width: 326px;
+  margin-left: 68px;
+  position: relative;
+  height: 176px;
+  margin-top: 60px;
+}
+.inputBox .el-input {
+  margin-bottom: 20px;
 }
 .user {
   padding-bottom: 4px;
@@ -330,7 +563,11 @@ export default {
   top: 0;
   right: 0;
 }
-.chooseSys{
+.chooseSys {
   margin-top: 45px;
+}
+.reBack {
+  float: right;
+  margin: 20px 20px 0 0;
 }
 </style>

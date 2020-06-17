@@ -436,10 +436,15 @@
                         ></add-btn>-->
                         <el-button
                             class="submitBtn"
+                            :disabled="disableBtn"
                             v-if="flag&&$route.query.flag1!=2"
                             @click="newQuestion('form')"
                         >提 交</el-button>
-                        <el-button @click="tobasicInfo('form')" v-if="$route.query.flag!=1">
+                        <el-button
+                            :disabled="disableBtn"
+                            @click="tobasicInfo('form')"
+                            v-if="$route.query.flag!=1"
+                        >
                             <!-- 选择账套 -->
                             <span v-if="$route.query.qid">{{btnText="下一步"}}</span>
                             <span v-else>{{btnText}}</span>
@@ -646,6 +651,7 @@ export default {
                 questionCode: ""
             },
             dialogVisible1: false,
+            disableBtn: false,
             form: {
                 options: [],
                 question: {
@@ -669,7 +675,7 @@ export default {
                 // qfrom: "原创",
                 resolve: "",
                 status: 1,
-                open: '',
+                open: "",
                 type: "",
                 name: ""
                 // caseBh: "",
@@ -736,14 +742,14 @@ export default {
                     {
                         required: true,
                         message: "试题状态不能为空",
-                        trigger: "blur"
+                        trigger: "change"
                     }
                 ],
                 type: [
                     {
                         required: true,
                         message: "试题类型不能为空！",
-                        trigger: "blur"
+                        trigger: "change"
                     }
                 ],
                 caseBh: [
@@ -780,7 +786,7 @@ export default {
                 "justify", // 对齐方式
                 "quote", // 引用
                 "emoticon", // 表情
-                // 'image',  // 插入图片
+                "image", // 插入图片
                 "table", // 表格
                 // 'video',  // 插入视频
                 "code", // 插入代码
@@ -817,21 +823,8 @@ export default {
             this.getQuestionInfo();
         // this.getZJM();
     },
-    mounted() {},
-
     mounted() {
-        this.editor = new Editor("#editor");
-        this.editor1 = new Editor("#editor1");
-        this.editor.customConfig.menus = this.editorOption;
-        this.editor1.customConfig.menus = this.editorOption;
-        this.editor.customConfig.onchange = html => {
-            this.form.resolve = html;
-        };
-        this.editor1.customConfig.onchange = html => {
-            this.form.content = html;
-        };
-        this.editor.create();
-        this.editor1.create();
+        this.editorInit();
         // this.$router.beforeEach((to, from, next) => {
         //   if (to.name === 'manageQuestion') {
         //     to.meta.keepAliveChange = false
@@ -847,6 +840,110 @@ export default {
         next();
     },
     methods: {
+        editorInit() {
+            this.editor = new Editor("#editor"); // 解析
+            this.editor1 = new Editor("#editor1"); //题干
+            this.editor.customConfig.menus = this.editorOption; //显示菜单
+            // this.editor.customConfig.linkImgCallback = url => {
+            //     console.log(url); // url 即插入图片的地址
+            // };
+            this.editor1.customConfig.menus = this.editorOption;
+            this.editor.customConfig.onchange = html => {
+                this.form.resolve = html;
+            };
+            this.editor1.customConfig.onchange = html => {
+                this.form.content = html;
+            };
+            // 关闭粘贴样式的过滤
+            this.editor.customConfig.pasteFilterStyle = false;
+            this.editor1.customConfig.pasteFilterStyle = false;
+            // 隐藏“网络图片”tab
+            this.editor.customConfig.showLinkImg = false;
+            this.editor1.customConfig.showLinkImg = false;
+            // 上传图片
+            this.editor.customConfig.uploadImgServer = `${this.reqApi.shuiwuUrl}/image/upload`;
+            this.editor1.customConfig.uploadImgServer = `${this.reqApi.shuiwuUrl}/image/upload`;
+            // 后端接收上传文件的参数名
+            this.editor.customConfig.uploadFileName = "files";
+            this.editor1.customConfig.uploadFileName = "files";
+            // 将图片大小限制为2M
+            this.editor.customConfig.uploadImgMaxSize = 10 * 1024 * 1024;
+            this.editor1.customConfig.uploadImgMaxSize = 10 * 1024 * 1024;
+            // 限制最多上传6张图片
+            // this.editor.customConfig.uploadImgMaxLength = 6;
+            // this.editor1.customConfig.uploadImgMaxLength = 6;
+            // 设置超时
+            this.editor.customConfig.uploadImgTimeout = 3 * 60 * 1000;
+            this.editor1.customConfig.uploadImgTimeout = 3 * 60 * 1000;
+            // 图片上传回调
+            this.editor.customConfig.uploadImgHooks = {
+                // fail: (xhr, editor, result) => {
+                //     /**插入图片回调失败 */
+                // },
+                before: (xhr, editor, files) => {
+                    // console.log(xhr,'xhrbefore')
+                    // console.log(editor,'editorbeferor')
+                    // console.log(files,'filesbefore')
+                },
+                success: (xhr, editor, result) => {
+                    // console.log(result, "result");
+                    /**图片上传成功回调 */
+                },
+                timeout: (xhr, editor, result) => {
+                    /**网络超时回调 */
+                },
+                error: (xhr, editor, result) => {
+                    // console.log(xhr,'xhr')
+                    // console.log(editor,'editor')
+                    // console.log(result,'result')
+                    /**图片上传错误回调 */
+                },
+                customInsert: (insertImg, result, editor) => {
+                    insertImg(`${this.reqApi.shuiwuUrl}${result.imgCodes}`); //图片回显
+                    /**图片上传成功，插入图片回调 */
+                }
+            };
+            this.editor1.customConfig.uploadImgHooks = {
+                customInsert: (insertImg, result, editor) => {
+                    insertImg(`${this.reqApi.shuiwuUrl}${result.imgCodes}`); //图片回显
+                    /**图片上传成功，插入图片回调 */
+                }
+            };
+            // 自定义多张上传 暂时不用
+            // this.editor.customConfig.customUploadImg = (files, insert) => {
+            //     var formData = new FormData();
+
+            //     for (var i = 0; i < files.length; i++) {
+            //         formData.append(
+            //             "files[" + i + "]",
+            //             files[i],
+            //             files[i].name
+            //         );
+            //     }
+            // };
+
+            // 自定义上传参数
+            this.editor.customConfig.uploadImgParams = {
+                token: sessionStorage.getItem("token")
+            };
+            this.editor1.customConfig.uploadImgParams = {
+                token: sessionStorage.getItem("token")
+            };
+            // 上传图片的错误提示默认使用alert弹出，你也可以自定义用户体验更好的提示方式
+            this.editor.customConfig.customAlert = info => {
+                // alert(12);
+                // info 是需要提示的内容
+                this.$message.error("错误提示：" + info);
+            };
+            this.editor1.customConfig.customAlert = info => {
+                // alert(12);
+                // info 是需要提示的内容
+                this.$message.error("错误提示：" + info);
+            };
+
+            this.editor.create();
+            this.editor1.create();
+        },
         submit1(formName) {
             this.$refs[formName].validate(valid => {
                 if (valid) {
@@ -864,17 +961,10 @@ export default {
                         .then(res => {
                             if (res.data.code === "0000") {
                                 sessionStorage.setItem(
-                                    "titleNumber",
-                                    res.data.question_uuid
-                                );
-                                sessionStorage.setItem(
                                     "questionUUid",
                                     res.data.question_uuid
                                 );
-                                if (
-                                    sessionStorage.getItem("titleNumber") &&
-                                    sessionStorage.getItem("questionUUid")
-                                ) {
+                                if (sessionStorage.getItem("questionUUid")) {
                                     this.$utils
                                         .post(
                                             this.reqApi.xinls +
@@ -900,15 +990,6 @@ export default {
                                                 );
                                             }
                                         });
-                                }
-                                // this.dialogVisible1 = true;
-
-                                return;
-                                this.$router.push({
-                                    name: "accountSetList"
-                                });
-                                if (sessionStorage.getItem("activeName")) {
-                                    sessionStorage.removeItem("activeName");
                                 }
                             } else {
                                 return this.$message.error(res.data.msg);
@@ -965,10 +1046,6 @@ export default {
                             .then(res => {
                                 if (res.data.code === "0000") {
                                     sessionStorage.setItem(
-                                        "titleNumber",
-                                        this.form.practice_question_uuid
-                                    );
-                                    sessionStorage.setItem(
                                         "questionUUid",
                                         this.form.practice_question_uuid
                                     );
@@ -1007,10 +1084,6 @@ export default {
                             )
                             .then(res => {
                                 if (res.data.code === "0000") {
-                                    sessionStorage.setItem(
-                                        "titleNumber",
-                                        res.data.question_uuid
-                                    );
                                     sessionStorage.setItem(
                                         "questionUUid",
                                         res.data.question_uuid
@@ -1092,6 +1165,8 @@ export default {
                     .then(res => {
                         if (res.data.code === "0000") {
                             this.itemBankList = res.data.banks.list;
+                        } else {
+                            return this.$message.error(res.data.msg);
                         }
                     });
             } else {
@@ -1106,6 +1181,8 @@ export default {
                     .then(res => {
                         if (res.data.code === "0000") {
                             this.itemBankList = res.data.banks.list;
+                        } else {
+                            return this.$message.error(res.data.msg);
                         }
                     });
             }
@@ -1144,33 +1221,40 @@ export default {
             }
         },
         tobasicInfo(formName) {
-            this.form.content = cleanWord(this.form.content);
-            this.form.resolve = cleanWord(this.form.resolve);
+            // this.form.content = cleanWord(this.form.content);
+            // this.form.resolve = cleanWord(this.form.resolve);
             this.$refs[formName].validate(valid => {
+                this.disableBtn = true;
+                setInterval(() => {
+                    this.disableBtn = false;
+                }, 3000);
                 if (valid) {
+                    let reg = new RegExp(this.reqApi.shuiwuUrl, "g");
+                    this.form.content = this.form.content.replace(reg, "");
+                    this.form.resolve = this.form.resolve.replace(reg, "");
                     if (this.$route.query.qid) {
                         this.form.create_time = null;
                         this.form.update_time = null;
-                        if(this.form.locked==1){
-                            sessionStorage.setItem('locked',this.form.locked)
-                            sessionStorage.setItem(
-                                        "titleNumber",
-                                        this.form.practice_question_uuid
-                                    );
-                                    sessionStorage.setItem(
-                                        "questionUUid",
-                                        this.form.practice_question_uuid
-                                    );
+                        // sessionStorage.setItem("locked", this.form.locked);
+                        sessionStorage.setItem(
+                            "tihaoUUID",
+                            this.form.practice_question_uuid
+                        );
+                        //1是锁定
+                        if (this.form.locked == 1) {
                             return this.$router.push({
-                                        name: "accountSetList",
-                                        query: {
-                                            qid: this.$route.query.qid,
-                                            flag1: this.$route.query.flag1
-                                        }
-                                    });
-                        } else{
-                            sessionStorage.removeItem('locked')
+                                name: "accountSetList",
+                                query: {
+                                    qid: this.$route.query.qid,
+                                    flag1: this.$route.query.flag1,
+                                    locked: this.form.locked
+                                }
+                            });
+                        } else {
+                            // sessionStorage.removeItem("locked");
                         }
+
+                        // return
                         this.$utils
                             .post(
                                 this.reqApi.shuiwuUrl +
@@ -1183,61 +1267,21 @@ export default {
                             .then(res => {
                                 if (res.data.code === "0000") {
                                     sessionStorage.setItem(
-                                        "titleNumber",
-                                        this.form.practice_question_uuid
-                                    );
-                                    sessionStorage.setItem(
-                                        "questionUUid",
+                                        "tihaoUUID",
                                         this.form.practice_question_uuid
                                     );
                                     this.$router.push({
                                         name: "accountSetList",
                                         query: {
                                             qid: this.$route.query.qid,
-                                            flag1: this.$route.query.flag1
+                                            flag1: this.$route.query.flag1,
+                                            locked: this.form.locked
                                         }
                                     });
                                     // sessionStorage.setItem(
                                     //     "questionUUid",
                                     //     this.form.practice_question_uuid
                                     // );
-                                    return;
-                                    this.$utils
-                                        .post(
-                                            this.reqApi.xinls +
-                                                "/exam/account/get",
-                                            qs.stringify({
-                                                questionCode: this.form
-                                                    .practice_question_uuid
-                                            })
-                                        )
-                                        .then(res => {
-                                            if (res.data.code === "0000") {
-                                                sessionStorage.setItem(
-                                                    "questionUUid",
-                                                    res.data.data
-                                                );
-                                                this.$router.push({
-                                                    name: "testLedgerList"
-                                                    // query: {
-                                                    //     id: this.form.practice_question_uuid
-                                                    // }
-                                                });
-                                            } else if (
-                                                res.data.code === "3010"
-                                            ) {
-                                                return this.$message.error(
-                                                    res.data.code
-                                                );
-                                            } else {
-                                                return this.$message.error(
-                                                    res.data.code
-                                                );
-                                            }
-                                        });
-                                    if (sessionStorage.getItem("activeName")) {
-                                        sessionStorage.removeItem("activeName");
-                                    }
                                 } else {
                                     this.$message.error(res.data.msg);
                                 }
@@ -1262,11 +1306,7 @@ export default {
                             .then(res => {
                                 if (res.data.code === "0000") {
                                     sessionStorage.setItem(
-                                        "titleNumber",
-                                        res.data.question_uuid
-                                    );
-                                    sessionStorage.setItem(
-                                        "questionUUid",
+                                        "tihaoUUID",
                                         res.data.question_uuid
                                     );
                                     this.$router.push({
@@ -1303,6 +1343,7 @@ export default {
             });
         },
         getQuestionInfo() {
+            let reg = new RegExp('src="', "g");
             if (this.$route.query.id) {
                 this.$utils
                     .post(
@@ -1314,6 +1355,15 @@ export default {
                     .then(res => {
                         if (res.data.code === "0000") {
                             this.form = res.data.quVo.question;
+
+                            this.form.resolve = this.form.resolve.replace(
+                                reg,
+                                `src="${this.reqApi.shuiwuUrl}`
+                            );
+                            this.form.content = this.form.content.replace(
+                                reg,
+                                `src="${this.reqApi.shuiwuUrl}`
+                            );
                             this.editor1.txt.html(this.form.content);
                             this.editor.txt.html(this.form.resolve);
                             this.form.options = res.data.quVo.options;
@@ -1340,8 +1390,18 @@ export default {
                     .then(res => {
                         if (res.data.code === "0000") {
                             this.form = res.data.question;
+                            // let reg= new RegExp('src="', "g");
+                            this.form.resolve = this.form.resolve.replace(
+                                reg,
+                                `src="${this.reqApi.shuiwuUrl}`
+                            );
+                            this.form.content = this.form.content.replace(
+                                reg,
+                                `src="${this.reqApi.shuiwuUrl}`
+                            );
                             this.editor1.txt.html(this.form.content);
                             this.editor.txt.html(this.form.resolve);
+
                             this.form.options = res.data.options;
                             this.bank_ids = [];
                             if (res.data.banks.length > 0) {
@@ -1558,12 +1618,18 @@ export default {
         },
         // 提交
         newQuestion(formName) {
-            this.form.content = cleanWord(this.form.content);
-            this.form.resolve = cleanWord(this.form.resolve);
+            this.disableBtn = true;
+            setInterval(() => {
+                this.disableBtn = false;
+            }, 3000);
+            // this.form.content = cleanWord(this.form.content);
+            // this.form.resolve = cleanWord(this.form.resolve);
             this.$refs[formName].validate(valid => {
                 if (valid) {
+                    let reg = new RegExp(this.reqApi.shuiwuUrl, "g");
+                    this.form.content = this.form.content.replace(reg, "");
+                    this.form.resolve = this.form.resolve.replace(reg, "");
                     this.form.question = {};
-
                     this.form.question.content = this.form.content;
                     this.form.question.key = this.form.key;
                     this.form.question.status = this.form.status;
@@ -1624,8 +1690,8 @@ export default {
                                 }
                             }
                         }
-                    }else{
-                        return this.$message.error('请设置选项！！')
+                    } else {
+                        return this.$message.error("请设置选项！！");
                     }
 
                     let reqUrl = this.$route.query.id
@@ -1635,6 +1701,7 @@ export default {
                     //     // 编辑
                     // } else {
                     // 新增
+                    // return//暂停执行
                     if (this.form.type != 4) {
                         this.$utils
                             .post(
@@ -1659,30 +1726,30 @@ export default {
                 }
                 // }
             });
-            return;
-            const that = this;
-            this.form.content = cleanWord(this.form.content);
-            this.form.resolve = cleanWord(this.form.resolve);
-            that.$refs[formName].validate(valid => {
-                if (valid) {
-                    let obj = that.form;
-                    const Identification = !that.$route.query.id
-                        ? "exam/sys/newQuestion"
-                        : "exam/sys/updateQuestion";
-                    that.$utils.post(Identification, obj).then(res => {
-                        const { code, msg } = res.data;
-                        if (code === "00") {
-                            that.$router.push({
-                                name: "manageQuestion"
-                            });
-                            that.$message.success(msg);
-                        } else return that.$message(msg);
-                    });
-                } else {
-                    that.$message("请填写完整！");
-                    return false;
-                }
-            });
+            // return;
+            // const that = this;
+            // this.form.content = cleanWord(this.form.content);
+            // this.form.resolve = cleanWord(this.form.resolve);
+            // that.$refs[formName].validate(valid => {
+            //     if (valid) {
+            //         let obj = that.form;
+            //         const Identification = !that.$route.query.id
+            //             ? "exam/sys/newQuestion"
+            //             : "exam/sys/updateQuestion";
+            //         that.$utils.post(Identification, obj).then(res => {
+            //             const { code, msg } = res.data;
+            //             if (code === "00") {
+            //                 that.$router.push({
+            //                     name: "manageQuestion"
+            //                 });
+            //                 that.$message.success(msg);
+            //             } else return that.$message(msg);
+            //         });
+            //     } else {
+            //         that.$message("请填写完整！");
+            //         return false;
+            //     }
+            // });
         },
 
         optionsABC() {

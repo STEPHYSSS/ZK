@@ -9,7 +9,7 @@
                 </div>
                 <el-table :data="tableData" style="width: 100%;" border>
                     <el-table-column label="退货单编号" align="center" class="codesty" width="220">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span
                                 class="codesty"
                                 @click="billdetai(scope.row.code)"
@@ -17,22 +17,30 @@
                         </template>
                     </el-table-column>
                     <el-table-column label="创建日期" align="center">
-                        <template scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
+                        <template slot-scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
                     </el-table-column>
                     <el-table-column label="退货状态" align="center">
-                        <template scope="scope">{{scope.row.status | statusTip}}</template>
+                        <template slot-scope="scope">{{scope.row.status | statusTip}}</template>
                     </el-table-column>
                     <el-table-column prop="item" label="退货品项数" align="center"></el-table-column>
                     <el-table-column prop="count" label="退货总数" align="center"></el-table-column>
                     <el-table-column prop="amount" label="退货总金额" align="center"></el-table-column>
-                    <el-table-column label="操作" align="center">
-                        <template scope="scope">
+                    <el-table-column label="操作" align="center" fixed="right">
+                        <template slot-scope="scope">
                             <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
                                 <img
                                     src="@/assets/images/shanchu_icon.png"
                                     @click="delbillRow(scope.row.code)"
                                     class="codesty"
                                     alt
+                                />
+                            </el-tooltip>
+                            <el-tooltip class="tips" effect="dark" content="审核" placement="bottom">
+                                <img
+                                    src="@/assets/images/present_icon_one.png"
+                                    alt
+                                    v-if="scope.row.status=='1'"
+                                    @click="shenhe(scope.row.code)"
                                 />
                             </el-tooltip>
                         </template>
@@ -63,6 +71,14 @@ export default {
         this.billList();
     },
     methods: {
+        shenhe(code) {
+            this.$router.push({
+                name: "returnDetails",
+                query: {
+                    code: code
+                }
+            });
+        },
         newIncrease() {
             this.$router.push({
                 name: "billAdd"
@@ -103,11 +119,13 @@ export default {
                     .then(res => {
                         if (res.data.code === "0000") {
                             this.$message.success("删除成功！");
-                            this.billList()
+                            this.billList();
+                        } else {
+                            this.$message.error(res.data.msg);
                         }
                     });
             });
-            return
+            return;
             // return/delete
             this.$axios({
                 url: window.apiStore + "return/delete",
@@ -126,8 +144,8 @@ export default {
                         message: "删除成功!"
                     });
                     this.billList();
-                }else {
-                     return this.$message.error(res.data.msg)
+                } else {
+                    return this.$message.error(res.data.msg);
                 }
             });
         },

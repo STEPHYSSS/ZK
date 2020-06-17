@@ -88,7 +88,7 @@
         <el-table :data="tableData" style="width: 100%;">
           <!-- <el-table-column prop="name" label="品名" align="center" class="codesty"></el-table-column> -->
           <!-- <el-table-column label="商品分类" align="center">
-            <template scope="scope">
+            <template slot-scope="scope">
               <span>{{scope.row.typeLevel1}}/{{scope.row.typeLevel2}}/{{scope.row.typeLevel3}}</span>
             </template>
           </el-table-column> -->

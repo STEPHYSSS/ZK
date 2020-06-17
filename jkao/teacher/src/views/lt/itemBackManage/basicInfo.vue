@@ -1,6 +1,6 @@
 <template>
     <el-card class="f-new box-card" id="new-question">
-        <h3>基础账套</h3>
+        <h3>{{$route.query.name}}</h3>
         <div class="basicInfo">
             <new-tabs :active="active" :data="data"></new-tabs>
 
@@ -98,7 +98,7 @@ export default {
                     ]
                 },
                 {
-                    label: "单据数据",
+                    label: "业务数据",
                     children: [
                         {
                             label: "门店叫货单",
@@ -106,12 +106,12 @@ export default {
                             id:1
                         },
                         {
-                            label: "供应商采购单",
+                            label: "供应商配送",
                             url: "shoporder",
                             id:2
                         },
                         {
-                            label: "门店配送单",
+                            label: "门店常规收货",
                             url: "receiving",
                             id:3
                         },
@@ -141,32 +141,32 @@ export default {
                             id:21
                         },
                         {
-                            label: "仓库出库单",
+                            label: "仓库-订购出库",
                             url: "orderWarehouseList",
                             id:5
                         },
-                        {
-                            label: "仓库拣货单",
-                            url: "pickingOrders",
-                            id:28
-                        },
+                        // {
+                        //     label: "仓库拣货单",
+                        //     url: "pickingOrders",
+                        //     id:28
+                        // },
                         {
                             label: "仓库盘点单",
                             url: "CKInventory",
                             id:23
                         },
                         {
-                            label: "仓库采购单",
+                            label: "仓库-采购入库",
                             url: "CKProcurement",
                             id:24
                         },
                         {
-                            label: "仓库其他入库单",
+                            label: "仓库-其他入库",
                             url: "CKotherWarehouseList",
                             id:25
                         },
                         {
-                            label: "仓库其他出库单",
+                            label: "仓库-其他出库",
                             url: "CKOtherdepots",
                             id:26
                         },

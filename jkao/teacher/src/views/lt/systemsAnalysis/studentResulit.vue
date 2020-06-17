@@ -18,32 +18,9 @@
         >
             <el-row>
                 <el-col :span="6">
-                    <!-- <el-form-item label="用户名:">
-            <el-input clearable v-model="form.username"></el-input>
-                    </el-form-item>-->
-                </el-col>
-                <el-col :span="6">
                     <el-form-item label="真实姓名:">
                         <el-input clearable v-model="form.realname"></el-input>
                     </el-form-item>
-                </el-col>
-                <el-col :span="6">
-                    <!-- <el-form-item label="分数排序:">
-            <el-select v-model="form.score" placeholder="请选择">
-              <el-option label="默认" value="0"></el-option>
-              <el-option label="降序" value="1"></el-option>
-              <el-option label="升序" value="2"></el-option>
-            </el-select>
-                    </el-form-item>-->
-                </el-col>
-                <el-col :span="6">
-                    <!-- <el-form-item label="时间排序:">
-            <el-select v-model="form.timeOrder" placeholder="请选择">
-              <el-option label="默认" value="0"></el-option>
-              <el-option label="降序" value="1"></el-option>
-              <el-option label="升序" value="2"></el-option>
-            </el-select>
-                    </el-form-item>-->
                 </el-col>
                 <el-col :span="6">
                     <el-form-item label="所在班级:">
@@ -57,7 +34,7 @@
                         </el-select>
                     </el-form-item>
                 </el-col>
-                <el-col class="fr txalign-c" style="padding-right: 20px;" :span="6">
+                <el-col class="fr text-right" style="padding-right: 20px;" :span="12">
                     <el-form-item>
                         <el-button @click="searchCX" class="search search-btn">搜索</el-button>
                         <el-button class="search search-btn" @click="clear">重置</el-button>

@@ -8,7 +8,7 @@
                     <el-input v-model="name" clearable class="inputWidth1"></el-input>
                     <el-button class="btnStyle" @click="search">搜索</el-button>
                 </div>
-                <div class="btnbox444">
+                <div class="btnbox444" v-if="$route.query.locked==2">
                     <el-button class="btnStyle" @click="clear" :disabled="flag">无账套</el-button>
                     <el-button class="btnStyle" @click="copy">复制账套</el-button>
                     <el-button @click="dialogVisible1=true" class="btnStyle">新建账套</el-button>
@@ -44,6 +44,7 @@
                     <span class="menuTitle">类目管理</span>
                     <el-tree
                         style="font-size:12px;"
+                        highlight-current
                         :data="goodsTypeTree"
                         :props="defaultProps"
                         default-expand-all
@@ -118,6 +119,7 @@
                 <el-button class="btnStyle" @click="goBack">返回</el-button>
             </div>
         </div>
+        <!-- 新建账套 -->
         <el-dialog title="提示" :visible.sync="dialogVisible1" width="450px">
             <el-form
                 :model="ruleForm1"
@@ -134,11 +136,12 @@
                 </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
-                <el-button @click="submit1('ruleForm1')">确 定</el-button>
+                <el-button @click="submit1('ruleForm1')" :disabled="subBtn">确 定</el-button>
                 <el-button @click="dialogVisible1 = false">取 消</el-button>
             </span>
         </el-dialog>
-        <!-- <el-dialog title="提示" :visible.sync="dialogVisible" width="450px">
+        <!-- 复制账套 -->
+        <el-dialog title="提示" :visible.sync="dialogVisible" width="450px">
             <el-form
                 :model="ruleForm"
                 :rules="rules"
@@ -149,15 +152,12 @@
                 <el-form-item label="账套名称" prop="name">
                     <el-input class="inputWidth" v-model="ruleForm.name"></el-input>
                 </el-form-item>
-                <el-form-item label="备注">
-                    <el-input class="inputWidth" v-model="ruleForm.remark"></el-input>
-                </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
                 <el-button @click="submit('ruleForm')">确 定</el-button>
                 <el-button @click="dialogVisible = false">取 消</el-button>
             </span>
-        </el-dialog>-->
+        </el-dialog>
     </el-card>
 </template>
 <script>
@@ -169,7 +169,7 @@ export default {
             flag: true,
             radio: "",
             name: "",
-            questionCode: sessionStorage.getItem("questionUUid"),
+            questionCode: sessionStorage.getItem("tihaoUUID"),
             dialogVisible: false,
             goodsList: [],
             warehouseList: [],
@@ -178,6 +178,7 @@ export default {
             warehouseStockList: [],
             goodsTypeTree: [],
             detailData: {},
+            subBtn: false,
             defaultProps: {
                 children: "children",
                 dialogVisible: false,
@@ -220,13 +221,13 @@ export default {
         this.getList();
     },
     methods: {
-        chooseone(row){
-      this.code = row.code
-       if(this.flag){
-              this.flag =!this.flag
+        chooseone(row) {
+            this.code = row.code;
+            if (this.flag) {
+                this.flag = !this.flag;
             }
             this.getAccountData();
-    },
+        },
         pre() {
             this.$router.push({
                 name: "newQuestion",
@@ -239,7 +240,7 @@ export default {
             this.$router.go(-1);
         },
         clear() {
-          this.flag=true
+            this.flag = true;
             this.code = "";
             this.goodsTypeTree = [];
             this.goodsList = [];
@@ -251,9 +252,13 @@ export default {
         submit1(formName) {
             this.$refs[formName].validate(valid => {
                 if (valid) {
-                    if (sessionStorage.getItem("titleNumber")) {
+                    this.subBtn = true;
+                    setInterval(() => {
+                        this.subBtn = false;
+                    }, 3000);
+                    if (sessionStorage.getItem("tihaoUUID")) {
                         this.ruleForm1.questionCode = sessionStorage.getItem(
-                            "titleNumber"
+                            "tihaoUUID"
                         );
                     }
                     this.$utils
@@ -265,93 +270,7 @@ export default {
                             if (res.data.code === "0000") {
                                 this.dialogVisible1 = false;
                                 this.$message.success("提交成功！！");
-                                sessionStorage.setItem(
-                                    "questionUUid",
-                                    res.data.data
-                                );
-                                this.$router.push({
-                                    name: "dictionary"
-                                });
-                            } else {
-                                this.$message.error(res.data.msg);
-                            }
-                        });
-                    return;
-                    this.ruleForm1.questionCode = sessionStorage.getItem(
-                        "questionUUid"
-                    );
-                    this.$utils
-                        .post(
-                            this.reqApi.shuiwuUrl + "/question/prc/createQu",
-                            qs.stringify({
-                                question: JSON.stringify(this.form),
-                                bank_ids: JSON.stringify(this.bank_ids)
-                            })
-                        )
-                        .then(res => {
-                            if (res.data.code === "0000") {
-                                sessionStorage.setItem(
-                                    "titleNumber",
-                                    res.data.question_uuid
-                                );
-                                sessionStorage.setItem(
-                                    "questionUUid",
-                                    res.data.question_uuid
-                                );
-                                if (
-                                    sessionStorage.getItem("titleNumber") &&
-                                    sessionStorage.getItem("questionUUid")
-                                ) {
-                                    this.$utils
-                                        .post(
-                                            this.reqApi.xinls +
-                                                "/exam/account/add",
-                                            qs.stringify(this.ruleForm1)
-                                        )
-                                        .then(res => {
-                                            if (res.data.code === "0000") {
-                                                this.dialogVisible1 = false;
-                                                this.$message.success(
-                                                    "提交成功！！"
-                                                );
-                                                sessionStorage.setItem(
-                                                    "questionUUid",
-                                                    res.data.data
-                                                );
-                                                this.$router.push({
-                                                    name: "dictionary"
-                                                });
-                                            } else {
-                                                this.$message.error(
-                                                    res.data.msg
-                                                );
-                                            }
-                                        });
-                                }
-                                // this.dialogVisible1 = true;
-
-                                return;
-                                this.$router.push({
-                                    name: "accountSetList"
-                                });
-                                if (sessionStorage.getItem("activeName")) {
-                                    sessionStorage.removeItem("activeName");
-                                }
-                            } else {
-                                return this.$message.error(res.data.msg);
-                            }
-                        });
-
-                    return;
-                    this.$utils
-                        .post(
-                            this.reqApi.xinls + "/exam/account/add",
-                            qs.stringify(this.ruleForm1)
-                        )
-                        .then(res => {
-                            if (res.data.code === "0000") {
-                                this.dialogVisible1 = false;
-                                this.$message.success("提交成功！！");
+                                // 基础数据账套编号
                                 sessionStorage.setItem(
                                     "questionUUid",
                                     res.data.data
@@ -369,44 +288,54 @@ export default {
             });
         },
         submit(formName) {
-            // this.$refs[formName].validate(valid => {
-            //     if (valid) {
-            this.$utils
-                .post(
-                    this.reqApi.xinls + "/exam/account/copy",
-                    qs.stringify({
-                        code: this.code,
-                        questionCode: sessionStorage.getItem("titleNumber")
-                        // name: this.ruleForm.name,
-                        // remark: this.ruleForm.remark
-                    })
-                )
-                .then(res => {
-                    if (res.data.code === "0000") {
-                        this.dialogVisible = false;
-                        this.$message.success("提交成功！！");
-                        // this.$refs[formName].clearValidate();
-                        sessionStorage.setItem("questionUUid", res.data.data);
-                        this.$router.push({
-                            name: "dictionary"
+            this.$refs[formName].validate(valid => {
+                if (valid) {
+                    this.$utils
+                        .post(
+                            this.reqApi.xinls + "/exam/account/copy",
+                            qs.stringify({
+                                code: this.code,
+                                questionCode: sessionStorage.getItem(
+                                    "tihaoUUID"
+                                ),
+                                name: this.ruleForm.name
+                            })
+                        )
+                        .then(res => {
+                            if (res.data.code === "0000") {
+                                this.dialogVisible = false;
+                                this.$message.success("提交成功！！");
+                                sessionStorage.setItem(
+                                    "questionUUid",
+                                    res.data.data
+                                ); // 基础数据账套编号
+                                // this.getList()
+                                this.$router.push({
+                                    name: "dictionary",
+                                    query: {
+                                        source: "accountSetList"
+                                    }
+                                });
+                            } else {
+                                return this.$message.error(res.data.msg);
+                            }
                         });
-                    }
-                });
-            // } else {
-            //     return false;
-            // }
-            // });
+                } else {
+                    return false;
+                }
+            });
         },
         copy() {
             if (!this.code) {
                 return this.$message.error("请选择账套");
             }
-            this.submit();
+            this.dialogVisible = true;
+            // this.submit();
             // this.dialogVisible = true;
         },
         goBack() {
             // this.$router.go(-1);
-            sessionStorage.removeItem("questionUUid");
+            sessionStorage.removeItem("tihaoUUID");
             this.$router.push({
                 name: "practicalTraining"
             });
@@ -422,27 +351,40 @@ export default {
         next() {
             // if (!this.code) return this.$message.error("请选择账套！！");
 
-            this.$utils
-                .post(
-                    this.reqApi.xinls + "/exam/account/selection",
-                    qs.stringify({
-                        code: this.code,
-                        questionCode: sessionStorage.getItem("titleNumber")
-                    })
-                )
-                .then(res => {
-                    if (res.data.code === "0000") {
-                        this.$router.push({
-                            name: "setAnswer",
-                            query: {
-                                qid: this.$route.query.qid,
-                                flag1: this.$route.query.flag1
-                            }
-                        });
-                    } else {
-                        this.$message.error(res.data.msg);
+            if (this.$route.query.locked == 1) {
+                //锁定状态
+                this.$router.push({
+                    name: "setAnswer",
+                    query: {
+                        qid: this.$route.query.qid,
+                        flag1: this.$route.query.flag1,
+                        locked:this.$route.query.locked
                     }
                 });
+            } else {
+                this.$utils
+                    .post(
+                        this.reqApi.xinls + "/exam/account/selection",
+                        qs.stringify({
+                            code: this.code,
+                            questionCode: sessionStorage.getItem("tihaoUUID")
+                        })
+                    )
+                    .then(res => {
+                        if (res.data.code === "0000") {
+                            this.$router.push({
+                                name: "setAnswer",
+                                query: {
+                                    qid: this.$route.query.qid,
+                                    flag1: this.$route.query.flag1,
+                                    locked:this.$route.query.locked
+                                }
+                            });
+                        } else {
+                            return this.$message.error(res.data.msg);
+                        }
+                    });
+            }
         },
         getList() {
             this.$utils
@@ -450,7 +392,7 @@ export default {
                     this.reqApi.xinls + "/exam/account/list",
                     qs.stringify({
                         name: this.name,
-                        questionCode: sessionStorage.getItem("questionUUid"),
+                        questionCode: sessionStorage.getItem("tihaoUUID"),
                         pageSize: 9999999
                     })
                 )
@@ -459,7 +401,7 @@ export default {
                         this.tableData = res.data.data.list;
                         for (const i of this.tableData) {
                             if (i.selection == 1) {
-                                this.flag=false
+                                this.flag = false;
                                 this.code = i.code;
                                 this.getAccountData();
                             }
@@ -468,9 +410,8 @@ export default {
                 });
         },
         getCurrentRow(data) {
-          
-            if(this.flag){
-              this.flag =!this.flag
+            if (this.flag) {
+                this.flag = !this.flag;
             }
             this.code = data.code;
             this.ruleForm.name = data.name;

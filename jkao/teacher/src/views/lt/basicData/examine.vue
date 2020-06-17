@@ -45,7 +45,8 @@
             <el-col :span="6">
               <p>
                 配送方：
-                <span>{{tableData2.supplierName}}</span>
+                <span v-if="tableData2.sourceType=='S'">供应商</span>
+                <span v-if="tableData2.sourceType=='W'">仓库</span>
               </p>
             </el-col>
             <el-col :span="6">
@@ -76,7 +77,7 @@
             <el-table-column prop="spec" label="规格" align="center"></el-table-column>
             <el-table-column prop="count" label="拒收数" align="center"></el-table-column>
             <el-table-column prop="reason" label="拒收原因" align="center"></el-table-column>
-            <el-table-column label="供应商确认数量" align="center">
+            <el-table-column label="配送方确认数量" align="center">
               <template slot-scope="scope">
                 <el-input
                   type="text"

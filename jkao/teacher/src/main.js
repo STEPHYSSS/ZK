@@ -60,6 +60,14 @@ Vue.prototype.$moment = moment
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
+    // console.log(to.path, 'to')
+    // console.log(from.path, 'from')
+    // if (from.path != '/dictionary') {
+    //     if (sessionStorage.getItem('tag')) {
+    //         sessionStorage.removeItem('tag')
+    //     }
+    //     next()
+    // }
     if (to.path == '/examinationAnalysis' && from.path == '/specificAnalysis') {
         next()
     } else if (from.path == '/examinationAnalysis' && to.path == '/specificAnalysis') {
@@ -100,19 +108,25 @@ function getServerConfig() {
             }
 
             if (process.env.NODE_ENV == 'development') {
-                Vue.prototype.reqApi.ziyuankuUrl = 'http://192.168.1.202:8086/resource/'
-                Vue.prototype.reqApi.fileUpload = 'http://192.168.1.202:8086/resource/'
-                Vue.prototype.reqApi.fileyulan = "http://192.168.1.202:8086/resource/"
+                    Vue.prototype.reqApi.ziyuankuUrl = 'http://192.168.1.202:8086/resource/'
+                    Vue.prototype.reqApi.fileUpload = 'http://192.168.1.202:8086/resource/'
+                    Vue.prototype.reqApi.fileyulan = "http://192.168.1.202:8086/resource/"
                 Vue.prototype.reqApi.shuiwuUrl = 'http://192.168.1.202:8086/teach_exam/'
-                    // Vue.prototype.reqApi.shuiwuUrl = 'http://192.168.1.171:8080'
+                    //         // Vue.prototype.reqApi.shuiwuUrl = 'http://192.168.1.171:8080' // 陈毅本地
+
+                //     // Vue.prototype.reqApi.shuiwuUrl = 'http://192.168.1.171:8086'
                 Vue.prototype.reqApi.xinls = 'http://192.168.1.202:8086'
-                    /*  Vue.prototype.reqApi.xinls = 'http://demo2.seekerp.com/teach_exam'
-                  Vue.prototype.reqApi.ziyuankuUrl = 'http://demo2.seekerp.com/teach_exam'
-                  Vue.prototype.reqApi.fileUpload = 'http://demo2.seekerp.com/teach_exam'
-                  Vue.prototype.reqApi.fileyulan = "http://demo2.seekerp.com/teach_exam"
-                      // Vue.prototype.reqApi.shuiwuUrl = 'http://192.168.1.168:8086/teach_exam/'
-                  Vue.prototype.reqApi.shuiwuUrl = 'http://demo2.seekerp.com/teach_exam'
-              Vue.prototype.reqApi.xinls = 'http://demo2.seekerp.com/' */
+                    //         // Vue.prototype.reqApi.xinls = 'http://192.168.1.131:8086' 殷杰本地
+
+                //     // Vue.prototype.reqApi.xinls = 'http://192.168.1.171:8080' // 陈毅本地
+
+                //     /*  Vue.prototype.reqApi.xinls = 'http://demo2.seekerp.com/teach_exam'
+                //       Vue.prototype.reqApi.ziyuankuUrl = 'http://demo2.seekerp.com/teach_exam'
+                //       Vue.prototype.reqApi.fileUpload = 'http://demo2.seekerp.com/teach_exam'
+                //       Vue.prototype.reqApi.fileyulan = "http://demo2.seekerp.com/teach_exam"
+                //           // Vue.prototype.reqApi.shuiwuUrl = 'http://192.168.1.168:8086/teach_exam/'
+                //       Vue.prototype.reqApi.shuiwuUrl = 'http://demo2.seekerp.com/teach_exam'
+                //   Vue.prototype.reqApi.xinls = 'http://demo2.seekerp.com/' */
             } else if (process.env.NODE_ENV == 'production') {}
             resolve();
         })

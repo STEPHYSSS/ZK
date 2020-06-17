@@ -17,8 +17,8 @@
                     <!-- <el-form-item label="用户名:">
                         <el-input clearable v-model="formInline.username" placeholder="用户名"></el-input>
                     </el-form-item> -->
-                     <el-form-item label="真实姓名:">
-                        <el-input clearable v-model="formInline.stuname" placeholder="真实姓名"></el-input>
+                     <el-form-item label="姓名:">
+                        <el-input clearable v-model="formInline.stuname" placeholder="姓名"></el-input>
                     </el-form-item>
                 </el-col>
                 <el-col :span="6">
@@ -48,25 +48,26 @@
                     </el-form-item>
                 </el-col>
                 <el-col :span="6">
-                    
+
                 </el-col>
-                <el-col class="fr txalign-c" :span="6">
+                <el-col class="fr text-right" :span="12">
                     <el-form-item>
                         <el-button class="search search-btn" @click="searchCX">搜索</el-button>
                         <el-button class="search search-btn" @click="clear">重置</el-button>
                     </el-form-item>
                 </el-col>
             </el-row>
-        </el-form> 
+        </el-form>
         <div class="addBox">
             <el-button @click="addUsers">新增</el-button>
             <el-button @click="delAll">批量删除</el-button>
+             <el-button @click="bulkImport">批量导入</el-button>
         </div>
         <!-- 表格 -->
         <el-table :data="stuList" style="width: 100%" @selection-change="chooseStu">
             <el-table-column type="selection" width="55" align="center"></el-table-column>
             <el-table-column prop="username" label="用户名" align="center" width="180"></el-table-column>
-            <el-table-column prop="realname" label="真实姓名" align="center" width="180"></el-table-column>
+            <el-table-column prop="realname" label="姓名" align="center" width="180"></el-table-column>
             <el-table-column prop="num" align="center" width="170" label="学号"></el-table-column>
             <el-table-column prop="user_photo" align="center" label="学员照片">
                 <template slot-scope="scope">
@@ -78,20 +79,20 @@
                     />
                 </template>
             </el-table-column>
-            <el-table-column prop="class_name" align="center" label="所属班级" width="250px" :show-overflow-tooltip="true"></el-table-column>
+            <el-table-column prop="class_name" align="center" label="所属班级" :show-overflow-tooltip="true"></el-table-column>
             <el-table-column prop="status" align="center" label="学员状态">
                 <template slot-scope="scope">
                     <span v-if="scope.row.status == 1">开放</span>
                     <span v-if="scope.row.status == 2">关闭</span>
                 </template>
             </el-table-column>
-            <el-table-column prop="last_login_time" align="center" label="最后登录时间" width="210">
+            <el-table-column prop="last_login_time" align="center" label="最后登录时间">
                 <template slot-scope="scope">
                     <span v-if="scope.row.last_login_time">{{scope.row.last_login_time|fmtDate}}</span>
                     <span v-else>未登录</span>
                 </template>
             </el-table-column>
-            <el-table-column prop="class_name" align="center" label="操作" width="180">
+            <el-table-column prop="class_name" align="center" label="操作" width="180" fixed="right">
                 <template slot-scope="scope">
                     <el-tooltip class="item" effect="dark" content="考试记录" placement="bottom">
                         <span class="cur-point dis-inline-block" @click="handleExam(scope.row)">
@@ -108,12 +109,17 @@
                             <img src="@/assets/images/xiugai_icon.png" alt />
                         </span>
                     </el-tooltip>&nbsp;&nbsp;&nbsp;
-                    <span
+                    <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+                        <span class="cur-point dis-inline-block" @click="open(scope.row)">
+                            <img src="@/assets/images/shanchu_icon.png" alt />
+                        </span>
+                    </el-tooltip>&nbsp;&nbsp;&nbsp;
+                    <!-- <span
                         class="cur-point dis-inline-block"
                         @click="open(scope.row)"
                     >
                         <img src="@/assets/images/shanchu_icon.png" alt />
-                    </span>&nbsp;&nbsp;&nbsp;
+                    </span>&nbsp;&nbsp;&nbsp; -->
                     <el-tooltip class="item" effect="dark" content="重置密码" placement="bottom">
                         <span
                             class="cur-point dis-inline-block"
@@ -221,9 +227,14 @@
                         </el-table-column>
                         <el-table-column align="center" prop="get_score" label="用户得分"></el-table-column>
                         <el-table-column align="center" prop="total_score" label="总分"></el-table-column>
-                        <el-table-column align="center" label="操作">
+                        <el-table-column align="center" label="操作" fixed="right">
                             <template slot-scope="scope">
-                                <a href="javascript:;" @click="openTest(scope.row)">删除</a>
+                              <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+                                <span class="cur-point dis-inline-block" @click="openTest(scope.row)">
+                                  <img src="@/assets/images/shanchu_icon.png" alt="">&nbsp;&nbsp;&nbsp;
+                                </span>
+                              </el-tooltip>
+                                <!-- <a href="javascript:;" @click="openTest(scope.row)">删除</a> -->
                             </template>
                         </el-table-column>
                     </el-table>
@@ -320,6 +331,14 @@ export default {
         "previous-page": previousPage
     },
     methods: {
+        bulkImport(){
+            this.$router.push({
+                name:'importUserList',
+                query:{
+                    user:'user'
+                }
+            })
+        },
         clear(){
                 this.formInline.stuname=''
                 this.formInline.num=''

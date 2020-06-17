@@ -7,10 +7,10 @@
       <el-button @click="addCourse">新增课程</el-button>
     </div>
     <!-- 表格 -->
-    <el-table :data="tableData" border class="topBorder" style="width: 100%"
-    
+    <el-table :data="tableData" class="topBorder" style="width: 100%"
+
     >
-      <el-table-column align="center" prop="name" label="课程名称" :show-overflow-tooltip="true" width="200px"></el-table-column>
+      <el-table-column align="center" prop="name" label="课程名称" :show-overflow-tooltip="true"></el-table-column>
       <el-table-column align="center" label="课程状态">
         <template slot-scope="scope">
           <span v-if="scope.row.status == 1">开放</span>
@@ -24,7 +24,7 @@
       </el-table-column>
       <!-- <el-table-column align="center" prop="introduce" label="课程分类">
       </el-table-column>-->
-      <el-table-column align="center" show-overflow-tooltip label="课程介绍" width="250px">
+      <el-table-column align="center" show-overflow-tooltip label="课程介绍">
         <template slot-scope="scope">{{scope.row.description}}</template>
       </el-table-column>
       <!-- <el-table-column align="center" prop="stars" label="分值"></el-table-column> -->
@@ -32,17 +32,17 @@
         <template slot-scope="scope">
           {{ scope.row.create_user_name }}
           <br />
-          {{ scope.row.create_time }}
+          {{ scope.row.create_time | fmtDate}}
         </template>
       </el-table-column>
       <el-table-column align="center" label="最后修改人" width="210">
         <template slot-scope="scope">
           {{ scope.row.update_user_name }}
           <br />
-          {{ scope.row.update_time }}
+          {{ scope.row.update_time | fmtDate}}
         </template>
       </el-table-column>
-      <el-table-column align="center" width="150" label="操作">
+      <el-table-column align="center" width="150" label="操作" fixed="right">
         <template slot-scope="scope">
           <el-tooltip class="item" effect="dark" content="配置" placement="bottom">
             <span class="cur-point dis-inline-block" @click="handleDate(scope.row)">

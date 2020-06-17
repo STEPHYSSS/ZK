@@ -2,7 +2,7 @@
     <div id="setOfWaveList" class="minWidth1600">
         <div class="content">
             <h3>组波策略</h3>
-            <el-table :data="list" style="width: 100%;" border max-height="600">
+            <el-table :data="list" style="width: 100%;" max-height="600">
                 <el-table-column align="center" label="序号">
                     <template slot-scope="scope">{{ scope.$index+1}}</template>
                 </el-table-column>
@@ -20,7 +20,7 @@
                 <el-table-column align="center" label="状态">
                     <template slot-scope="scope">{{ scope.row.status| statusTip}}</template>
                 </el-table-column>
-                <el-table-column align="center" label="操作">
+                <el-table-column align="center" label="操作" fixed="right">
                     <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
                         <p class="dis">
                             <img src="@/assets/xiugai_icon.png" class="codesty" @click="edit()" />
@@ -169,7 +169,7 @@ export default {
 
 #setOfWaveList .content {
     background-color: #fff;
-    padding: 15px 25px;
+    padding: 15px 0 0 25px;
 }
 
 h4 {

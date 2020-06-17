@@ -25,7 +25,7 @@
                             ></el-input>
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" label="操作">
+                    <el-table-column align="center" label="操作" fixed="right">
                       <template slot-scope="scope">
                         <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
                             <!-- <div class="dis"> -->
@@ -40,7 +40,7 @@
                     </el-table-column>
                     <!-- <el-table-column prop="unit" label="单位" align="center"></el-table-column> -->
                     <!-- <el-table-column label="保质期" align="center">
-                        <template scope="scope">{{scope.row.period}}{{scope.row.periodUnit}}</template>
+                        <template slot-scope="scope">{{scope.row.period}}{{scope.row.periodUnit}}</template>
                     </el-table-column> -->
                     <!-- <el-table-column prop="temperature" label="温层" align="center"></el-table-column> -->
                     <!-- <el-table-column prop="warehouseName" label="所在仓库" align="center" width="150"></el-table-column> -->

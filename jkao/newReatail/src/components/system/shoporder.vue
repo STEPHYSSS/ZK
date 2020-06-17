@@ -64,7 +64,7 @@
     <div class="storeInfo">
       <div class="store_Box1">
         <div class="scollHide">
-          <el-table :data="tableData" style="width: 100%" border>
+          <el-table :data="tableData" style="width: 100%">
             <el-table-column label="创建日期" align="center">
               <template scope="scope">
                 <span>{{scope.row.createTime|fmtDate2}}</span>
@@ -82,7 +82,7 @@
                 <span>{{scope.row.estimatedArrivalTime|fmtDate2}}</span>
               </template>
             </el-table-column>
-            <el-table-column label="操作" align="center">
+            <el-table-column label="操作" align="center" fixed="right">
               <template scope="scope">
                 <el-tooltip class="item" effect="dark" content="查看" placement="bottom">
                     <img src="@/assets/chaxun_icon.png" class="imgSize" @click="see(scope.row.code)"/>

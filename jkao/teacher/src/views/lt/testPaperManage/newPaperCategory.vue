@@ -28,7 +28,7 @@
           </el-form-item>
         </el-form>
         <add-btn
-        class="txalign"
+        class="text-center"
         level1="提 交" level2="取 消"
         @submitForm="submitForm('form')"
         @cancelForm="findPaperCategorys">

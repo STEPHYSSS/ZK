@@ -1,0 +1,122 @@
+/* 查询条件样式 */
+.form-query .el-form-item {
+  width: 100%;
+}
+
+.form-query .el-form-item__label {
+  width: 83px;
+}
+
+.form-query .el-form-item__content {
+  width: calc(100% - 110px);
+}
+
+.form-query .el-select {
+  width: 100%;
+}
+
+/* card阴影 */
+.shadow-card {
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+
+/* 某些有按钮的卡片 页脚样式 */
+.footer-card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+  background-color: #fff;
+  padding: 10px 20px;
+}
+.container-card {
+  overflow: auto;
+  height: 100%;
+}
+
+/* 重置密码弹出框样式 */
+.dialog-re-pwd .el-dialog__header, .dialog-re-pwd .el-dialog__body {
+  padding: 0;
+}
+.dialog-re-pwd .dialog-header {
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+}
+.dialog-re-pwd .dialog-header i {
+  font-size: 20px;
+  line-height: 40px;
+}
+.dialog-re-pwd .dialog-header .dialog-title {
+  font-size: 14px;
+  vertical-align: top;
+}
+.dialog-re-pwd .dialog-body {
+  height: 80px;
+  line-height: 80px;
+}
+
+/* 重置地图弹框样式 */
+.amap-dialog .el-dialog__header {
+  display: none;
+}
+.amap-dialog .el-dialog__body {
+  padding: 20px;
+}
+.amap-dialog .el-dialog {
+  height: 600px;
+}
+
+/* 字体12px */
+.font-size-12 {
+  font-size: 12px;
+}
+
+/* color: #FA8A11 */
+.font-color-orange {
+  color: #FA8A11;
+}
+
+/* color: #fff */
+.font-color-fff {
+  color: #fff;
+}
+
+/* color: blue */
+.font-color-blue {
+  color: #4489fe;
+}
+
+/* 背景颜色orange */
+.bgc-orange {
+  background-color: #FA8A11;
+}
+
+/* 背景颜色blue */
+.bgc-blue {
+  background-color: #4489fe;
+}
+
+/* 边框颜色 blue */
+.border-blue {
+  border: 1px solid #4489fe;
+}
+
+/* 边框颜色 orange */
+.border-orange {
+  border: 1px solid #FA8A11;
+}
+
+.ssl {
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

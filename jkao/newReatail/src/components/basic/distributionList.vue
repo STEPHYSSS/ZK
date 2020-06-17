@@ -1,8 +1,8 @@
 <template>
-  <div id="distributionList" class="minimum minWidth1600">
+  <div id="distributionList">
     <div class="content">
       <h3>分配策略</h3>
-      <el-table :data="list" style="width: 100%;" border>
+      <el-table :data="list" style="width: 100%;" >
         <el-table-column align="center" label="序号">
           <template slot-scope="scope">{{ scope.$index+1}}</template>
         </el-table-column>
@@ -20,7 +20,7 @@
         <el-table-column align="center" label="状态">
           <template slot-scope="scope">{{ scope.row.status| statusTip}}</template>
         </el-table-column>
-        <el-table-column align="center" label="操作">
+        <el-table-column align="center" label="操作" fixed="right">
           <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
             <p class="dis">
               <img src="@/assets/xiugai_icon.png" class="codesty" @click="edit()" />

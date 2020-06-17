@@ -22,6 +22,7 @@
                 <el-input
                     v-model="item.courseware_name"
                     placeholder="文件名，必填"
+                    maxlength="20"
                     class="displayBlack nameInput"
                 ></el-input>下载
                 <el-switch
@@ -51,7 +52,7 @@
                         <!-- <el-table :data="tableData" style="width: 100%">
                             <el-table-column prop="courseware_editName" label="文件名称" width="180"></el-table-column>
                             <el-table-column  width="180">
-                                <template scope="scope">
+                                <template slot-scope="scope">
                                    <el-input v-model="scope.row.courseware_name"></el-input>
                                 </template>
                             </el-table-column>
@@ -66,6 +67,7 @@
                                 <el-input
                                     v-model="item.courseware_name"
                                     placeholder="文件名，必填"
+                                    maxlength="20"
                                     class="displayBlack nameInput"
                                 ></el-input>下载
                                 <el-switch
@@ -420,7 +422,7 @@ export default {
                         this.button = true;
                         this.$refs.uploadres.fileList = [];
                         this.coursewareFile.coursewareList = [];
-                        
+
                         if (this.activeName === "other") {
                             this.type = 2;
                         } else if (this.activeName === "video") {
@@ -536,7 +538,7 @@ export default {
                        this.$message.error(res.data.msg)
                    }
                })
-                return 
+                return
                 this.$axios({
                     url: this.reqApi.ziyuankuUrl + "teacher/video/upload",
                     method: "POST",
@@ -696,7 +698,7 @@ export default {
                         );
                     }
                 })
-                return 
+                return
                 this.$axios({
                     url: this.reqApi.ziyuankuUrl + "teacher/video/order",
                     method: "POST",
@@ -903,12 +905,12 @@ export default {
 /* .iframe_page{
         width: 900px;
         height: 260px;
-        background-color: orange; 
+        background-color: orange;
     }
     .iframe_page #framePage{
         width: 300px;
         height: 200px;
-        background-color: pink; 
+        background-color: pink;
     }
 
      #framePage--scrollable-y .el-table__body-wrapper::-webkit-scrollbar {

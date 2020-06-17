@@ -1,5 +1,5 @@
 <template>
-  <div class="wsetting minWidth1600">
+  <div class="wsetting">
     <div class="wsettingB">
       <h3>仓库设置</h3>
       <div class="wsettingBList">
@@ -37,7 +37,7 @@
         <div class="wsListsearch">
           <div class="increaseBox">
             <div class="addBtnBox">
-              <div class="serchBoxBtn60">
+              <div class="">
                 <el-button class="increase themeColor" @click="newIncrease">
                   <i class="el-icon-plus"></i>新增
                 </el-button>
@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <el-table :data="tableData" style="width: 100%;" border>
+        <el-table :data="tableData">
           <el-table-column prop="code" label="仓库编号" align="center"></el-table-column>
           <el-table-column prop="name" label="仓库名称" align="center"></el-table-column>
           <el-table-column label="所在区域" align="center" width="180">
@@ -62,7 +62,7 @@
           <el-table-column label="状态" align="center">
             <template scope="scope">{{scope.row.status | statusTip}}</template>
           </el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
                 <div class="dis">
@@ -243,7 +243,7 @@ export default {
 .wsetting {
   /* background-color: #f1f6fa; */
   min-height: 647px;
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 
 .wsettingB,
@@ -266,27 +266,29 @@ h3 {
 }
 .pagination {
   float: right;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  padding-right: 20px;
+  /* margin-top: 30px;
+  margin-bottom: 30px; */
 }
 .wsList,
 .wsList p {
   display: inline-block;
 }
-.wsettingBList .wsList_pinName2 {
+/* .wsettingBList .wsList_pinName2 {
   width: 40%;
   text-align: center;
-}
+} 
 .wsettingBList .wsList_pinName3 {
   width: 30%;
   text-align: right;
 }
 .wsettingBList .wsList_pinName {
   width: 30%;
-}
-.wsettingBList .el-range-editor.el-input__inner {
+} */
+
+/* .wsettingBList .el-range-editor.el-input__inner {
   width: 300px;
-}
+} */
 .createDay {
   letter-spacing: 2.8px;
 }

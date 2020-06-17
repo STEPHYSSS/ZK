@@ -1,5 +1,5 @@
 <template>
-  <div class="wareAmend minimum minWidth1600">
+  <div class="wareAmend">
     <div class="wareAmendBox">
       <h3>修正单管理</h3>
       <el-row class="rowSpacing">
@@ -90,7 +90,7 @@
       </el-row>
     </div>
     <div class="wareAmendInfo">
-      <el-table :data="tableData" style="width: 100%;" border max-height="600">
+      <el-table :data="tableData" style="width: 100%;" max-height="600">
         <el-table-column prop="code" label="修正单编号" align="center"></el-table-column>
         <el-table-column prop="type" label="修正单类型" align="center">
           <template scope="scope">
@@ -109,7 +109,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="deliveryCode" label="配送单编号" align="center"></el-table-column>
-        <el-table-column prop label="操作" align="center">
+        <el-table-column prop label="操作" align="center"  fixed="right">
           <template scope="scope">
            
             <el-tooltip class="tips" effect="dark" content="审核" placement="bottom" v-if="scope.row.status==1">
@@ -290,7 +290,7 @@ export default {
 .wareAmend {
   /* background-color: #f1f6fa; */
   min-height: 647px;
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 .wareAmendBox {
   height: 200px;

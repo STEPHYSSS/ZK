@@ -68,7 +68,7 @@
       </el-dialog>
       <!-- 结束 -->
       <div class="tab_list">
-        <el-table :data="tableData" style="width: 100%;" border max-height="600">
+        <el-table :data="tableData" style="width: 100%;" max-height="600">
           <el-table-column prop="code" label="工号" align="center"></el-table-column>
           <el-table-column prop="name" label="姓名" align="center"></el-table-column>
           <el-table-column prop="position" label="职位" align="center"></el-table-column>

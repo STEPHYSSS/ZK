@@ -24,13 +24,17 @@
                     <el-table-column prop="unit" label="单位" align="center"></el-table-column>
                     <el-table-column prop="spec" label="规格" align="center"></el-table-column>
                     <el-table-column prop="temperature" label="温层" align="center"></el-table-column>
-                    <el-table-column label="操作" align="center">
+                    <el-table-column label="操作" align="center" fixed="right">
                         <template slot-scope="scope">
-                            <span class="codesty" @click="delRetuen(scope.$index,scope.row.code)">删除</span>
+                          <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+                            <span class="cur-point" @click="delRetuen(scope.$index,scope.row.code)">
+                              <img src="@/assets/images/shanchu_icon.png" alt />
+                            </span>
+                          </el-tooltip>
+                            <!-- <span class="codesty" @click="delRetuen(scope.$index,scope.row.code)">删除</span> -->
                         </template>
                     </el-table-column>
                 </el-table>
-                <div class="konge"></div>
                 <!-- v-if="this.AreaCode !='' && this.goodsSet !=''" -->
                 <div class="hideBtn">
                     <el-button class="theBtn queryButton" @click="submitForm">确定</el-button>
@@ -308,7 +312,8 @@ export default {
         },
         // 删除
         delRetuen(index, code) {
-            this.toggleSelection();
+            this.goodsSet.splice(index,1)
+            // this.toggleSelection();
         },
         // 删除完商品之后再次选择商品是应该取消掉之前记录的值
         toggleSelection(rows) {

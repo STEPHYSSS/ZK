@@ -1,13 +1,11 @@
 <template>
     <div class="transferManage minWidth1600" id="transferManage">
-        <div class="billMa">
-            <!-- <h3>转移单管理</h3> -->
+        <!-- <div class="billMa">
             <div class="billMaList">
                 <el-row class="rowSpacing">
                     <el-col :span="6">
                         <div>
                             <span class="textTitle70px">转移日期：</span>
-                            <!-- <p class="sotlname"> -->
                             <el-date-picker
                                 v-model="scrapTime"
                                 type="daterange"
@@ -17,13 +15,11 @@
                                 start-placeholder="开始日期"
                                 end-placeholder="结束日期"
                             ></el-date-picker>
-                            <!-- </p> -->
                         </div>
                     </el-col>
                     <el-col :span="6" class="textAlignCenter">
                         <div>
                             <span class="textTitle70px">转移状态：</span>
-                            <!-- <p class="TongYiInput"> -->
                             <el-select type="text" v-model="ruleForm.status" class="input1">
                                 <el-option
                                     v-for="(item,index) in statusList"
@@ -33,20 +29,17 @@
                                     placeholder="请选择"
                                 ></el-option>
                             </el-select>
-                            <!-- </p> -->
                         </div>
                     </el-col>
                     <el-col :span="6" class="textAlignCenter">
                         <div>
                             <span class="sotretype5">转移单编号：</span>
-                            <!-- <p class="TongYi"> -->
                             <el-input
                                 class="input1"
                                 type="text"
                                 placeholder="请输入"
                                 v-model="ruleForm.code"
                             ></el-input>
-                            <!-- </p> -->
                         </div>
                     </el-col>
                     <el-col :span="6" class="textAlignRight">
@@ -87,13 +80,13 @@
                     </el-col>
                 </el-row>
             </div>
-        </div>
+        </div>-->
         <div class="billMa2">
             <div class="billMaList2">
                 <div class="addStore">
                     <!-- <el-button class="increase themeColor" @click="addSlip">新增转出</el-button> -->
                     <el-button class="increase themeColor" @click="addSlip">
-                        <i class="el-icon-plus"></i>新增
+                        <i class="el-icon-plus"></i>新增转出
                     </el-button>
                 </div>
                 <div class="billMaList">
@@ -111,8 +104,8 @@
                         height="500px"
                     >
                         <div class="boxshow">
-                            <h4 class="chooseStor">选择门店</h4>
-                            <div class="listInfo">
+                            <!-- <h4 class="chooseStor">选择门店</h4> -->
+                        <!--     <div class="listInfo">
                                 <el-row>
                                     <el-col :span="10">
                                         <div>
@@ -134,16 +127,11 @@
                                             ></el-input>
                                         </div>
                                     </el-col>
-                                    <!-- <el-col :span="8"> -->
-                                    <!-- <div class="serchBoxBtn60"> -->
                                     <el-button class="theBtn queryButton" @click="chaxun2">查询</el-button>
                                     <el-button class="theBtn resetButton" @click="chongzhi">重置</el-button>
-                                    <!-- </div> -->
-                                    <!-- </el-col> -->
                                 </el-row>
-
                                 <div class="listSty"></div>
-                            </div>
+                            </div> -->
 
                             <div>
                                 <el-table
@@ -151,7 +139,7 @@
                                     style="width: 100%;"
                                     id="hiegLine"
                                     border
-                                    height="240px"
+                                    max-height="240px"
                                 >
                                     <el-table-column width="60" align="center">
                                         <template slot-scope="scope">
@@ -187,7 +175,7 @@
                                         @click="dialogTableVisible=false"
                                     >取消</el-button>
                                 </div>
-                                <div class="dialog_pagination">
+                                <!-- <div class="dialog_pagination">
                                     <el-pagination
                                         @size-change="handleSizeChange1"
                                         @current-change="handleCurrentChange1"
@@ -199,14 +187,14 @@
                                         :total="total1"
                                         class="pagination"
                                     ></el-pagination>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </el-dialog>
                 </div>
                 <el-table :data="tableData" style="width: 100%;" border>
                     <el-table-column label="转移单编号" align="center" width="220">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span
                                 class="codesty"
                                 @click="detransfedetai(scope.row.code,'1')"
@@ -214,18 +202,18 @@
                         </template>
                     </el-table-column>
                     <el-table-column label="创建日期" align="center">
-                        <template scope="scope">{{scope.row.createTime|converTime('YYYY-MM-DD')}}</template>
+                        <template slot-scope="scope">{{scope.row.createTime|converTime('YYYY-MM-DD')}}</template>
                     </el-table-column>
                     <el-table-column label="转移状态" align="center">
-                        <template scope="scope">{{scope.row.status| scrapStatus }}</template>
+                        <template slot-scope="scope">{{scope.row.status| scrapStatus }}</template>
                     </el-table-column>
                     <el-table-column prop="turnInStore" label="转入门店编号" align="center"></el-table-column>
                     <el-table-column prop="turnOutStore" label="转出门店编号" align="center"></el-table-column>
                     <el-table-column prop="item" label="转出品项数" align="center"></el-table-column>
                     <el-table-column prop="count" label="转出总数" align="center"></el-table-column>
                     <el-table-column prop="amount" label="转出总金额" align="center"></el-table-column>
-                    <el-table-column label="操作" align="center">
-                        <template scope="scope">
+                    <el-table-column label="操作" align="center" fixed="right">
+                        <template slot-scope="scope">
                             <!-- <span
                 class="codesty"
                 v-if="scope.row.status=='1' && scope.row.nameOut == mendianName"
@@ -233,20 +221,19 @@
                             >删除</span>-->
                             <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
                                 <img
-                  src="@/assets/images/shanchu_icon.png"
-                  class="codesty"
-                  v-show="scope.row.status=='1'"
-                  @click="detransferRow(scope.row.code)"
-                  alt
+                                    src="@/assets/images/shanchu_icon.png"
+                                    class="codesty"
+                                    @click="detransferRow(scope.row.code)"
+                                    alt
                                 />
                             </el-tooltip>
                             <el-tooltip class="tips" effect="dark" content="验收" placement="bottom">
                                 <img
-                  src="@/assets/images/present_icon_one.png"
-                  v-show="scope.row.status=='1'"
-                  class="codesty"
-                  @click="detransfedetai(scope.row.code,'2')"
-                  alt
+                                    src="@/assets/images/present_icon_one.png"
+                                    v-show="scope.row.status=='1'"
+                                    class="codesty"
+                                    @click="detransfedetai(scope.row.code,'2')"
+                                    alt
                                 />
                             </el-tooltip>
                             <!-- <span
@@ -347,7 +334,7 @@ export default {
                 })
             }).then(res => {
                 if (res.data.code == "0000") {
-                    this.tableData = res.data.data
+                    this.tableData = res.data.data;
                     // this.total = res.data.data.total;
                 } else if (res.data.code == "6666") {
                     this.$message({
@@ -356,44 +343,41 @@ export default {
                         type: "error"
                     });
                 } else {
-                    this.$message.error(res.data.msg);
+                    return this.$message.error(res.data.msg);
                 }
             });
         },
         // 删除
         detransferRow(code) {
-           this.$confirm("删除后员工将无法登陆,确定提交?", "提示:", {
+            this.$confirm("删除后员工将无法登陆,确定提交?", "提示:", {
                 confirmButtonText: "确定",
                 cancelButtonText: "取消"
-            }).then(()=>{
+            }).then(() => {
                 this.$utils({
-                url: this.reqApi.xinls + "/exam/transfer/delete",
-                method: "POST",
-                headers: {
-                    "content-type": "application/x-www-form-urlencoded"
-                },
-                data: qs.stringify({
-                    code: code,
-                   questionCode: sessionStorage.getItem("questionUUid")
-                })
-            }).then(res => {
-                if (res.data.code == "0000") {
-                    this.$message({
-                        type: "success",
-                        message: "删除成功!"
-                    });
-                    this.transferList();
-                }
+                    url: this.reqApi.xinls + "/exam/transfer/delete",
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/x-www-form-urlencoded"
+                    },
+                    data: qs.stringify({
+                        code: code,
+                        questionCode: sessionStorage.getItem("questionUUid")
+                    })
+                }).then(res => {
+                    if (res.data.code == "0000") {
+                        this.$message({
+                            type: "success",
+                            message: "删除成功!"
+                        });
+                        this.transferList();
+                    } else {
+                        return this.$message.error(res.data.msg);
+                    }
+                });
             });
-            })
-
-
-
-          
         },
         // 详情 、验收
         detransfedetai(code, ids) {
-            sessionStorage.setItem("code", code);
             this.$router.push({
                 name: "transferdetail",
                 query: {
@@ -519,7 +503,6 @@ export default {
 .transferManage {
     /* background-color: #f1f6fa; */
     min-height: 647px;
-    min-width: 1200px;
 }
 .billMa,
 .billMa2 {
@@ -567,25 +550,6 @@ h3 {
 .sotlname2 {
     display: inline-block;
 }
-/* #billInput{
-    text-align: left;
-    width: 100%;
-    padding-bottom: 20px;
-} */
-/* #billInput tr{
-    width: 100%;
-}
-#billInput .barNum{
-    width: 30%;
-    text-align: center;
-}
-#billInput .pinName{
-    width: 30%;
-    text-align: right;
-}
-#billInput .el-range-editor.el-input__inner{
-    width: 300px;
-} */
 .createDay {
     letter-spacing: 2.8px;
 }
@@ -605,13 +569,15 @@ p {
 }
 /*弹出框样式*/
 .boxshow {
-    width: 100%;
+    /* width: 100%; */
+    padding: 15px;
 }
 .chooseStor {
     text-align: left;
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 15px;
+    padding-left: 15px;
 }
 .listInfo {
     text-align: left;
@@ -654,5 +620,9 @@ p {
 .addStore {
     text-align: right;
     margin-bottom: 20px;
+    padding-right: 20px;
+}
+.dialogSureBox {
+    padding: 10px;
 }
 </style>

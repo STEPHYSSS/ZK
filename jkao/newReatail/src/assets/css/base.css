@@ -82,6 +82,23 @@ i {
     border: none;
 }
 
+#maxBox table {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+#maxBox table td,
+#maxBox table th {
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 3px 5px;
+}
+
+#maxBox table th {
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
 
 /* select:focus {
     border: none;

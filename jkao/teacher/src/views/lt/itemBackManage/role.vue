@@ -27,7 +27,7 @@
                             <el-table-column label="创建时间" align="center">
                                 <template slot-scope="scope">{{scope.row.createTime | fmtDate}}</template>
                             </el-table-column>
-                            <el-table-column prop="opeartion" label="操作" align="center">
+                            <el-table-column prop="opeartion" label="操作" align="center" fixed="right">
                                 <template slot-scope="scope">
                                     <div class="tootip">
                                         <el-tooltip
@@ -117,7 +117,7 @@
             :visible.sync="centerDialogVisible"
             width="450px"
             center
-            
+
             :before-close="handleClose"
             v-model="centerDialogVisible"
         >

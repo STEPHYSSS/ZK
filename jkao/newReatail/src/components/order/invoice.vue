@@ -55,7 +55,7 @@
       
       <div class="table">
         <div class="tab_1">
-          <el-table :data="tableData" style="width: 100%" border max-height="600">
+          <el-table :data="tableData" style="width: 100%" max-height="600">
             <el-table-column label="创建日期" align="center">
               <template scope="scope">
                 <span>{{scope.row.createTime | converTime('YYYY-MM-DD')}}</span>

@@ -57,7 +57,7 @@
             </div>
           </el-col>
         </el-row>
-        <div style="text-align:center;">
+        <div>
           <el-button class="theBtn themeColor textMright" @click="submit('ruleForm')">确定</el-button>
           <el-button class="theBtn resetButton" @click="back">返回</el-button>
         </div>
@@ -212,12 +212,15 @@ export default {
   background-color: #fff;
   padding: 15px 25px;
 }
-#setOfWaveEdit .content1 .left .input1 {
+#setOfWaveEdit .input1{
+  width: 300px;
+}
+/* #setOfWaveEdit .content1 .left .input1 {
   width: 60%;
 }
 #setOfWaveEdit .content1 .right .input1 {
   width: 60%;
-}
+} */
 #setOfWaveEdit .content1 .forbid {
   width: 80px;
   height: 30px;

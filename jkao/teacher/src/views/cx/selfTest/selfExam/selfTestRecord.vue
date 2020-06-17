@@ -64,10 +64,20 @@
         </template>
       </el-table-column>
       <el-table-column prop="duration" label="考试耗时"></el-table-column>
-      <el-table-column label="操作">
+      <el-table-column label="操作" fixed="right">
         <template slot-scope="scope">
-          <a href="javascript:;" @click="particulars(scope.row)">详情&nbsp;|</a>
-          <a href="javascript:;" @click="selfExamDelete(scope.row)">删除</a>
+          <el-tooltip class="item" effect="dark" content="详情" placement="bottom">
+            <span class="cur-point" @click="particulars(scope.row)">
+              <img src="@/assets/images/chaxun_icon.png" alt />
+            </span>
+          </el-tooltip>&nbsp;&nbsp;
+          <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+            <span class="cur-point" @click="selfExamDelete(scope.row)">
+              <img src="@/assets/images/shanchu_icon.png" alt />
+            </span>
+          </el-tooltip>
+          <!-- <a href="javascript:;" @click="particulars(scope.row)">详情&nbsp;|</a>
+          <a href="javascript:;" @click="selfExamDelete(scope.row)">删除</a> -->
         </template>
       </el-table-column>
     </el-table>
@@ -138,6 +148,7 @@ export default {
       this.$router.push({
         name: "historyExamDetails",
         query: {
+          keepAlive: '1',
           exam_id: info.id,
           testDetail: 1,
           examFlow:info.exam_flow

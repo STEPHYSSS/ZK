@@ -9,10 +9,9 @@
     <!-- 表格 -->
     <el-table
     :data="tableData"
-    border
     class="topBorder"
     style="width: 100%"
-    
+
     >
       <el-table-column align="center" prop="name" label="分类名称" :show-overflow-tooltip="true">
       </el-table-column>
@@ -29,14 +28,20 @@
       <el-table-column align="center" label="创建时间">
         <template slot-scope="scope">{{scope.row.create_time | fmtDate}}</template>
       </el-table-column>
-      <el-table-column align="center" label="操作">
+      <el-table-column align="center" label="操作" fixed="right">
         <template slot-scope="scope">
-          <span class="cur-point dis-inline-block" @click="handlePut(scope.row)">
+          <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
+              <img src="@/assets/images/xiugai_icon.png" class="codesty" @click="handlePut(scope.row)"/>
+          </el-tooltip>&nbsp;&nbsp;
+          <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+              <img src="@/assets/images/shanchu_icon.png" class="codesty" @click="open(scope.row)"/>
+          </el-tooltip>&nbsp;&nbsp;
+          <!-- <span class="cur-point dis-inline-block" @click="handlePut(scope.row)">
             <img src="@/assets/images/xiugai_icon.png" alt="">&nbsp;&nbsp;&nbsp;
           </span>
           <span class="cur-point dis-inline-block" @click="open(scope.row)">
             <img src="@/assets/images/shanchu_icon.png" alt="">
-          </span>
+          </span> -->
         </template>
       </el-table-column>
     </el-table>

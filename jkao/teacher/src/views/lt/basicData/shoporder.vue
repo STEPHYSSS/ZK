@@ -65,24 +65,31 @@
                 <div class="scollHide">
                     <el-table :data="tableData" style="width: 100%" border>
                         <el-table-column label="创建日期" align="center">
-                            <template scope="scope">
+                            <template slot-scope="scope">
                                 <span>{{scope.row.createTime|fmtDate2}}</span>
                             </template>
                         </el-table-column>
                         <el-table-column prop="code" label="采购单编号" align="center" width="220"></el-table-column>
                         <el-table-column prop="item" label="订购品项数" align="center"></el-table-column>
+                        <el-table-column  label="来源" align="center">
+                            <template slot-scope="scope">
+                                <span v-if="scope.row.warehousePurchase">仓库采购</span>
+                                <span v-else>门店叫货</span>
+                            </template>
+                        </el-table-column>
+
                         <el-table-column prop="count" label="订购总数" align="center"></el-table-column>
                         <el-table-column prop="amount" label="订购总金额" align="center"></el-table-column>
                         <el-table-column label="订单状态" align="center">
-                            <template scope="scope">{{scope.row.status | revistauTip}}</template>
+                            <template slot-scope="scope">{{scope.row.status | revistauTip}}</template>
                         </el-table-column>
                         <el-table-column label="预计到店日期" align="center">
-                            <template scope="scope">
+                            <template slot-scope="scope">
                                 <span>{{scope.row.estimatedArrivalTime|fmtDate2}}</span>
                             </template>
                         </el-table-column>
-                        <el-table-column label="操作" align="center">
-                            <template scope="scope">
+                        <el-table-column label="操作" align="center" fixed="right">
+                            <template slot-scope="scope">
                                 <el-tooltip
                                     class="item"
                                     effect="dark"
@@ -91,7 +98,7 @@
                                 >
                                     <img
                                         src="@/assets/images/chaxun_icon.png"
-                                        class="imgSize"
+                                        class="codesty"
                                         @click="see(scope.row.code)"
                                     />
                                 </el-tooltip>
@@ -104,8 +111,21 @@
                                 >
                                     <img
                                         src="@/assets/images/present_icon_one.png"
-                                        class="imgSize"
+                                        class="codesty"
                                         @click="distribution(scope.row.code)"
+                                    />
+                                </el-tooltip>
+                                <el-tooltip
+                                    class="item"
+                                    effect="dark"
+                                    content="删除"
+                                    placement="bottom"
+                                >
+                                    <img
+                                        src="@/assets/images/shanchu_icon.png"
+                                        @click="delPanRow(scope.row.code)"
+                                        class="codesty"
+                                        alt
                                     />
                                 </el-tooltip>
                             </template>
@@ -171,6 +191,35 @@ export default {
         flowChart
     },
     methods: {
+        // 删除
+        delPanRow(code) {
+            this.$confirm("确定删除？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消"
+            }).then(() => {
+                this.$utils({
+                    url: this.reqApi.xinls + "/exam/purchase/delete",
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/x-www-form-urlencoded"
+                    },
+                    data: qs.stringify({
+                        code: code,
+                        questionCode: sessionStorage.getItem("questionUUid")
+                    })
+                }).then(res => {
+                    if (res.data.code == "0000") {
+                        this.$message({
+                            type: "success",
+                            message: "删除成功!"
+                        });
+                        this.getlist();
+                    } else {
+                        this.$message.error(res.data.msg);
+                    }
+                });
+            });
+        },
         resetForm() {
             this.form.code = "";
             this.form.status = "";
@@ -294,7 +343,7 @@ p {
     text-align: right;
     padding: 10px 20px;
 }
-.storeInfo{
+.storeInfo {
     margin-top: 31px;
 }
 </style>

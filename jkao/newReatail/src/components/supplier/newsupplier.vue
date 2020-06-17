@@ -80,7 +80,6 @@
             <el-table
               ref="multipleTable"
               :data="tableData3"
-              border
               style="width: 100%"
               @current-change="handleSelectionChange"> 
               <el-table-column
@@ -121,7 +120,6 @@
           <h4>供应商关联关系</h4>
            <el-table
               :data="arr"
-              border
               @selection-change="handleSelectionChange"
               style="width: 60%">
               <el-table-column
@@ -149,7 +147,6 @@
           <h4>供应商物流信息</h4>
            <el-table
               :data="arr"
-              border
               @selection-change="handleSelectionChange"
               style="width: 60%">
               <el-table-column

@@ -52,7 +52,7 @@
                 </p>
               </div>
             </div>
-            <el-table :data="shopList" style="width: 100%" border>
+            <el-table :data="shopList" style="width: 100%">
               <el-table-column prop="goodsCode" label="货号" align="center"></el-table-column>
               <el-table-column prop="goodsName" label="商品名称" align="center"></el-table-column>
               <el-table-column prop="spec" label="规格" align="center"></el-table-column>

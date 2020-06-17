@@ -65,8 +65,8 @@
             ref="countDown"
             class="exam-interval fr"
           ></countDown>
-          <questionInfo :questionInfo = "questionInfo"></questionInfo>
           <backBtn></backBtn>
+          <questionInfo></questionInfo>
         </div>
       </el-header>
       <el-container>
@@ -318,7 +318,7 @@ export default {
       },
       flag3: false,
       flag4: true,
-      name: sessionStorage.getItem("username"),
+      name: sessionStorage.getItem("supplierName"),
       dialogVisible: false,
       centerDialogVisible: false,
       dialogVisible1: false,

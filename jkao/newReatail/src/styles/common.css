@@ -1,3 +1,8 @@
+.my-index {
+    height: 100%;
+    min-width: 1024px;
+    max-width: 1920px;
+}
 .assistant .el-dialog__header {
     border-bottom: 2px solid #dbe0e5;
 }
@@ -260,6 +265,7 @@ el-dropdown-item:hover .buttonbox {
 .el-pagination {
     text-align: right;
     margin-top: 10px;
+    padding-right: 20px;
 }
 
 .el-pagination.is-background .el-pager li:not(.disabled).active {
@@ -287,7 +293,7 @@ el-dropdown-item:hover .buttonbox {
 }
 
 .minimum {
-    min-height: 850px;
+    /* min-height: 850px; */
     background-color: #fff;
 }
 
@@ -431,6 +437,7 @@ el-dropdown-item:hover .buttonbox {
 #app .el-table {
     color: #444;
     border-top: 1px solid #444;
+    width: calc(100% - 20px)!important
 }
 
 
@@ -598,7 +605,7 @@ el-dropdown-item:hover .buttonbox {
 
 .serchBoxBtn60 {
     display: inline-block;
-    width: 360px;
+    /* width: 360px; */
     text-align: right;
 }
 
@@ -607,7 +614,7 @@ el-dropdown-item:hover .buttonbox {
 
 .serchBoxBtn70 {
     display: inline-block;
-    width: 370px;
+    /* width: 370px; */
     text-align: right;
 }
 
@@ -740,15 +747,18 @@ el-dropdown-item:hover .buttonbox {
 /* 搜索输入框 */
 
 #app .input1 {
-    width: 300px;
+    width: calc(100% - 85px);
     height: 32px;
+    /* width: 300px;
+    height: 32px; */
 }
 
 
 /* 下拉框 */
 
 #app .TongYiInput {
-    width: 300px;
+    /* width: 300px;*/
+    width: calc(100% - 85px);
     display: inline-block;
 }
 
@@ -840,8 +850,10 @@ el-dropdown-item:hover .buttonbox {
 /* 搜索输入框 */
 
 #app .input1 {
-    width: 300px;
+    width: calc(100% - 85px);
     height: 32px;
+    /* width: 300px;
+    height: 32px; */
 }
 
 
@@ -862,7 +874,7 @@ el-dropdown-item:hover .buttonbox {
 /* 下拉框 */
 
 #app .TongYiInput {
-    width: 300px;
+    width: calc(100% - 85px);
     display: inline-block;
 }
 
@@ -931,12 +943,12 @@ el-dropdown-item:hover .buttonbox {
 
 /* 设置最小宽度1600 */
 
-#app .minWidth1600 {
+/* #app .minWidth1600 {
     min-width: 1600px;
     min-height: 850px;
     overflow: auto;
     background-color: #fff;
-}
+} */
 
 .el-range-editor.is-active,
 .el-range-editor.is-active:hover {

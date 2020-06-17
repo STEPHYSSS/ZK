@@ -16,7 +16,7 @@
               <span>{{scope.row.createTime | converTime('YYYY-MM-DD')}}</span>
             </template>
           </el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
            <template slot-scope="scope">
               <el-tooltip class="item" effect="dark" content="详情" placement="bottom">
               <span class="cur-point dis-inline-block">

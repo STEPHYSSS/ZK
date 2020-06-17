@@ -1,5 +1,5 @@
 <template>
-  <div id="orderWarehouseList" class="minimum minWidth1600">
+  <div id="orderWarehouseList">
     <div class="content">
       <h3>订购出库</h3>
       <el-row class="rowSpacing">
@@ -23,7 +23,7 @@
           <div>
             <span class="textTitle70px">单据状态：</span>
             <div class="TongYiInput">
-              <el-select placeholder="请选择" v-model="ruleForm.status" class="input1">
+              <el-select placeholder="请选择" v-model="ruleForm.status">
                 <el-option label="新建" value="N"></el-option>
                 <el-option label="分配完成" value="F"></el-option>
                 <el-option label="拣货完成" value="J"></el-option>
@@ -59,10 +59,9 @@
         :row-key="getRowKeys"
         @selection-change="handleSelectionChange"
         max-height="620"
-        border
       >
         <el-table-column type="selection" width="55" :reserve-selection="true" class="leftTitle"></el-table-column>
-        <el-table-column label="出库单编号" align="center" width="250">
+        <el-table-column label="出库单编号" align="center" width="220">
           <template scope="scope">
             <span class="codesty" @click="toDetail(scope.row.code,scope.row)">{{scope.row.code}}</span>
           </template>

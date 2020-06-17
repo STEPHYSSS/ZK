@@ -1,5 +1,5 @@
 <template>
-  <div class="wareStock minimum minWidth1600">
+  <div class="wareStock">
     <div class="StockBox">
       <h3>库存查询</h3>
       <el-row class="rowSpacing">
@@ -50,7 +50,7 @@
     </div>
     <div class="StockInfo">
       <div>
-        <el-table :data="tableData" style="width: 100%;" border max-height="600">
+        <el-table :data="tableData" style="width: 100%;" max-height="600">
           <el-table-column prop="code" label="货号" align='center'>
           </el-table-column>
           <el-table-column prop="name" label="品名" align='center' width="150">
@@ -164,7 +164,7 @@ export default {
 .wareStock{
   /* background-color: #f1f6fa; */
   min-height: 647px;
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 .StockBox {
   height: 200px;

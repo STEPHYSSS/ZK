@@ -36,7 +36,7 @@
     <div class="storeInfo">
       <div class="store_Box1">
         <div class="scrollHide">
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
           <el-table-column prop="code" label="货号" align="center"></el-table-column>
           <el-table-column prop="barcode" label="国际条码" align="center" width="150"></el-table-column>
           <el-table-column prop="name" label="品名" align="center" width="160"></el-table-column>

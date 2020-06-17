@@ -62,7 +62,7 @@
     </div>
     <div class="waitBox2">
       <div class="wait_Box">
-        <el-table :data="check2" style="width: 100%" border max-height="600">
+        <el-table :data="check2" style="width: 100%" max-height="600">
           <el-table-column prop="id" label="序号" align="center"></el-table-column>
           <el-table-column prop="goodsCode" label="货号" align="center"></el-table-column>
           <el-table-column prop="goodsName" label="品名" align="center"></el-table-column>
@@ -86,7 +86,7 @@
           <el-table-column prop="shortageAmount" label="缺货总金额" align="center"></el-table-column>
           <el-table-column prop="rejectionAmount" label="拒收总金额" align="center"></el-table-column>
           <el-table-column label="操作" align="center">
-            <template scope="scope">
+            <template scope="scope" fixed="right">
               <span v-if="scope.row.shortage > '0'" @click="chakan" class="codesty">查看修正单</span>
               <span
                 v-if="scope.row.shortage && scope.row.rejection !='0'"

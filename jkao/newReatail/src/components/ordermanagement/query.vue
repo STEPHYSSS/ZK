@@ -89,7 +89,7 @@
     </div>
     <div class="orderBox2">
       <!-- <div class="orderTabList"> -->
-        <el-table :data="tableData" style="width: 100%;" max-height="600" border>
+        <el-table :data="tableData" style="width: 100%;" max-height="600">
           <el-table-column label="订单编号" align="center" width="300">
             <template scope="scope">
               <span class="codesty" @click="detaiRow(scope.row.code)">{{scope.row.code}}</span>

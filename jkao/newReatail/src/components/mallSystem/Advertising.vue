@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <el-table :data="tableData" style="width: 100%" max-height="600" border>
+    <el-table :data="tableData" style="width: 100%" max-height="600">
       <el-table-column prop="name" align="center" label="主题名称"></el-table-column>
       <el-table-column prop="url" label="链接地址" align="center"></el-table-column>
       <el-table-column prop="createTime" label="创建时间" align="center">

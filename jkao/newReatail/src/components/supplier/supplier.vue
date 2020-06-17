@@ -220,7 +220,6 @@
                 ref="multipleTable"
                 :data="tableData3"
                 height="243"
-                border
                 style="width: 95%;margin:0 auto"
                 @current-change="handleSelectionChange"
               >

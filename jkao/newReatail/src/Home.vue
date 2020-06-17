@@ -63,9 +63,9 @@
             @autoSubmit="autoHandInExaminationPaper"
             ref="countDown"
             class="exam-interval fr"
-          ></countDown>
-          <questionInfo :questionInfo = "questionInfo"></questionInfo>
+          ></countDown>          
           <backBtn></backBtn>
+          <questionInfo></questionInfo>
         </div>
       </div>
     </div>
@@ -477,7 +477,7 @@ export default {
         resourceCodes:[]
       },
       shoreListImg: false,
-      username: sessionStorage.getItem("username"),
+      username: sessionStorage.getItem("storeName"),
       code: sessionStorage.getItem("code"),
       dialogVisible: false,
       centerDialogVisible: false,

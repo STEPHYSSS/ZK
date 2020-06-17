@@ -86,18 +86,18 @@
                 <el-table :data="list" style="width: 100%;" border>
                     <el-table-column prop="code" label="修正单编号" align="center"></el-table-column>
                     <el-table-column label="修正单类型" align="center">
-                        <template scope="scope">{{scope.row.type | typeTip}}</template>
+                        <template slot-scope="scope">{{scope.row.type | typeTip}}</template>
                     </el-table-column>
                     <el-table-column prop="count" label="修正数量" align="center"></el-table-column>
                     <el-table-column prop="amount" label="修正金额（元）" align="center"></el-table-column>
                     <el-table-column label="修正单状态" align="center">
-                        <template scope="scope">{{scope.row.status | statusTips}}</template>
+                        <template slot-scope="scope">{{scope.row.status | statusTips}}</template>
                     </el-table-column>
                     <el-table-column label="创建日期" align="center">
-                        <template scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
+                        <template slot-scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
                     </el-table-column>
                     <el-table-column label="操作" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <el-tooltip class="tips" effect="dark" content="一审" placement="bottom">
                                 <img
                                     src="@/assets/images/present_icon_one.png"
@@ -130,6 +130,14 @@
                                     src="@/assets/images/chaxun_icon.png"
                                     class="codesty"
                                     @click="kanDetail(scope.row.code,scope.row.status)"
+                                    alt
+                                />
+                            </el-tooltip>
+                             <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+                                <img
+                                    src="@/assets/images/shanchu_icon.png"
+                                    @click="delPanRow(scope.row.code)"
+                                    class="codesty"
                                     alt
                                 />
                             </el-tooltip>
@@ -189,6 +197,36 @@ export default {
         flowChart
     },
     methods: {
+         // 删除
+        delPanRow(code) {
+            this.$confirm("删除后员工将无法登陆,确定提交?", "提示:", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消"
+            }).then(()=>{
+                 this.$utils({
+                url: this.reqApi.xinls + "/exam/amendent/delete",
+                method: "POST",
+                headers: {
+                    "content-type": "application/x-www-form-urlencoded"
+                },
+                data: qs.stringify({
+                    code: code,
+                    questionCode: sessionStorage.getItem("questionUUid")
+                })
+            }).then(res => {
+                if (res.data.code == "0000") {
+                    this.$message({
+                        type: "success",
+                        message: "删除成功!"
+                    });
+                    this.getlist();
+                } else {
+                    this.$message.error(res.data.msg);
+                }
+            });
+            })
+
+        },
       zhongshen(code){
         this.$router.push({
                 name: "xiuCheck",

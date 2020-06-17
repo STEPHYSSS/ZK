@@ -2,9 +2,10 @@
     <div class="countDown"><!--倒计时-->
         <span class="character">考试剩余时间</span>
         <span style="color:#000">
-        <i>{{hs}}</i>:
-        <i>{{ms}}</i>:
-        <i>{{ss}}</i>
+        <i>{{ds}}</i>天
+        <i>{{hs}}</i>小时
+        <i>{{ms}}</i>分
+        <i>{{ss}}</i>秒
       </span>
     </div>
 </template>
@@ -16,6 +17,7 @@
             return {
                 timeName: null,//定时器名称
                 /*====倒计时时间====*/
+                ds: 0,
                 hs: 0,
                 ms: 0,
                 ss: 0,
@@ -29,6 +31,7 @@
             examInfo:Object
         },
         created() {
+            console.log(this.examInfo)
             // 统一单位 ，时间戳的单位是毫秒  除以1000变成秒
             this.nowTime = parseInt(this.examInfo.nowTime/1000);
             this.starTime = parseInt(this.examInfo.starTime/1000);
@@ -45,14 +48,17 @@
             let starTime = this.starTime;
             // 统一单位 为秒(倒计时时长为：时长-（当前时间-开始时间）)
             this.lDur = parseInt(duration - (nowTime-starTime));
+            console.log(this.lDur)
             let that = this;
             // 先将时间渲染到页面
+            that.ds = ('' + Math.floor(that.lDur / 3600 / 24)).slice(-2);
             that.hs = ('0' + Math.floor(that.lDur / 3600)).slice(-2);
             that.ms = ('0' + Math.floor(that.lDur / 60 % 60)).slice(-2);
             that.ss = ('0' + Math.floor(that.lDur % 60 % 60)).slice(-2);
 
             // 开启定时器
             that.timeName = setInterval(function () {
+                that.ds = ('' + Math.floor(that.lDur / 3600 / 24)).slice(-2);
                 that.hs = ('0' + Math.floor(that.lDur / 3600)).slice(-2);
                 that.ms = ('0' + Math.floor(that.lDur / 60 % 60)).slice(-2);
                 that.ss = ('0' + Math.floor(that.lDur % 60 % 60)).slice(-2);

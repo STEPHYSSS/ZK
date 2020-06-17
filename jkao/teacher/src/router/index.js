@@ -63,6 +63,11 @@ const router = new VueRouter({
                 ...myPage
             ]
         },
+        {//授权码登录页面
+            name: 'activatePage',
+            path: '/activatePage',
+            component: (resolve) => require(['@/views/index/activatePage'], resolve),
+        },
         // cx  老师端顶部和侧边栏
         {
             name: 'index',
@@ -98,4 +103,10 @@ router.beforeEach((to, from, next) => {
     }
     next()
 })
+
+// const originalPush = VueRouter.prototype.push;
+
+// VueRouter.prototype.push = function push(location) {
+//   return originalPush.call(this, location).catch(err => err)
+// }
 export default router

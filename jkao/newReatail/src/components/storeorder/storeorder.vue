@@ -84,7 +84,7 @@
         <!-- 表格部分 -->
         <div class="firstCeng">
           <div class="seconedCeng">
-            <el-table :data="tableData" border height="100%" width="100%">
+            <el-table :data="tableData" height="100%" width="100%">
           <el-table-column label="订单编号" align='center' width="250">
             <template scope="scope">
               <span class="codesty" @click="detaiRow(scope.row.code)">{{scope.row.code}}</span>

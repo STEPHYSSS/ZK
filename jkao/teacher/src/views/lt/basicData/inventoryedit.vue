@@ -92,7 +92,7 @@
         <el-table :data="tableData2" style="width: 100%;" border max-height="600">
           <!-- <el-table-column prop="name" label="品名" align="center"></el-table-column> -->
           <!-- <el-table-column label="商品分类" align="center" width="280">
-            <template scope="scope">
+            <template slot-scope="scope">
               <span>{{scope.row.typeLevel1}}/{{scope.row.typeLevel2}}/{{scope.row.typeLevel3}}</span>
             </template>
           </el-table-column> -->
@@ -101,7 +101,7 @@
           <!-- <el-table-column prop="unit" label="单位" align="center"></el-table-column> -->
           <el-table-column prop="paperCount" label="账面数量" align="center"></el-table-column>
           <el-table-column label="盘点数量" align="center">
-            <template scope="scope">
+            <template slot-scope="scope">
               <!-- replace(/\s+/g,'')禁止空格 -->
               <input
                 type="text"

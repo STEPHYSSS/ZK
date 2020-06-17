@@ -49,7 +49,8 @@
           <i class="el-icon-plus"></i>新增
         </el-button>
       </div>
-      <el-table :data="tableData" style="width: 100%;" border>
+      <div class="tabBox">
+        <el-table :data="tableData" style="width: 100%;" border>
         <el-table-column label="出库单号" prop="code" width="180" align="center">
         </el-table-column>
         <el-table-column label="仓库编号" prop="warehouseCode" align="center"></el-table-column>
@@ -98,6 +99,7 @@
           </template>
         </el-table-column>
       </el-table>
+      </div>
     </div>
   </div>
 </template>

@@ -8,7 +8,6 @@
     <!-- 表格 -->
     <el-table
     :data="tableData"
-    border
     class="topBorder"
     style="width: 100%">
       <el-table-column align="center" prop="name"  label="标题" :show-overflow-tooltip="true"></el-table-column>
@@ -25,7 +24,7 @@
       <el-table-column align="center" label="最后修改人 " width="210">
         <template slot-scope="scope">{{ scope.row.update_user_name }}<br/>{{scope.row.update_time | fmtDate()}}</template>
       </el-table-column>
-      <el-table-column align="center" prop="name" label="操作" width="150">
+      <el-table-column align="center" prop="name" label="操作" width="150" fixed="right">
         <template slot-scope="scope">
           <span class="cur-point dis-inline-block" @click="handlePut(scope.row)">
             <img src="@/assets/images/xiugai_icon.png" alt="">&nbsp;&nbsp;&nbsp;

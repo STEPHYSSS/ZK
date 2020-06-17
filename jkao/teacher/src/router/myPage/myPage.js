@@ -14,6 +14,11 @@ export default [{ // 首页
         path: '/user',
         component: (resolve) => require(['@/views/lt/userManage/user'], resolve),
     },
+    { //导入用户
+        name: 'importUserList',
+        path: '/importUserList',
+        component: (resolve) => require(['@/views/lt/userManage/importUserList'], resolve),
+    },
     {
         name: 'findClasses',
         path: '/findClasses',
@@ -206,6 +211,11 @@ export default [{ // 首页
                 path: '/billdetail',
                 component: (resolve) => require(['@/views/lt/basicData/billdetail'], resolve),
             },
+            { // 门店退货单审核
+                name: 'returnDetails',
+                path: '/returnDetails',
+                component: (resolve) => require(['@/views/lt/basicData/returnDetails'], resolve),
+            },
 
             { // 门店报废单
                 name: 'scrapManage',
@@ -222,6 +232,12 @@ export default [{ // 首页
                 path: '/scrapdetail',
                 component: (resolve) => require(['@/views/lt/basicData/scrapdetail'], resolve),
             },
+            { // 门店报废单审核
+                name: 'scrapDetails',
+                path: '/scrapDetails',
+                component: (resolve) => require(['@/views/lt/basicData/scrapDetails'], resolve),
+            },
+
             { // 门店转移单
                 name: 'transferSlip',
                 path: '/transferSlip',
@@ -688,5 +704,23 @@ export default [{ // 首页
         path: '/uploadResources',
         component: (resolve) => require(['@/views/lt/onlineLearning/uploadResources'], resolve),
     },
+    { // 评分项设置
+        name: 'scoringSettings',
+        path: '/scoringSettings',
+        component: (resolve) => require(['@/views/lt/onlineLearning/scoringSettings'], resolve),
+    },
+    { // 评分项合并
+        name: 'scoreConsolidation',
+        path: '/scoreConsolidation',
+        component: (resolve) => require(['@/views/lt/onlineLearning/scoreConsolidation'], resolve),
+    },
+    { // 评分项合并
+        name: 'meargList',
+        path: '/meargList',
+        component: (resolve) => require(['@/views/lt/onlineLearning/meargList'], resolve),
+    },
+
+
+
 
 ]

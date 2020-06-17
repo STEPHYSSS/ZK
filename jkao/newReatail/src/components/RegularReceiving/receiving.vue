@@ -88,7 +88,7 @@
     </div>
     <div class="info">
       <div class="rece_Box">
-        <el-table :data="list" style="width: 100%" border max-height="600">
+        <el-table :data="list" style="width: 100%" max-height="600">
           <el-table-column prop="code" label="配送单编号" align="center" width="250"></el-table-column>
           <el-table-column label="配送状态" align="center">
             <template scope="scope">{{scope.row.deliveryStatus | deliveryTip}}</template>
@@ -111,7 +111,7 @@
               >{{scope.row.orderingCode}}</span>
             </template>
           </el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <span
                 @click="check1(scope.row.code)"

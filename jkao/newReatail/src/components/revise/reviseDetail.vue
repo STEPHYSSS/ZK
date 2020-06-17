@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="konge"></div>
-                <el-table :data="tableData2" style="width: 100%;" border>
+                <el-table :data="tableData2" style="width: 100%;">
                     <el-table-column prop="goodsCode" label="货号" align='center' width="120"></el-table-column>
                     <el-table-column prop="barcode" label="国际条码" align='center'> </el-table-column>
                     <el-table-column prop="goodsName" label="品名" align='center' width="160"> </el-table-column> 

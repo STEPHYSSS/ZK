@@ -86,7 +86,7 @@
     </div>
     <div class="amendInfo">
       <div class="amend_Box">
-        <el-table :data="list" style="width: 100%;" border>
+        <el-table :data="list" style="width: 100%;">
           <el-table-column prop="code" label="修正单编号" align="center" ></el-table-column>
           <el-table-column label="修正单类型" align="center">
             <template scope="scope">{{scope.row.type | typeTip}}</template>

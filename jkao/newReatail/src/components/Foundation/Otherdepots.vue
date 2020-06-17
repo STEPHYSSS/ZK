@@ -1,5 +1,5 @@
 <template>
-  <div class="orDepots minimum minWidth1600">
+  <div class="orDepots">
     <div class="DepotsBox">
       <h3 class="demonstration">其他出库</h3>
       <el-row>
@@ -64,7 +64,7 @@
             <img src="@/assets/newlyincreased.png" alt />
           </router-link>-->
         </div>
-        <el-table :data="tableData" style="width: 100%;" border max-height="600">
+        <el-table :data="tableData" style="width: 100%;" max-height="600">
           <el-table-column label="单据编号" align="center" width="300">
             <template scope="scope">
               <span class="codesty" @click="checkCode(scope.row.code)">{{scope.row.code}}</span>
@@ -293,7 +293,7 @@ export default {
 .orDepots {
   /* background-color: #f1f6fa; */
   min-height: 647px;
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 .DepotsBox {
   height: 150px;

@@ -45,8 +45,18 @@
       <!-- <el-table-column prop="get_score" label="得分"></el-table-column> -->
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <a @click="selfExamStart(scope.row)">开始测试</a> |
-          <a @click="selfExamDelete(scope.row)">删除</a>
+           <el-tooltip class="item" effect="dark" content="开始测试" placement="bottom">
+            <span class="cur-point"  @click="selfExamStart(scope.row)">
+              <img src="@/assets/images/kaishikaoshi_icon.png" alt />
+            </span>
+          </el-tooltip>&nbsp;&nbsp;&nbsp;
+          <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+            <span class="cur-point"  @click="selfExamDelete(scope.row)">
+              <img src="@/assets/images/shanchu_icon.png" alt />
+            </span>
+          </el-tooltip>
+          <!-- <a @click="selfExamStart(scope.row)">开始测试</a> |
+          <a @click="selfExamDelete(scope.row)">删除</a> -->
         </template>
       </el-table-column>
     </el-table>

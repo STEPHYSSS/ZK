@@ -50,7 +50,7 @@
                                 align="center"
                                 :show-overflow-tooltip="true"
                             ></el-table-column>
-                            <el-table-column label="操作" align="center">
+                            <el-table-column label="操作" align="center" fixed="right">
                                 <template slot-scope="scope">
                                     <el-tooltip
                                         class="item"
@@ -489,7 +489,7 @@ table {
     display: inline-block;
     float: right;
     padding-bottom: 10px;
-    padding-right: 13px;
+    padding-right: 21px;
 }
 .inputWidth {
     width: 65%;

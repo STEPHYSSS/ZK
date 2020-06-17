@@ -25,9 +25,9 @@
                 <img v-if="imageUrl" :src="imageUrl" class="avatar" />
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
-            <el-form-item label="用户名:" prop="username">
+            <el-form-item label="用户名:">
                 <input
-                    v-if="this.$route.query.id"
+                    v-if="form.username"
                     maxlength="20"
                     type="text"
                     v-model="form.username"
@@ -38,9 +38,10 @@
                     v-else
                     maxlength="20"
                     type="text"
-                    v-model="form.username"
+                    @blur="checkUsername"
+                    v-model="username"
                     oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
-                />
+                />{{usermsg}}
                 <span>
                     <!-- <span class="redB">*</span>填写英文和数字组成的用户名 -->
                 </span>
@@ -59,14 +60,14 @@
                 </span>
             </el-form-item>
             <el-form-item label="姓名:" prop="realname">
-                <input maxlength="50" type="text" v-model="form.realname" />
+                <input maxlength="50" :disabled="form.realname" type="text" v-model="form.realname" />
                 <span>
                     <!-- <span class="redB">*</span>填写用户的真实姓名 -->
                 </span>
             </el-form-item>
             <el-form-item label="学号:" prop="num">
                 <input
-                    v-if="this.$route.query.id"
+                    v-if="form.num"
                     :disabled="disabledName"
                     maxlength="50"
                     oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
@@ -78,8 +79,9 @@
                     maxlength="50"
                     oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
                     type="text"
-                    v-model="form.num"
-                />
+                    @blur="checknum"
+                    v-model="number"
+                />{{nummsg}}
             </el-form-item>
             <el-form-item label="联系电话:">
                 <input
@@ -150,6 +152,10 @@ export default {
                 num: "",
                 class_id: ""
             },
+            username: '',
+            number: '',
+            usermsg: '',
+            nummsg: '',
             rules: {
                 username: [
                     {
@@ -204,6 +210,40 @@ export default {
     },
 
     methods: {
+        checkUsername () {
+            if (!this.username) return false
+            this.$utils.post(
+                this.reqApi.shuiwuUrl + "/user/checkUsername",
+                qs.stringify({
+                    username: this.username
+                })
+            )
+            .then(res => {
+                const { code, msg } = res.data;
+                if (code === "0000") {
+                    this.usermsg = msg;
+                } else {
+                    this.usermsg = msg;
+                }
+            });
+        },
+        checknum () {
+            if (!this.number) return false
+            this.$utils.post(
+                this.reqApi.shuiwuUrl + "/user/checkNum",
+                qs.stringify({
+                    number: this.number
+                })
+            )
+            .then(res => {
+                const { code, msg } = res.data;
+                if (code === "0000") {
+                    this.nummsg = msg;
+                } else {
+                    this.nummsg = msg;
+                }
+            });
+        },
         // checkEmail(val) {
         //     var reg = /^[0-9a-zA-Z_.-]+[@][0-9a-zA-Z_.-]+([.][a-zA-Z]+){1,2}$/;
         //     if (!reg.test(val)) {
@@ -291,6 +331,8 @@ export default {
 
         // 提交
         submitForm(formName) {
+            if (this.username) this.form.username = this.username
+            if (this.number) this.form.num = this.number
             this.$refs[formName].validate(valid => {
                 if (valid) {
                     if (
@@ -311,9 +353,6 @@ export default {
                             return;
                         }
                     }
-
-                    if (!this.form.username)
-                        return that.$message("用户名不能为空!");
                     // if (!this.form.class_id) return this.$message("所属班级不能为空!");
                     if (!this.form.realname)
                         return this.$message("真实姓名不能为空!");
@@ -348,6 +387,10 @@ export default {
             this.huanse(this.strength);
         },
         submitForm1(formName) {
+            if (this.username && this.number) {
+                this.form.username = this.username
+                this.form.num = this.number
+            }
             this.$refs[formName].validate(valid => {
                 if (valid) {
                     this.ruleForm2.token = sessionStorage.getItem("token");

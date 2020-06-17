@@ -6,7 +6,7 @@
         <table border="1">
             <tbody>
                 <tr>
-                    <td class="txalign lanse">考试名称:</td>
+                    <td class="text-center lanse">考试名称:</td>
                     <td>
                         <input type="text" placeholder="请选择考试" readonly v-model="examMc" />
                         <el-button class="haha search-btn" @click="getFindPaperStatistics">选择考试</el-button>
@@ -14,7 +14,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="txalign lanse">分数范围:</td>
+                    <td class="text-center lanse">分数范围:</td>
                     <td>
                         <div
                             class="add-section"

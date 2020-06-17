@@ -1,0 +1,220 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: #F5F5F5;
+}
+
+.dispinlbloc {
+    display: inline-block;
+}
+
+.disblock {
+    display: block;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.textal {
+    text-align: left;
+}
+
+.textar {
+    text-align: right;
+}
+
+
+/* 文本居左 */
+
+
+/* .van-cell__title,
+.van-cell__value {
+    text-align: left;
+} */
+
+.van-swipe-item {
+    border-radius: 10px;
+}
+
+.van-nav-bar .van-icon {
+    color: #444444FF;
+}
+
+
+/* 顶部带有提交按钮的nav start */
+
+.outBox {
+    box-sizing: border-box;
+}
+
+.clockContent {
+    padding-top: 46px;
+}
+
+.imgIcon {
+    width: 14px;
+    height: 14px;
+    /* margin-right: 3px; */
+    vertical-align: sub;
+    padding-bottom: 2px;
+}
+
+.submit {
+    font-size: 14px;
+    color: #1989fa;
+}
+
+.delText {
+    font-size: 14px;
+    color: #FF3000;
+}
+
+.el-radio__input.is-checked .el-radio__inner {
+    border-color: #14C25A!important;
+    background: #14C25A!important;
+}
+
+.el-radio__input.is-checked+.el-radio__label {
+    color: #444!important;
+}
+
+
+/* 表格隔行变色  */
+
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+    background: #E9F8F8!important;
+}
+
+
+/* 顶部带有提交按钮的nav end */
+
+
+/* 去掉input为number类型时的默认上下箭头 */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+/* 设置页面布局 */
+
+.outBox {
+    height: 100vh;
+}
+
+.outBox_one {
+    height: 100vh;
+    padding-top: 56px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#shensu .van-cell__value {
+    overflow: visible!important;
+}
+
+
+/* tab标签样式 */
+
+.new-tabs {
+    /* background-color: #f1f4f6; */
+    background-color: #fff;
+    border-bottom: 1px solid #dbe0e5;
+    /* width: 724px; */
+    height: 42px;
+    font-size: 12px;
+    padding-bottom: 2px;
+    width: 100%;
+    display: inline-block;
+}
+
+.new-tabs-child {
+    width: 47%;
+    height: 42px;
+    text-align: center;
+    line-height: 36px;
+    color: #444;
+    position: relative;
+    padding: 10px 26px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.new-tabs .active {
+    background-color: #fff;
+}
+
+.new-tabs .active::before {
+    content: "";
+    display: inline-block;
+    /* width: 100px; */
+    /* height: 4px; */
+    background-color: #e71517;
+    position: absolute;
+    /* top: 0; */
+    /* left: 0; */
+    top: 38px;
+    transform: translateX(45px) translateX(-50%);
+    transition-duration: 0.3s;
+    text-align: center;
+    width: 50px;
+    height: 4px;
+    left: 1.16rem;
+}
+
+.el-table--border th,
+.el-table__fixed-right-patch {
+    background-color: #70A5FFFF!important;
+    color: #fff;
+}

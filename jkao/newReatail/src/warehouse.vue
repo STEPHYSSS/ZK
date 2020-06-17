@@ -1,5 +1,5 @@
 <template>
-  <div class="box" id="shopNavigation">
+  <div class="box mindex" id="shopNavigation">
     <div class="head">
       <div class="head-nav">
         <!-- <img class="Nlogo" src="./Uimage/logo.png" alt />
@@ -64,8 +64,8 @@
             ref="countDown"
             class="exam-interval fr"
           ></countDown>
-          <questionInfo :questionInfo="questionInfo"></questionInfo>
           <backBtn></backBtn>
+          <questionInfo></questionInfo>
         </div>
       </div>
     </div>
@@ -257,7 +257,7 @@ export default {
         show2: true,
         show3: true
       },
-      name: sessionStorage.getItem("username"),
+      name: sessionStorage.getItem("warehouseName"),
       dialogVisible: false,
       centerDialogVisible: false,
       ruleForm2: {
@@ -479,6 +479,10 @@ body {
   /* min-width: 1600px;
   overflow: hidden; */
 }
+.mindex{
+  min-width: 1024px;
+  max-width: 1920px;
+}
 
 .head {
   height: 68px;
@@ -620,14 +624,13 @@ body {
 /* nav end */
 /* main start */
 #shopNavigation .main {
-  background-color: #eceff4;
-  padding: 15px 15px 0px 15px;
+  background-color: #fff;
+  margin: 15px 15px 15px 15px;
   box-sizing: border-box;
   flex: 1;
   width: 100%;
-  height: 100%;
   overflow: auto;
-  /* min-width: 1600px; */
+  height: calc(100vh - 110px);
 }
 
 /* 原来的样式 */

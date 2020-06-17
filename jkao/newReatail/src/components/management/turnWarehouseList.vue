@@ -21,7 +21,7 @@
           <div>
             <span class="textTitle70px">单据状态：</span>
             <div class="TongYiInput">
-              <el-select placeholder="请选择" v-model="ruleForm.status" class="input1">
+              <el-select placeholder="请选择" v-model="ruleForm.status">
                 <el-option label="待审核" value="W"></el-option>
                 <el-option label="审核通过" value="S"></el-option>
                 <el-option label="审核不通过" value="F"></el-option>
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div>
-      <el-table :data="tableData" style="width: 100%;" border max-height="650">
+      <el-table :data="tableData" style="width: 100%;" max-height="650">
         <el-table-column label="单据编号" align="center">
           <template scope="scope">
             <span class="codesty" @click="toDetail(scope.row.code)">{{scope.row.code}}</span>

@@ -7,37 +7,37 @@
         <table border="1">
             <tbody>
                 <tr>
-                    <td class="txalign-c td-blue">试卷名称:</td>
+                    <td class="text-right td-blue">试卷名称:</td>
                     <td class="td-wid">
                         <input type="text" placeholder="请选择试卷" readonly v-model="examMc" />
                         <el-button class="haha search-btn" @click="getFindPaperStatistics">选择试卷</el-button>
                     </td>
                 </tr>
                 <tr v-show="showResult">
-                    <td class="txalign-c td-blue">统计结果:</td>
+                    <td class="text-right td-blue">统计结果:</td>
                     <td>
                         <div>
                             <h4>分数统计</h4>
                             <el-row>
                                 <el-col>
                                     <tr>
-                                        <td class="txalign td-blue">最高分</td>
+                                        <td class="text-center td-blue">最高分</td>
                                         <td class="td-wid-td">
                                             <!-- {{analysisResult.r11}} - {{analysisResult.r11_realname}}({{analysisResult.r11_username}}) -->
                                             {{analysisResult.max_score}}
                                         </td>
-                                        <td class="txalign td-blue">最低分</td>
+                                        <td class="text-center td-blue">最低分</td>
                                         <td class="td-wid-td">
                                             <!-- {{analysisResult.r12}} - {{analysisResult.r12_realname}}({{analysisResult.r12_username}}) -->
                                             {{analysisResult.min_score}}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="txalign td-blue">平均分</td>
+                                        <td class="text-center td-blue">平均分</td>
                                         <td
                                             class="td-wid-td"
                                         >{{parseFloat(analysisResult.avg_score).toFixed(2)}}</td>
-                                        <td class="txalign td-blue"></td>
+                                        <td class="text-center td-blue"></td>
                                         <td class="td-wid-td"></td>
                                     </tr>
                                 </el-col>
@@ -48,29 +48,29 @@
                             <el-row>
                                 <el-col>
                                     <tr>
-                                        <td class="txalign td-blue">及格人数</td>
+                                        <td class="text-center td-blue">及格人数</td>
                                         <td class="td-wid-td">{{analysisResult.pass_count}}</td>
-                                        <td class="txalign td-blue">参与人数</td>
+                                        <td class="text-center td-blue">参与人数</td>
                                         <td class="td-wid-td">{{analysisResult.join_count}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="txalign td-blue">及格比例</td>
+                                        <td class="text-center td-blue">及格比例</td>
                                         <td class="td-wid-td">
                                             <!-- {{parseFloat(analysisResult.r31 / analysisResult.r32 * 100).toFixed(2)}}% -->
                                             <!-- {{analysisResult.pass_rate.toFixed(2)}}% -->
                                             {{analysisResult.pass_rate}}%
                                         </td>
-                                        <!-- <td class="txalign td-blue">参加比例</td>
+                                        <!-- <td class="text-center td-blue">参加比例</td>
                     <td class="td-wid-td">
                       {{parseFloat(analysisResult.r32 / analysisResult.r51 * 100).toFixed(2)}}%
                                         </td>-->
                                     </tr>
                                     <tr>
-                                        <!-- <td class="txalign td-blue">应参加数</td>
+                                        <!-- <td class="text-center td-blue">应参加数</td>
                     <td class="td-wid-td">
                       {{analysisResult.r51}}
                                         </td>-->
-                                        <!-- <td class="txalign td-blue">缺考人数</td> -->
+                                        <!-- <td class="text-center td-blue">缺考人数</td> -->
                                         <!-- <td class="td-wid-td">
                       {{analysisResult.r52}}
                                         </td>-->
@@ -83,25 +83,25 @@
               <el-row>
                 <el-col>
                   <tr>
-                    <td class="txalign td-blue">最早交卷</td>
+                    <td class="text-center td-blue">最早交卷</td>
                     <td class="td-wid">
                       {{analysisResult.r61}} - {{analysisResult.r61_realname}} ({{analysisResult.r61_username}})
                     </td>
                   </tr>
                   <tr>
-                    <td class="txalign td-blue">最迟交卷</td>
+                    <td class="text-center td-blue">最迟交卷</td>
                     <td class="td-wid">
                       {{analysisResult.r71}} - {{analysisResult.r71_realname}} ({{analysisResult.r71_username}})
                     </td>
                   </tr>
                   <tr>
-                    <td class="txalign td-blue">最长耗时</td>
+                    <td class="text-center td-blue">最长耗时</td>
                     <td class="td-wid">
                       {{analysisResult.r81}} - {{analysisResult.r81_realname}} ({{analysisResult.r81_username}})
                     </td>
                   </tr>
                   <tr>
-                    <td class="txalign td-blue">最短耗时</td>
+                    <td class="text-center td-blue">最短耗时</td>
                     <td class="td-wid">
                       {{analysisResult.r91}} - {{analysisResult.r91_realname}} ({{analysisResult.r91_username}})
                     </td>

@@ -22,7 +22,12 @@
       <el-table-column align="center" prop="create_user_name" label="创建人"></el-table-column>
       <el-table-column align="center" label="操作">
         <template slot-scope="scope">
-          <span @click="startTesting(scope.row)" class="curson">开始测试</span>
+          <el-tooltip class="item" effect="dark" content="开始考试" placement="bottom">
+            <span class="cur-point"  @click="startTesting(scope.row)">
+              <img src="@/assets/images/kaishikaoshi_icon.png" alt />
+            </span>
+          </el-tooltip>
+          <!-- <span @click="startTesting(scope.row)" class="curson">开始测试</span> -->
         </template>
       </el-table-column>
     </el-table>
@@ -110,7 +115,8 @@ export default {
           this.$router.push({
             name: "startSelfExam",
             query: {
-              exam_id: sessionStorage.getItem("exam_id")
+              exam_id: sessionStorage.getItem("exam_id"),
+              training:1
             }
           });
         }else {

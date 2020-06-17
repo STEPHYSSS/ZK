@@ -14,7 +14,7 @@
     -khtml-user-select: none;
     user-select: none;
 } */
-    
+
     body,
     dl,
     dd,
@@ -38,7 +38,7 @@
         border: 0;
         font-weight: normal;
     }
-    
+
     body {
         /* font: 12px/25px 'syBlackbody-reg', Arial, Helvetica, sans-serif; */
         /* font: 12px/25px '微软雅黑', Arial, Helvetica, sans-serif; */
@@ -50,7 +50,7 @@
     /* h1, h2, h3, h4, h5 {
     font-family: 'syBlackbody-ht';
 } */
-    
+
     html,
     body,
     h2 {
@@ -58,72 +58,72 @@
         margin: 0;
         padding: 0;
     }
-    
+
     img {
         border: 0;
     }
-    
+
     a {
         text-decoration: none;
         cursor: pointer;
         color: #454545;
     }
     /*全局滚动条样式*/
-    
+
      ::-webkit-scrollbar {
         width: 5px;
         height: 14px;
     }
-    
+
      ::-webkit-scrollbar-thumb {
         /* background-color: #01c8dc;
     border-radius: 3px; */
         background-color: #b6b6b6;
     }
     /*全局滚动条样式结束*/
-    
+
     .el-table {
         font-size: 12px;
     }
     /* el-table 滚动条样式 */
-    
+
     .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar {
         width: 10px;
     }
-    
+
     .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-thumb {
         border-radius: 5px;
         background: rgba(0, 0, 0, 0.2);
     }
-    
+
     .el-table--scrollable-y .el-table__body-wrapper::-webkit-scrollbar-track {
         border-radius: 0;
         background: rgba(0, 0, 0, 0.1);
     }
-    
+
     .el-table__header-wrapper .has-gutter th:nth-last-child(2) {
         border-right: 0;
     }
-    
+
     .el-table--border th.gutter:last-of-type {
         /* background-color: #c7eff5; */
     }
     /* 复选框颜色加深 */
-    
+
     .el-checkbox__inner {
         border: 1px solid rgb(141, 141, 141);
     }
-    
+
     a:hover {
         text-decoration: none;
         color: #31b5ff;
     }
-    
+
     a.router-link-exact-active,
     a.router-link-active {
         color: #31b5ff;
     }
-    
+
     ol,
     ul,
     i {
@@ -132,201 +132,201 @@
         padding: 0;
         margin: 0px;
     }
-    
+
     select:focus {
         border: none;
         outline: none
     }
-    
+
     input:-webkit-autofill {
         -webkit-text-fill-color: rgb(229, 229, 229) !important;
         transition: background-color 5000s ease-in-out 0s;
     }
     /* 字体颜色 */
-    
+
     .font-color-82 {
         color: #828283;
     }
     /* 表格线条颜色 */
-    
+
     .border-color1 {
         border: 1px solid #dbe0e5;
     }
     /* 表格边框颜色 */
-    
+
     .el-table--border,
     .el-table--group {
         /* border: 1px solid #dbe0e5; */
     }
-    
+
     .el-table--border td,
     .el-table--border th,
     .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
         border-right: 1px solid #dbe0e5;
     }
-    
+
     .el-table td,
     .el-table th.is-leaf {
         border-bottom: 1px solid #dbe0e5;
     }
-    
+
     .hgC .el-table td,
     .el-table th.is-leaf {
         height: 40px !important;
         padding: 0 !important;
     }
     /* 字体大小 */
-    
+
     .font-size-12 {
         font-size: 12px;
     }
-    
+
     .font-size-16 {
         font-size: 16px;
     }
-    
+
     .font-size-14 {
         font-size: 14px;
     }
-    
+
     .font-size-18 {
         font-size: 18px;
     }
-    
+
     .dis-inline-block {
         display: inline-block;
     }
     /* 悬浮鼠标样式 */
-    
+
     .cur-point {
         cursor: pointer;
     }
     /* 字体加粗 */
-    
+
     .font-weight-700 {
         font-weight: 700;
     }
     /* 教师端标题 */
-    
+
     .teacher-title {
         height: 30px;
     }
-    
+
     .student_title {
         margin: 15px;
         display: inline-block;
         font-size: 16px;
     }
     /* 右浮动 */
-    
+
     .fr {
         float: right;
     }
     /* 左浮动 */
-    
+
     .fl {
         float: left;
     }
-    
+
     .fn-clear:after,
     .fn-clear:before {
         content: "";
         display: table
     }
-    
+
     .fn-clear:after {
         clear: both
     }
-    
+
     .fn-clear {
         zoom: 1
     }
     /* 图片宽度百分百 */
-    
+
     .imgbfb {
         width: 100%;
     }
     /* 水平居中 */
     
-    .txalign {
+    .text-center {
         /* text-align: center !important; */
         /* margin-left: 82px; */
     }
     /* 右对齐 */
     
-    .txalign-c {
+    .text-right {
         text-align: right !important;
     }
     /* 左对齐 */
     
-    .txalign-l {
+    .text-left {
         text-align: left !important;
     }
     /* 强制不换行 */
-    
+
     .qzbhh {
         white-space: nowrap;
     }
     /* 背景色 */
-    
+
     .main {
         background-color: #f1f4f6;
         position: relative;
     }
     /* 按钮边框色 */
-    
+
     .my-index .el-button {
         border: 1px solid #444;
-        /* color: #444; */
+        color: #444;
         padding: 7px 19px;
         font-size: 14px;
     }
-    
+
     .my-index.new-main .el-button {
         border: 0px solid #444;
     }
-    
+
     #app .el-button:focus {
         border: 1px solid #444;
         /* color: #444; */
         /* background-color: #fff; */
     }
-    
+
     #app .whiteBtn {
         color: #444;
         background-color: #fff;
     }
-    
+
     #app .whiteBtn:hover {
         /* background-color: #f5f5f5; */
     }
-    
+
     [v-cloak] {
         display: none;
     }
     /* 页面标题 */
-    
+
     .headline {
         font-size: 14px;
         font-weight: 700;
         /* display: inline-block; */
         /* padding-top: 15px; */
     }
-    
+
     .onlySty {
         /* margin-top: 15px; */
     }
     /* 所有页面右上角返回按钮 */
     /*==========================element-ui样式====================================*/
     /*                            分页                             */
-    
+
     .el-pagination {
         padding-top: 20px;
         text-align: right;
         padding-right: 60px;
         padding-bottom: 20px;
     }
-    
+
     .el-pagination.is-background .el-pager li:not(.disabled).active {
         background-color: #C0C4CC;
         color: #FFF;
@@ -340,7 +340,7 @@
     color: #454545;
     margin-bottom: 10px;
 } */
-    
+
     h3 {
         padding-top: 20px;
         height: 30px;
@@ -352,35 +352,35 @@
         padding-left: 20px;
         display: inline-block;
     }
-    
+
     .ex {
         height: 40px;
         font-size: 12px;
         color: #ccc;
     }
-    
+
     .announceList .ex {
         height: 0px;
     }
-    
+
     .announceList h3 {
         height: 0px;
         padding-top: 0px;
     }
     /* 点击后字体颜色 */
-    
+
     .el-menu-item.is-active {
         color: rgb(248, 244, 244);
     }
     /* 点击后背景色和hove颜色色 */
-    
+
     .my-index .el-menu-item:focus,
     .my-index .el-menu-item:hover {
         outline: 0;
         background-color: #ccc;
     }
     /* main里面的内容 */
-    
+
     .el-card {
         border: 0px solid #ebeef5;
         background-color: #fff;
@@ -390,20 +390,20 @@
         min-height: calc(100vh - 110px);
         /* height: auto !important; */
         /* margin-left: 70px; */
-        min-width: 1270px;
+        /* min-width: 1270px; */
         overflow: auto;
     }
-    
+
     .el-card__body {
         /* padding: 15px 0; */
         padding: 0px;
     }
-    
+
     .topPadding {
         /* padding: 0px 15px; */
         padding: 20px 20px;
     }
-    
+
     .new-padding-left {
         padding-top: 15px;
         padding-left: 15px;
@@ -415,7 +415,7 @@
 } */
     /*==================删除弹框样式（公共）========================*/
     /* 删除框样式 */
-    
+
     .el-message-box {
         width: 380px;
         background-color: #fff;
@@ -423,29 +423,29 @@
         border: 0px solid #ebeef5;
         box-shadow: 0 0px 0px 0 rgba(0, 0, 0, .1);
     }
-    
+
     .el-message-box__content {
         text-align: center;
         padding: 42px 0;
     }
-    
+
     .el-message-box__btns {
         text-align: center;
     }
-    
+
     .el-message-box__btns .el-button {
         background-color: #fff;
         color: #444;
         padding: 8px 24px;
         border: 1px solid #444;
     }
-    
+
     #configCourse .el-message-box__header {
         /* background-color: #54c8de; */
         padding: 5px 15px 4px;
         border-bottom: 1px solid #ccc;
     }
-    
+
     #configCourse .el-message-box__title {
         font-size: 14px;
         color: #444;
@@ -462,54 +462,54 @@
     background-repeat: no-repeat;
     background-size: 80% 80%;
 } */
-    
+
     .el-message-box__headerbtn {
         top: 5px;
         font-size: 14px;
     }
-    
+
     .el-message-box__headerbtn .el-message-box__close {
         color: #444;
     }
     /*==================删除弹框样式结束========================*/
-    
+
     .el-table td,
     .el-table th {
         padding: 0px;
     }
-    
+
     .el-table .cell {
         line-height: 20px;
     }
     /*表格每行悬停高亮效果*/
-    
+
     .el-table--enable-row-hover .el-table__body tr:hover>td {
         /* background-color: #c7eff5 !important; */
         background-color: #eef1f5 !important;
     }
     /* 表格隔行变色 */
-    
+
     .el-table--striped .el-table__body tr.el-table__row--striped td {
         background: #f1f7f9;
     }
     /* 表头字体颜色 */
-    
+
     .el-table thead {
         color: #444;
     }
     /* 所有表格头部描边消失 */
-    
+
     .el-table--border th {
         border-right: 0px solid #ebeef5;
     }
     /* =================加载中================= */
-    
+
     .el-loading-spinner .el-loading-text {
         color: #444;
         margin: 20px 0;
         font-size: 12px;
     }
-    
+
     .el-loading-spinner {
         position: absolute;
         top: 50%;
@@ -523,7 +523,7 @@
         background-color: rgba(255, 255, 255, .9);
         border-radius: 10px;
     }
-    
+
     .el-loading-spinner .el-loading-text::before {
         display: inline-block;
         font-family: "iconfont" !important;
@@ -538,14 +538,14 @@
         top: 46%;
         transform: translate(-50%, -50%);
     }
-    
+
     .el-loading-spinner i {
         font-size: 20px;
         color: #409EFF;
     }
     /* =================加载中================= */
     /**********所有input文本框样式************/
-    
+
     input[type=text],
     input[type=password] {
         border-radius: 4px;
@@ -566,45 +566,45 @@
         transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
     }
     /* 新零售登陆跳转单个页面input框样式 */
-    
+
     #loginTurn .el-input__inner {
         border: 0;
         border-bottom: 1px solid #827AC2;
     }
     /*********所有input文本框样式结束*************/
-    
+
     .my-index .lt-css .el-button:hover {
         /* color: #fff;
     background-color: #31b5ff; */
     }
-    
+
     .w-e-menu {
         z-index: 2 !important;
     }
-    
+
     .w-e-text-container {
         z-index: 1 !important;
     }
     /* 试卷配置页面侧边栏不流畅 */
-    
+
     .el-main {
         flex-basis: 0px;
     }
     /* 输入框获取焦点后的边框色 */
-    
+
     .el-select .el-input.is-focus .el-input__inner {
         border-color: #444;
     }
     /* tab栏 */
-    
+
     .el-tabs__item is-top is-active {
         font-size: 14px;
     }
-    
+
     .el-tabs--border-card>.el-tabs__header .el-tabs__item:not(.is-disabled):hover {
         color: #444;
     }
-    
+
     #app .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
         color: #444;
         background-color: #FFF;
@@ -617,37 +617,37 @@
         height: 100%;
         margin-top: -1px;
     }
-    
+
     .el-tabs__item:hover {
         color: #444;
     }
-    
+
     .el-tabs--border-card>.el-tabs__header .el-tabs__item {
         transition: none;
     }
-    
+
     .el-tabs--card>.el-tabs__header .el-tabs__item {
         border-bottom: 1px solid #E4E7ED;
     }
-    
+
     .el-tabs--border-card>.el-tabs__content {
         padding: 20px 0 0 20px;
     }
-    
+
     .el-tabs--card>.el-tabs__header .el-tabs__nav {
         border-left: none;
     }
-    
+
     .el-tabs--card>.el-tabs__header {
         border-bottom: none;
         width: 50%;
     }
-    
+
     .el-table-column--selection .cell {
         padding-left: 0px!important;
         padding-right: 10px;
     }
-    
+
     .curriculumsTable_teacher .custom-tree-node {
         flex: 1;
         display: flex;
@@ -656,26 +656,26 @@
         font-size: 14px;
         padding-right: 8px;
     }
-    
+
     .curriculumsTable_teacher .el-button.addChapter {
         color: #e82b2d;
         background-color: #fff;
         margin: 0 0 20px 15px;
         border: 1px solid #e82b2d;
     }
-    
+
     .curriculumsTable_teacher .el-button.addChapter:hover,
     .curriculumsTable_teacher .el-button.addChapter:focus,
     .curriculumsTable_teacher .el-button.addChapter:active {
         color: #fff;
         background-color: #e82b2d;
     }
-    
+
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue {
         border: 0;
         color: #e82b2d !important;
     }
-    
+
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue:hover,
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue:focus,
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue:active {
@@ -683,68 +683,68 @@
         color: #e82b2d !important;
         background-color: #ecbbbca6 !important;
     }
-    
+
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue img {
         vertical-align: middle;
         width: 12px;
         height: 12px;
     }
     /* 高亮 */
-    
+
     .curriculumsTable_teacher .el-tree-node__content:hover {
         background-color: #e3a4a5a6;
     }
-    
+
     .curriculumsTable_teacher .el-tree-node__content .custom-tree-node:hover,
     .curriculumsTable_teacher .el-tree-node__content .custom-tree-node:focus {
         color: #e82b2d;
     }
     /* 添加修改弹框 */
-    
+
     .curriculumsTable_teacher .el-message-box {
         height: 160px;
     }
-    
+
     .el-message-box__input .el-input input {
         width: 270px !important;
         margin: 0 auto !important;
     }
-    
+
     .curriculumsTable_teacher .el-message-box__content {
         padding: 10px 0 !important;
     }
-    
+
     html body #framePage {
         width: 100%;
         height: 800px;
     }
-    
+
     #tabsContent .el-dialog {
         margin-top: 0vh!important;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, .5), 0 0 6px rgba(0, 0, 0, .5)
     }
-    
+
     #tabsContent .el-dialog__headerbtn {
         top: 6px;
         right: 0px;
     }
-    
+
     #tabsContent .el-dialog__header {
         padding: auto;
         padding: 0!important;
     }
-    
+
     #uploadResources .el-tabs__content {
         padding: 0 10px;
     }
-    
+
     #warehousePages .el-table td,
     .el-table th {
         padding: auto;
         padding: 8px 0px;
         /* padding: 0!important; */
     }
-    
+
     .codesty {
         cursor: pointer;
         color: #2772f4;
@@ -752,34 +752,34 @@
     }
     /* #manageQuestion .el-table td,
     }
-    
+
     .w-e-menu {
         z-index: 2 !important;
     }
-    
+
     .w-e-text-container {
         z-index: 1 !important;
     }
     /* 试卷配置页面侧边栏不流畅 */
-    
+
     .el-main {
         flex-basis: 0px;
     }
     /* 输入框获取焦点后的边框色 */
-    
+
     .el-select .el-input.is-focus .el-input__inner {
         border-color: #444;
     }
     /* tab栏 */
-    
+
     .el-tabs__item is-top is-active {
         font-size: 14px;
     }
-    
+
     .el-tabs--border-card>.el-tabs__header .el-tabs__item:not(.is-disabled):hover {
         color: #444;
     }
-    
+
     #app .el-tabs--card>.el-tabs__header .el-tabs__item.is-active {
         color: #444;
         background-color: #FFF;
@@ -792,37 +792,37 @@
         height: 100%;
         margin-top: -1px;
     }
-    
+
     .el-tabs__item:hover {
         color: #444;
     }
-    
+
     .el-tabs--border-card>.el-tabs__header .el-tabs__item {
         transition: none;
     }
-    
+
     .el-tabs--card>.el-tabs__header .el-tabs__item {
         border-bottom: 1px solid #E4E7ED;
     }
-    
+
     .el-tabs--border-card>.el-tabs__content {
         padding: 20px 0 0 20px;
     }
-    
+
     .el-tabs--card>.el-tabs__header .el-tabs__nav {
         border-left: none;
     }
-    
+
     .el-tabs--card>.el-tabs__header {
         border-bottom: none;
         width: 50%;
     }
-    
+
     .el-table-column--selection .cell {
         padding-left: 0px!important;
         padding-right: 10px;
     }
-    
+
     .curriculumsTable_teacher .custom-tree-node {
         flex: 1;
         display: flex;
@@ -831,26 +831,26 @@
         font-size: 14px;
         padding-right: 8px;
     }
-    
+
     .curriculumsTable_teacher .el-button.addChapter {
         color: #e82b2d;
         background-color: #fff;
         margin: 0 0 20px 15px;
         border: 1px solid #e82b2d;
     }
-    
+
     .curriculumsTable_teacher .el-button.addChapter:hover,
     .curriculumsTable_teacher .el-button.addChapter:focus,
     .curriculumsTable_teacher .el-button.addChapter:active {
         color: #fff;
         background-color: #e82b2d;
     }
-    
+
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue {
         border: 0;
         color: #e82b2d !important;
     }
-    
+
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue:hover,
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue:focus,
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue:active {
@@ -858,73 +858,73 @@
         color: #e82b2d !important;
         background-color: #ecbbbca6 !important;
     }
-    
+
     .curriculumsTable_teacher .el-button.chapterSectionCatalogue img {
         vertical-align: middle;
         width: 12px;
         height: 12px;
     }
     /* 高亮 */
-    
+
     .curriculumsTable_teacher .el-tree-node__content:hover {
         background-color: #e3a4a5a6;
     }
-    
+
     .curriculumsTable_teacher .el-tree-node__content .custom-tree-node:hover,
     .curriculumsTable_teacher .el-tree-node__content .custom-tree-node:focus {
         color: #e82b2d;
     }
     /* 添加修改弹框 */
-    
+
     .curriculumsTable_teacher .el-message-box {
         height: 160px;
     }
-    
+
     .el-message-box__input .el-input input {
         width: 270px !important;
         margin: 0 auto !important;
     }
-    
+
     .curriculumsTable_teacher .el-message-box__content {
         padding: 10px 0 !important;
     }
-    
+
     html body #framePage {
         width: 100%;
         height: 800px;
     }
-    
+
     #tabsContent .el-dialog {
         margin-top: 0vh!important;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, .5), 0 0 6px rgba(0, 0, 0, .5)
     }
-    
+
     #tabsContent .el-dialog__headerbtn {
         top: 6px;
         right: 0px;
     }
-    
+
     #tabsContent .el-dialog__header {
         padding: auto;
         padding: 0!important;
     }
-    
+
     #uploadResources .el-tabs__content {
         padding: 0 10px;
     }
-    
+
     #warehousePages .el-table td,
     .el-table th {
         padding: auto;
         padding: 8px 0px;
         /* padding: 0!important; */
     }
-    
+
     .codesty {
         cursor: pointer;
         color: #2772f4;
     }
-    
+
     .input1 {
         width: 250px;
         line-height: 35px;
@@ -933,101 +933,105 @@
 .el-table th {
     padding: 12px 0;
 } */
-    
+
     .el-table td,
     .el-table th {
         padding: 0;
     }
-    
+    .el-table thead th>.cell {
+      color: #444;
+      font-weight: 700;
+      font-size: 14px;
+    }
     #setAnswer .el-table td,
     .el-table th {
         padding: 8px 0;
     }
-    
+
     .el-table th,
     .el-table tr {
         height: 40px;
     }
-    
+
     #suppWrapper .el-form--inline .el-form-item__content {
         width: 66%;
     }
-    
+
     .examscore .el-dialog__header .el-dialog__headerbtn {
         position: absolute;
         top: 10px;
     }
-    
+
     #zhangtao .el-table__empty-text {
         font-size: 10px;
         white-space: nowrap;
     }
-    
+
     #zhangtao .el-radio__inner {
         border: 1px solid #616368;
     }
-    
+
     #zhangtao .el-radio__input.is-checked .el-radio__inner {
         background: #47494b;
     }
-    
+
     .btnStyle:focus,
     .btnStyle:hover {
         background-color: #fff;
         color: #444;
     }
-    
+
     .serchbox {
         text-align: right;
         padding-right: 20px;
     }
-    
+
     #new-questionn .el-tree-node__label {
         font-size: 12px;
     }
-    
+
     .inputWidth .el-input--suffix .el-input__inner {
         height: 28px;
     }
     /* 证照上传超过5张图片添加类名 */
-    
+
     .hide .el-upload--picture-card {
         display: none;
     }
-    
+
     .width_input {
         width: 300px;
     }
-    
+
     #disStyle .el-tree-node__content {
         white-space: nowrap;
         text-overflow: ellipsis;
-        overflow: hidden;
+        /* overflow: hidden; */
         width: 60%;
         display: inline-block;
     }
-    
+
     #uploadResources .el-tree-node__label {
         overflow: hidden;
     }
-    
+
     .rowSpacing {
         margin-bottom: 15px;
     }
-    
+
     .codesty {
         color: #2772f4;
         cursor: pointer;
     }
-    
+
     .codesty:hover {
         cursor: pointer;
     }
-    
+
     input[type=number] {
         -moz-appearance: textfield;
     }
-    
+
     input[type=number]::-webkit-inner-spin-button,
     input[type=number]::-webkit-outer-spin-button {
         -webkit-appearance: none;
@@ -1039,3 +1043,25 @@
     color: #444;
     padding: 7px 20px;
 } */
+
+    #examBox table {
+        border-top: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+    }
+
+    #examBox table td,
+    #examBox table th {
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        padding: 3px 5px;
+    }
+
+    #examBox table th {
+        border-bottom: 1px solid #ccc;
+        text-align: center;
+    }
+
+    #login .content .input-wid .el-input__inner {
+        font-size: 16px;
+        border: none!important;
+    }

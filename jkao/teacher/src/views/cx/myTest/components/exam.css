@@ -22,6 +22,7 @@
 
 .exam-body {
     display: flex;
+    justify-content: space-between;
     height: 100%;
 }
 
@@ -30,7 +31,7 @@
 
 .exam-question {
     width: calc(100% - 320px);
-    height: 100%;
+    height: calc(100% - 80px);
     /* background-color: rgb(13, 138, 44); */
     /* padding: 16px; */
     padding: 40px 15px;
@@ -46,7 +47,7 @@
     margin-right: 1px;
     border-radius: 3px 3px 0 0;
     cursor: pointer; */
-    padding: 0 20px;
+    padding: 0 16px;
     height: 40px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -100,7 +101,7 @@
 
 }
 .jiexi,.timujiexi {
-  background-color: #d9f3f3;
+  /* background-color: #d9f3f3; */
   /* height: 300px;
   overflow-y: scroll; */
   /* border: 1px solid #ccc; */
@@ -173,10 +174,10 @@
 /* 学生信息 */
 
 .exam-detail {
-  width: 333px;
+  width: 321px;
     /* width: 280px; */
-    height: 100%;
-    padding: 40px 14px 0;
+    height: calc(100% - 60px);
+    padding: 60px 14px 0;
 }
 
 
@@ -185,6 +186,7 @@
 .detail-tabs {
     cursor: pointer;
     font-size: 0;
+    padding-left: 3px;
 }
 
 .questionOrder {
@@ -192,14 +194,14 @@
     position: relative;
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    margin-right: 9px;
     margin-bottom: 10px;
     text-align: center;
     line-height: 20px;
     border: 1px solid #000;
 }
 
-.question-num a:nth-child(8n + 8) .questionOrder {
+.question-num a:nth-child(9n + 9) .questionOrder {
     margin-right: 0;
 }
 
@@ -222,8 +224,9 @@
     height: 200px;
     border: 1px dashed #000;
     overflow: auto;
-    padding: 12px;
+    padding: 12px 12px 12px 16px;
     background-color: #fff;
+    /* text-align-last: justify; */
 }
 
 .btnstyle {

@@ -1,8 +1,8 @@
 <template>
   <div class="login" id="login">
-    <div class="logwapper">
+    <!-- <div class="logwapper">
       <img src="@/assets/logo.png" class="pic">
-      <!-- <div class="loginBox">        
+      <div class="loginBox">        
         <div class="content">
           <el-tabs v-model="activeName" @tab-click="handleClick" style="margin-top:25px;">
             <el-tab-pane label="运营后台" name="first">
@@ -132,8 +132,8 @@
             </el-tab-pane>
           </el-tabs>
         </div>
-      </div> -->
-    </div>
+      </div>
+    </div> -->
   </div>
 </template>
 

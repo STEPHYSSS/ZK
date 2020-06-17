@@ -151,8 +151,8 @@ import qs from 'qs'
 <style scoped>
 .storehouseAdd{
   /* background-color: #f1f6fa; */
-  min-height: 647px;
-  min-width: 1200px;
+  /* min-height: 647px;
+  min-width: 1200px; */
 }
 .storehousebox{
   margin: 0 auto;
@@ -176,17 +176,16 @@ import qs from 'qs'
 .spacelet{
   letter-spacing: 6px;
 }
-.aaa{
-  width: 40%;
-}
+
 .aaa p{
-  width: 100%;
+  width: 300px;
 }
 .cit,.aaa p{
   display: inline-block;
 }
 .aaa .cit{
-  width: 33.3%;
+  width: 95px;
+  margin-right: 8px;
 }
 .aaa .cit p{
     width: 100%;

@@ -1,5 +1,5 @@
 <template>
-  <div class="areaSettings minWidth1600">
+  <div class="areaSettings">
     <div class="areaBox">
       <div class="rece_Box">
         <div class="block">
@@ -60,7 +60,7 @@
             </div>
           </div>
         </div>
-        <el-table :data="tableData" style="width: 100%;" border max-height="600">
+        <el-table :data="tableData" style="width: 100%;" max-height="600">
           <el-table-column prop="item" label="库区编号" align="center"></el-table-column>
           <el-table-column prop="name" label="库区名称" align="center"></el-table-column>
           <el-table-column prop="warehouseName" label="所属仓库" align="center"></el-table-column>
@@ -80,7 +80,7 @@
           <el-table-column label="状态" align="center">
             <template scope="scope">{{scope.row.status | statusTip}}</template>
           </el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
                 <div class="dis">
@@ -405,8 +405,8 @@ export default {
 <style scoped>
 .areaSettings {
   /* background-color: #f1f6fa; */
-  min-height: 647px;
-  min-width: 1200px;
+  /* min-height: 647px;
+  min-width: 1200px; */
 }
 .areaBox,
 .areainfo {

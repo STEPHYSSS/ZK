@@ -61,15 +61,14 @@ function changeStr(allstr, start, end, str, changeStr) { //allstr:原始字符�
 /**
  * 导出excel
  */
-export function export2Excel(columns, list, fileTitle) {
+export function export2Excel(columns,list,fileTitle){
     require.ensure([], () => {
         const { export_json_to_excel } = require('@/excel/Export2Excel');
         let tHeader = []
         let filterVal = []
-        for (const { title, key }
-            of columns) {
-            tHeader.push(title)
-            filterVal.push(key)
+        for (const {title, key} of columns) {
+        tHeader.push(title)
+        filterVal.push(key)
         }
         const data = list.map(v => filterVal.map(j => v[j]))
         export_json_to_excel(tHeader, data, fileTitle);

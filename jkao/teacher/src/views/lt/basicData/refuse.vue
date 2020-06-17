@@ -13,7 +13,7 @@
             <p>验收日期：<span>{{amendmentVo.createTime |converTime('YYYY-MM-DD')}}</span></p>            
           </div>
           <div class="refuseXiu2">
-            <p>创建日期：<span>{{amendmentVo.createTime |converTime('YYYY-MM-DD')}}</span></p>
+            <p>来源：<span>{{amendmentVo.sourceType}}</span></p>
             <p>配送方：<span>{{amendmentVo.supplierName}}</span></p>            
           </div>
           <div class="refuseXiu3">
@@ -74,7 +74,7 @@
                     <span class="red">{{ scope.row.supplierAmendmentCount }}</span>
                 </template>
               </el-table-column>
-              <el-table-column label="供应确认数量" width="154" align="center">
+              <el-table-column label="配送方确认数量" width="154" align="center">
                 <template slot-scope="scope">
                     <span class="black">{{ scope.row.supplierAmendmentCount }}</span>
                 </template>

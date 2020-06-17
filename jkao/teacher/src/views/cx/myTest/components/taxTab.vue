@@ -48,7 +48,7 @@
                 >实训分数</button>
                 <button
                     v-if="type === 'viewDetails'&&hide!=1&&roleId==4"
-                    @click="Trytoreview(item)"
+                    @click="Trytoreview(item,prcQus)"
                     class="examScore"
                 >试题回顾</button>
 
@@ -63,7 +63,7 @@
                 <!--  -->
                 <el-button
                     v-if="type != 'viewDetails'"
-                    @click="startAnswerQuestion(item)"
+                    @click="startAnswerQuestion(item,prcQus)"
                     class="startQuestion"
                     :class="{openExam:type != 'viewDetails'}"
                 >{{ msg }}</el-button>
@@ -106,11 +106,10 @@ export default {
         examFlow2: String,
         exam_flowSelf:String,
         test:{
-            type: Number,
             default: 0
         },
         showQuestion: {
-            type: Number,
+            // type: Number,
             default: 0
         },
         testpaperId: Number,
@@ -140,13 +139,6 @@ export default {
             // }
         };
     },
-    created() {
-        sessionStorage.exam_id = this.exam_id;
-    },
-    // =======
-
-    //   }
-    // },
     components: {
         collection
     },
@@ -158,8 +150,11 @@ export default {
         if(this.continueQ) {
           this.msg = "继续答题"
         }
+        sessionStorage.exam_id = this.exam_id;
     },
-    // >>>>>>> dev_teaching_scl
+    mounted() {
+    //   if (this.$route.query.index) this.$emit('changeShow',this.$route.query.index );
+    },
     methods: {
         getRemark() {
             if (this.remarksList && this.remarksList.length > 0) {
@@ -182,18 +177,35 @@ export default {
             // this.$emit('getData',data.practice_question_uuid)
         },
         // 开始答题
-        startAnswerQuestion(item) {
-          sessionStorage.setItem("questionInfo",item.content)
+        startAnswerQuestion(item,prcQus) {
+            
+            let prcQusObj={
+                prcQus:prcQus,
+                content:item.content,
+                index:this.showQuestion,
+                exam_id:this.$route.query.exam_id,
+                type: 'tax'
+            }
+            prcQusObj=JSON.stringify(prcQusObj)
+            let baseScore=0
+            if(this.$route.query.training){
+                baseScore=100
+            }else {
+                baseScore=item.set_score
+            }
+          sessionStorage.setItem("questionInfo",prcQusObj)
+        //   sessionStorage.setItem('prcQus',prcQus)
             if (this.type === "viewDetails") return false;
             if (!this.isExam) {
                 this.$router.push({
                     name: "toNewRetail",
                     query: {
-                        exam_id: this.exam_id,
-                        examFlow: this.examFlow,
-                        examType: "T",
-                        questionCode: item.practice_question_uuid,
-                        baseScore: 100
+                        showQuestion: this.showQuestion,//题号
+                        exam_id: this.exam_id,//考试id
+                        examFlow: this.examFlow,//考试流水号
+                        examType: "T",// 题目类型zice
+                        questionCode: item.practice_question_uuid,//题目uuid
+                        baseScore 
                     }
                 });
             } else {
@@ -213,11 +225,12 @@ export default {
                         this.$router.push({
                             name: "toNewRetail",
                             query: {
-                                exam_id: this.exam_id,
-                                examFlow: this.examFlow,
-                                examType: "E",
-                                questionCode: item.practice_question_uuid,
-                                baseScore: baseScore
+                              showQuestion: this.showQuestion,
+                              exam_id: this.exam_id,
+                              examFlow: this.examFlow,
+                              examType: "E",// 考试
+                              questionCode: item.practice_question_uuid,
+                              baseScore: baseScore
                             }
                         });
                     } else {
@@ -269,8 +282,20 @@ export default {
             }
         },
         // 考试回顾
-        Trytoreview(item){
-          sessionStorage.setItem("questionInfo",item.content)
+        Trytoreview(item,prcQus){
+            console.log(item,'item')
+            console.log(prcQus,'prcQus')
+             let prcQusObj={
+                prcQus:prcQus,
+                content:item.content,
+                index:this.showQuestion,
+                exam_id:this.$route.query.exam_id,
+                type: 'tax'
+            }
+            prcQusObj=JSON.stringify(prcQusObj)
+            // return
+          sessionStorage.setItem("questionInfo",prcQusObj)
+        //   sessionStorage.setItem("questionInfo",item.content)
           if (this.test) {
             this.$router.push({
                 name: "testOrExamDetail",

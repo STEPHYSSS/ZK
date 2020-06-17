@@ -1,0 +1,336 @@
+/* form表单input宽度 */
+.form-inputWidth .el-form-item__content {
+    width: calc(100% - 120px);
+  }
+
+/* -----考勤规则页面（attendance/attendanceRules.vue）----- */
+#attendanceRules .el-card__body{
+    padding: 20px 0 20px 0;
+}
+
+#attendanceRules .el-table th{
+    padding: 10px 0;
+}
+
+#attendanceRules .el-table td{
+    padding: 7px 0;
+}
+
+.maskLayer .dialogHead{/* --遮罩层-- */
+    margin-bottom: 20px;
+}
+.maskLayer .el-form-item {
+    margin-bottom: 2px;
+}
+
+.maskLayer .el-dialog__header{
+    padding: 0 !important;
+}
+
+.maskLayer .dialogHead span {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.maskLayer .dialogHead span i{
+    font-style: normal;
+    font-weight: 100;
+    font-size: 12px;
+    color: red;
+}
+
+.maskLayer .el-form-item__content{
+    width: calc(100% - 80px);
+}
+
+.maskLayer .btn_style .el-form-item__content{
+    width: 100%;
+}
+
+.maskSearch{
+    background-color: #FA8A11;
+    border: 1px solid #FA8A11;
+    color: #fff;
+}
+
+.maskReset{
+    background-color: #fff;
+    border: 1px solid #FA8A11;
+    color: #FA8A11;
+}
+
+.maskLayer .dialog-footer{
+    text-align: left;
+}
+
+.maskLayer button.el-button.el-button,
+.maskLayer button.el-button.el-button{
+    height: 30px;
+    line-height: 0px;
+}/* 遮罩层结束 */
+/*----- 考勤规则页面结束----- */
+
+
+
+/* -----新增考勤页面（attendance/addAttendance.vue）----- */
+#addAttendance{}
+
+#addAttendance .el-col-11{
+    width: 30.83333%;
+}
+
+#addAttendance .el-col-2{
+    width: 12.33333%;
+}
+
+#addAttendance label.el-form-item__label{
+    /* width: 145px !important; */
+}
+
+#addAttendance .el-date-editor.el-input.el-input--prefix.el-input--suffix.el-date-editor--date{
+    width: 70% !important;
+}
+
+#addAttendance .inp_minute .el-input{
+    width: 70%;;
+}
+
+#addAttendance .nameAndRemark .el-input{
+    width: 30%;
+}/* -----新增考勤页面结束----- */
+
+
+
+/* -----考勤记录页面(attendance/attendanceRecord.vue) -----*/
+#attendanceRecord .el-card__body{
+    padding: 20px 0 20px 0;
+}
+/* 编辑弹框 */
+ .compileDialog .el-dialog{
+    width: 400px !important;
+    /* height: 280px; */
+}
+ .compileDialog.export-excel .el-dialog{
+    width: 500px !important;
+    /* height: 355px; */
+}
+
+ .compileDialog .el-dialog__body{
+    padding: 20px;
+}
+
+ .compileDialog .el-dialog__header{
+    padding: 5px 15px 5px;
+    background-color: #4489FE;
+}
+
+ .compileDialog .el-dialog__title,
+ .compileDialog .el-dialog__headerbtn .el-dialog__close{
+    font-size: 14px;
+    color: #fff;
+}
+
+ .compileDialog .el-dialog__headerbtn{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+ .compileDialog .el-select.compileDialogInp,
+ .compileDialog .compileDialogInp.el-input{
+    width: 200px;
+}
+
+ .compileDialog .compileDialogInp .el-input--prefix .el-input__inner,
+ .compileDialog .compileDialogInp .el-input--suffix .el-input__inner,
+ .compileDialog .compileDialogInp input.el-input__inner{
+    height: 30px;
+}
+
+ .compileDialog .el-dialog__footer{
+    padding: 0px 20px 20px;
+}
+
+ .compileDialog button.el-button.el-button--default{
+    color: #4489FE;
+    background-color: #fff;
+    border: 1px solid #4489FE;
+    padding: 5px 10px;
+}
+
+ .compileDialog button.el-button.el-button--primary{
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #4489FE;
+    border: 1px solid #4489FE;
+}/* 编辑弹框结束 */
+
+/* 详情弹框 */
+#attendanceRecord .detailsDialog .el-dialog{
+    background-color: #000;
+}
+
+#attendanceRecord .detailsDialog .el-dialog{
+    height: 495px;
+}
+
+#attendanceRecord .detailsDialog .el-dialog__headerbtn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#attendanceRecord .detailsDialog i.el-dialog__close.el-icon.el-icon-close{
+    color: #fff;
+}
+
+#attendanceRecord .detailsDialog .el-dialog__body{
+    padding: 10px 0 0 0;
+}
+
+#attendanceRecord .detailsDialog .el-dialog__footer{
+    padding: 10PX 10px 0 10px;
+}
+
+#attendanceRecord .detailsDialog span.dialog-footer{
+    color: #fff;
+    text-align: left;
+}/*----- 考勤记录页面结束----- */
+
+
+
+
+
+/* -----考勤统计页面(attendance/attendanceRecord.vue) -----*/
+#attendancestatistics .el-card__body{
+    padding: 20px 0 20px 0;
+}/* -----勤统计页面结束----- */
+
+
+
+/* -----广告管理页面（moduleManagement/advertising.vue）----- */
+#advertising .el-card__body{
+    padding: 20px 0 20px 0;
+}
+
+#advertising .btn_style .search{
+    background-color: #4489FE;
+    color: #fff;
+    border: 1px solid #4489FE;
+}
+
+#advertising .btn_style .reset{
+    background-color: #fff;
+    color: #4489FE;
+    border: 1px solid #4489FE;
+}
+/* -----广告管理页面结束----- */
+
+
+/* -----新增广告页面（moduleManagement/addNewAdvertising.vue）----- */
+.avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9 !important;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+
+/* -----评分审核页面（scoreReview/scoreReview.vue）----- */  
+#scoreReview .el-card__body{
+    padding: 20px 0 20px 0;
+}
+
+#scoreReview .scoreReviewForm .el-date-editor.el-input, .el-date-editor.el-input__inner{
+    width: 145px;
+}
+
+#scoreReview .scoreReviewForm .formStatus.el-col.el-col-6{
+    text-align: center;
+}
+
+#scoreReview .scoreReviewForm .btn_style .search{
+    color: #fff;
+    background-color: #4489FE;
+    border: 1px solid #4489FE;
+}
+
+#scoreReview .scoreReviewForm .btn_style .reset{
+    color: #4489FE;
+    background-color: #fff;
+    border: 1px solid #4489FE;
+}
+
+#scoreReview .tableStyle a{
+    color: #FA8A11;
+    cursor:pointer;
+}/* -----评分审核页面结束----- */
+
+
+
+/* -----申诉管理页面（scoreReview/appeal.vue）----- */
+#appeal .el-card__body{
+    padding: 20px 0 20px 0;
+}
+
+#appeal .appealForm .el-date-editor.el-input, .el-date-editor.el-input__inner{
+    width: 145px;
+}
+
+#appeal .appealForm .formStatus.el-col.el-col-6{
+    text-align: center;
+}
+
+#appeal .appealForm .btn_style .search{
+    color: #fff;
+    background-color: #4489FE;
+    border: 1px solid #4489FE;
+}
+
+#appeal .appealForm .btn_style .reset{
+    color: #4489FE;
+    background-color: #fff;
+    border: 1px solid #4489FE;
+}
+
+#appeal .tableStyle a{
+    color: #FA8A11;
+    cursor:pointer;
+}/* -----申诉管理页面结束----- */
+
+
+
+
+/* -----出勤休假页面（scoreReview/atedanceVacation.ue）----- */
+#atedanceVacation .el-card__body{
+    padding: 20px 0 20px 0;
+}
+
+#atedanceVacation .atedanceVacationlForm .el-date-editor.el-input, .el-date-editor.el-input__inner{
+    width: 145px;
+}
+
+#atedanceVacation .atedanceVacationlForm .formStatus.el-col.el-col-6{
+    text-align: center;
+}
+
+#atedanceVacation .atedanceVacationlForm .btn_style .search{
+    color: #fff;
+    background-color: #4489FE;
+    border: 1px solid #4489FE;
+}
+
+#atedanceVacation .atedanceVacationlForm .btn_style .reset{
+    color: #4489FE;
+    background-color: #fff;
+    border: 1px solid #4489FE;
+}
+
+#atedanceVacation .tableStyle a{
+    color: #FA8A11;
+    cursor:pointer;
+}/* -----出勤休假页面结束----- */

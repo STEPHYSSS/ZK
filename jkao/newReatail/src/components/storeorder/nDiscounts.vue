@@ -66,7 +66,7 @@
                 <i class="el-icon-plus"></i>新增
               </el-button>
           </p>
-          <el-table :data="list1" style="width: 100%;" border>
+          <el-table :data="list1" style="width: 100%;">
             <el-table-column prop="name" label="促销名称" align="center"></el-table-column>
             <el-table-column label="促销开始时间" align="center">
               <template scope="scope">{{scope.row.startTime | converTime('YYYY-MM-DD')}}</template>

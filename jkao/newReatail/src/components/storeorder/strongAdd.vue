@@ -105,7 +105,7 @@
           </div>
         </div>
         <div class="tab">
-          <el-table :data="clist" border style="width: 100%">
+          <el-table :data="clist" style="width: 100%">
             <el-table-column align="center" prop="code" label="货号"></el-table-column>
             <el-table-column align="center" prop="name" label="品名"></el-table-column>
             <el-table-column align="center" prop="spec" label="单位"></el-table-column>

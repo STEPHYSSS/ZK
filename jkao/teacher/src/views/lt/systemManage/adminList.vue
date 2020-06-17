@@ -59,7 +59,7 @@
         </el-select>
           </el-form-item>-->
         </el-col>
-        <el-col class="fr txalign-c" :span="6">
+        <el-col class="fr text-right" :span="6" style="min-width: 240px">
           <el-form-item>
             <el-button class="search search-btn" @click="searchCX">搜索</el-button>
             <el-button class="search search-btn" @click="clear">重置</el-button>
@@ -69,9 +69,10 @@
     </el-form>
     <div class="addBox">
       <el-button @click="newAdmin">新增</el-button>
+      <el-button @click="bulkImport">批量导入</el-button>
     </div>
     <!-- 表格 -->
-    <el-table :data="tableData" border class="topBorder" style="width: 100%">
+    <el-table :data="tableData" class="topBorder" style="width: 100%">
       <el-table-column align="center" prop="username" label="用户名"></el-table-column>
       <el-table-column align="center" prop="realname" label="姓名"></el-table-column>
       <el-table-column align="center" prop="role_id" label="角色">
@@ -100,9 +101,25 @@
         <span v-if="scope.row.last_login_time">  {{ scope.row.last_login_time | fmtDate() }}</span>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="操作" width="180">
+      <el-table-column align="center" label="操作" width="180" fixed="right">
         <template slot-scope="scope">
-          <span class="cur-point dis-inline-block" @click="questionPut(scope.row)">
+          <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
+              <span class="cur-point dis-inline-block" @click="questionPut(scope.row)">
+                <img src="@/assets/images/xiugai_icon.png" alt />
+              </span>
+            </el-tooltip>&nbsp;&nbsp;&nbsp;
+            <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+              <span class="cur-point dis-inline-block" @click='del(scope.row)'>
+                <img src="@/assets/images/shanchu_icon.png" alt />&nbsp;&nbsp;&nbsp;
+              </span>
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="重置" placement="bottom">
+              <span class="cur-point dis-inline-block"  @click="reset(scope.row)"
+            v-if="role_id == 1 || role_id == 2">
+                <img src="@/assets/images/chongzhi_icon.png" alt />
+              </span>
+            </el-tooltip>
+          <!-- <span class="cur-point dis-inline-block" @click="questionPut(scope.row)">
             <img src="@/assets/images/xiugai_icon.png" alt>&nbsp;&nbsp;&nbsp;
           </span>
           <span class="cur-point dis-inline-block" @click="del(scope.row)">
@@ -114,7 +131,7 @@
             v-if="role_id == 1 || role_id == 2"
           >
             <img src="@/assets/images/chongzhi_icon.png" alt>
-          </span>
+          </span> -->
         </template>
       </el-table-column>
     </el-table>
@@ -173,6 +190,14 @@ export default {
     "previous-page": previousPage
   },
   methods: {
+     bulkImport(){
+            this.$router.push({
+                name:'importUserList',
+                query:{
+                    teacher:'teacher'
+                }
+            })
+        },
     clear(){
       this.form.username=''
       this.form.class_id=''

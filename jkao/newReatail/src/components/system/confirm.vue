@@ -39,7 +39,7 @@
       <div class="store_Box1">
         <div class="scollHide">
           <div class="divs"><el-button class="AllquedingBtn" @click="determne">确认配送</el-button></div>
-          <el-table :data="tableData" stripe style="width: 100%" border>
+          <el-table :data="tableData" stripe style="width: 100%">
             <el-table-column prop="code" label="货号" align="center"></el-table-column>
             <el-table-column prop="barcode" label="国际条码" align="center"></el-table-column>
             <el-table-column prop="name" label="品名" align="center"></el-table-column>

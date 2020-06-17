@@ -89,7 +89,7 @@
           <el-tab-pane label="2供应商信息" name="second">
             <div>
               <h3>供应商关联关系</h3>
-              <el-table :data="tableData" border style="width: 45.3%">
+              <el-table :data="tableData" style="width: 45.3%">
                 <el-table-column align="center" prop label="主供应商">
                   <template>是</template>
                 </el-table-column>
@@ -99,7 +99,7 @@
             </div>
             <div>
               <h3>供应商物流信息</h3>
-              <el-table :data="tableData2" style="width: 90%" border>
+              <el-table :data="tableData2" style="width: 90%">
                 <el-table-column align="center" prop="date" label="主供应商">
                   <template>是</template>
                 </el-table-column>
@@ -113,7 +113,7 @@
           </el-tab-pane>
           <el-tab-pane label="3订购信息" name="third">
             <div class="tabList">
-              <el-table :data="tableData3" border style="width: 90%">
+              <el-table :data="tableData3" style="width: 90%">
                 <el-table-column align="center" prop="salesPrice" label="商品售价"></el-table-column>
                 <el-table-column align="center" label="生效日期">
                   <template scope="scope">{{scope.row.createTime|converTime('YYYY-MM-DD')}}</template>
@@ -122,7 +122,7 @@
                   <template>永久</template>
                 </el-table-column>
               </el-table>
-              <el-table :data="tableData3" border style="width: 90%">
+              <el-table :data="tableData3"  style="width: 90%">
                 <el-table-column align="center" prop="purchasePrice" label="商品进价"></el-table-column>
                 <el-table-column align="center" label="生效日期">
                   <template scope="scope">{{scope.row.createTime|converTime('YYYY-MM-DD')}}</template>
@@ -131,7 +131,7 @@
                   <template>永久</template>
                 </el-table-column>
               </el-table>
-              <el-table :data="tableData3" border style="width: 90%">
+              <el-table :data="tableData3"  style="width: 90%">
                 <el-table-column align="center" prop="orderingUtil" label="基本订购单位"></el-table-column>
                 <el-table-column align="center" prop="minOrderingMultiple" label="最小订倍数"></el-table-column>
                 <el-table-column align="center" prop="maxOrderingMultiple" label="最大订购倍数"></el-table-column>

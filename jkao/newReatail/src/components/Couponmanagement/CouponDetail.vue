@@ -16,7 +16,7 @@
           <p>发放数量：{{pageList.num}}</p>
         </div>
         <div style="width:100%">
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
             <el-table-column prop="id" label="优惠券ID" align="center"></el-table-column>
             <el-table-column prop="name" label="优惠券名称" align="center"></el-table-column>
             <el-table-column prop="type" label="优惠券类型" align="center">

@@ -1,5 +1,5 @@
 <template>
-    <div class="depotsAdd minWidth1600">
+    <div class="depotsAdd">
         <div class="depotsAddBox">
              <div class="detailBackBtn">
         <router-link :to="{ path: '/Otherdepots' }">
@@ -28,7 +28,7 @@
                         <tbody>
                             <tr v-for="(item, index) in tableData" :key="index">
                                 <td>
-                                    <input type="text" class="inputTd" v-model="item.code" @keydown.enter="searthData(item.code, index)">
+                                    <input type="text" class="inputTd" v-model="item.code" @focus="changeDalog">
                                 </td>
                                 <td>{{item.name}}</td>
                                 <td>{{item.salesPrice}}</td>
@@ -62,7 +62,7 @@
                     </div> 
                 </div> 
                 <!-- 选择库区弹窗 -->
-                <el-dialog title="选择库区" :visible.sync="dialogVisible" width="50%">
+                <el-dialog title="选择库区" :visible.sync="dialogVisible" width="800px">
                     <div class="wrapperKu">
                         <div class="soList">
                             <div class="sotl">
@@ -93,7 +93,7 @@
                             </el-table-column>
                         </el-table>
                         <div>
-                            <div class="dialogSureBox">
+                            <div class="dialogSure">
                                 <el-button class="theBtn themeColor textMright" @click="nextclick()">确定</el-button>
                                 <el-button class="theBtn resetButton" @click="dialogVisible=false">取消</el-button>
                             </div>
@@ -114,6 +114,54 @@
                         
                     </div>
                 </el-dialog>
+                <!-- 选择商品弹窗 -->
+        <el-dialog title="选择商品" :visible.sync="dialogVisible2" width="800px">
+          <div class="choosestore">
+              <p class="goodsInputBox">品<em class="zanweiN"></em>名：<el-input v-model="goodsName" placeholder="请输入商品名称"></el-input></p>
+            <div class="chooseBox2">
+              <el-table
+                ref="multipleTable"
+                :data="optionsGoods"
+                tooltip-effect="dark"
+                style="width: 100%"
+                border
+                @selection-change="handleSelectionChange2"
+                @select-all="selectAll"
+                :row-key="getGoodsCode"
+                max-height="244"
+              >
+                <el-table-column
+                  type="selection"
+                  width="55"
+                  align="center"
+                  :reserve-selection="true"
+                ></el-table-column>
+                <el-table-column prop="code" label="货号" align="center"></el-table-column>
+                <el-table-column prop="name" label="品名" align="center"></el-table-column>
+                <el-table-column prop="unit" label="单位" align="center"></el-table-column>
+                <el-table-column prop="spec" label="规格" align="center"></el-table-column>
+                <el-table-column prop="temperature" label="温层" align="center"></el-table-column>
+              </el-table>
+              <div class="pageFenye">
+                <div class="PromotBtn">
+                  <el-button class="AllquedingBtn" @click="isSureGoods">确定</el-button>
+                  <el-button class="theBtn resetButton" @click="dialogVisible2 = false">取消</el-button>
+                </div>
+                <!-- <el-pagination
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="pageNum"
+                  :page-sizes="[20, 40, 60]"
+                  :page-size="pageSize"
+                  background
+                  layout="total, sizes, prev, pager, next, jumper"
+                  :total="total"
+                  class="pagination"
+                ></el-pagination> -->
+              </div>
+            </div>
+          </div>
+        </el-dialog>
             </div>
           </div>
         </div>
@@ -140,7 +188,12 @@ export default {
         regionId:'',
         pageNum: 1,
         pageSize: 20,
-        total: 0
+        total: 0,
+        dialogVisible2: false,
+        optionsGoods: [], //商品列表
+        multipleSelection2: [],
+        goodsName:''
+        
       }
     },
     created(){
@@ -230,34 +283,104 @@ export default {
                 period: ''
             });
         },
-        // 输入货号回车事件
-        searthData (code, index) {
-            this.$axios({
-                url:'public/goods/info',
-                method:'POST',
-                headers:{'content-type': 'application/x-www-form-urlencoded'},
-                data:qs.stringify({
-                    token:sessionStorage.getItem('token'),
-                    goodsCode:code
-                })
-            }).then(res=>{
-                if(res.data.code=="0000"){
-                    this.tableData[index] = res.data.data;
-                    this.$set(this.tableData, index, res.data.data)
-                }else if(res.data.code=="6666"){
-                    this.$message({
-                    showClose: true,
-                    message: 'token异常，请重新登录',
-                    type: 'error'
+        handleSelectionChange2(val) {
+      this.multipleSelection2 = val;
+      // this.multipleSelection2 = val.map(item => {
+      //     console.log(item)
+      //     return item.code
+      // })
+    },
+    // 多选
+    selectAll(selection) {
+      this.multipleSelection2 = selection;
+    },
+    getGoodsCode(row) {
+    return row.code;
+    },
+    showAreaGoods(pageNum, pageSize) {
+      this.$axios({
+        url: "/public/goods/list",
+        method: "POST",
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+        data: qs.stringify({
+          token: sessionStorage.getItem("token"),
+          goodsName: this.goodsName,
+          pageNum: this.pageNum,
+          pageSize: this.pageSize
+        })
+      }).then(res => {
+        if (res.data.code == "0000") {
+          this.optionsGoods = res.data.data.list;
+          this.total = res.data.data.total;
+          if(this.$refs.multipleTable){
+            this.optionsGoods.forEach((item,index)=>{
+              this.tableData.forEach((i,index2)=>{
+                if(item.code==i.code){
+                  item.flag=true
+                   this.$nextTick(() => {
+                      this.$refs.multipleTable.toggleRowSelection(
+                        this.optionsGoods[index],
+                        true
+                      );
                     });
-                    const timer = setTimeout(() => {
-                    clearTimeout(timer)
-                    this.$router.push({name: "login"})}, 3000)
-                }else{
-                    this.$message.error(res.data.msg)
                 }
+              })
             })
-        },
+          }
+        } else if (res.data.code == "6666") {
+          this.$message({
+            showClose: true,
+            message: "token异常，请重新登录",
+            type: "error"
+          });
+          const timer = setTimeout(() => {
+            clearTimeout(timer);
+            this.$router.push({ name: "login" });
+          }, 3000);
+        } else {
+          this.$message.error(res.data.msg);
+        }
+      });
+    },
+      // 弹窗点击确定
+    isSureGoods() {
+      if (this.multipleSelection2 == "")
+        return this.$message.error("请选择商品信息");
+      this.tableData = this.multipleSelection2;
+      this.dialogVisible2 = false;
+    },
+    changeDalog(){
+      this.dialogVisible2 = true;
+      this.showAreaGoods()
+    },
+        // 输入货号回车事件
+        // searthData (code, index) {
+        //     this.$axios({
+        //         url:'public/goods/info',
+        //         method:'POST',
+        //         headers:{'content-type': 'application/x-www-form-urlencoded'},
+        //         data:qs.stringify({
+        //             token:sessionStorage.getItem('token'),
+        //             goodsCode:code
+        //         })
+        //     }).then(res=>{
+        //         if(res.data.code=="0000"){
+        //             this.tableData[index] = res.data.data;
+        //             this.$set(this.tableData, index, res.data.data)
+        //         }else if(res.data.code=="6666"){
+        //             this.$message({
+        //             showClose: true,
+        //             message: 'token异常，请重新登录',
+        //             type: 'error'
+        //             });
+        //             const timer = setTimeout(() => {
+        //             clearTimeout(timer)
+        //             this.$router.push({name: "login"})}, 3000)
+        //         }else{
+        //             this.$message.error(res.data.msg)
+        //         }
+        //     })
+        // },
         // 删除
         delRetuen(index){
             this.tableData.splice(index,1);
@@ -326,7 +449,7 @@ export default {
 .depotsAdd{
   /* background-color: #f1f6fa; */
   min-height: 647px;
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 .depotsAddBox{
   margin: 0 auto;
@@ -483,6 +606,21 @@ table {
 .inputSelect {
   width: 80%;
   height: 32px;
+}
+.pageFenye{
+  margin-top: 20px;
+  text-align: center;
+}
+.goodsInputBox{
+  width: 38%;
+}
+.goodsInputBox .el-input{
+  width: 50%;
+}
+.dialogSure{
+  display: inline-block;
+  text-align: left;
+  width: 43%;
 }
 </style>
 

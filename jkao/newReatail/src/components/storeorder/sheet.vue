@@ -73,7 +73,7 @@
       </div>
       <div class="dingdanMain">
         <div class="hideQueryScoll">
-          <el-table :data="tableData" border>
+          <el-table :data="tableData">
             <el-table-column label="修正单编号" prop="code" align="center" width="250"></el-table-column>
             <el-table-column label="修正单类型" align="center">
               <template scope="scope">{{scope.row.type | typeTip}}</template>
@@ -88,7 +88,7 @@
               label="创建日期"
             >{{this.tableData.createTime|fmtDate2('YYYY-MM-DD')}}</el-table-column>
             <el-table-column prop="supplierName" label="配送方" align="center"></el-table-column>
-            <el-table-column label="操作" align="center">
+            <el-table-column label="操作" align="center" fixed="right">
               <template scope="scope">
                 <el-tooltip
                   class="item codesty"

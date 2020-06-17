@@ -1,5 +1,5 @@
 <template>
-    <div class="storehouseAdd minWidth1600">
+    <div class="storehouseAdd">
         <div class="storehousebox">
           <div class="storehouse_box">
             <div class="block">
@@ -281,9 +281,9 @@ import qs from 'qs'
 </script>
 <style scoped>
 .storehouseAdd{
-  background-color: #f1f6fa;
+  /* background-color: #f1f6fa;
   min-height: 647px;
-  min-width: 1200px;
+  min-width: 1200px; */
 }
 .storehousebox{
   margin: 0 auto;
@@ -303,21 +303,20 @@ import qs from 'qs'
 .storehouseAdd .demonstration{
   padding-top:20px;
   padding-bottom: 20px; 
+  font-size: 14px;
 }
 .spacelet{
   letter-spacing: 6px;
 }
-.aaa{
-  width: 40%;
-}
-.aaa p{
-  width: 100%;
+.aaa p {
+  width: 300px;
 }
 .cit,.aaa p{
   display: inline-block;
 }
-.aaa .cit{
-  width: 33.3%;
+.aaa .cit {
+  width: 95px;
+  margin-right: 8px;
 }
 .aaa .cit p{
     width: 100%;

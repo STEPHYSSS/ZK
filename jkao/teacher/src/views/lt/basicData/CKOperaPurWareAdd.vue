@@ -21,7 +21,7 @@
           <el-table-column prop="name" label="品名" align="center"></el-table-column>
           <el-table-column prop="salesPrice" label="单品售价" align="center"></el-table-column>
           <el-table-column prop="count" label="入库数量" align="center">
-            <template scope="scope">
+            <template slot-scope="scope">
               <p>
                 <el-input
                   type="text"
@@ -38,7 +38,7 @@
           </el-table-column>
           <el-table-column prop="temperature" label="温层" align="center"></el-table-column>
           <el-table-column label="操作" align="center">
-            <template scope="scope">
+            <template slot-scope="scope">
               <span class="codesty" @click="delRetuen(scope.$index,scope.row)">删除</span>
             </template>
           </el-table-column>

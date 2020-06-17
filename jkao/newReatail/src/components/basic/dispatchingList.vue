@@ -1,5 +1,5 @@
 <template>
-  <div id="dispatchingList" class="minimum minWidth1600">
+  <div id="dispatchingList">
     <div class="content">
       <h3>配送路线</h3>
       <el-row>
@@ -41,7 +41,7 @@
             </div>
           </div>
         </div>
-      <el-table :data="tableData" style="width: 100%;" border>
+      <el-table :data="tableData" style="width: 100%;">
         <el-table-column label="路线编号" align="center">
           <template slot-scope="{row,$index}">
             <span>{{$index+1}}</span>
@@ -64,7 +64,7 @@
             <span>{{scope.row.status|statusTip}}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" align="center">
+        <el-table-column label="操作" align="center"  fixed="right">
           <template scope="scope">
             <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
               <p class="dis">

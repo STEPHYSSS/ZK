@@ -2,9 +2,9 @@
     <div class="countDown"><!--倒计时-->
         <span class="character">考试剩余时间</span>
         <span style="color:#000">
-        <i>{{hs}}</i>:
-        <i>{{ms}}</i>:
-        <i>{{ss}}</i>
+        <i>{{hs}}</i>小时
+        <i>{{ms}}</i>分
+        <i>{{ss}}</i>秒
       </span>
     </div>
 </template>

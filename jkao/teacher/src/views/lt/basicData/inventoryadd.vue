@@ -144,7 +144,7 @@
                 <el-table :data="tableData" style="width: 100%;">
                     <el-table-column prop="name" label="品名" align="center" class="codesty"></el-table-column>
                     <el-table-column label="商品分类" align="center" width="220">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span>{{scope.row.typeLevel1}}/{{scope.row.typeLevel2}}/{{scope.row.typeLevel3}}</span>
                         </template>
                     </el-table-column>
@@ -164,14 +164,14 @@
                         </template>
                     </el-table-column>
                     <el-table-column label="盘盈数量" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span
                                 v-if="scope.row.physicalNum - scope.row.stock >= 0"
                             >{{scope.row.physicalNum - scope.row.stock}}</span>
                         </template>
                     </el-table-column>
                     <el-table-column label="盘亏数量" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span v-if="scope.row.physicalNum - scope.row.stock < 0 ">0</span>
                         </template>
                     </el-table-column>
@@ -190,7 +190,7 @@
                     ></el-pagination>
                 </div>
                 <div class="baocent">
-                    <el-button class="theBtn queryButton" @click="invenSu">确定</el-button>
+                    <el-button class="theBtn queryButton" @click="invenSu" :disabled="submit">确定</el-button>
                 </div>
                 <div class="zanpan1"></div>
             </div>
@@ -224,7 +224,8 @@ export default {
             pageSize: 20,
             total: 100,
             isNull: "",
-            options1: []
+            options1: [],
+            submit:false
         };
     },
     // mounted(){
@@ -267,7 +268,7 @@ export default {
         },
         // 点击选择盘点日期，展示数据 选择时间
         Panchange(e) {
-            
+
             this.createTimeStart = this.$moment(e).format("YYYY-MM-DD");
             // this.panTabList();
         },
@@ -419,7 +420,9 @@ export default {
         invenSu() {
             let that = this;
             that.tableData.forEach((item, index) => {
-                if (item.physicalNum.length >= 0) {
+                console.log(item,'item')
+                console.log(item.physicalNum,'item.physicalNum')
+                if (item.physicalNum == 0) {
                     this.$message.error("请添加盘点数量");
                     return;
                 }
@@ -431,6 +434,7 @@ export default {
                 };
             });
             let token = sessionStorage.getItem("token");
+            this.submit=true
             that.$utils({
                 url: this.reqApi.xinls + "/exam/inventory/insert",
                 method: "POST",
@@ -446,6 +450,9 @@ export default {
             }).then(res => {
                 if (res.data.code == "0000") {
                     that.$router.push({ name: "storeManagement" });
+                    this.submit=true
+                }else {
+                    this.$message.error(res.data.msg)
                 }
             });
         },

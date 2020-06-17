@@ -312,9 +312,6 @@ export default {
   float: right;
   padding-right: 20px;
 }
-.tabBox{
-  margin-right: 20px;
-}
 .checkBox{
   text-align: right;
   margin-right: 20px;

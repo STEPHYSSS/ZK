@@ -82,7 +82,7 @@
     <div class="storeInfo">
       <div class="store_Box1">
         <div class="scollHide">
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
             <el-table-column prop="code" label="修正单编号" align="center" width="235"></el-table-column>
             <el-table-column prop="type" label="修正单类型" align="center">
               <template scope="scope">
@@ -101,7 +101,7 @@
               </template>
             </el-table-column>
             <el-table-column label="配送单编号" align="center" prop="deliveryCode" width="220"></el-table-column>
-            <el-table-column label="操作" align="center">
+            <el-table-column label="操作" align="center" fixed="right">
               <template scope="scope">
                 <el-tooltip
                   class="item"

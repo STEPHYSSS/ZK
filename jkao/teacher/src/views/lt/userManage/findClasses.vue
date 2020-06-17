@@ -10,10 +10,9 @@
     <template>
       <el-table
       :data="tableData"
-      border
       class="topBorder"
       style="width: 100%"
-      
+
       >
         <el-table-column align="center" prop="class_name" label="班级名称" :show-overflow-tooltip="true">
         </el-table-column>
@@ -31,14 +30,18 @@
         <el-table-column prop="update_user_name" align="center" label="最后修改人" width="210">
           <!-- <template slot-scope="scope">{{ scope.row.modifyor }}<br/>{{ scope.row.modifydate }}</template> -->
         </el-table-column>
-        <el-table-column align="center" label="操作" width="180">
+        <el-table-column align="center" label="操作" width="180" fixed="right">
           <template slot-scope="scope">
+            <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
             <span class="cur-point dis-inline-block" @click="handlePut(scope.row)">
               <img src="@/assets/images/xiugai_icon.png" alt="">&nbsp;&nbsp;&nbsp;
             </span>
+            </el-tooltip>
+             <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
             <span class="cur-point dis-inline-block" @click="open(scope.row)">
               <img src="@/assets/images/shanchu_icon.png" alt="">
             </span>
+             </el-tooltip>
           </template>
         </el-table-column>
       </el-table>
@@ -141,7 +144,7 @@
       handleSizeChange(val) {
         this.pageSize = val
        this.getfindClasses()
-      
+
       },
 
       handleCurrentChange(val) {

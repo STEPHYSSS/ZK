@@ -126,7 +126,6 @@
                   :data="showdalogList"
                   style="width: 100%;"
                   id="hiegLine"
-                  border
                   height="240px"
                 >
                   <el-table-column width="60" align="center">
@@ -174,7 +173,7 @@
             </div>
           </el-dialog>
         </div>
-        <el-table :data="tableData" style="width: 100%;" border>
+        <el-table :data="tableData" style="width: 100%;">
           <el-table-column label="转移单编号" align="center" width="220">
             <template scope="scope">
               <span class="codesty" @click="detransfedetai(scope.row.code,'1')">{{scope.row.code}}</span>
@@ -191,7 +190,7 @@
           <el-table-column prop="item" label="转出品项数" align="center"></el-table-column>
           <el-table-column prop="count" label="转出总数" align="center"></el-table-column>
           <el-table-column prop="amount" label="转出总金额" align="center"></el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <!-- <span
                 class="codesty"

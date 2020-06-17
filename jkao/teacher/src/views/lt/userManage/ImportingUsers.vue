@@ -11,7 +11,7 @@
             <table border="1">
               <tbody>
                 <tr>
-                  <td class="txalign">所属班级: </td>
+                  <td class="text-center">所属班级: </td>
                   <td>
                     <el-select v-model="form.uClassid" placeholder="请选择">
                       <el-option
@@ -27,7 +27,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td class="txalign">数据文件: </td>
+                  <td class="text-center">数据文件: </td>
                   <td>
                     <input type="text" v-model="afile" id="changeRd">
                     <a href="javascript:;" class="upload">

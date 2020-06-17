@@ -30,12 +30,12 @@
     <!-- 单选题号 -->
     <div v-if="activeName === 'single'&& singleObjs.length > 0" class="question-num">
       <a v-for="(item, index) in singleObjs" :key="index + 'a'">
-        <div
+        <span
         class="questionOrder"
         @click="$emit('jumpToCurrent', index)"
-        :class="{ 'alAnswer' : item['checkAnswer'] ,'cur-question':showQuestion === index}">
+        :class="{ 'alAnswer' : item['checkAnswer'] ,'cur-question':showQuestion == index}">
         {{index + 1}}
-        </div>
+        </span>
       </a>
     </div>
     <!-- 多选题号 -->
@@ -44,7 +44,7 @@
         <span
         class="questionOrder"
         @click="$emit('jumpToCurrent', index)"
-        :class="{ 'alAnswer' : item['checkAnswer'] ,'cur-question':showQuestion === index}">
+        :class="{ 'alAnswer' : item['checkAnswer'] ,'cur-question':showQuestion == index}">
         {{index + 1}}
         </span>
       </a>
@@ -55,7 +55,7 @@
         <span
         class="questionOrder"
         @click="$emit('jumpToCurrent', index)"
-        :class="{ 'alAnswer' : item['checkAnswer'] ,'cur-question':showQuestion === index}">
+        :class="{ 'alAnswer' : item['checkAnswer'] ,'cur-question':showQuestion == index}">
         {{index + 1}}
         </span>
       </a>
@@ -66,7 +66,7 @@
         <span
         class="questionOrder"
         @click="$emit('jumpToCurrent', index)"
-        :class="{ 'alAnswer' : item['checkAnswer'] ,'cur-question':showQuestion === index}">
+        :class="{ 'alAnswer' : item['checkAnswer'] ,'cur-question':showQuestion == index}">
         {{index + 1}}
         </span>
       </a>
@@ -78,11 +78,9 @@
 export default {
   props: {
     activeName: {
-      type: String,
       default: 'single'
     },
     showQuestion: {
-      type: Number,
       default: 0
     },
     singleObjs: Array,

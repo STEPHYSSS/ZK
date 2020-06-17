@@ -36,7 +36,7 @@
             <el-form-item label="用户名:" prop="username">
                 <input
                     maxlength="50"
-                    v-if="this.$route.query.id"
+                    v-if="form.username"
                     oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
                     type="text"
                     v-model="form.username"
@@ -46,41 +46,39 @@
                     maxlength="50"
                     v-else
                     oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
+                    @blur="checkUsername"
                     type="text"
-                    v-model="form.username"
-                />
+                    v-model="username"
+                />{{usermsg}}
                 <span>
                     <span class="redB">*</span>填写英文和数字组成的用户名
                 </span>
             </el-form-item>
-            <!-- <el-form-item class="dianxian" label="密码:">
-        <el-input type="password" class="inpWid" show-password v-model.trim="form.aUserpass" @input="change"></el-input>
-        <span>
-          <span class="redB">*</span>填写密码，建议包含数字字母和符号
-        </span>
-        <div class="password-big">
-          <span class="password-one"></span>
-          <span class="password-two"></span>
-          <span class="password-three"></span>
-          <div class="wenzi">
-            <span>弱</span>
-            <span>中</span>
-            <span>强</span>
-          </div>
-        </div>
-            </el-form-item>-->
             <el-form-item label="姓名:" prop="realname">
-                <input maxlength="50" type="text" v-model="form.realname" />
+                <input maxlength="50" type="text"
+                    :disabled="form.realname" v-model="form.realname" />
                 <span>
                     <span class="redB">*</span>填写用户的真实姓名
                 </span>
             </el-form-item>
-            <!-- <el-form-item label="角色:">
-        <el-select v-model="form.aRoleid" placeholder="请选择">
-            <el-option label="老师" value="teacher"></el-option>-->
-            <!-- <el-option label="管理员" value="admin"></el-option> -->
-            <!-- </el-select>
-            </el-form-item>-->
+            <el-form-item label="工号:" prop="num">
+                <input
+                    v-if="form.num"
+                    :disabled="disabledName"
+                    maxlength="50"
+                    oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
+                    type="text"
+                    v-model="form.num"
+                />
+                <input
+                    v-else
+                    maxlength="50"
+                    oninput="value=value.replace(/[\u4E00-\u9FA5]/g,'')"
+                    type="text"
+                    @blur="checknum"
+                    v-model="number"
+                />{{nummsg}}
+            </el-form-item>
             <el-form-item label="联系电话:">
                 <input
                     maxlength="11"
@@ -157,6 +155,8 @@ import qs from "qs";
 export default {
     data() {
         return {
+            usermsg: '',
+            nummsg: '',
             data1: {
                 token: sessionStorage.getItem("token")
             },
@@ -175,13 +175,23 @@ export default {
                 realname: "",
                 email: "",
                 phone: "",
+                num: "",
                 status: "",
                 remark: ""
                 // aRoleid: "", //老师/管理员
                 // aPhoto: "",
                 // aId: ""
             },
+            username: "",
+            number: '',
             rules: {
+                num: [
+                    {
+                        required: true,
+                        message: "请输入工号",
+                        trigger: "change"
+                    }
+                ],
                 username: [
                     {
                         required: true,
@@ -235,6 +245,41 @@ export default {
     },
 
     methods: {
+        checkUsername () {
+            if (!this.username) return false
+            this.$utils.post(
+                this.reqApi.shuiwuUrl + "/user/checkUsername",
+                qs.stringify({
+                    username: this.username
+                })
+            )
+            .then(res => {
+                const { code, msg } = res.data;
+                if (code === "0000") {
+                    this.usermsg = msg;
+                } else {
+                    this.usermsg = msg;
+                }
+            });
+        },
+        checknum () {
+            if (!this.number) return false
+            this.$utils.post(
+                this.reqApi.shuiwuUrl + "/user/checkNum",
+                qs.stringify({
+                    number: this.number
+                })
+            )
+            .then(res => {
+                const { code, msg } = res.data;
+                if (code === "0000") {
+                    this.form.num = this.number
+                    this.nummsg = msg;
+                } else {
+                    this.nummsg = msg;
+                }
+            });
+        },
         // checkEmail(val) {
         //     var reg = /^[0-9a-zA-Z_.-]+[@][0-9a-zA-Z_.-]+([.][a-zA-Z]+){1,2}$/;
         //     if (!reg.test(val)) {
@@ -337,6 +382,8 @@ export default {
 
         // 提交
         submitForm(formName) {
+            if (this.username) this.form.username = this.username
+            if (this.number) this.form.num = this.number
             this.$refs[formName].validate(valid => {
                 if (valid) {
                      if (this.form.email) {

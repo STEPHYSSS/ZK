@@ -1,5 +1,5 @@
 <template>
-  <div class="wareInvenStock minimum minWidth1600">
+  <div class="wareInvenStock">
     <div class="StockBox">
       <h3 class="StockTit">盘点管理</h3>
       <el-row class="rowSpacing">
@@ -87,7 +87,7 @@
       <div class="Stock_Box">
         <div class="wsListsearch">
         </div>
-        <el-table :data="tableData" style="width: 100%;" border max-height="600">
+        <el-table :data="tableData" style="width: 100%;" max-height="600">
           <el-table-column prop="code" label="盘点单编号" align="center" width="190"></el-table-column>
           <el-table-column label="创建时间" align="center">
             <template slot-scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
@@ -99,7 +99,7 @@
           <el-table-column prop="status" label="状态" align="center">
             <template slot-scope="scope">{{scope.row.status | wareStatu}}</template>
           </el-table-column>
-          <el-table-column prop label="操作" align="center">
+          <el-table-column prop label="操作" align="center"  fixed="right">
             <template scope="scope">
               <el-tooltip
                 class="item"
@@ -397,7 +397,7 @@ export default {
 .wareInvenStock {
   /* background-color: #f1f6fa; */
   min-height: 647px;
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 .StockBox {
   padding: 0 20px;

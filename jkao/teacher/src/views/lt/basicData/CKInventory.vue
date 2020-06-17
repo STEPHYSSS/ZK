@@ -426,8 +426,5 @@ h3 {
     display: inline-block;
     width: 35px;
 }
-.wsListsearch{
-  margin-right: 20px;
-}
 </style>
 

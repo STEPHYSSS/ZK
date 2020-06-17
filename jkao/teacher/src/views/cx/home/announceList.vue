@@ -18,9 +18,14 @@
       <!-- <el-table-column prop="type_id" label="分类"></el-table-column> -->
       <el-table-column prop="visits" label="访问量" width="150"></el-table-column>
       <el-table-column prop="create_user_name" label="创建人"></el-table-column>
-      <el-table-column label="操作">
+      <el-table-column label="操作" fixed="right">
         <template slot-scope="scope">
-          <a @click="noticedetail(scope.row.id)">查看</a>
+          <el-tooltip class="item" effect="dark" content="查看" placement="bottom">
+            <span class="cur-point" @click="noticedetail(scope.row)">
+              <img src="@/assets/images/chaxun_icon.png" alt />
+            </span>
+          </el-tooltip>
+          <!-- <a @click="noticedetail(scope.row.id)">查看</a> -->
         </template>
       </el-table-column>
     </el-table>

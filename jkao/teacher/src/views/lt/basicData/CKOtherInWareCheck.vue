@@ -144,7 +144,7 @@
           <el-table-column prop="spec" label="规格" align="center"></el-table-column>
           <el-table-column prop="unit" label="单位" align="center"></el-table-column>
           <el-table-column label="保质期" align="center">
-            <template scope="scope">{{scope.row.period}}{{scope.row.periodUnit}}</template>
+            <template slot-scope="scope">{{scope.row.period}}{{scope.row.periodUnit}}</template>
           </el-table-column>
           <el-table-column prop="temperature" label="温层" align="center"></el-table-column>
           <el-table-column prop="locationCode" label="入库货位" align="center"></el-table-column>
@@ -391,9 +391,9 @@ export default {
   text-align: right;
   margin-right: 20px;
 }
-.tableBOx{
+/* .tableBOx{
   margin-right: 20px;
-}
+} */
 </style>
 
 

@@ -80,7 +80,7 @@
     <div class="storeInfo">
       <div class="store_Box12">
         <div class="hideScoll">
-          <el-table :data="tableData" style="width: 100%;" height="100%" border>
+          <el-table :data="tableData" style="width: 100%;" height="100%">
             <el-table-column label="创建日期" align="center">
               <template scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
             </el-table-column>
@@ -98,7 +98,7 @@
             <el-table-column prop="item" label="退货品项数" align="center"></el-table-column>
             <el-table-column prop="count" label="退货总数" align="center"></el-table-column>
             <el-table-column prop="amount" label="退货总金额" align="center"></el-table-column>
-            <el-table-column label="操作" align="center">
+            <el-table-column label="操作" align="center" fixed="right">
               <!-- present_icon 审核icon -->
               <template scope="scope">
                 <el-tooltip

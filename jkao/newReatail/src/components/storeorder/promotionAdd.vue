@@ -330,7 +330,7 @@
             </el-dialog>
             <!-- 选择商品后渲染到页面 -->
             <div class="tab" v-if="flag1">
-                <el-table :data="selectGoodsList" style="width: 90%" border max-height="300">
+                <el-table :data="selectGoodsList" style="width: 90%" max-height="300">
                     <el-table-column align="center" prop="code" label="货号"></el-table-column>
                     <el-table-column align="center" prop="name" label="品名"></el-table-column>
                     <el-table-column align="center" prop="salesPrice" label="单品售价"></el-table-column>

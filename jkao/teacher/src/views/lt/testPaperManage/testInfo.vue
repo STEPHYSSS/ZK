@@ -26,13 +26,13 @@
             </el-select>
           </el-form-item>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="12">
           <el-form-item>
             <el-button class="search search-btn" @click="examList(pagesize, pagenum, form.class_id)">搜索</el-button>
             <el-button class="search search-btn" @click="clear">重置</el-button>
           </el-form-item>
         </el-col>
-        <el-col class="fr txalign-c" :span="12">
+        <el-col class="fr text-right" :span="6">
           <el-form-item>
             <el-button @click="newTest">新增</el-button>
           </el-form-item>
@@ -45,16 +45,16 @@
     :data="tableData"
     class="topBorder"
     style="width: 100%"
-    
+
     >
       <el-table-column align="center" prop="name" label="考试名称"></el-table-column>
-      <el-table-column align="center" label="开始时间" width="180">
+      <el-table-column align="center" label="开始时间">
         <template slot-scope="scope">{{scope.row.start_time | fmtDate()}}</template>
       </el-table-column>
-      <el-table-column align="center" label="结束时间" width="180">
+      <el-table-column align="center" label="结束时间">
         <template slot-scope="scope">{{ scope.row.end_time | fmtDate()}}</template>
       </el-table-column>
-      <!-- <el-table-column align="center" label="成绩公布时间" width="180">
+      <!-- <el-table-column align="center" label="成绩公布时间">
         <template slot-scope="scope">{{ scope.row.pshowtime }}</template>
       </el-table-column> -->
       <el-table-column prop="duration" align="center" label="考试时长">
@@ -62,14 +62,29 @@
       </el-table-column>
       <el-table-column prop="description" show-overflow-tooltip align="center" label="考试说明">
       </el-table-column>
-      <el-table-column align="center" label="创建人" width="180">
+      <el-table-column align="center" label="创建人">
         <template slot-scope="scope">{{scope.row.create_user_name}}<br/>{{ scope.row.create_time | fmtDate() }}</template>
       </el-table-column>
       <el-table-column align="center" label="操作" fixed="right" width="210">
         <template slot-scope="scope">
-          <a href="javacript:;" @click='handlePut(scope.row)'>修改</a>
+          <el-tooltip class="item" effect="dark" content="修改" placement="bottom">
+            <span class="cur-point" @click="handlePut(scope.row)">
+              <img src="@/assets/images/xiugai_icon.png" alt />
+            </span>
+          </el-tooltip>&nbsp;&nbsp;
+          <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+            <span class="cur-point" @click="open(scope.row)">
+              <img src="@/assets/images/shanchu_icon.png" alt />
+            </span>
+          </el-tooltip>&nbsp;&nbsp;
+          <el-tooltip class="item" effect="dark" content="考试详情" placement="bottom">
+            <span class="cur-point" @click="examDetails(scope.row)">
+              <img src="@/assets/images/chaxun_icon.png" alt />
+            </span>
+          </el-tooltip>&nbsp;&nbsp;
+          <!-- <a href="javacript:;" @click='handlePut(scope.row)'>修改</a>
           | <a href="javacript:;" @click='open(scope.row)'>删除</a>
-          | <a href="javacript:;" @click='examDetails(scope.row)'>考试详情</a>
+          | <a href="javacript:;" @click='examDetails(scope.row)'>考试详情</a> -->
         </template>
       </el-table-column>
     </el-table>

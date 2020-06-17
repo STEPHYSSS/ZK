@@ -10,11 +10,6 @@
             <el-col :span="12">
                 <div>
                     <el-button class="AllquedingBtn" @click="chooseGoods">选择商品</el-button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <!-- <span
-                        style="color:red"
-                    >已选择&nbsp;{{selectGoodsList.length}}&nbsp;种</span>
-                    <br />-->
-                    <!-- <span style="color:red;font-size:12px" v-if="goodsShow">请选择商品</span> -->
                 </div>
             </el-col>
         </el-row>
@@ -122,10 +117,10 @@
                         style="width: 100%"
                         max-height="247"
                         ref="multipleTable1"
-                        @selection-change="selectAllProduct"
+                        @select-all="selectAllProduct"
+                        @select="commodityList"
+                        @row-click="clickRow"
                     >
-                        <!-- selection-change -->
-                        <!-- @select="commodityList" -->
                         <el-table-column
                             type="selection"
                             width="55"
@@ -139,7 +134,6 @@
                         <el-table-column align="center" prop="salesPrice" label="单品售价"></el-table-column>
                     </el-table>
                 </div>
-                <!-- 分页 -->
                 <div class="pageFenye">
                     <div class="PromotBtn">
                         <el-button class="AllquedingBtn" @click="shopSure">确定</el-button>
@@ -162,25 +156,35 @@
                 <el-table-column align="center" prop="code" label="货号"></el-table-column>
                 <el-table-column align="center" prop="name" label="品名"></el-table-column>
                 <el-table-column align="center" prop="salesPrice" label="单品售价"></el-table-column>
-                 <el-table-column align="center"  label="数量">
-                   <template slot-scope="scope">
-                     <!-- <span>{{}}</span> -->
-                     <input type="text" v-model="scope.row.number">
-                     <!-- <el-input v-model="scope.row.number"></el-input> -->
-                   </template>
-                 </el-table-column>
-                 <input class="inputTd" type="text"  />
+                <el-table-column align="center" prop="orderingUtil" label="基本订购单位"></el-table-column>
+
+                <el-table-column align="center" label="数量">
+                    <template slot-scope="scope">
+                        <!-- <span>{{}}</span> -->
+                        <input
+                            type="number"
+                            class="inputTd"
+                            @input="getTotal(scope.row,scope.$index)"
+                            v-model="scope.row.number"
+                        />
+                        <!-- <el-input v-model="scope.row.number"></el-input> -->
+                    </template>
+                </el-table-column>
+                <el-table-column align="center" prop="salesPrice" label="总订购量">
+                    <template slot-scope="scope">{{scope.row.totalNumber}}</template>
+                </el-table-column>
+                <!-- <input class="inputTd" type="text"  /> -->
                 <!-- <el-table-column label="操作" align="center">
-                    <template scope="scope">
+                    <template slot-scope="scope">
                         <span class="codesty" @click="shopDel(scope.$index,scope.row.code)">删除</span>
                     </template>
-                </el-table-column> -->
+                </el-table-column>-->
             </el-table>
         </div>
-         <div class="PromotBtn">
-                        <el-button class="AllquedingBtn" @click="submit">确定</el-button>
-                        <el-button class="theBtn resetButton" @click="dialogVisible = false">取消</el-button>
-                    </div>
+        <div class="PromotBtn">
+            <el-button class="AllquedingBtn" @click="submit" :disabled="disabled">确定</el-button>
+            <el-button class="theBtn resetButton" @click="goBack">取消</el-button>
+        </div>
     </div>
 </template>
 <script>
@@ -194,8 +198,8 @@ export default {
             clist: [],
             goodsSet: [],
             selectGoodsList: [],
-            flag:false
-          
+            flag: false,
+            disabled: false
         };
     },
     created() {
@@ -203,48 +207,109 @@ export default {
         this.getList();
     },
     methods: {
-      submit(){
-        if(!this.storeCode) return this.$message.error('请选择门店')
-       this.goodsSet= this.selectGoodsList.map(item=>{
-          return{
-            goodsCode:item.code,
-            number:item.number
-          }
-          
-        })
-       for(let i=0;i<this.goodsSet.length;i++){
-         if(!this.goodsSet[i].number){
-           return this.$message.error('请输入数量')
-         }
-         this.$utils.post(this.reqApi.xinls+'/exam/ordering/insert',qs.stringify({
-           questionCode: sessionStorage.getItem("questionUUid"),
-           storeCode:this.storeCode,
-           goodsSet:JSON.stringify(this.goodsSet)
-         })).then(res=>{
-           if(res.data.code=='0000'){
-             this.$message.success('新增成功！')
-             this.$router.push('/invoice')
-           }else {
-            return  this.$message.error(res.data.msg)
-           }
-         })
-       }
-      },
+        clickRow(row) {
+            this.$refs.multipleTable1.toggleRowSelection(row);
+             if (!row.flag) {
+                row.flag = true;
+                row.number = "";
+                row.totalNumber = "";
+            } else {
+                row.flag = false;
+            }
+            if (row.flag) {
+                this.selectGoodsList.push(row);
+            }
+            this.selectGoodsList.forEach((item, index) => {
+                if (!item.flag) {
+                    this.selectGoodsList.splice(index, 1);
+                }
+            });
+        },
+        commodityList(selection, row) {
+            if (!row.flag) {
+                row.flag = true;
+                row.number = "";
+                row.totalNumber = "";
+            } else {
+                row.flag = false;
+            }
+            if (row.flag) {
+                this.selectGoodsList.push(row);
+            }
+            this.selectGoodsList.forEach((item, index) => {
+                if (!item.flag) {
+                    this.selectGoodsList.splice(index, 1);
+                }
+            });
+        },
+        getTotal(row, index) {
+            this.$nextTick(() => {
+                this.selectGoodsList[index].totalNumber =
+                    this.selectGoodsList[index].orderingUtil *
+                    this.selectGoodsList[index].number;
+            });
+            this.$set(this.selectGoodsList, index, row);
+        },
+        goBack() {
+            this.$router.push("/invoice");
+        },
+        submit() {
+            this.disabled = true;
+            setInterval(() => {
+                this.disabled = false;
+            }, 3000);
+            if (!this.storeCode) return this.$message.error("请选择门店");
+            this.goodsSet = this.selectGoodsList.map(item => {
+                return {
+                    goodsCode: item.code,
+                    number: item.number
+                };
+            });
+            for (let i = 0; i < this.goodsSet.length; i++) {
+                if (!this.goodsSet[i].number) {
+                    return this.$message.error("请输入数量");
+                }
+            }
+            this.$utils
+                .post(
+                    this.reqApi.xinls + "/exam/ordering/insert",
+                    qs.stringify({
+                        questionCode: sessionStorage.getItem("questionUUid"),
+                        storeCode: this.storeCode,
+                        goodsSet: JSON.stringify(this.goodsSet)
+                    })
+                )
+                .then(res => {
+                    if (res.data.code == "0000") {
+                        this.$message.success("新增成功！");
+                        this.$router.push("/invoice");
+                    } else {
+                        return this.$message.error(res.data.msg);
+                    }
+                });
+        },
         shopSure() {
             this.dialogVisible = false;
-            this.flag=true
+            this.flag = true;
         },
-        selectAllProduct(data) {
-            this.selectGoodsList = data;
-            this.selectGoodsList.forEach(item=>{
-              item.number=''
-            })
+        selectAllProduct(selection) {
+            this.clist.forEach((item, index) => {
+                if (selection.length == 0) {
+                    item["flag"] = false;
+                } else {
+                    item["flag"] = true;
+                }
+            });
+            this.selectGoodsList = selection;
+            // this.selectGoodsList = data;
+            // this.selectGoodsList.forEach(item => {
+            //     (item.number = ""), (item.totalNumber = "");
+            // });
         },
         chooseGoods() {
             this.dialogVisible = true;
         },
         getList() {
-            let questionCode = sessionStorage.getItem("questionUUid");
             this.$utils
                 .post(
                     this.reqApi.xinls + "/exam/goods/list",
@@ -255,6 +320,11 @@ export default {
                 .then(res => {
                     if (res.data.code === "0000") {
                         this.clist = res.data.data;
+                        this.clist.forEach(item => {
+                            item.flag = false;
+                        });
+                    }else{
+                         return this.$message.error(res.data.msg);
                     }
                 });
         },
@@ -269,6 +339,8 @@ export default {
                 .then(res => {
                     if ((res.data.code = "0000")) {
                         this.options1 = res.data.data;
+                    }else {
+                         return this.$message.error(res.data.msg);
                     }
                 });
         }
@@ -281,5 +353,21 @@ export default {
 }
 .PromotBtn {
     padding: 10px 20px;
+    text-align: center;
+}
+.inputWidth {
+    width: 60px;
+}
+.inputTd {
+    outline: none;
+    border: 1px solid #dbe0e5;
+    width: 80%;
+    height: 28px;
+    border-radius: 8px;
+    line-height: 28px;
+    /* padding-left: 16px; */
+    text-align: center;
+    box-sizing: content-box;
+    color: #444;
 }
 </style>

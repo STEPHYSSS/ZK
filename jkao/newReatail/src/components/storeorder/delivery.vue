@@ -62,7 +62,7 @@
         </el-row>
       </div>
       <div class="dingdanMain">
-        <el-table :data="tableData" style="width: 100%" border height="100%">
+        <el-table :data="tableData" style="width: 100%" height="100%">
           <el-table-column align="center" label="创建日期" prop="createTime">
             <template scope="scope">{{scope.row.createTime | fmtDate2('YYYY-MM-DD')}}</template>
           </el-table-column>

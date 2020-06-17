@@ -28,7 +28,7 @@ if (process.env.NODE_ENV == 'development') {
 
 export const util = axios.create({
     // baseURL: baseUrl,
-    timeout: 10000
+    timeout: 60000
 })
 
 util.isSeek = true
@@ -36,6 +36,9 @@ util.serverUrl = baseImgUrl
 
 let loadingInstance
 util.interceptors.request.use(config => {
+    if (config.url === 'registered/importCode') {
+        config.timeout = 999999999999
+    }
     if (config.url !== 'exam/login') {
         const AUTH_TOKEN = sessionStorage.getItem('token')
             // config.headers.common['auth_token'] = AUTH_TOKEN;
@@ -91,11 +94,16 @@ util.checkStrong = function(sValue) {
 util.interceptors.response.use(res => {
         loadingInstance.close()
         const { status, data: { code, msg } } = res
-        if (code == '6666' || code == '401') {
+        if (code == '6666') {
             Message('请重新登录。。')
             router.push({ name: 'register' })
                 // router.push({name : 'notFind'})
+        } else if (code == '401') {
+            router.push({ name: 'activation' })
         }
+        // else if (code == '1000') {
+        //     Message(msg)
+        // }
         // else if (code == '6666') {
         //     Message('请重新登录。。')
         //     router.push({ name: 'register' })

@@ -67,7 +67,7 @@
         </div>
       </div>
       <div class>
-        <el-table :data="tableData" style="width: 100%" border max-height="600">
+        <el-table :data="tableData" style="width: 100%" max-height="600">
           <el-table-column prop="code" label="货号" align="center"></el-table-column>
           <el-table-column prop="name" label="品名" align="center"></el-table-column>
           <el-table-column prop="purchaseCount" label="采购数量" align="center"></el-table-column>

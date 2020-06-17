@@ -1,12 +1,12 @@
 <template>
-  <div id="turnWarehouseAdd" class="minimum minWidth1600">
+  <div id="turnWarehouseAdd">
     <div class="content">
       <div class="detailBackBtn">
         <router-link :to="{ path: '/turnWarehouseList' }">
           <img src="@/assets/returnbutton.png" alt class="codesty" />
         </router-link>
       </div>
-      <h3>新增</h3>
+      <h3 class="add">新增</h3>
       <el-row>
         <el-col :span="16">
           <div class="three">
@@ -29,7 +29,7 @@
             <tr>
               <td class="pinName1">
                 <span>仓库名称：</span>
-                <el-input type="text" v-model="warehouseData.name" placeholder="请输入" class="input1"></el-input>
+                <el-input type="text" v-model="warehouseData.name" placeholder="请输入" class="inputWidth"></el-input>
               </td>
               <div class="billsearch">
                 <el-button @click="search" class="theBtn queryButton">查询</el-button>
@@ -45,7 +45,6 @@
             :data="warehouseList"
             style="width: 100%;"
             max-height="500"
-            border
           >
             <el-table-column label="选择" width="100" align="center">
               <template scope="scope">
@@ -104,7 +103,6 @@
             :data="warehouseList"
             style="width: 100%;"
             max-height="300"
-            border
           >
             <el-table-column label="选择" width="100" align="center">
               <template scope="scope">
@@ -798,9 +796,11 @@ export default {
 #turnWarehouseAdd .billsearch1 {
   text-align: center;
 }
-
-h3 {
-  padding: 0px 0 20px 0px;
+.add{
+  padding: 15px 0;
+}
+#turnWarehouseAdd .detailBackBtn{
+  padding-top:15px;
 }
 .classify {
   width: 100%;
@@ -817,6 +817,9 @@ h3 {
 }
 .classify1 .select1 {
   margin-left: 0;
+}
+.inputWidth{
+  width: 300px;
 }
 </style>
 

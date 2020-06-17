@@ -31,7 +31,7 @@
           <!-- <el-table-column prop="unit" label="单位" align="center"></el-table-column> -->
           <!-- <el-table-column prop="spec" label="规格" align="center"></el-table-column> -->
           <!-- <el-table-column label="保质期" align="center">
-            <template scope="scope">
+            <template slot-scope="scope">
               <span>{{scope.row.period}}{{scope.row.periodUnit}}</span>
             </template>
           </el-table-column> -->

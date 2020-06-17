@@ -48,10 +48,17 @@ export const addRecord = data => service('/exam/addRecord', qs.stringify(data), 
 
 /**
  * /exam/getRecord
- * 学生接口 获得所有操作记录
+ * 学生接口 获得客观题操作记录
  */
 
 export const getRecord = data => service('/exam/getRecord', qs.stringify(data), 'POST');
+
+/**
+ * /exam/getRecord
+ * 学生接口 获得实训题操作记录
+ */
+
+export const getRecordPrc = data => service('/exam/question/finish/get', qs.stringify(data), 'POST');
 
 /**
  * /exam/detailForStu

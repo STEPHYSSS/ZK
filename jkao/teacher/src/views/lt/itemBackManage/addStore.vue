@@ -270,13 +270,13 @@ export default {
                         trigger: "change"
                     }
                 ],
-                shutdownTime: [
-                    {
-                        required: true,
-                        message: "请选择停店时间",
-                        trigger: "change"
-                    }
-                ],
+                // shutdownTime: [
+                //     {
+                //         required: true,
+                //         message: "请选择停店时间",
+                //         trigger: "change"
+                //     }
+                // ],
                 contactsName: [
                     {
                         min: 1,

@@ -84,7 +84,7 @@
             </template>
           </el-table-column>
 
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <span class="codesty" @click="strongDetails(scope.row.code)">查看</span>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

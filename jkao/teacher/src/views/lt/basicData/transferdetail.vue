@@ -50,7 +50,7 @@
           <!-- <el-table-column prop="spec" label="规格" align="center"></el-table-column> -->
           <!-- <el-table-column prop="unit" label="单位" align="center"></el-table-column> -->
           <!-- <el-table-column label="保质期" align="center">
-            <template scope="scope">{{scope.row.period}}{{scope.row.periodUnit}}</template>
+            <template slot-scope="scope">{{scope.row.period}}{{scope.row.periodUnit}}</template>
           </el-table-column> -->
           <!-- <el-table-column prop="temperature" label="温层" align="center"></el-table-column> -->
           <el-table-column prop="turnOutCount" label="转出数量" align="center"></el-table-column>
@@ -88,7 +88,7 @@ export default {
         method: "POST",
         headers: { "content-type": "application/x-www-form-urlencoded" },
         data: qs.stringify({
-          code: sessionStorage.getItem("code"),
+          code: this.$route.query.code,
            questionCode: sessionStorage.getItem("questionUUid")
         })
       }).then(res => {

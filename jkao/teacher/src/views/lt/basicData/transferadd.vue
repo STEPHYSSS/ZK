@@ -34,7 +34,7 @@
                         <th style="width:10%">单位</th>
                         <th style="width:10%">保质期</th>
                         <th style="width:10%">温层</th>
-                        <th style="width:10%">退货原因</th>
+                        <!-- <th style="width:10%">退货原因</th> -->
                         <th width="5%">操作</th>
                     </thead>
                     <tbody>
@@ -59,7 +59,7 @@
                             <td v-if="item.periodUnit =='永久'">{{item.periodUnit}}</td>
                             <td v-else>{{item.period}}{{item.periodUnit}}</td>
                             <td>{{item.temperature}}</td>
-                             <td>
+                             <!-- <td>
                                 <el-select
                                     class="inputSelect"
                                     type="text"
@@ -73,7 +73,7 @@
                                         :value="item.value"
                                     ></el-option>
                                 </el-select>
-                            </td>
+                            </td> -->
                             <td class="codesty" @click="delRetuen(index)">删除</td>
                         </tr>
                         <tr>
@@ -86,7 +86,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <!-- <td></td> -->
                             <td class="codesty" @click="addRetuen">添加</td>
                         </tr>
                     </tbody>
@@ -181,9 +181,7 @@ export default {
                 })
             }).then(res => {
                 if (res.data.code == "0000") {
-                  console.log(res.data.data.goods,'res.data.data')
                     this.tableData[index] = res.data.data.goods;
-                    console.log(this.tableData)   
                     this.$set(this.tableData, index, res.data.data.goods);
 
                 } else if (res.data.code === "1000") {
@@ -285,7 +283,6 @@ export default {
 .transferAdd {
     /* background-color: #f1f6fa; */
     min-height: 647px;
-    min-width: 1200px;
 }
 .billMa2 {
     margin: 0px auto;
@@ -344,7 +341,6 @@ table {
     padding: 8px 0;
     text-align: center;
     font-size: 12px;
-
     border: 1px solid #dbe0e5;
 }
 .tableLlist tbody tr:hover,

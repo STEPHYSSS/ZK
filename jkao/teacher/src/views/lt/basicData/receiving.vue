@@ -90,12 +90,12 @@
         <div class="info">
             <div class="rece_Box">
                 <el-table :data="list" border max-height="600" class="table_box">
-                    <el-table-column prop="code" label="配送单编号" align="center" width="240"></el-table-column>
+                    <el-table-column prop="code" label="配送单编号" align="center" width="230"></el-table-column>
                     <!-- <el-table-column prop="orderingCode" label="叫货单号" align="center" width="250"></el-table-column> -->
                     <!-- <el-table-column prop="purchaseCode" label="采购单号" align="center" width="250"></el-table-column> -->
                     <!-- <el-table-column prop="checkoutCode" label="仓库出库单号" align="center" width="250"></el-table-column> -->
                     <el-table-column prop="sourceType" label="来源类型" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span v-if="scope.row.sourceType=='S'">供应商</span>
                             <span v-if="scope.row.sourceType=='W'">仓库</span>
                         </template>
@@ -103,10 +103,10 @@
                     <el-table-column prop="storeCode" label="门店编号" align="center"></el-table-column>
 
                     <el-table-column label="配送状态" align="center">
-                        <template scope="scope">{{scope.row.deliveryStatus | deliveryTip}}</template>
+                        <template slot-scope="scope">{{scope.row.deliveryStatus | deliveryTip}}</template>
                     </el-table-column>
                     <el-table-column label="验收状态" align="center">
-                        <template scope="scope">{{scope.row.checkStatus | restaTip}}</template>
+                        <template slot-scope="scope">{{scope.row.checkStatus | restaTip}}</template>
                     </el-table-column>
                     <el-table-column prop="supplierCode" label="供应商编号" align="center"></el-table-column>
                     <el-table-column prop="item" label="项数" align="center"></el-table-column>
@@ -117,27 +117,27 @@
                         >{{scope.row.estimatedArrivalTime | converTime('YYYY-MM-DD')}}</template>
                     </el-table-column>
                     <el-table-column label="收货时间" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span
                                 v-if="scope.row.receivingTime!=null"
                             >{{scope.row.receivingTime | converTime('YYYY-MM-DD')}}</span>
                         </template>
                     </el-table-column>
                     <el-table-column label="创建时间" align="center">
-                        <template scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
+                        <template slot-scope="scope">{{scope.row.createTime | converTime('YYYY-MM-DD')}}</template>
                     </el-table-column>
                     <!-- <el-table-column prop="temperature" label="温层" align="center"></el-table-column> -->
 
                     <!-- <el-table-column label="叫货单编号" align="center" width="250">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span
                                 class="codesty"
                                 @click="jhDetail(scope.row.orderingCode)"
                             >{{scope.row.orderingCode}}</span>
                         </template>
                     </el-table-column> -->
-                    <el-table-column label="操作" align="center" width="100px">
-                        <template scope="scope">
+                    <el-table-column label="操作" align="center" width="100px" fixed="right">
+                        <template slot-scope="scope">
                             <el-tooltip class="item" effect="dark" content="查看" placement="bottom">
                                 <img
                                     src="@/assets/images/chaxun_icon.png"
@@ -153,7 +153,14 @@
                                     @click="check2(scope.row.code)"
                                 />
                             </el-tooltip>
-
+                             <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+                                <img
+                                    src="@/assets/images/shanchu_icon.png"
+                                    @click="delPanRow(scope.row.code)"
+                                    class="codesty"
+                                    alt
+                                />
+                            </el-tooltip>
                             <!-- <span
                                 @click="check1(scope.row.code)"
                                 v-if="scope.row.deliveryStatus==1 && scope.row.checkStatus == 1"
@@ -255,6 +262,36 @@ export default {
         flowChart
     },
     methods: {
+         // 删除
+        delPanRow(code) {
+             this.$confirm("确定删除？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+            }).then(()=>{
+                this.$utils({
+                url: this.reqApi.xinls + "/exam/delivery/delete",
+                method: "POST",
+                headers: {
+                    "content-type": "application/x-www-form-urlencoded"
+                },
+                data: qs.stringify({
+                    code: code,
+                    questionCode: sessionStorage.getItem("questionUUid")
+                })
+            }).then(res => {
+                if (res.data.code == "0000") {
+                    this.$message({
+                        type: "success",
+                        message: "删除成功!"
+                    });
+                    this.receivingList();
+                } else {
+                    this.$message.error(res.data.msg);
+                }
+            });
+            })
+
+        },
         receivingList(pageNum, pageSize) {
             let that = this;
             that.$utils({
@@ -456,7 +493,7 @@ export default {
 .info {
     clear: both;
     /* margin-top: 30px; */
-    width: calc(100% - 40px);
+    /* width: calc(100% - 40px); */
 }
 .info_box table th {
     color: #444444;

@@ -7,12 +7,12 @@
     <div class="new-padding-left ex">试卷详情配置，您可以在当前页面创建章节，并向章节中添加试题并设置分值。</div>
     
     <el-form ref="userConfigOptions" :model="userConfigOptions" label-width="80px" class="config-big">
-      <h1 class="txalign">考试试卷配置</h1>
+      <h1 class="text-center">考试试卷配置</h1>
       <div class="config-left">
-        <div class="config-left-header txalign">
+        <div class="config-left-header text-center">
           随机试卷<span>各考生试卷随机生成</span>
         </div>
-        <div class="config-left-neck txalign">
+        <div class="config-left-neck text-center">
           <span>时间设定: 
             <span>{{userConfigOptions.pstarttime}} -- {{userConfigOptions.pendtime}}</span>
           </span>
@@ -74,7 +74,7 @@
           </li>
         </ul>
       <add-btn
-      class="txalign"
+      class="text-center"
       level1="提 交" level2="取 消"
       @submitForm="submitForm"
       @cancelForm="findPapers">
@@ -190,7 +190,7 @@ import previousPage from "@/components/previousPage.vue";
 </script>
 
 <style scoped>
-.txalign {
+.text-center {
   margin-bottom: 30px;
 }
   /* 面包屑结束 */

@@ -53,7 +53,7 @@
           </div>
           <el-form-item label="试卷说明:" prop="remark">
               <textarea v-model="form.remark" maxlength="200"></textarea>
-              <p class="txalign-c paper-p">{{form.remark.length}}/200 &nbsp;&nbsp;&nbsp;</p>
+              <p class="text-right paper-p">{{form.remark.length}}/200 &nbsp;&nbsp;&nbsp;</p>
           </el-form-item>
           <!-- <template v-if="form.ppapertype === '1' && !this.$route.query.id">
             <el-form-item label="">
@@ -71,7 +71,7 @@
                       </el-select>
                       <input type="text" class="input-1" v-model="item.remark" placeholder="章节描述">
                     </td>
-                    <td rowspan="2" class="del-row txalign" @click="delRow(form.tmPaperSections, index)">❌</td>
+                    <td rowspan="2" class="del-row text-center" @click="delRow(form.tmPaperSections, index)">❌</td>
                   </tr>
                   <tr>
                     <td>

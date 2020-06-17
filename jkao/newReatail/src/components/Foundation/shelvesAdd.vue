@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="flexBoxContent">
-        <el-table :data="tableData" height="100%" border max-height="600">
+        <el-table :data="tableData" height="100%"  max-height="600">
           <el-table-column prop="item" label="库区编号" align="center"></el-table-column>
           <el-table-column prop="layerNum" label="货层数量" align="center"></el-table-column>
           <el-table-column prop="locationNum" label="每层货位数量" align="center"></el-table-column>

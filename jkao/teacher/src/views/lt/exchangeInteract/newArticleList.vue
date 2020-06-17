@@ -179,7 +179,7 @@ export default {
                 "justify", // 对齐方式
                 "quote", // 引用
                 "emoticon", // 表情
-                // 'image',  // 插入图片
+                "image", // 插入图片
                 "table", // 表格
                 // 'video',  // 插入视频
                 "code", // 插入代码
@@ -203,6 +203,33 @@ export default {
         this.editor.customConfig.onchange = html => {
             this.form.content = html;
         };
+        // 关闭粘贴样式的过滤
+        this.editor.customConfig.pasteFilterStyle = false;
+        // 隐藏“网络图片”tab
+        this.editor.customConfig.showLinkImg = false;
+        // 上传图片
+        this.editor.customConfig.uploadImgServer = `${this.reqApi.shuiwuUrl}/image/upload`;
+        // 后端接收上传文件的参数名
+        this.editor.customConfig.uploadFileName = "files";
+        // 将图片大小限制为2M
+        this.editor.customConfig.uploadImgMaxSize = 10 * 1024 * 1024;
+        // 设置超时
+        this.editor.customConfig.uploadImgTimeout = 3 * 60 * 1000;
+        this.editor.customConfig.uploadImgHooks = {
+            customInsert: (insertImg, result, editor) => {
+                insertImg(`${this.reqApi.shuiwuUrl}${result.imgCodes}`); //图片回显
+                /**图片上传成功，插入图片回调 */
+            }
+        };
+        // 自定义上传参数
+        this.editor.customConfig.uploadImgParams = {
+            token: sessionStorage.getItem("token")
+        };
+        this.editor.customConfig.customAlert = info => {
+            // alert(12);
+            // info 是需要提示的内容
+            this.$message.error("错误提示：" + info);
+        };
         this.editor.create();
     },
 
@@ -214,6 +241,11 @@ export default {
             this.form = announcementInfo;
             let timer = setTimeout(() => {
                 clearTimeout(timer);
+                let reg = new RegExp('src="', "g");
+                this.form.content = this.form.content.replace(
+                                reg,
+                                `src="${this.reqApi.shuiwuUrl}`
+                            );
                 this.editor.txt.html(this.form.content);
             }, 100);
         },
@@ -236,7 +268,11 @@ export default {
             const that = this;
             that.$refs[formName].validate(async valid => {
                 if (valid) {
+                    let reg = new RegExp(this.reqApi.shuiwuUrl, "g");
+
                     let res = {};
+                    console.log(that.form,'that.form')
+                    that.form.content=that.form.content.replace(reg, "")
                     that.form.create_time = null;
                     that.form.update_time = null;
                     if (!that.$route.query.id) {

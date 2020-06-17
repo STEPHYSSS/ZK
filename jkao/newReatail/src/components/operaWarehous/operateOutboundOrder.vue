@@ -50,7 +50,7 @@
     <div class="storeInfo">
       <div class="store_Box1">
         <div class="operatHideScool">
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
         <el-table-column label="出库单编号" prop="code" align="center" width="250">
 					<template scope="scope">
 							<span class="codesty" @click="toDetail(scope.row.code)">{{scope.row.code}}</span>

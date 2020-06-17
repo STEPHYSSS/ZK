@@ -72,7 +72,7 @@
             </div>
             <div class="three">
                 <div class="rightRow">
-                    <img src="@/assets/images/jiantou-fuben.png" alt />
+                    <img class="rightRowImg" src="@/assets/images/jiantou-fuben.png" alt />
                 </div>
                 <div class="posRel store cursor">
                     <div>
@@ -362,7 +362,9 @@ export default {
 }
 .childBox {
     /* flex: 1; */
+    
     width: 20%;
+    width: 280px;
     /* height: 90px; */
     /* background-color: pink; */
     /* border: 1px solid #eee; */
@@ -371,11 +373,13 @@ export default {
 }
 .two {
     width: 5%;
+    width: 60px;
     display: flex;
     flex-direction: column;
 }
 .three {
     width: 20%;
+    width: 280px;
     display: flex;
     align-items: flex-start;
 }
@@ -384,6 +388,7 @@ export default {
 }
 .four {
     width: 20%;
+    width: 280px;
     display: flex;
     align-items: flex-start;
 }
@@ -399,6 +404,9 @@ export default {
     height: 110px;
     margin-top: 25px;
     margin-right: 15px;
+    position: relative;
+    width: 202px;
+    overflow: hidden;
 }
 .stringLine {
     margin-top: 20%;
@@ -424,5 +432,9 @@ export default {
 }
 .flowChart{
     min-width: 1000px;
+}
+.rightRowImg{
+    position: absolute;
+    left: -8px;
 }
 </style>

@@ -22,7 +22,7 @@
                             ></el-input>
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" label="操作">
+                    <el-table-column align="center" label="操作" fixed="right">
                         <template slot-scope="scope">
                             <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
                                 <!-- <div class="dis"> -->

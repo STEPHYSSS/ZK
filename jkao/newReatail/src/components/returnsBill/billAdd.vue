@@ -24,7 +24,7 @@
                   class="inputTd"
                   type="text"
                   v-model="item.code"
-                  @keydown.enter="searthData(item.code, index)"
+                  @focus="changeDalog"
                   maxlength="49"
                 />
               </td>
@@ -69,6 +69,70 @@
           <el-button class="theBtn themeColor textMright" @click="sure">确定</el-button>
           <el-button @click="retuBack" class="theBtn resetButton">返回</el-button>
         </div>
+        <!-- 商品弹窗 -->
+        <!-- 选择商品弹窗 -->
+        <el-dialog title="选择商品" :visible.sync="dialogVisible2" width="800px">
+          <div class="choosestore">
+            <p class="goodsInputBox">品<em class="zanweiN"></em>名：<el-input v-model="goodsName" placeholder="请输入商品名称"></el-input></p>
+            <!-- <el-row style="white-space: nowrap;">
+              <el-col :span="10">
+                <span>
+                  品
+                  <em class="zanweiN"></em>名：
+                </span>
+                <p style="width: 219px;">
+                  <el-input v-model="goodsName" placeholder="请输入商品名称"></el-input>
+                </p>
+              </el-col>
+              <el-col :span="14" class="TongRight">
+                <el-button class="theBtn queryButton" @click="goodsChaxun">查询</el-button>
+                <el-button class="theBtn resetButton" @click="goodsReset">重置</el-button>
+              </el-col>
+            </el-row> -->
+            <div class="chooseBox2">
+              <el-table
+                ref="multipleTable"
+                :data="optionsGoods"
+                tooltip-effect="dark"
+                style="width: 100%"
+                border
+                @selection-change="handleSelectionChange2"
+                @select-all="selectAll"
+                :row-key="getGoodsCode"
+                max-height="244"
+              >
+                <el-table-column
+                  type="selection"
+                  width="55"
+                  align="center"
+                  :reserve-selection="true"
+                ></el-table-column>
+                <el-table-column prop="code" label="货号" align="center"></el-table-column>
+                <el-table-column prop="name" label="品名" align="center"></el-table-column>
+                <el-table-column prop="unit" label="单位" align="center"></el-table-column>
+                <el-table-column prop="spec" label="规格" align="center"></el-table-column>
+                <el-table-column prop="temperature" label="温层" align="center"></el-table-column>
+              </el-table>
+              <div class="pageFenye">
+                <div class="PromotBtn">
+                  <el-button class="AllquedingBtn" @click="isSureGoods">确定</el-button>
+                  <el-button class="theBtn resetButton" @click="dialogVisible2 = false">取消</el-button>
+                </div>
+                <!-- <el-pagination
+                  @size-change="handleSizeChange"
+                  @current-change="handleCurrentChange"
+                  :current-page="pageNum"
+                  :page-sizes="[20, 40, 60]"
+                  :page-size="pageSize"
+                  background
+                  layout="total, sizes, prev, pager, next, jumper"
+                  :total="total"
+                  class="pagination"
+                ></el-pagination> -->
+              </div>
+            </div>
+          </div>
+        </el-dialog>
       </div>
     </div>
   </div>
@@ -103,7 +167,11 @@ export default {
           value: "到货过期",
           label: "到货过期"
         }
-      ]
+      ],
+      dialogVisible2: false,
+      optionsGoods: [], //商品列表
+      multipleSelection2: [],
+      goodsName:''
     };
   },
   methods: {
@@ -118,31 +186,103 @@ export default {
         period: ""
       });
     },
+     handleSelectionChange2(val) {
+      this.multipleSelection2 = val;
+      // this.multipleSelection2 = val.map(item => {
+      //     console.log(item)
+      //     return item.code
+      // })
+    },
+    // 多选
+    selectAll(selection) {
+      this.multipleSelection2 = selection;
+    },
+    getGoodsCode(row) {
+    return row.code;
+    },
+    showAreaGoods(pageNum, pageSize) {
+      this.$axios({
+        url: "/public/goods/list",
+        method: "POST",
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+        data: qs.stringify({
+          token: sessionStorage.getItem("token"),
+          goodsName: this.goodsName,
+          pageNum: this.pageNum,
+          pageSize: this.pageSize
+        })
+      }).then(res => {
+        if (res.data.code == "0000") {
+          this.optionsGoods = res.data.data.list;
+          this.total = res.data.data.total;
+          if(this.$refs.multipleTable){
+            this.optionsGoods.forEach((item,index)=>{
+              this.tableData.forEach((i,index2)=>{
+                if(item.code==i.code){
+                  item.flag=true
+                   this.$nextTick(() => {
+                      this.$refs.multipleTable.toggleRowSelection(
+                        this.optionsGoods[index],
+                        true
+                      );
+                    });
+                }
+              })
+            })
+          }
+        } else if (res.data.code == "6666") {
+          this.$message({
+            showClose: true,
+            message: "token异常，请重新登录",
+            type: "error"
+          });
+          const timer = setTimeout(() => {
+            clearTimeout(timer);
+            this.$router.push({ name: "login" });
+          }, 3000);
+        } else {
+          this.$message.error(res.data.msg);
+        }
+      });
+    },
+      // 弹窗点击确定
+    isSureGoods() {
+      if (this.multipleSelection2 == "")
+        return this.$message.error("请选择商品信息");
+      this.tableData = this.multipleSelection2;
+      this.dialogVisible2 = false;
+      this.hideG = true;
+    },
+    changeDalog(){
+      this.dialogVisible2 = true;
+      this.showAreaGoods()
+    },
     // 输入货号回车事件
     searthData(code, index) {
-      let that = this;
-      let token = sessionStorage.getItem("token");
+      
+      // let that = this;
+      // let token = sessionStorage.getItem("token");
       // if(token){
-      that
-        .$axios({
-          url: window.apiStore + "getgoods/info",
-          method: "POST",
-          headers: { "content-type": "application/x-www-form-urlencoded" },
-          data: qs.stringify({
-            token: token,
-            code: code
-          })
-        })
-        .then(res => {
-          if (res.data.code === "0000") {
-            that.tableData[index] = res.data.data;
-            this.$set(this.tableData, index, res.data.data);
-          }else if(res.data.code === "1000") {
-            return this.$message.error("商品货号错误，请重新输入")
-          }else {
-            this.$message.error(res.data.msg);
-          }
-        })
+      // that
+      //   .$axios({
+      //     url: window.apiStore + "getgoods/info",
+      //     method: "POST",
+      //     headers: { "content-type": "application/x-www-form-urlencoded" },
+      //     data: qs.stringify({
+      //       token: token,
+      //       code: code
+      //     })
+      //   })
+      //   .then(res => {
+      //     if (res.data.code === "0000") {
+      //       that.tableData[index] = res.data.data;
+      //       this.$set(this.tableData, index, res.data.data);
+      //     }else if(res.data.code === "1000") {
+      //       return this.$message.error("商品货号错误，请重新输入")
+      //     }else {
+      //       this.$message.error(res.data.msg);
+      //     }
+      //   })
       // }
     },
     // 删除
@@ -159,44 +299,77 @@ export default {
           reason: item.reason
         };
       });
-      if (aaa == "") {
-        this.$message("请添加退货信息");
-        return;
-      }
-      aaa.forEach(item => {
-        if (item.count == null) {
-          this.$message("请添加退货数量");
-        } else if (item.reason == null) {
-          this.$message("请添加退货原因");
-        } else {
-          let token = sessionStorage.getItem("token");
-          that
-            .$axios({
-              url: window.apiStore + "return/add",
-              method: "POST",
-              headers: { "content-type": "application/x-www-form-urlencoded" },
-              data: qs.stringify({
-                token: token,
-                json: JSON.stringify(aaa)
-              })
-            })
-            .then(res => {
-              if (res.data.code == "0000") {
-                that.$router.push({ name: "billManager" });
-              } else if (res.data.code == "6666") {
-                this.$message({
-                  showClose: true,
-                  message: "token异常，请重新登录",
-                  type: "error"
-                });
-              } else if(res.data.code === "3010") {
-                  return this.$message.error("商品货号错误，请重新输入")
-              }else {
-                this.$message.error(res.data.msg);
-              }
-            })
+      if(aaa.length > 0) {
+        for (const i of aaa) {
+          if (!i.count) {
+            return this.$message.error("请添加退货数量!");
+          } else if (!i.reason) {
+            return this.$message.error("请添加退货原因!");
+          }
         }
-      });
+        that
+        .$axios({
+          url: window.apiStore + "return/add",
+          method: "POST",
+          headers: { "content-type": "application/x-www-form-urlencoded" },
+          data: qs.stringify({
+            token: sessionStorage.getItem("token"),
+            json: JSON.stringify(aaa)
+          })
+        })
+        .then(res => {
+          if (res.data.code == "0000") {
+            that.$router.push({ name: "billManager" });
+          } else if (res.data.code == "6666") {
+            this.$message({
+              showClose: true,
+              message: "token异常，请重新登录",
+              type: "error"
+            });
+          } else if(res.data.code === "3010") {
+              return this.$message.error(res.data.msg)
+          }else {
+            this.$message.error(res.data.msg);
+          }
+        })
+      }else {
+        return this.$message.error("请添加退货信息");
+      }
+      
+      // aaa.forEach(item => {
+      //   if (item.count == null) {
+      //     this.$message("请添加退货数量");
+      //   } else if (item.reason == null) {
+      //     this.$message("请添加退货原因");
+      //   } else {
+      //     // let token = sessionStorage.getItem("token");
+      //     // that
+      //     //   .$axios({
+      //     //     url: window.apiStore + "return/add",
+      //     //     method: "POST",
+      //     //     headers: { "content-type": "application/x-www-form-urlencoded" },
+      //     //     data: qs.stringify({
+      //     //       token: token,
+      //     //       json: JSON.stringify(aaa)
+      //     //     })
+      //     //   })
+      //     //   .then(res => {
+      //     //     if (res.data.code == "0000") {
+      //     //       that.$router.push({ name: "billManager" });
+      //     //     } else if (res.data.code == "6666") {
+      //     //       this.$message({
+      //     //         showClose: true,
+      //     //         message: "token异常，请重新登录",
+      //     //         type: "error"
+      //     //       });
+      //     //     } else if(res.data.code === "3010") {
+      //     //         return this.$message.error("商品货号错误，请重新输入")
+      //     //     }else {
+      //     //       this.$message.error(res.data.msg);
+      //     //     }
+      //     //   })
+      //   }
+      // });
     },
     // 返回
     retuBack() {
@@ -297,5 +470,15 @@ table {
 .inputSelect {
   width: 80%;
   height: 32px;
+}
+.pageFenye{
+  margin-top: 20px;
+  text-align: center;
+}
+.goodsInputBox{
+  width: 38%;
+}
+.goodsInputBox .el-input{
+  width: 50%;
 }
 </style>

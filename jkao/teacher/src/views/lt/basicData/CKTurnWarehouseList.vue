@@ -320,6 +320,7 @@ export default {
 }
 #turnWarehouseList .newAdd {
   text-align: right;
+  margin-right: 20px;
 }
 #turnWarehouseList .billMaList {
   padding-left: 35px;

@@ -145,7 +145,6 @@
             <el-table
               :data="tableData"
               style="width: 100%"
-              border
               max-height="600"
               @select-all="selectAll"
               @select="detailInfo"
@@ -358,6 +357,7 @@ export default {
       if (this.tableData.length <= 0) {
         this.showSubmit = true;
       } else {
+        this.showSubmit = true;
         this.$axios({
             url: window.apiStore + "ordering/today/submit",
             method: "POST",
@@ -373,6 +373,8 @@ export default {
               });
               this.orderInfoList();
             }else return this.$message.error(res.data.msg)
+          }).finally(() => {
+            this.showSubmit = false;
           });
       }
     },

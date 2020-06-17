@@ -49,11 +49,20 @@ export default {
             sessionStorage.setItem("examId",res.data.data.examId)
             sessionStorage.setItem("token", res.data.data.token);
             sessionStorage.setItem("questionInfo",res.data.data.questionInfo);
+
             sessionStorage.setItem("examType",res.data.data.examType)
-            sessionStorage.setItem("review",res.data.data.review)
+            sessionStorage.setItem("review",res.data.data.review);
+
+            sessionStorage.setItem("sysName",res.data.data.sysName);
+            sessionStorage.setItem("storeName",res.data.data.storeName);
+            sessionStorage.setItem("supplierName",res.data.data.supplierName);
+            sessionStorage.setItem("warehouseName",res.data.data.warehouseName);     
             if (localType == "sys") {
               this.$router.push({
-                name: "storeManage"
+                name: "storeManage",
+                query:{
+
+                }
               });
             } else if (localType == "store") {
               this.$router.push({

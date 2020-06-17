@@ -79,7 +79,7 @@
                 </div>-->
                 <el-table :data="tableData" style="width: 100%;" border>
                     <el-table-column label="报废单编号" align="center" width="220">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span
                                 class="codesty"
                                 @click="scrapdetai(scope.row.code)"
@@ -87,23 +87,23 @@
                         </template>
                     </el-table-column>
                     <el-table-column label="创建日期" align="center">
-                        <template scope="scope">{{scope.row.createTime|converTime('YYYY-MM-DD')}}</template>
+                        <template slot-scope="scope">{{scope.row.createTime|converTime('YYYY-MM-DD')}}</template>
                     </el-table-column>
                     <el-table-column label="报废状态" align="center">
-                        <template scope="scope">{{scope.row.status| scrapStatus }}</template>
+                        <template slot-scope="scope">{{scope.row.status| scrapStatus }}</template>
                     </el-table-column>
                     <el-table-column prop="item" label="报废品项数" align="center"></el-table-column>
                     <el-table-column prop="count" label="报废总数" align="center"></el-table-column>
                     <el-table-column prop="amount" label="报废总金额" align="center"></el-table-column>
-                    <el-table-column label="操作" align="center">
-                        <!-- <template scope="scope">
+                    <el-table-column label="操作" align="center" fixed="right">
+                        <!-- <template slot-scope="scope">
                             <span
                                 class="codesty"
                                 v-if="scope.row.status=='1'"
                                 @click="delbillRow(scope.row.code)"
                             >删除</span>
                         </template> -->
-                         <template scope="scope">
+                         <template slot-scope="scope">
                             <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
                                 <img
                                     src="@/assets/images/shanchu_icon.png"
@@ -170,6 +170,14 @@ export default {
         this.scrapList(this.pageNum, this.pageSize);
     },
     methods: {
+        shenhe(code) {
+            this.$router.push({
+                name: "scrapDetails",
+                query: {
+                    code: code
+                }
+            });
+        },
         newIncrease() {
             this.$router.push({
                 name: "scrapadd"

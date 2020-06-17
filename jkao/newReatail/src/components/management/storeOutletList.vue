@@ -69,7 +69,7 @@
             </el-row>
         </div>
         <div>
-            <el-table :data="tableData" style="width: 100%;" border max-height="600">
+            <el-table :data="tableData" style="width: 100%;" max-height="600">
                 <el-table-column prop="code" label="单据编号" align="center"></el-table-column>
                 <el-table-column label="创建日期" align="center">
                     <template scope="scope">

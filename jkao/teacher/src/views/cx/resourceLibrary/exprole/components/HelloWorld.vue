@@ -208,7 +208,7 @@ li {
 #disStyle .el-tree-node__content {
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 60%;
     display: inline-block;
 }

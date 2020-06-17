@@ -37,7 +37,7 @@
       </div>
       <div class="hidescoll">
         <div class="store_Box12">
-          <el-table :data="tableData" style="width: 100%" border>
+          <el-table :data="tableData" style="width: 100%">
             <el-table-column prop="realname" label="姓名" align="center"></el-table-column>
             <el-table-column prop="username" label="登录用户名" align="center"></el-table-column>
             <el-table-column prop="department" label="部门 " align="center"></el-table-column>
@@ -46,7 +46,7 @@
             <el-table-column prop="createTime" label="创建时间 " align="center">
               <template scope="scope">{{scope.row.createTime | fmtDate2('YYYY-MM-DD')}}</template>
             </el-table-column>
-            <el-table-column prop="opeartion" label="操作" align="center">
+            <el-table-column prop="opeartion" label="操作" align="center" fixed="right">
               <template scope="scope">
                 <div class="tootip">
                   <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">

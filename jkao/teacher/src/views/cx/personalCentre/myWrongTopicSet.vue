@@ -141,7 +141,7 @@
                             </a>
                         </div>
                     </vue-scroll>
-                    <div class="isSign txalign font-size-12">
+                    <div class="isSign text-center font-size-12">
                         <span class="redB">错题</span>
                         <span>未答</span>
                     </div>
@@ -195,10 +195,20 @@
         </el-table-column>-->
 
         <el-table-column prop="num" label="收藏数量" align="center"></el-table-column>
-        <el-table-column label="操作" align="center">
+        <el-table-column label="操作" align="center" fixed="right">
           <template slot-scope="{row,$index}">
-            <a href="javascript:;" @click="showEdit($index,row)">编辑</a>&nbsp;&nbsp;&nbsp;
-            <a href="javascript:;" @click="deleteClassification(row,$index)">删除</a>
+            <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
+              <span class="cur-point"  @click="showEdit($index,row)">
+                <img src="@/assets/images/xiugai_icon.png" alt />
+              </span>
+            </el-tooltip>&nbsp;&nbsp;
+            <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+              <span class="cur-point" @click="deleteClassification(row,$index)">
+                <img src="@/assets/images/shanchu_icon.png" alt />
+              </span>
+            </el-tooltip>&nbsp;&nbsp;
+            <!-- <a href="javascript:;" @click="showEdit($index,row)">编辑</a>&nbsp;&nbsp;&nbsp;
+            <a href="javascript:;" @click="deleteClassification(row,$index)">删除</a> -->
           </template>
         </el-table-column>
       </el-table>

@@ -65,7 +65,7 @@
     </div>
     <div class="storeInfo">
       <div class="store_Box2">
-        <el-table :data="tableData" style="width: 100%;" border>
+        <el-table :data="tableData" style="width: 100%;">
           <el-table-column label="盘点单编号" align="center" prop="code" width="250"></el-table-column>
           <el-table-column label="门店名称" prop="name" align="center"></el-table-column>
           <el-table-column label="门店编号" prop="storeCode" align="center"></el-table-column>

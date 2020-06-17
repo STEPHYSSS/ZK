@@ -4,7 +4,7 @@
     <div class="waitBox2">
       <div class="detailBackBtn aa">
         <!-- <img src="@/assets/returnbutton.png" alt="" @click="retuBack" class="codesty"> -->
-         
+
       </div>
       <div class="margin20">
         <!-- <h3 class="h3mt">叫货单管理</h3> -->
@@ -45,7 +45,7 @@
           <!-- <el-table-column align="center" prop="spec" label="规格"></el-table-column> -->
           <el-table-column align="center" prop="salesPrice" label="单品售价"></el-table-column>
           <!-- <el-table-column label="保质期" align="center">
-            <template scope="scope">{{scope.row.period}}{{scope.row.periodUnit}}</template>
+            <template slot-scope="scope">{{scope.row.period}}{{scope.row.periodUnit}}</template>
           </el-table-column> -->
           <el-table-column align="center" prop="count" label="数量"></el-table-column>
           <!-- <el-table-column align="center" prop="orderingUtil" label="基本订购单位" width="120"></el-table-column> -->

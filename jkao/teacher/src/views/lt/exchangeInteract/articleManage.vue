@@ -9,7 +9,6 @@
     <!-- 表格 -->
     <el-table
     :data="tableData"
-    border
     class="topBorder"
     style="width: 100%">
       <el-table-column align="center" prop="name"  label="分类名称" :show-overflow-tooltip="true"></el-table-column>
@@ -24,7 +23,7 @@
         <template slot-scope="scope">{{ scope.row.create_user_name }}</template>
       </el-table-column>
       <el-table-column align="center" prop="remark" label="备注" :show-overflow-tooltip="true"></el-table-column>
-      <el-table-column align="center" prop="name" label="操作" width="150">
+      <el-table-column align="center" prop="name" label="操作" width="150" fixed="right">
         <template slot-scope="scope">
           <span class="cur-point dis-inline-block" @click="handlePut(scope.row)">
             <img src="@/assets/images/xiugai_icon.png" alt="">&nbsp;&nbsp;&nbsp;

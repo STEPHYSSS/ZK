@@ -1,6 +1,7 @@
 .my-index {
     height: 100%;
-    min-width: 1090px;
+    min-width: 1024px;
+    max-width: 1920px;
 }
 
 
@@ -29,11 +30,12 @@
 }
 
 .my-index header .first_ul {
-    list-style: none;
+    display: inline-block;
+    /* list-style: none;
     position: absolute;
     left: 300px;
     top: 0;
-    line-height: 67px;
+    line-height: 67px; */
 }
 
 .my-index header .first_ul li {

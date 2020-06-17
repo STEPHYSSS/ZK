@@ -1,5 +1,5 @@
 <template>
-    <div class="orDepots minWidth1600 minimum">
+    <div class="orDepots">
         <div class="DepotsBox">
             <div class="rece_Box">
                 <div class="block">
@@ -54,7 +54,7 @@
                     </div>
                     <!-- 整仓盘点 -->
                     <div v-if="hideAll">
-                        <el-table :data="tableData" style="width: 100%;" border max-height="600">
+                        <el-table :data="tableData" style="width: 100%;" max-height="600">
                             <el-table-column prop="code" label="货号" align="center"></el-table-column>
                             <el-table-column prop="name" label="品名" align="center" width="150"></el-table-column>
                             <el-table-column label="商品分类" align="center" width="180">
@@ -581,7 +581,7 @@ export default {
 .orDepots {
     /* background-color: #f1f6fa; */
     min-height: 647px;
-    min-width: 1200px;
+    /* min-width: 1200px; */
 }
 .DepotsBox {
     background: #fff;

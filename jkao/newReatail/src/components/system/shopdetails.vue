@@ -21,7 +21,7 @@
         <el-col :span="6"><span>预计到店日期:{{purchaseSheet.estimatedArrivalTime|fmtDate2}}</span></el-col>
       </el-row>
       <div class="konge"></div>
-      <el-table :data="tableData"  style="width: 100%" border>
+      <el-table :data="tableData"  style="width: 100%">
           <el-table-column prop="code" label="货号" align='center'></el-table-column>
           <el-table-column prop="barcode" label="国际条码" align='center' width="150"></el-table-column>
           <el-table-column label="品名" align='center' width="160">

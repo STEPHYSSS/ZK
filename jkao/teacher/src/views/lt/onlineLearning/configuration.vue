@@ -20,21 +20,21 @@
       </el-table-column>
       <el-table-column align="center" prop="description" label="备注"></el-table-column>
       <el-table-column align="center" prop="create_user_name" label="创建人"></el-table-column>
-      <el-table-column align="center" label="操作">
+      <el-table-column align="center" label="操作" fixed="right">
         <template slot-scope="scope">
           <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
             <span class="cur-point dis-inline-block" @click="editConfigura(scope.row)">
-              <img src="@/assets/images/xiugai_icon.png" alt />&nbsp;&nbsp;&nbsp;
+              <img src="@/assets/images/xiugai_icon.png" alt />&nbsp;&nbsp;
             </span>
           </el-tooltip>
           <el-tooltip class="item" effect="dark" content="目录" placement="bottom">
             <span class="cur-point dis-inline-block" @click="directory(scope.row)">
-              <img src="@/assets/images/mulv_icon.png" alt />&nbsp;&nbsp;&nbsp;
+              <img src="@/assets/images/mulv_icon.png" alt />&nbsp;&nbsp;
             </span>
           </el-tooltip>
           <el-tooltip class="item" effect="dark" content="资源库" placement="bottom">
             <span class="cur-point dis-inline-block" @click="repository(scope.row)">
-              <img src="@/assets/images/ziyuanku_icon.png" alt />&nbsp;&nbsp;&nbsp;
+              <img src="@/assets/images/ziyuanku_icon.png" alt />&nbsp;&nbsp;
             </span>
           </el-tooltip>
           <el-tooltip class="item" effect="dark" content="删除" placement="bottom">

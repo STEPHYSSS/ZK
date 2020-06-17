@@ -3,7 +3,7 @@
     <div class="billMa">
       <!-- <h3>盘点管理</h3> -->
       <div class="billMaList">
-        <el-row style="white-space:nowrap">
+        <!-- <el-row style="white-space:nowrap">
           <el-col :span="6">
             <div>
               <span class="sotretype5">盘点单编号：</span>
@@ -48,7 +48,7 @@
               </div>
             </div>
           </el-col>
-        </el-row>
+        </el-row> -->
         <div class="inventinp pinName">
           <!-- <span>盘点单编号：</span>
           <p>
@@ -108,34 +108,34 @@
         <el-table :data="tableData" style="width: 100%;" border>
           <el-table-column prop="code" label="盘点单编号" align="center" ></el-table-column>
           <el-table-column label="盘点日期" align="center">
-            <template scope="scope">{{scope.row.inventoryTime | converTime('YYYY-MM-DD')}}</template>
+            <template slot-scope="scope">{{scope.row.inventoryTime | converTime('YYYY-MM-DD')}}</template>
           </el-table-column>
           <el-table-column label="更新时间" align="center">
-            <template scope="scope">
+            <template slot-scope="scope">
               <span
                 v-if="scope.row.updateTime !=null"
               >{{scope.row.updateTime | converTime('YYYY-MM-DD HH:mm:ss')}}</span>
             </template>
           </el-table-column>
           <el-table-column label="状态" align="center">
-            <template scope="scope">{{scope.row.status | statusTip}}</template>
+            <template slot-scope="scope">{{scope.row.status | statusTip}}</template>
           </el-table-column>
-          <el-table-column label="操作" align="center">
-            <template scope="scope">
+          <el-table-column label="操作" align="center" fixed="right">
+            <template slot-scope="scope">
               <el-tooltip
                 class="item"
                 effect="dark"
                 content="查看"
                 v-if="scope.row.status=='2'"
                 placement="bottom"
-                
+
               >
                 <img src="@/assets/images/chaxun_icon.png" @click="chakanP(scope.row.code)" class="codesty" alt />
               </el-tooltip>
               <el-tooltip class="item" effect="dark" content="编辑" placement="bottom" v-show="scope.row.status=='1'">
                 <img src="@/assets/images/xiugai_icon.png" @click="editRow(scope.row.code)" class="codesty" alt />
               </el-tooltip>
-              <el-tooltip class="item" effect="dark" content="删除" placement="bottom" v-show="scope.row.status=='1'">
+              <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
                 <img src="@/assets/images/shanchu_icon.png" @click="delPanRow(scope.row.code)" class="codesty" alt />
               </el-tooltip>
                <el-tooltip class="tips" effect="dark" content="验收" placement="bottom">
@@ -291,16 +291,6 @@ export default {
             message: "删除成功!"
           });
           this.inventoryList();
-        } else if (res.data.code == "6666") {
-          this.$message({
-            showClose: true,
-            message: "token异常，请重新登录",
-            type: "error"
-          });
-          const timer = setTimeout(() => {
-            clearTimeout(timer);
-            this.$router.push({ name: "login" });
-          }, 3000);
         } else {
           this.$message.error(res.data.msg);
         }
@@ -410,5 +400,6 @@ p {
 .addStore {
     text-align: right;
     margin-bottom: 20px;
+    margin-right: 20px;
 }
 </style>

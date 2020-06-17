@@ -1,5 +1,5 @@
 <template>
-  <div id="otherWarehouseList" class="minimum minWidth1600">
+  <div id="otherWarehouseList">
     <div class="content">
       <h3>其他入库</h3>
       <el-row class="rowSpacing">
@@ -21,7 +21,7 @@
           <div>
             <span class="textTitle70px">单据状态：</span>
             <div class="TongYiInput">
-              <el-select placeholder="请选择" v-model="ruleForm.status" class="input1">
+              <el-select placeholder="请选择" v-model="ruleForm.status">
                 <el-option label="待审核" value="W"></el-option>
                 <el-option label="审核通过" value="S"></el-option>
                 <el-option label="审核不通过" value="F"></el-option>
@@ -53,7 +53,7 @@
       </div>
     </div>
     <div>
-      <el-table :data="tableData" style="width: 100%;" border>
+      <el-table :data="tableData" style="width: 100%;">
         <el-table-column label="单据编号" align="center">
           <template scope="scope">
             <span class="codesty" @click="toDetail(scope.row.code)">{{scope.row.code}}</span>
@@ -131,8 +131,7 @@
             <tr>
               <td class="pinName1">
                 <span>仓库名称：</span>
-
-                <el-input type="text" v-model="warehouseData.name" placeholder="请输入" class="input1"></el-input>
+                <el-input type="text" v-model="warehouseData.name" placeholder="请输入" class="inputWidth"></el-input>
               </td>
               <div class="billsearch">
                 <el-button @click="search" class="theBtn queryButton">查询</el-button>
@@ -148,7 +147,6 @@
             :data="warehouseList"
             style="width: 100%;"
             max-height="300"
-            border
           >
             <el-table-column label="选择" width="100" align="center">
               <template scope="scope">
@@ -451,6 +449,9 @@ export default {
 }
 h3 {
   padding: 20px 0 20px 0px;
+}
+.inputWidth{
+  width: 300px;
 }
 </style>
 

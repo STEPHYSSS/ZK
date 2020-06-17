@@ -281,7 +281,7 @@ export default {
         .then(res => {
           if ((res.data.code = "0000")) {
             this.tempera = res.data.data;
-          }
+          }else return this.$message.error(res.data.msg)
         })
         .catch(err => {
           console.log("数据异常", err);

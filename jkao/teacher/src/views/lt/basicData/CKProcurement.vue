@@ -283,7 +283,7 @@ export default {
 }
 #procurementList .content {
   box-sizing: border-box;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   /* background-color: #fff;
   padding: 0px 20px;
   height: 150px; */

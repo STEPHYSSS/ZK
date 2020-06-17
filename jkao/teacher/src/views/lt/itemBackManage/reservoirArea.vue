@@ -43,7 +43,7 @@
                     <el-table-column label="状态" align="center">
                         <template slot-scope="scope">{{scope.row.status | statusTip}}</template>
                     </el-table-column>
-                    <el-table-column label="操作" align="center">
+                    <el-table-column label="操作" align="center" fixed="right">
                         <template slot-scope="scope">
                             <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
                                 <img
@@ -58,7 +58,7 @@
                                     class="codesty"
                                     @click="del(scope.row.id)"
                                 />
-                            </el-tooltip>&nbsp;&nbsp; 
+                            </el-tooltip>&nbsp;&nbsp;
                             <el-tooltip class="item" effect="dark" content="关联商品" placement="bottom">
                             <img
                                     src="@/assets/images/guanlianshangpin_icon.png"
@@ -79,7 +79,7 @@
                             <el-input v-model="ruleForm.name" auto-complete="off"></el-input>
                         </p>
                     </el-form-item>
-                   
+
                 </el-form>
 
                 <div class="btnCent">
@@ -153,7 +153,7 @@ export default {
     },
     created() {
         this.areaSetting();
-        
+
     },
     mounted(){
       this.getGoodList()
@@ -274,7 +274,7 @@ export default {
 .areaSettings {
     /* background-color: #f1f6fa; */
     min-height: 647px;
-    min-width: 1200px;
+    /* min-width: 1200px; */
 }
 .areaBox,
 .areainfo {
@@ -369,6 +369,7 @@ h3 {
 .addStore {
     text-align: right;
     margin-bottom: 20px;
+    margin-right: 20px;
 }
 .styleBox {
     text-align: center;

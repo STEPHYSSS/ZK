@@ -60,7 +60,7 @@
               <i class="el-icon-plus"></i>新增
             </el-button>
           </div>
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
             <el-table-column label="活动名称" align="center">
               <template scope="scope">
                 <span class="codesty" @click="detailsRow(scope.row.id)">{{scope.row.name}}</span>
@@ -96,7 +96,7 @@
             <el-table-column label="数量" align="center">
               <template slot-scope="scope">{{scope.row.issuedNum}}/{{scope.row.num}}</template>
             </el-table-column>
-            <el-table-column label="操作" align="center">
+            <el-table-column label="操作" align="center"  fixed="right">
               <template scope="scope">
                 <el-tooltip
                   class="item"

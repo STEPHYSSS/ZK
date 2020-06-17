@@ -68,7 +68,7 @@
                         </el-select>
                     </el-form-item>
                         </el-col>-->
-                        <el-col class="fr txalign-c" :span="6">
+                        <el-col class="fr text-right" :span="12">
                             <el-form-item>
                                 <el-button class="search search-btn" @click="searchCX">搜索</el-button>
                                 <el-button class="search search-btn" @click="clear">重置</el-button>
@@ -83,17 +83,10 @@
 
                 <!-- 表格 -->
                 <el-table :data="tableData" class="topBorder" style="width: 100%">
-                    <el-table-column align="center" width="250" prop="number" label="试题编号"></el-table-column>
-                    <el-table-column
-                        align="center"
-                        width="200"
-                        prop="name"
-                        label="名称"
-                        max-width="300px"
-                        :show-overflow-tooltip="true"
-                    ></el-table-column>
-                    <!-- <el-table-column align="center" width="150" prop="dbname" label="所属题库"></el-table-column> -->
-                    <el-table-column align="center" label="试题类型" width="100">
+                    <el-table-column align="center" prop="number" label="试题编号"></el-table-column>
+                    <el-table-column align="center" prop="name" label="名称"></el-table-column>
+                    <!-- <el-table-column align="center" prop="dbname" label="所属题库"></el-table-column> -->
+                    <el-table-column align="center" label="试题类型">
                         <template slot-scope="scope">
                             <span v-if="scope.row.type == 1">单选</span>
                             <span v-if="scope.row.type == 2">多选</span>
@@ -107,9 +100,9 @@
                             <span v-if="scope.row.open == 2">关闭</span>
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" label="是否锁定">
+                    <el-table-column align="center" label="锁定状态">
                         <template slot-scope="scope">
-                            <span v-if="scope.row.locked == 1">锁定</span>
+                            <span v-if="scope.row.locked == 1">已锁定</span>
                             <span v-if="scope.row.locked == 2">未锁定</span>
                         </template>
                     </el-table-column>
@@ -122,7 +115,7 @@
                     <el-table-column align="center" show-overflow-tooltip label="试题题干">
                         <template slot-scope="scope">{{scope.row.content}}</template>
                     </el-table-column>
-                    <el-table-column align="center" label="创建人" width="150">
+                    <el-table-column align="center" label="创建人">
                         <template slot-scope="scope">
                             {{ scope.row.create_user_name }}
                             <br />
@@ -139,14 +132,24 @@
                             {{ scope.row.qmodifydate }}-->
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" width="150" label="操作">
+                    <el-table-column align="center" fixed="right" width="150" label="操作">
                         <template slot-scope="scope">
-                            <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
+                            <el-tooltip
+                                class="item"
+                                effect="dark"
+                                :content="scope.row.locked==2?'编辑':'查看详情'"
+                                placement="bottom"
+                            >
                                 <span
                                     class="cur-point dis-inline-block"
                                     @click="questionPut(scope.row)"
                                 >
-                                    <img src="@/assets/images/xiugai_icon.png" alt />
+                                    <img
+                                        v-if="scope.row.locked==2"
+                                        src="@/assets/images/xiugai_icon.png"
+                                        alt
+                                    />
+                                    <img v-else src="@/assets/images/zicejilu_icon.png" alt />
                                 </span>
                             </el-tooltip>&nbsp;
                             <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
@@ -154,13 +157,22 @@
                                     <img src="@/assets/images/shanchu_icon.png" alt />
                                 </span>
                             </el-tooltip>&nbsp;
-                            <el-tooltip class="item" effect="dark" content="锁题" placement="bottom">
-                                <span
+                            <el-tooltip
+                                class="item"
+                                effect="dark"
+                                content="锁题"
+                                v-if="scope.row.locked==2"
+                                placement="bottom"
+                            >
+                                <!-- <span
                                     class="cur-point dis-inline-block el-icon-lock"
                                     style="font-size: 17px; color: #528ef4;"
                                     @click="lockQuestion(scope.row)"
-                                ></span>
-                            </el-tooltip>&nbsp;
+                                ></span>-->
+                                <span class="cur-point" @click="lockQuestion(scope.row)">
+                                    <img src="@/assets/images/suo_icon.png" alt />&nbsp;
+                                </span>
+                            </el-tooltip>
                             <el-tooltip class="item" effect="dark" content="复制" placement="bottom">
                                 <span class="cur-point" @click="copy(scope.row)">
                                     <img src="@/assets/images/fuzhi_icon.png" alt />
@@ -307,7 +319,10 @@ export default {
             this.formInline.name = row.name;
             this.formInline.question_uuid = row.objective_question_uuid;
             this.$utils
-                .post(this.reqApi.shuiwuUrl + "/common/getDateNumber")
+                .post(
+                    this.reqApi.shuiwuUrl + "/common/getDateNumber",
+                    qs.stringify({ type: "M" })
+                )
                 .then(res => {
                     if (res.data.code === "0000") {
                         this.formInline.question_number = res.data.dateNumber;
@@ -336,8 +351,8 @@ export default {
         toBatch() {
             this.$router.push({
                 name: "batchLeadQuestion",
-                query:{
-                    objective:1
+                query: {
+                    objective: 1
                 }
             });
         },

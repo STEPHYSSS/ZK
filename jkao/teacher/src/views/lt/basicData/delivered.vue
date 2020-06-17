@@ -24,7 +24,7 @@
                             <span>{{check1.item}}</span>
                         </p>
                     </div>
-                    <div class="waitList_c">
+                    <div style="width:23%">
                         <p>
                             采购单号：
                             <span>{{check1.purchaseCode}}</span>
@@ -38,7 +38,7 @@
                             <span>{{check1.count}}</span>
                         </p>
                     </div>
-                    <div class="waitList_c">
+                    <div style="width:25%">
                         <p>
                             预计到货日期：
                             <span>{{check1.estimatedArrivalTime | converTime('YYYY-MM-DD')}}</span>
@@ -52,7 +52,7 @@
                             <span>{{check1.amount}}</span>
                         </p>
                     </div>
-                    <div class="waitList_r">
+                    <div style="width:22%">
                         <p>
                             温层：
                             <span>常温</span>
@@ -87,7 +87,7 @@
                     <el-table-column prop="count" label="订购总数" align="center"></el-table-column>
                     <el-table-column prop="actualDelivery" label="实际发货数" align="center"></el-table-column>
                     <el-table-column label="实际收货数" align="center" prop="actualReceipt">
-                        <!-- <template scope="scope">
+                        <!-- <template slot-scope="scope">
               <span>{{scope.row.actualDelivery-scope.row.shortage-scope.row.shortage}}</span>
                         </template>-->
                     </el-table-column>
@@ -182,8 +182,11 @@ export default {
                     rejectionReason: item.rejectionReason
                 };
             });
-            // console.log(this.deliveryJsonArray)
-            // return
+            this.deliveryJsonArray.forEach(item=>{
+                if(item.rejection){
+                    if(!item.rejectionReason) return this.$message.error('拒收原因不能为空')
+                }
+            })
             this.$utils
                 .post(
                     this.reqApi.xinls + "/exam/delivery/check",
@@ -356,7 +359,7 @@ export default {
     display: flex;
 }
 .waitList_l {
-    width: 21%;
+    width: 27%;
 }
 .waitList_c {
     width: 25%;

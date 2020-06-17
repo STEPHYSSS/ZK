@@ -3,7 +3,7 @@ import { Message, Loading } from 'element-ui';
 
 let service = axios.create({
     // baseURL: baseUrl,
-    timeout: 30000
+    timeout: 60000
 });
 
 let loadingInstance;
@@ -20,6 +20,9 @@ service.openFullScreen = function() {
 
 /* 请求拦截 */
 service.interceptors.request.use(config => {
+    if (config.url === 'registered/importCode') {
+        config.timeout = 999999999999
+    }
     if (config.url !== 'exam/login') {
         const AUTH_TOKEN = sessionStorage.getItem('token')
         config.headers.common['token'] = AUTH_TOKEN;
@@ -34,11 +37,12 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(res => {
     loadingInstance.close()
     const { status, data: { code, msg } } = res
-    if (code == '999') {
-        // router.push({name : 'notFind'})
-    } else if (code == '33') {
-        Message('请重新登录。')
+    if (code == '6666') {
+        Message('请重新登录。。')
         router.push({ name: 'register' })
+            // router.push({name : 'notFind'})
+    } else if (code == '401') {
+        router.push({ name: 'activation' })
     }
     return res;
 }, error => {

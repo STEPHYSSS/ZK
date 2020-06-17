@@ -47,7 +47,7 @@
               <i class="el-icon-plus"></i>新增
             </el-button>
             <div class="konge"></div>
-            <el-table :data="tableData" style="width: 100%" border>
+            <el-table :data="tableData" style="width: 100%">
               <el-table-column prop="name" label="字典项名称" width align="center"></el-table-column>
               <el-table-column prop="value" label="字典项值" width align="center"></el-table-column>
               <el-table-column prop="description" label="备注 " align="center"></el-table-column>

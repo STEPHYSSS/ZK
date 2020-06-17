@@ -78,7 +78,7 @@
             </el-button>
           </router-link>
         </div>
-        <el-table :data="tableDataList" style="width: 100%" border height="100%">
+        <el-table :data="tableDataList" style="width: 100%" height="100%">
           <el-table-column prop="code" label="供应商编号" align="center"></el-table-column>
           <el-table-column prop="name" label="供应商名称" align="center"></el-table-column>
           <el-table-column prop="contactsName" label="联系人" align="center"></el-table-column>
@@ -100,7 +100,7 @@
               <span v-else>已启用</span>
             </template>
           </el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
                 <img

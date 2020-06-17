@@ -81,7 +81,7 @@
                     <el-col
                         :span="8"
                         style="height:40px;line-height:40px;text-align:center"
-                        class="txalign"
+                        class="text-center"
                     >{{item.count}}</el-col>
                 </el-row>
             </div>
@@ -155,7 +155,7 @@
                     <el-col
                         :span="8"
                         style="height:40px;line-height:40px;text-align:center"
-                        class="txalign"
+                        class="text-center"
                     >{{item.rank}}</el-col>
                 </el-row>
             </div>
@@ -394,7 +394,7 @@ export default {
     /* border: 1px solid #dbe0e5; */
     margin: 0 20px;
     border-radius: 3px;
-    min-width: 550px;
+    /* min-width: 550px; */
 }
 .maxHeight {
     height: 252px;

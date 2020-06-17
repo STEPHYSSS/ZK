@@ -19,7 +19,7 @@
                 <el-col :span="6">
                     <span>订购总金额:{{purchaseSheet.amount}}</span>
                 </el-col>
-                
+
             </el-row>
             <el-row style="padding:15px 0">
                <el-col :span="6">
@@ -34,7 +34,7 @@
                 <el-col :span="6">
                     <span>状态:{{purchaseSheet.status|filStu}}</span>
                 </el-col>
-               <el-row style="text-align:right"> 
+               <el-row style="text-align:right">
                   <el-button @click="peisong" v-if="$route.query.flag">确认配送</el-button>
                </el-row>
             </el-row>
@@ -43,7 +43,7 @@
                 <el-table-column prop="goodsCode" label="货号" align="center"></el-table-column>
                 <!-- <el-table-column prop="barcode" label="国际条码" align="center" width="150"></el-table-column> -->
                 <!-- <el-table-column label="品名" align="center" width="160">
-                    <template scope="scope">
+                    <template slot-scope="scope">
                         <span
                             class="codesty"
                             @click="todocuments(scope.row.code)"
@@ -56,7 +56,7 @@
                 <!-- <el-table-column prop="unit" label="单位" align="center"></el-table-column> -->
                 <el-table-column prop="purchasePrice" label="供应商进价" align="center"></el-table-column>
                 <!-- <el-table-column label="保质期" align="center">
-                    <template scope="scope">
+                    <template slot-scope="scope">
                         <span>{{scope.row.period}}{{scope.row.periodUnit}}</span>
                     </template>
                 </el-table-column> -->

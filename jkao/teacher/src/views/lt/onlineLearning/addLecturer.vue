@@ -9,11 +9,11 @@
     <table border="1">
       <tbody>
         <tr>
-          <td class="txalign">讲师名称: </td>
+          <td class="text-center">讲师名称: </td>
           <td><input type="text" v-model="form.cname"></td>
         </tr>
         <tr>
-          <td class="txalign">联系电话: </td>
+          <td class="text-center">联系电话: </td>
           <td>
             <input type="text" v-model="form.corderid"> 
             <span>
@@ -22,11 +22,11 @@
           </td>
         </tr>
         <tr>
-          <td class="txalign">电子信箱: </td>
+          <td class="text-center">电子信箱: </td>
           <td><input type="text" v-model="form.cremark"></td>
         </tr>
         <tr>
-          <td class="txalign">讲师照片: </td>
+          <td class="text-center">讲师照片: </td>
           <td>
             <el-upload
               class="avatar-uploader"
@@ -39,7 +39,7 @@
           </td>
         </tr>
         <tr>
-          <td class="txalign">分类描述: </td>
+          <td class="text-center">分类描述: </td>
           <td><textarea style="resize:none"  class="area-wh" cols="30" rows="10"></textarea></td>
         </tr>
       </tbody>

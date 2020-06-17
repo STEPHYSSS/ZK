@@ -54,7 +54,7 @@
                         </div>
                     </el-col>
                 </el-row>
-                
+
             </div>
             <div class="addStore">
                     <el-button class="increase themeColor" @click="newIncrease">
@@ -67,12 +67,12 @@
             <div class="tab_1">
                 <el-table :data="tableData" style="width: 100%" border max-height="600">
                     <el-table-column label="创建日期" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span>{{scope.row.createTime | converTime('YYYY-MM-DD')}}</span>
                         </template>
                     </el-table-column>
                     <el-table-column label="叫货单编号" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span
                                 class="codesty"
                                 @click="detailC(scope.row.code)"
@@ -83,7 +83,7 @@
                     <el-table-column prop="count" label="订购总数" align="center"></el-table-column>
                     <el-table-column prop="amount" label="订购总金额" align="center"></el-table-column>
                     <el-table-column label="叫货状态" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <span v-if="scope.row.status =='1'">备货中</span>
                             <span v-else-if="scope.row.status =='2'">待验收</span>
                             <span v-else-if="scope.row.status =='3'">部分验收</span>
@@ -91,24 +91,34 @@
                         </template>
                     </el-table-column>
                     <el-table-column label="操作" align="center">
-                        <template scope="scope">
+                        <template slot-scope="scope">
                             <!-- <span
                 class="codesty"
                 v-if="scope.row.status =='2'||scope.row.status =='3'"
                 @click="skip"
                             >验收</span>-->
+
                             <el-tooltip class="tips" effect="dark" content="验收" placement="bottom">
                                 <img
                                     src="@/assets/images/present_icon_one.png"
                                     alt
+                                    class="codesty"
                                     @click="skip"
                                     v-if="scope.row.status =='2'||scope.row.status =='3'"
+                                />
+                            </el-tooltip>
+                            <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+                                <img
+                                    src="@/assets/images/shanchu_icon.png"
+                                    @click="delPanRow(scope.row.code)"
+                                    class="codesty"
+                                    alt
                                 />
                             </el-tooltip>
                         </template>
                     </el-table-column>
                 </el-table>
-                <div style="height:50px">
+                <!-- <div style="height:50px">
                     <el-pagination
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"
@@ -120,7 +130,7 @@
                         :total="total"
                         class="pagination"
                     ></el-pagination>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- </el-tab-pane> -->
@@ -164,10 +174,10 @@ export default {
             ],
             tableData: [],
             total: 0,
-            flowChart:{
-                name:'门店叫货',
-                type:1
-            },
+            flowChart: {
+                name: "门店叫货",
+                type: 1
+            }
         };
     },
     created() {
@@ -177,6 +187,35 @@ export default {
         flowChart
     },
     methods: {
+        // 删除
+        delPanRow(code) {
+            this.$confirm("确定删除？", "提示", {
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
+            }).then(() => {
+                this.$utils({
+                    url: this.reqApi.xinls + "/exam/ordering/delete",
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/x-www-form-urlencoded"
+                    },
+                    data: qs.stringify({
+                        code: code,
+                        questionCode: sessionStorage.getItem("questionUUid")
+                    })
+                }).then(res => {
+                    if (res.data.code == "0000") {
+                        this.$message({
+                            type: "success",
+                            message: "删除成功!"
+                        });
+                        this.allOrderList();
+                    } else {
+                       return this.$message.error(res.data.msg);
+                    }
+                });
+            });
+        },
         newIncrease() {
             this.$router.push("/newOrder");
         },
@@ -350,6 +389,7 @@ export default {
 .addStore {
     text-align: right;
     margin-bottom: 20px;
+    padding-right: 20px;
 }
 .dashidBorder {
     /* border: 1px dashed #eee;

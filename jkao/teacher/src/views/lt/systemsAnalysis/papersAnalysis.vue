@@ -1,7 +1,7 @@
 <template>
   <el-card shadow="never" class="box-card">
     <!-- <my-bread level1="试卷分析" level2="试卷分析" level3="选择试卷查看分析试题的答题情况。"></my-bread> -->
-    
+
     <!-- <div class="new-padding-left font-weight-700 teacher-title">试卷分析</div> -->
     <h3>考试分析</h3>
     <previous-page goPreviousPage="/mpage"></previous-page>
@@ -34,7 +34,7 @@
             </el-select>
           </el-form-item>
         </el-col> -->
-        <el-col class="txalign-c" style="padding-right: 20px;text-align:right" :span="12">
+        <el-col class="text-right" style="padding-right: 20px;text-align:right" :span="12">
           <!-- <el-form-item> -->
             <el-button @click="searchCX" class="search search-btn">搜索</el-button>
             <el-button class="search search-btn" @click="clear">重置</el-button>
@@ -48,12 +48,12 @@
     :data="tableData"
     class="topBorder"
     style="width: 100%"
-    
+
     >
-      <el-table-column align="center" label="考试名称" :show-overflow-tooltip="true" width="200px">
+      <el-table-column align="center" label="考试名称" :show-overflow-tooltip="true">
         <template slot-scope="scope">{{ scope.row.exam_name }}</template>
       </el-table-column>
-      <el-table-column prop="pposter" align="center" width="160" label="时间设定">
+      <el-table-column prop="pposter" align="center" label="时间设定">
         <template slot-scope="scope">
             {{scope.row.start_time | fmtDate()}}<br/>
             {{scope.row.end_time | fmtDate()}}
@@ -87,7 +87,12 @@
       </el-table-column>
       <el-table-column align="center" label="操作" fixed="right">
         <template slot-scope="scope">
-          <a href="javacript:;" @click='handleExamDetails(scope.row)'>详情</a>
+          <el-tooltip class="item" effect="dark" content="详情" placement="bottom">
+            <span class="cur-point" @click="handleExamDetails(scope.row)">
+              <img src="@/assets/images/chaxun_icon.png" alt />
+            </span>
+          </el-tooltip>
+          <!-- <a href="javacript:;" @click='handleExamDetails(scope.row)'>详情</a> -->
         </template>
       </el-table-column>
     </el-table>
@@ -167,7 +172,7 @@
             this.$message.error(res.data.msg)
           }
         })
-        
+
         return
         const that = this
         that.$utils.post(`exam/sys/findOpenPaperCategorys`).then(res => {
@@ -192,7 +197,7 @@
           else return that.$message(msg)
         })
       },
-      
+
       // 创建试卷
       newPaper () {
         this.$router.push({name: 'newPaper'})

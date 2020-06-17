@@ -7,7 +7,7 @@
         <!-- <table border="1">
             <tbody>
                 <tr>
-                    <td class="txalign">班级名称:</td>
+                    <td class="text-center">班级名称:</td>
                     <td>
                         <input maxlength="50" type="text" v-model="form.name" />
                         <span>
@@ -16,7 +16,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="txalign">状态:</td>
+                    <td class="text-center">状态:</td>
                     <td>
                         <el-select v-model="form.status" placeholder="请选择活动区域">
                             <el-option label="开放" value="1"></el-option>
@@ -25,13 +25,13 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="txalign">班级备注:</td>
+                    <td class="text-center">班级备注:</td>
                     <td>
                         <input maxlength="50" type="text" v-model="form.remark" />
                     </td>
                 </tr>
                 <tr>
-                    <td class="txalign">授课老师:</td>
+                    <td class="text-center">授课老师:</td>
                     <td>
                         <el-button @click="choice">请选择</el-button>
                     </td>

@@ -30,7 +30,7 @@
     <div class="jiaoTable">
       <div class="konge"></div>
       <div class="detailSpan">
-        <el-table :data="tableData" style="width: 100%;" id="bordBck" border>
+        <el-table :data="tableData" style="width: 100%;" id="bordBck">
           <el-table-column prop="code" label="货号" align="center"></el-table-column>
           <el-table-column prop="name" label="品名" align="center"></el-table-column>
           <el-table-column prop="orderingCount" label="订购总数" align="center"></el-table-column>

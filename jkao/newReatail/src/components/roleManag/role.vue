@@ -19,7 +19,7 @@
         </div>
         <div class="rolecase">
           <div class="roletab">
-            <el-table :data="tableData" style="width: 100%" border>
+            <el-table :data="tableData" style="width: 100%">
               <el-table-column prop="id" label="角色ID" width align="center"></el-table-column>
               <el-table-column prop="name" label="角色名称" align="center"></el-table-column>
               <el-table-column prop="basicPermiss" label="基本权限" align="center">

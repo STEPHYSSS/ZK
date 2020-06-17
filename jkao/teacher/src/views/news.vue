@@ -2,8 +2,8 @@
   <el-card shadow="never" class="box-card">
     <my-bread2 :level1="level1" :level2="level2"></my-bread2>
 
-    <h3 class="txalign">{{object.ntitle}}</h3>
-    <div class="txalign">
+    <h3 class="text-center">{{object.ntitle}}</h3>
+    <div class="text-center">
       <span>发布时间: {{object.nmodifydate}}</span>
       <span>访问量: {{object.nvisit}}</span>
     </div>

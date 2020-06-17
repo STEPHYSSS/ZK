@@ -100,7 +100,6 @@ export default {
 .wareCheck {
   /* background-color: #f1f6fa; */
   min-height: 647px;
-  min-width: 1200px;
 }
 .DepotsBox {
   background: #fff;
@@ -159,9 +158,6 @@ h3 {
 }
 .detailBackBtn{
   float: right;
-  margin-right: 20px;
-}
-.tablBox{
   margin-right: 20px;
 }
 </style>

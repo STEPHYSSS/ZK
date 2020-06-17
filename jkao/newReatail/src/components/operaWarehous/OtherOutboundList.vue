@@ -48,7 +48,7 @@
     <div class="storeInfo">
       <div class="store_Box1">
         <div class="otherHideSc">
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
           <el-table-column label="单据编号" prop="code" align="center" width="250"></el-table-column>
           <el-table-column label="创建日期" align="center">
             <template scope="scope">
@@ -63,7 +63,7 @@
           <el-table-column label="出库品项数" prop="item" align="center"></el-table-column>
           <el-table-column label="出库总数" prop="count" align="center"></el-table-column>
           <el-table-column label="创建人" prop="createName" align="center"></el-table-column>
-          <el-table-column label="操作" align="center">
+          <el-table-column label="操作" align="center" fixed="right">
             <template scope="scope">
               <el-tooltip
                 class="item"

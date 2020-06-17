@@ -1,5 +1,5 @@
 <template>
-  <div id="distributionEdit" class="minimum minWidth1600">
+  <div id="distributionEdit">
     <div class="content1">
       <h3>策略编辑</h3>
       <el-form
@@ -160,10 +160,10 @@ export default {
   width: 100%;
 }
 #distributionEdit .content1 .left .input1 {
-  width: 60%;
+  width: 300px;
 }
 #distributionEdit .content1 .right .input1 {
-  width: 60%;
+  width: 300px;
 }
 #distributionEdit .content1 .forbid {
   width: 80px;

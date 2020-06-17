@@ -121,7 +121,7 @@
     </div>
     <div class="storeInfo">
       <div class="inventory_Box" style="padding-top: 20px;">
-        <el-table :data="tableData" style="width: 100%" border max-height="600">
+        <el-table :data="tableData" style="width: 100%" max-height="600">
           <el-table-column align="center" prop="code" label="货号"></el-table-column>
           <el-table-column align="center" prop="name" label="品名"></el-table-column>
           <el-table-column align="center" prop="unit" label="单位"></el-table-column>

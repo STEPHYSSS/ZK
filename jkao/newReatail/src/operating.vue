@@ -1,5 +1,5 @@
 ﻿<template>
-  <div class="operatHome">
+  <div class="operatHome my-index">
     <el-container>
       <el-header id="header" style="height:68px">
         <div style="float:left;height:68px;">
@@ -55,7 +55,8 @@
             </el-dropdown>
           </div>           -->
         </div>
-        <div class="countDown">          
+        
+        <div class="countDown">              
           <countDown
             :examInfo="countDownInfo"
             v-if="countDownInfo"
@@ -63,8 +64,8 @@
             ref="countDown"
             class="exam-interval fr"
           ></countDown>          
-          <questionInfo :questionInfo = "questionInfo"></questionInfo>
           <backBtn></backBtn>
+          <questionInfo ></questionInfo>   
         </div>
       </el-header>
       <el-container>
@@ -583,7 +584,7 @@ export default {
       },
       flag3: false,
       flag4: true,
-      name: sessionStorage.getItem("username"),
+      name: sessionStorage.getItem("sysName"),
       dialogVisible: false,
       centerDialogVisible: false,
       ruleForm2: {
@@ -605,12 +606,13 @@ export default {
       },
       curTime: new Date().getTime(), // 当前服务器时间
       countDownInfo: null, // 定时器所需信息
-      questionInfo:sessionStorage.getItem("questionInfo")//显示题干信息
+      questionInfo:''//显示题干信息
       // writeMessageShow: false
     };
   },
   created() {
     this.getDate()
+    
   },
   mounted() {
     this.test();
@@ -780,7 +782,6 @@ export default {
     },
     autoHandInExaminationPaper() {
       this.$message('答题时间即将结束，自动交卷')
-      debugger
       window.location.href = window.teacherSide + "/#/historyTryBook";
       // window.location.href = "http://192.168.1.144:8081" + "/#/historyTryBook";
     },
@@ -802,6 +803,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .operatHome {
   width: 100%;

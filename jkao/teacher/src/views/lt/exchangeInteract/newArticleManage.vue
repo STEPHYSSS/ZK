@@ -7,7 +7,7 @@
     <table border="1">
       <tbody>
         <tr>
-          <td class="txalign">分类名称: </td>
+          <td class="text-center">分类名称: </td>
           <td>
             <input maxlength="50" type="text" v-model="form.name"> 
             <span>
@@ -16,7 +16,7 @@
           </td>
         </tr>
         <!-- <tr>
-          <td class="txalign">排序: </td>
+          <td class="text-center">排序: </td>
           <td>
             <input maxlength="10" type="text" v-model="form.corderid" class="inputWid"> 
             <span>
@@ -25,7 +25,7 @@
           </td>
         </tr> -->
         <tr>
-          <td class="txalign">状态: </td>
+          <td class="text-center">状态: </td>
           <td>
             <el-select v-model="form.status" placeholder="请选择">
               <el-option label="开放" :value="1"></el-option>
@@ -34,7 +34,7 @@
           </td>
         </tr>
         <tr>
-          <td class="txalign">备注: </td>
+          <td class="text-center">备注: </td>
           <td>
             <input maxlength="500" type="text" v-model="form.remark">
           </td>

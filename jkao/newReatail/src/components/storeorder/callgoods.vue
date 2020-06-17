@@ -11,7 +11,6 @@
     </div>
     <el-table
       :data="tableData"
-      border
       @selection-change="handleSelectionChange"
       style="width: 60%">
       <el-table-column

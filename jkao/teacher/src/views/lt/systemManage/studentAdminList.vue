@@ -25,7 +25,17 @@
             </el-select>
           </el-form-item>
         </el-col>
-        <el-col class="fr txalign-c" :span="6">
+        <el-col :span="6">
+          <el-form-item class="qzbhh" label="角色:">
+            <el-select clearable v-model="form.roleId" placeholder="请选择">
+              <el-option label="超级管理员" value="1"></el-option>
+              <el-option label="学校管理员" value="2"></el-option>
+              <el-option label="教师" value="3"></el-option>
+              <el-option label="学生" value="4"></el-option>
+            </el-select>
+          </el-form-item>
+        </el-col>
+        <el-col class="fr text-right" :span="12">
           <el-form-item>
             <el-button class="search search-btn" @click="searchCX">搜索</el-button>
             <el-button class="search search-btn" @click="clear">重置</el-button>
@@ -37,7 +47,7 @@
       <el-button @click="newSuperAdmin">新增</el-button>
     </div>
     <!-- 表格 -->
-    <el-table :data="tableData" border class="topBorder" style="width: 100%">
+    <el-table :data="tableData" class="topBorder" style="width: 100%">
       <el-table-column align="center" prop="username" label="用户名"></el-table-column>
       <el-table-column align="center" prop="realname" label="姓名"></el-table-column>
       <el-table-column align="center" prop="role_id" label="角色">
@@ -55,8 +65,8 @@
       </el-table-column>
       <el-table-column align="center" label="状态">
         <template slot-scope="scope">
-          <span v-if="scope.row.status == 1">有效</span>
-          <span v-if="scope.row.status == 2">失效</span>
+          <span v-if="scope.row.status == 1">开放</span>
+          <span v-if="scope.row.status == 2">关闭</span>
         </template>
       </el-table-column>
       <el-table-column align="center" label="最后登录时间" width="210">
@@ -66,7 +76,7 @@
           {{ scope.row.last_login_time | fmtDate() }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="操作" width="180">
+      <el-table-column align="center" label="操作" width="180" fixed="right">
         <template slot-scope="scope">
           <el-tooltip class="item" effect="dark" content="编辑" placement="bottom">
             <span class="cur-point dis-inline-block" @click="questionPut(scope.row)">
@@ -119,6 +129,7 @@ export default {
       list: [],
       form: {
         realname: "",
+        roleId: "",
         status: "1",
         pageSize: 10,
       pageNum: 1,
@@ -154,6 +165,7 @@ export default {
         .post(
           that.reqApi.shuiwuUrl + "/manager/list",
           qs.stringify({
+            roleId: that.form.roleId,
             name: that.form.realname,
             status: that.form.status,
             pageNum: that.pageNum,

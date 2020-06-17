@@ -30,7 +30,7 @@
       <el-table-column align="center" label="发票代码">
         <template slot-scope="{row,$index}">
           <el-input maxlength="50" v-if="editFpdm[$index]" style="width:105px" v-model="row.fpdm" @blur.prevent="hiddenEdit($index)"
-          @keydown.enter.native="hiddenEdit($index)" type="text" v-focus class="txalign inputSmall"></el-input>
+          @keydown.enter.native="hiddenEdit($index)" type="text" v-focus class="text-center inputSmall"></el-input>
           <span v-else>{{row.fpdm}}</span>
           <a href="javascript:;" @click="showEditFpdm($index)" class="edit-icon el-icon-edit-outline">
             <span class="edit-word font-size-12">编辑</span>
@@ -47,7 +47,7 @@
           @keydown.enter.native="hiddenEdit($index)"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{row.fphm}}</span>
           <a href="javascript:;" @click="showEditFphm($index)" class="edit-icon el-icon-edit-outline">
             <span class="edit-word font-size-12">编辑</span>
@@ -63,7 +63,7 @@
           @keydown.enter.native="hiddenEdit($index)"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{row.kprq}}</span>
           <a href="javascript:;" @click="showEditKprq($index)" class="edit-icon el-icon-edit-outline">
             <span class="edit-word font-size-12">编辑</span>
@@ -80,7 +80,7 @@
           @keydown.enter.native="hiddenEdit($index)"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{row.xfmc}}</span>
           <a href="javascript:;" @click="showEditXfmc($index)" class="edit-icon el-icon-edit-outline">
             <span class="edit-word font-size-12">编辑</span>
@@ -97,7 +97,7 @@
           @keydown.enter.native="hiddenEdit($index)"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{row.xfsh}}</span>
           <a href="javascript:;" @click="showEditXfsh($index)" class="edit-icon el-icon-edit-outline">
             <span class="edit-word font-size-12">编辑</span>
@@ -114,7 +114,7 @@
           @keydown.enter.native="hiddenEdit($index)"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{row.hwlwmc}}</span>
           <a href="javascript:;" @click="showEditHwlwmc($index)" class="edit-icon el-icon-edit-outline">
             <span class="edit-word font-size-12">编辑</span>
@@ -132,10 +132,10 @@
           @input="if(isNaN(row.ssl - 0)) return row.ssl = 0"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{row.ssl}}</span>
           <a href="javascript:;" @click="showEditSsl($index)" class="edit-icon el-icon-edit-outline">
-            <span class="edit-word font-size-12 txalign">编辑</span>
+            <span class="edit-word font-size-12 text-center">编辑</span>
           </a>
         </template>
       </el-table-column>
@@ -150,10 +150,10 @@
           @input="if(isNaN(row.je - 0)) return row.je = '0.00'"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{ checkNum(row.je, 'je') }}</span>
           <a href="javascript:;" @click="showEditJe($index)" class="edit-icon el-icon-edit-outline">
-            <span class="edit-word font-size-12 txalign">编辑</span>
+            <span class="edit-word font-size-12 text-center">编辑</span>
           </a>
         </template>
       </el-table-column>
@@ -168,10 +168,10 @@
           @input="if(isNaN(row.jshj - 0)) return row.jshj = '0.00'"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{ checkNum(row.jshj, 'jshj') }}</span>
           <a href="javascript:;" @click="showEditJshj($index)" class="edit-icon el-icon-edit-outline">
-            <span class="edit-word font-size-12 txalign">编辑</span>
+            <span class="edit-word font-size-12 text-center">编辑</span>
           </a>
         </template>
       </el-table-column>
@@ -186,10 +186,10 @@
           @input="if(isNaN(row.se - 0)) return row.se = '0.00'"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{ checkNum(row.se, 'se') }}</span>
           <a href="javascript:;" @click="showEditSe($index)" class="edit-icon el-icon-edit-outline">
-            <span class="edit-word font-size-12 txalign">编辑</span>
+            <span class="edit-word font-size-12 text-center">编辑</span>
           </a>
         </template>
       </el-table-column>
@@ -205,19 +205,19 @@
           @input="if(isNaN(row.sl - 0)) return row.sl = '0.00'"
           type="text"
           v-focus
-          class="txalign inputSmall"></el-input>
+          class="text-center inputSmall"></el-input>
           <span v-else>{{ checkNum(row.sl, 'sl') }}%</span>
           <a href="javascript:;" @click="showEditSl($index)" class="edit-icon el-icon-edit-outline">
-            <span class="edit-word font-size-12 txalign">编辑</span>
+            <span class="edit-word font-size-12 text-center">编辑</span>
           </a>
         </template>
       </el-table-column>
     </el-table>
 
     <!-- 分页 -->
-    <div class="block txalign">
+    <div class="block text-center">
       <add-btn
-      class="txalign"
+      class="text-center"
       level1="确 定" level2="取 消"
       @submitForm="submitForm"
       @cancelForm="caseList">

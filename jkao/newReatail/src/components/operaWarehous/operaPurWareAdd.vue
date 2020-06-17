@@ -17,7 +17,7 @@
         <p class="colo" v-show="hideSup">选择供应商：{{suppOnlyRow.name}}</p>
         <div class="konge"></div>
         <!-- 选择之后的列表 -->
-        <el-table :data="goodsSet" style="width: 100%;" v-show="hideG" border>
+        <el-table :data="goodsSet" style="width: 100%;" v-show="hideG">
           <el-table-column prop="code" label="货号" align="center"></el-table-column>
           <el-table-column prop="name" label="品名" align="center"></el-table-column>
           <el-table-column prop="salesPrice" label="单品售价" align="center"></el-table-column>
@@ -68,7 +68,6 @@
             <el-table
               :data="DeoptionList"
               style="width: 100%;"
-              border
               id="hiegLine"
               @row-click="CAreaCode"
             >
@@ -266,7 +265,6 @@
               :data="optionsArea"
               style="width: 100%;"
               max-height="244"
-              border
               id="hiegLine"
               @row-click="SelectSuppCode"
             >
@@ -402,8 +400,8 @@ export default {
           code: this.suppCode,
           purchase: this.purchase,
           pageNum: this.pageNum3,
-          pageSize: this.pageSize3,
-          supplyMode:"W"
+          pageSize: this.pageSize3
+          // supplyMode:"W"
         })
       }).then(res => {
         if (res.data.code == "0000") {

@@ -82,7 +82,7 @@
                                 <i class="el-icon-plus"></i>新增
                             </el-button>
                         </div>
-                        <el-table :data="tableData" style="width: 100%;" border>
+                        <el-table :data="tableData" style="width: 100%;">
                             <el-table-column prop="id" label="会员ID" align="center"></el-table-column>
                             <el-table-column prop="phone" label="手机号" align="center"></el-table-column>
                             <el-table-column prop="name" label="姓名" align="center"></el-table-column>

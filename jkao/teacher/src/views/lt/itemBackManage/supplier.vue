@@ -180,9 +180,16 @@
                                 </el-table-column>
                                 <el-table-column align="center" prop="code" label="供应商编号"></el-table-column>
                                 <el-table-column align="center" prop="name" label="供应商名称"></el-table-column>
-                                <el-table-column align="center" label="操作">
+                                <el-table-column align="center" label="操作" fixed="right">
                                     <template slot-scope="scope">
-                                        <p class="codesty" @click="del(scope.row.code)">删除</p>
+                                        <!-- <p class="codesty" @click="del(scope.row.code)">删除</p> -->
+                                        <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+                                      <img
+                                          src="@/assets/images/shanchu_icon.png"
+                                          class="codesty"
+                                          @click="del(scope.row.code)"
+                                      />
+                                </el-tooltip>
                                     </template>
                                 </el-table-column>
                             </el-table>
@@ -220,8 +227,8 @@
                     >
                         <el-row>
                             <el-col :span="6">
-                               <div class="box1">
-                                    <el-form-item label="商品售价:" prop="salesPrice">
+                               <div class="box1" style='white-space: nowrap;'>
+                                    <el-form-item label="商品售价:" prop="salesPrice" >
                                         <el-input
                                             v-model="tabForm.salesPrice "
                                             class="fff"
@@ -230,7 +237,7 @@
                                 </el-form-item>
                                </div>
                             </el-col>
-                            <el-col :span="6" class="TongCenter">
+                            <el-col :span="6" class="TongCenter" style='white-space: nowrap;'>
                                 <el-form-item label="商品进价:" prop="purchasePrice">
                                         <el-input
                                             v-model="tabForm.purchasePrice"
@@ -239,7 +246,7 @@
                                         ></el-input>
                                 </el-form-item>
                             </el-col>
-                            <el-col :span="6" class="TongCenter">
+                            <el-col :span="6" class="TongCenter" style='white-space: nowrap;'>
                                 <el-form-item label="基本订购单位:" prop="orderingUtil">
                                         <el-input
                                             v-model="tabForm.orderingUtil"
@@ -249,7 +256,7 @@
                                         ></el-input>
                                 </el-form-item>
                             </el-col>
-                            <el-col :span="6" class="TongRight">
+                            <el-col :span="6" class="TongRight" style='white-space: nowrap;'>
                                 <el-form-item label="最小订购倍数:" prop="minOrderingMultiple">
                                         <el-input
                                             v-model="tabForm.minOrderingMultiple"
@@ -261,7 +268,7 @@
                             </el-col>
                         </el-row>
                         <el-row>
-                            <el-col :span="6">
+                            <el-col :span="6" style='white-space: nowrap;'>
                                 <el-form-item label="最大订购倍数:" prop="maxOrderingMultiple">
                                         <el-input
                                             v-model="tabForm.maxOrderingMultiple"
@@ -342,10 +349,6 @@ export default {
                 {
                     value: "年",
                     label: "年"
-                },
-                {
-                    value: "永久",
-                    label: "永久"
                 }
             ], //保质期日期
             goodsLevel: [],
@@ -454,7 +457,11 @@ export default {
                 )
                 .then(res => {
                     if (res.data.code === "0000") {
+
                         this.tabForm = res.data.data.goods;
+                        console.log(this.tabForm,'this.tabForm')
+                        this.choose(this.tabForm.typeLevel1)
+                        this.choose2(this.tabForm.typeLevel2)
                         this.arr.push(res.data.data.supplier);
                         // console.log(this.arr)
                         this.n2 = true;
@@ -669,7 +676,7 @@ export default {
                         )
                         .then(res => {
                             if (res.data.code === "0000") {
-                                this.$message.success("新增成功！");
+                                // this.$message.success("新增成功！");
                                 this.$router.push({
                                     name: "commodityPages"
                                 });

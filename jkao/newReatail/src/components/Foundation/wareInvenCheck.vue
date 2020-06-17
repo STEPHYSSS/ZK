@@ -1,5 +1,5 @@
 <template>
-    <div class="wareCheck minWidth1600">
+    <div class="wareCheck">
         <div class="DepotsBox">
             <div class="rece_Box">
                 <div class="block">
@@ -197,7 +197,7 @@ export default {
 .wareCheck {
     /* background-color: #f1f6fa; */
     min-height: 647px;
-    min-width: 1200px;
+    /* min-width: 1200px; */
 }
 .DepotsBox {
     margin: 0 auto;
@@ -255,7 +255,7 @@ export default {
     text-align: right;
 }
 .WarepanNum {
-    width: 120px;
+    width: 66px;
     margin: 0 auto;
 }
 .WarepanNum input {

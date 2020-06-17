@@ -8,7 +8,6 @@
             <h3 class="same">商品类目结构</h3>
             <el-tree
               :data="data"
-              default-expand-all="true"
               :props="defaultProps"
               :highlight-current="true"
               :expand-on-click-node="false"
@@ -22,7 +21,12 @@
       <div class="right">
         <el-row>
           <el-button size="mini" @click="addSameLevel('新增同级类目')" class="btn chaxunBtn">新增同级类目</el-button>
-          <el-button size="mini" @click="addSameLevel('新增下级类目')" :disabled="disabled" class="chongzhiBtn">新增下级类目</el-button>
+          <el-button
+            size="mini"
+            @click="addSameLevel('新增下级类目')"
+            :disabled="disabled"
+            class="chongzhiBtn"
+          >新增下级类目</el-button>
         </el-row>
         <div class="catebox">
           <div class="boxNum">
@@ -33,42 +37,44 @@
             <el-form-item
               prop="name"
               label="类目名称"
-              :rules="[{ required: true, message: '请输入类目名称', trigger: 'blur' }]">
+              :rules="[{ required: true, message: '请输入类目名称', trigger: 'blur' }]"
+            >
               <el-input v-model="formData.name" class="inputkuang" placeholder="请输入" />
             </el-form-item>
             <el-form-item label="备注">
               <el-input type="textarea" v-model="formData.description"></el-input>
             </el-form-item>
             <el-form-item label="图标" label-width="80px">
-                <el-upload
-                  :action="`${this.uploadUrl}/image/upload`"
-                  list-type="picture-card"
-                  :on-preview="handlePictureCardPreview"
-                  :on-remove="handleRemove"
-                  :on-success="onSuccess"
-                  :before-upload="beforeUpload"
-                  :on-change="astrict"
-                  :data="data1"
-                  name="files"
-                  accept=".jpg, .jpeg, .png, .JPG, .JPEG"
-                  :file-list="fileList"
-                  :show-file-list="true"
-                  :limit="limitCount"
-                  :class="{hide:hideUpload}"
-                >
-                  <i class="el-icon-plus"></i>
-                </el-upload>
-                <span style="color:red">图片(最多上传1张图片，单张图片2M以内)</span>
-                <el-dialog :visible.sync="dialogVisible1">
-                  <img width="100%" :src="dialogImageUrl" alt />
-                </el-dialog>
-              </el-form-item>
+              <el-upload
+                :action="`${this.uploadUrl}/image/upload`"
+                list-type="picture-card"
+                :on-preview="handlePictureCardPreview"
+                :on-remove="handleRemove"
+                :on-success="onSuccess"
+                :before-upload="beforeUpload"
+                :on-change="astrict"
+                :data="data1"
+                name="files"
+                accept=".jpg, .jpeg, .png, .JPG, .JPEG"
+                :file-list="fileList"
+                :show-file-list="true"
+                :limit="limitCount"
+                :class="{hide:hideUpload}"
+              >
+                <i class="el-icon-plus"></i>
+              </el-upload>
+              <span style="color:red">图片(最多上传1张图片，单张图片2M以内)</span>
+              <el-dialog :visible.sync="dialogVisible1">
+                <img width="100%" :src="dialogImageUrl" alt />
+              </el-dialog>
+            </el-form-item>
             <div class="btnBox33">
               <el-button @click="updateSame('formData')" class="AllquedingBtn">保存</el-button>
               <el-button @click="delCategory(formData.code)" class="chaxunBtn">删除</el-button>
             </div>
-        </el-form>
+          </el-form>
         </div>
+        <!--  新增类目弹窗 -->
         <el-dialog :title="titleText" :visible.sync="dialogVisible" width="720px">
           <div class="formBox">
             <div class="boxNum">
@@ -132,7 +138,7 @@ export default {
       formData: {
         name: "",
         level: "",
-        description:"",
+        description: "",
         image: "",
         token: sessionStorage.getItem("token")
       },
@@ -265,11 +271,11 @@ export default {
             method: "POST",
             headers: { "content-type": "application/x-www-form-urlencoded" },
             data: qs.stringify({
-              token:this.token,
-              pcode:this.formData1.code,
-              name:this.formData1.name,
-              description:this.formData1.description,
-              image:this.formData1.image
+              token: this.token,
+              pcode: this.formData1.code,
+              name: this.formData1.name,
+              description: this.formData1.description,
+              image: this.formData1.image
             })
           }).then(res => {
             if (res.data.code === "0000") {
@@ -414,7 +420,7 @@ export default {
       if (file.size > 2 * 1024 * 1024) {
         return this.$message.error(file.name + "图片超过2M 不允许上传");
       }
-    },
+    }
   }
 };
 </script>
@@ -466,7 +472,7 @@ export default {
   margin: 15px 35px;
   /* background-color: #01c8dc; */
 }
-.catebox{
+.catebox {
   padding: 0 0 15px 15px;
 }
 .catebox2 {

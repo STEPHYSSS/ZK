@@ -1,5 +1,5 @@
 <template>
-  <div class="sheShops minWidth1600">
+  <div class="sheShops">
     <div class="areaBox">
       <div class="rece_Box">
         <h3 class="demonstration">货位商品关联</h3>
@@ -75,7 +75,6 @@
             style="width: 100%;"
             @selection-change="handleSelectionChange2"
             @select-all="selectAll"
-            border
             max-height="600"
           >
             <el-table-column type="selection" width="55" align="center"></el-table-column>
@@ -274,8 +273,8 @@ export default {
 <style scoped>
 .sheShops {
   /* background-color: #f1f6fa; */
-  min-height: 647px;
-  min-width: 1200px;
+  /* min-height: 647px;
+  min-width: 1200px; */
 }
 .areainfo {
    padding-bottom: 40px;
@@ -301,47 +300,8 @@ export default {
 .spacelet {
   letter-spacing: 6px;
 }
-.aaa {
-  width: 66%;
-}
-.cit {
-  width: 30%;
-}
-.shop2 {
-  margin: 0 2px;
-}
-.wsListsearch {
-  text-align: right;
-  margin-bottom: 10px;
-}
 .areainfo .el-dialog {
   width: 500px;
-}
-.zanweiN {
-  display: inline-block;
-  width: 28px;
-}
-#delShop {
-  background-color: #fff;
-  border: 1px solid #01c8dc;
-  color: #01c8dc;
-  float: right;
-  margin: 0;
-  height: 30px;
-  line-height: 10px;
-  width: 90px;
-  margin-left: 10px;
-  text-align: right;
-}
-.posi {
-  position: relative;
-  display: inline-block;
-}
-.delicon {
-  position: absolute;
-  top: 7px;
-  left: 27px;
-  width: 17px;
 }
 </style>
 

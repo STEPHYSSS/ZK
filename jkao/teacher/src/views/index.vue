@@ -17,14 +17,10 @@
       >
         <img src="@/assets/images/new-icon.png" alt />
       </span>
-      <ul class="first_ul">
-        <!-- <li><router-link to="/selfTestRecord"><img src="@/assets/images/dailymanagement-icon.png">自测管理</router-link></li> -->
-        <!-- <li><a @click="saveKh" href="javascript:;"><img src="@/assets/images/practicalTrainingDrill_icon.png">实训教学</a></li> -->
-        <!-- <li><router-link to="/shixunIndex"><img src="@/assets/images/Journal.png">实训训练</router-link></li> -->
-        <!-- <li><router-link :to="{name: 'pageModule', query: {kh: '801', sjh: '2018701'}}"><img src="@/assets/images/practicalTrainingDrill_icon.png">实训训练</router-link></li> -->
-        <!-- <li><router-link to="/myTest"><img src="@/assets/images/comprehensiveExam_icon.png">综合考试</router-link></li>
-        <li><router-link to="/newRetailTax"><img src="@/assets/images/comprehensiveExam_icon.png">新零售实训</router-link></li>-->
-      </ul>
+      <div class="first_ul" id="index-header">
+        <span style="padding-left: 20px" class="schoolName font-size-18 font-weight-700">{{versionDisplay.schoolName}}</span>
+        <span class="trial-mfont" v-if="versionDisplay.versionReminder == '演示版'">演示版</span>
+      </div>
       <div class="header_right">
         <!-- <img src="@/assets/images/user-icon.png" class="header_first_img" /> -->
         <div class="hovering">
@@ -135,7 +131,11 @@
 
       <el-main class="main" :class="!showUl ? 'showUl' : ''">
         <!-- <div style="width:70px;height:100%"></div> -->
-        <router-view></router-view>
+        <keep-alive>
+          <router-view v-if="$route.meta.keepAlive"></router-view>
+        </keep-alive>
+
+        <router-view v-if="!$route.meta.keepAlive"></router-view>
       </el-main>
     </el-container>
     <el-dialog
@@ -155,11 +155,13 @@
 </template>
 
 <script>
+import Vue from "vue";
 import qs from "qs";
 export default {
   name: "index",
   data() {
     return {
+			edition_code: '0',
       kh: "801",
       sjh: "2018701",
       showUl: false,
@@ -178,39 +180,46 @@ export default {
       // 姓名
       URealname: sessionStorage.realname,
       centerDialogVisible: false,
-      companyList: []
+      companyList: [],
+      versionDisplay: {
+        schoolName: "",
+        versionReminder: "",
+        endTime: ""
+      }
     };
   },
   created() {
+		this.getSchool()
     sessionStorage.routerName = "index";
     this.showUl = sessionStorage.getItem("showUl");
   },
-  mounted() {
-    // this.$router.beforeEach((to, from, next) => {
-    // if (from.name==='prepareForExamination' && to.name === 'exam') {
-    //   this.launchIntoFullscreen()
-    //   next()
-    // }
-    // if (to.name === 'exam') {
-    //   sessionStorage.setItem('showUl', 1)
-    //   this.showUl = sessionStorage.getItem('showUl')
-    //   next()
-    // }
-    // if (to.name !== 'exam') {
-    //   sessionStorage.setItem('showUl', null)
-    //   this.showUl = sessionStorage.getItem('showUl')
-    //   next()
-    // }
-    // else {
-    //   sessionStorage.removeItem('showUl')
-    //   this.showUl = null
-    //   // this.exitFullscreen1()
-    //   next()
-    // }
-    //   next()
-    // })
-  },
   methods: {
+    getSchool() {
+      const that = this;
+      that.$utils.post(`/registered/getMessage`).then(res => {
+        const { code, school_name, faculty_name, start_time, end_time, edition_code } = res.data;
+        if (edition_code) {
+          this.edition_code = edition_code;
+          Vue.prototype.reqApi["edition_code"] = edition_code;
+        } else {
+          this.edition_code = "0";
+          Vue.prototype.reqApi["edition_code"] = "0";
+        }
+        if (code == 100) {
+          that.versionDisplay.schoolName = school_name;
+          that.versionDisplay.versionReminder = "";
+          that.versionDisplay.endTime = end_time;
+        } else if (code == 200) {
+          that.versionDisplay.schoolName = school_name;
+          that.versionDisplay.versionReminder = "演示版";
+          that.versionDisplay.endTime = end_time;
+        } else if (code == 300) {
+          that.versionDisplay.schoolName = school_name;
+          that.versionDisplay.versionReminder = "授权到期";
+          that.$message("授权码到期，请尽快续费");
+        }
+      });
+    },
     saveKh() {
       let serverurl = location.hostname;
       let port = location.port;

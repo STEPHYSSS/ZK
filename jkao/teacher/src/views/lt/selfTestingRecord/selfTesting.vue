@@ -64,8 +64,18 @@
         </el-table-column>
         <el-table-column align="center" label="操作" fixed="right">
           <template slot-scope="scope">
-            <a href="javacript:;" @click='handleExamDetails(scope.row)'>查看详情</a>
-            | <a href="javacript:;" @click='open(scope.row)'>删除</a>
+            <el-tooltip class="item" effect="dark" content="查看详情" placement="bottom">
+              <span class="cur-point dis-inline-block" @click='handleExamDetails(scope.row)'>
+                <img src="@/assets/images/chaxun_icon.png" alt />
+              </span>
+            </el-tooltip>&nbsp;&nbsp;&nbsp;
+            <el-tooltip class="item" effect="dark" content="删除" placement="bottom">
+              <span class="cur-point dis-inline-block" @click='open(scope.row)'>
+                <img src="@/assets/images/shanchu_icon.png" alt />
+              </span>
+            </el-tooltip>
+            <!-- <a href="javacript:;" @click='handleExamDetails(scope.row)'>查看详情</a>
+            | <a href="javacript:;" @click='open(scope.row)'>删除</a> -->
           </template>
         </el-table-column>
       </el-table>
@@ -83,7 +93,7 @@
         :total="total">
       </el-pagination>
     </div>
-    
+
   </el-card>
 
 </template>

@@ -8,9 +8,9 @@
         <div v-if="this.$route.params.lx" @click="goback" class="saveBack"></div>
         <div v-if="qcontent.sbzlDm === '405'" @click="goback" class="saveBack"></div>
       </el-tooltip>
-      <el-header class="txalign" :style="shrinkH ? 'height: 260px' : 'height: 130px'">
+      <el-header class="text-center" :style="shrinkH ? 'height: 260px' : 'height: 130px'">
         <div class="img-title"></div>
-        <el-card shadow="always" style="height: 200px" class="tax-css-body stem txalign-l">
+        <el-card shadow="always" style="height: 200px" class="tax-css-body stem text-left">
           <div class="exam-topic">
             <div v-if="qcontent.name">
               {{qcontent.name}},共
@@ -29,7 +29,7 @@
           class="exam-interval"></count-down>
 
         </el-card>
-        <!-- <a href="javascript:;" @click="shou" class="arrow-up txalign">
+        <!-- <a href="javascript:;" @click="shou" class="arrow-up text-center">
           <i class="iconfont icon-double-caret-down"></i>
         </a> -->
       </el-header>

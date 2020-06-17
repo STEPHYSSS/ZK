@@ -3,12 +3,11 @@
     <div style="padding-left:20px;">
       <h3 class="headline2">教学账套</h3>
       <previous-page goPreviousPage="/mpage" style="float: right;display: inline-block;"></previous-page>
-      <el-form :inline="true" :model="formInline" size="mini" class="demo-form-inline">
+      <el-form :inline="true" :model="formInline" size="mini" class="demo-form-inline f-new-inp">
         <el-row>
-          <el-col :span="8" style="text-align:left">
+          <el-col :span="10" style="text-align:left; min-width: 425px">
             <el-form-item label="创建日期：">
               <el-date-picker
-                style="width: 300px;"
                 type="daterange"
                 @change="creatChange"
                 v-model="createTim"
@@ -24,12 +23,11 @@
               <el-input
                 placeholder="请输入关键词"
                 clearable
-                style="width: 300px;"
                 v-model="formInline.name"
               ></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="8" style="text-align:right;padding-right:20px;">
+          <el-col :span="6" class="fr text-right" style="padding:0 20px 20px 0;">
             <!-- <el-form-item class="serch"> -->
               <el-button
                 type="primary"
@@ -45,7 +43,7 @@
     <div class="addBtnBox">
       <el-button @click="addCompany">新增</el-button>
     </div>
-    <el-table ref="multipleTable" :data="tableData" border class="topBorder" style="width: 100%" >
+    <el-table ref="multipleTable" :data="tableData" class="topBorder" style="width: 100%" >
       <el-table-column prop="name" label="公司名称" align="center"></el-table-column>
       <el-table-column prop="description" label="备注" align="center"></el-table-column>
       <el-table-column label="状态" align="center">
@@ -120,7 +118,7 @@ export default {
       pageNum: 1,
       pageSize: 10,
       total: 0,
-      createTim: [] //创建时间
+      createTim: [], //创建时间
     };
   },
   components: {
@@ -266,4 +264,5 @@ export default {
 #accountSe .datePicker .el-input__icon {
   line-height: 25px;
 }
+
 </style>

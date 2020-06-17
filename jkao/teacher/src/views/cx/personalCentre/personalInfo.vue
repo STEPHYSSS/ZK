@@ -18,7 +18,10 @@
                 <img v-if="imageUrl" :src="imageUrl" class="avatar" />
                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
-            <el-form-item label="用户名:">{{form.username}}</el-form-item>
+            <el-form-item label="用户名:">
+                <span v-if="form.username">{{form.username}}</span>
+                <input v-else type="text" v-model="username" @blur="checkUsername" maxlength="20"/>{{usermsg}}
+            </el-form-item>
             <el-form-item label="所属班级:">
                 <span v-if="form.class_name">{{form.class_name}}</span>
                 <span v-else style="color:#c4c2c2">暂无班级信息</span>
@@ -29,8 +32,9 @@
                     <span class="redB">*</span>填写用户的真实姓名
                 </span> -->
             </el-form-item>
-            <el-form-item label="学号:">
-                <span>{{form.num}}</span>
+            <el-form-item label="工号:">
+                <span v-if="form.num">{{form.num}}</span>
+                <input v-else type="text" v-model="number" @blur="checknum" maxlength="20"/>{{nummsg}}
                 <!-- <input type="text" v-model="form.num" /> -->
             </el-form-item>
             <el-form-item label="联系电话:">
@@ -47,7 +51,7 @@
                 <span v-else>失效</span>
             </el-form-item>
             <el-form-item label="备注:">
-                <input type="text" v-model="form.remark" />
+                <input type="text" v-model="form.remark" maxlength="50"/>
             </el-form-item>
             <el-form-item>
                 <div class="footer-btn">
@@ -108,6 +112,10 @@ export default {
             form: {
                 user_photo: "",
             },
+            username: '',
+            number: '',
+            usermsg: '',
+            nummsg: '',
 
             //修改密码
             dialogVisible: false,
@@ -131,6 +139,40 @@ export default {
     },
 
     methods: {
+        checkUsername () {
+            if (!this.username) return false
+            this.$utils.post(
+                this.reqApi.shuiwuUrl + "/user/checkUsername",
+                qs.stringify({
+                    username: this.username
+                })
+            )
+            .then(res => {
+                const { code, msg } = res.data;
+                if (code === "0000") {
+                    this.usermsg = msg;
+                } else {
+                    this.usermsg = msg;
+                }
+            });
+        },
+        checknum () {
+            if (!this.number) return false
+            this.$utils.post(
+                this.reqApi.shuiwuUrl + "/user/checkNum",
+                qs.stringify({
+                    number: this.number
+                })
+            )
+            .then(res => {
+                const { code, msg } = res.data;
+                if (code === "0000") {
+                    this.nummsg = msg;
+                } else {
+                    this.nummsg = msg;
+                }
+            });
+        },
         // 上传图片
         beforeAvatarUpload(file) {
             const isJPG = file.type === "image/jpeg";
@@ -262,6 +304,8 @@ export default {
 
         // 提交
         submitForm() {
+            if (this.username) this.form.username = this.username
+            if (this.number) this.form.num = this.number
             this.form.update_time = null;
             this.form.create_time = null;
             this.form.last_login_time = null;

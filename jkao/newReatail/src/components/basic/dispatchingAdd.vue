@@ -1,5 +1,5 @@
 <template>
-  <div id="dispatchingAdd" class="minWidth1600 minimum">
+  <div id="dispatchingAdd">
     <div class="content1">
        <div class="detailBackBtn" v-show="!this.$route.query.id">
         <router-link :to="{ path: '/dispatchingList' }">
@@ -16,7 +16,7 @@
         label-position="right"
         class="demoRuleForm"
       >
-        <el-row>
+        <el-row >
           <el-col :span="12">
             <el-form-item label="路线名称：" prop="name">
               <el-input class="input1" v-model="ruleForm.name" maxlength="50"></el-input>
@@ -53,7 +53,7 @@
       </el-form>
       <!-- 选择门店 -->
       <div class="tab" v-if="flag1">
-        <el-table :data="selectGoodsList" max-height="450" style="width: 100%" border>
+        <el-table :data="selectGoodsList" max-height="450" style="width: 100%">
           <el-table-column align="center" prop="code" label="门店编号"></el-table-column>
           <el-table-column align="center" prop="name" label="门店名称"></el-table-column>
           <el-table-column align="center" label="所在区域">
@@ -463,10 +463,6 @@ export default {
   text-align: center;
   margin-top: 15px;
 }
-#dispatchingAdd .billMaList {
-  padding-left: 35px;
-  padding-right: 30px;
-}
 #dispatchingAdd #billInput {
   width: 100%;
 }
@@ -488,6 +484,9 @@ export default {
 }
 h3 {
   padding: 0px 0 20px 20px;
+}
+#dispatchingAdd .input1{
+  width: 300px;
 }
 </style>
 

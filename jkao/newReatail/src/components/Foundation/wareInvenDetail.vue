@@ -1,5 +1,5 @@
 <template>
-  <div class="wareCheck minWidth1600">
+  <div class="wareCheck">
     <div class="DepotsBox">
         <div class="detailBackBtn">
         <img src="@/assets/returnbutton.png" alt="" @click="resetForm" class="codesty">
@@ -23,7 +23,7 @@
             <div></div>
           </el-col>
         </el-row>
-            <p class="enterInfo">
+            <!-- <p class="enterInfo">
                 
             </p>
             <p class="enterInfo">
@@ -31,9 +31,9 @@
             </p>
             <p class="enterInfo">
                 创建时间：{{inventory.createTime | converTime('YYYY-MM-DD')}}
-            </p>
+            </p> -->
             <div class="konge"></div>
-            <el-table :data="tableData" style="width: 100%;" border max-height="600">
+            <el-table :data="tableData" style="width: 100%;"  max-height="600">
                 <el-table-column prop="code" label="货号" align='center'>
                 </el-table-column>
                 <el-table-column prop="name" label="品名" align='center' width="150">
@@ -123,7 +123,7 @@ export default {
 .wareCheck{
   /* background-color: #f1f6fa; */
   min-height: 647px;
-  min-width: 1200px;
+  /* min-width: 1200px; */
 }
 .DepotsBox{
   background: #fff;

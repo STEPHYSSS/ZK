@@ -3,7 +3,7 @@
      <img src="@/assets/images/returnbutton.png" alt class="backImg" @click="goback" />
     <!-- <div class="storeBox storeBox222">
       <div class="store_Box">
-        
+
         <el-row style="white-space: nowrap;">
           <el-col :span="6">
             <span>商品分类：</span>
@@ -106,7 +106,7 @@
         <el-table :data="tableData" style="width: 100%">
           <!-- <el-table-column prop="name" label="品名" align="center"></el-table-column> -->
           <!-- <el-table-column label="商品分类" align="center" width="300">
-            <template scope="scope">
+            <template slot-scope="scope">
               <span>{{scope.row.typeLevel1}}/</span>
               <span>{{scope.row.typeLevel2}}/</span>
               <span>{{scope.row.typeLevel3}}</span>

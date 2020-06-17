@@ -69,7 +69,7 @@
     </div>
     <div class="storeInfo1">
       <div class="store_Box1">
-        <el-table :data="tableData" border width="100%">
+        <el-table :data="tableData" width="100%">
           <el-table-column label="订单编号" align="center" width="250">
             <template scope="scope">
               <span class="codesty" @click="detaiRow(scope.row.code)">{{scope.row.code}}</span>

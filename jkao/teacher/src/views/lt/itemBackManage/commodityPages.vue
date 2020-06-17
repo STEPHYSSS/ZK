@@ -37,7 +37,7 @@
                             >{{scope.row.updateTime | converTime('YYYY-MM-DD')}}</span>
                         </template>
                     </el-table-column>
-                    <el-table-column label="操作" align="center">
+                    <el-table-column label="操作" align="center" fixed="right">
                         <template slot-scope="scope">
                             <el-tooltip
                                 class="item codesty"
@@ -95,7 +95,7 @@ export default {
                 supplierCode: "",
                 supplierName: ""
             },
-           
+
             TypeLevel1: [], //商品类型
             TypeLevel2: [],
             TypeLevel3: [],
@@ -221,6 +221,7 @@ export default {
 .addStore {
     text-align: right;
     margin-bottom: 20px;
+    margin-right: 20px;
 }
 .el-table--border,
 .el-table--group {

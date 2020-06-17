@@ -53,7 +53,7 @@
     <div class="storeInfo">
       <div class="store_Box1">
         <div class="hideScoll">
-          <el-table :data="tableData" style="width: 100%;" border>
+          <el-table :data="tableData" style="width: 100%;">
             <el-table-column label="创建日期" align="center">
               <template scope="scope">{{scope.row.createTime|converTime('YYYY-MM-DD')}}</template>
             </el-table-column>

@@ -51,7 +51,7 @@
           <!-- <el-table-column prop="spec" label="规格" align="center"></el-table-column> -->
 
           <!-- <el-table-column label="保质期" align="center">
-            <template scope="scope">
+            <template slot-scope="scope">
               <span>{{scope.row.period}}{{scope.row.periodUnit}}</span>
             </template>
           </el-table-column> -->
@@ -231,7 +231,7 @@ export default {
   margin-left: 20px;
   margin-right: 22px;
   padding-bottom: 15px;
-}  
+}
 #orderEncasement .billboxTab .billtit span {
   font-weight: 100;
   font-size: 16px;

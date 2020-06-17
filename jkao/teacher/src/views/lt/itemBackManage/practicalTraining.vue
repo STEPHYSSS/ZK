@@ -8,7 +8,7 @@
                 <el-form
                     :inline="true"
                     :model="form"
-                    size='mini'
+                    size="mini"
                     style="padding:0px 20px 0px 20px;"
                     class="f-new-inp demo-form-inline"
                 >
@@ -53,7 +53,7 @@
                             </el-form-item>
                         </el-col>
                         <el-col :span="6" style="text-align: right;">
-                            <el-form-item label="试题状态:" >
+                            <el-form-item label="试题状态:">
                                 <el-select v-model="form.open" placeholder="请选择" clearable>
                                     <el-option label="关闭" :value="2"></el-option>
                                     <el-option label="开放" :value="1"></el-option>
@@ -68,13 +68,20 @@
                         </el-select>
                     </el-form-item>
                         </el-col>-->
-                       
                     </el-row>
                     <el-row>
-                         <el-col class="fr txalign-c" :span="6">
+                        <el-col class="fr text-right" :span="6">
                             <!-- <el-form-item> -->
-                                <el-button class="search search-btn" @click="searchCX" style="margin-bottom:10px;">搜索</el-button>
-                                <el-button class="search search-btn" @click="clear" style="margin-bottom:10px;">重置</el-button>
+                            <el-button
+                                class="search search-btn"
+                                @click="searchCX"
+                                style="margin-bottom:10px;"
+                            >搜索</el-button>
+                            <el-button
+                                class="search search-btn"
+                                @click="clear"
+                                style="margin-bottom:10px;"
+                            >重置</el-button>
                             <!-- </el-form-item> -->
                         </el-col>
                     </el-row>
@@ -85,11 +92,11 @@
                 </el-form>
 
                 <!-- 表格 -->
-                <el-table :data="tableData" class="topBorder" style="width: 100%" >
+                <el-table :data="tableData" class="topBorder" style="width: 100%">
                     <el-table-column align="center" prop="number" label="试题编号"></el-table-column>
-                    <el-table-column align="center" width="200" prop="name" label="名称"></el-table-column>
-                    <!-- <el-table-column align="center" width="150" prop="dbname" label="所属题库"></el-table-column> -->
-                    <el-table-column align="center" label="试题类型" width="100px">
+                    <el-table-column align="center" prop="name" label="名称"></el-table-column>
+                    <!-- <el-table-column align="center" prop="dbname" label="所属题库"></el-table-column> -->
+                    <el-table-column align="center" label="试题类型">
                         <template slot-scope="scope">
                             <!-- <span v-if="scope.row.type == 1">普通</span>
                             <span v-if="scope.row.type == 2">综合</span>-->
@@ -98,15 +105,15 @@
                             <span v-if="scope.row.type == 2">综合实训</span>
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" label="试题状态" width="100px">
+                    <el-table-column align="center" label="试题状态">
                         <template slot-scope="scope">
                             <span v-if="scope.row.open == 2">不开放</span>
                             <span v-if="scope.row.open == 1">开放</span>
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" label="是否锁定" width="100px">
+                    <el-table-column align="center" label="锁定状态">
                         <template slot-scope="scope">
-                            <span v-if="scope.row.locked == 1">锁定</span>
+                            <span v-if="scope.row.locked == 1">已锁定</span>
                             <span v-if="scope.row.locked == 2">未锁定</span>
                         </template>
                     </el-table-column>
@@ -120,30 +127,39 @@
                         <template slot-scope="scope">{{scope.row.content}}</template>
                     </el-table-column>
                     <el-table-column align="center" label="创建人">
-                        <template slot-scope="scope">{{ scope.row.create_user_name }}
-                            <br/>
+                        <template slot-scope="scope">
+                            {{ scope.row.create_user_name }}
+                            <br />
                             {{scope.row.create_time|fmtDate}}
                         </template>
                     </el-table-column>
                     <el-table-column align="center" label="最后修改人">
-                        <template slot-scope="scope">{{ scope.row.update_user_name }}
-                            <br/>
+                        <template slot-scope="scope">
+                            {{ scope.row.update_user_name }}
+                            <br />
                             {{scope.row.update_time|fmtDate}}
-                            
                         </template>
                     </el-table-column>
-                    <el-table-column align="center" label="操作">
+                    <el-table-column align="center" width="160" label="操作" fixed="right">
                         <template slot-scope="scope">
-                            <el-tooltip class="item" effect="dark" :content="scope.row.locked==2?'编辑':'查看详情'" placement="bottom">
+                            <el-tooltip
+                                class="item"
+                                effect="dark"
+                                :content="scope.row.locked==2?'编辑':'查看详情'"
+                                placement="bottom"
+                            >
                                 <span
                                     class="cur-point dis-inline-block"
                                     @click="questionPut(scope.row)"
                                 >
-                                    <img v-if="scope.row.locked==2" src="@/assets/images/xiugai_icon.png" alt />
+                                    <img
+                                        v-if="scope.row.locked==2"
+                                        src="@/assets/images/xiugai_icon.png"
+                                        alt
+                                    />
                                     <img v-else src="@/assets/images/zicejilu_icon.png" alt />
-                                    
                                 </span>
-                            </el-tooltip>&nbsp;
+                            </el-tooltip>&nbsp;&nbsp;
                             <!-- <span class="cur-point dis-inline-block" @click="copyQuestion(scope.row)">
             <img src="@/assets/images/xiugai_icon.png" alt="">&nbsp;&nbsp;&nbsp;
                             </span>-->
@@ -152,15 +168,29 @@
                                 <span class="cur-point dis-inline-block" @click="open(scope.row)">
                                     <img src="@/assets/images/shanchu_icon.png" alt />
                                 </span>
-                            </el-tooltip>&nbsp;
-                            <el-tooltip v-if="scope.row.locked==2" class="item" effect="dark" content="锁题" placement="bottom">
-                                <span
-                                
+                            </el-tooltip>&nbsp;&nbsp;
+                            <el-tooltip
+                                v-if="scope.row.locked==2"
+                                class="item"
+                                effect="dark"
+                                content="锁题"
+                                placement="bottom"
+                            >
+                                <!-- <span
                                     class="cur-point dis-inline-block el-icon-lock"
                                     style="font-size: 17px; color: #5691F6;"
                                     @click="lockQuestion(scope.row)"
-                                ></span>&nbsp;
+                                ></span> -->
+                                 <span class="cur-point"  @click="lockQuestion(scope.row)">
+                                    <img src="@/assets/images/suo_icon.png" alt />
+                                </span>
                             </el-tooltip>
+                            <el-tooltip v-if="scope.row.locked==1" class="item" effect="dark" content="解锁" placement="bottom">
+                                  <span class="cur-point"  @click="lockQuestion(scope.row)">
+                                    <img src="@/assets/images/jiesuo_icon.png" alt />
+                                </span>
+                            <!-- <i class="el-icon-unlock" style="font-size: 17px; color: #5691F6;"  @click="lockQuestion(scope.row)"></i> -->
+                            </el-tooltip>&nbsp;&nbsp;
                             <el-tooltip class="item" effect="dark" content="复制" placement="bottom">
                                 <span class="cur-point" @click="copy(scope.row)">
                                     <img src="@/assets/images/fuzhi_icon.png" alt />
@@ -169,39 +199,42 @@
                         </template>
                     </el-table-column>
                 </el-table>
-                 <el-dialog title="提示" :visible.sync="dialogVisible" width="600px">
-            <el-form
-                :inline="true"
-                :model="formInline"
-                size="mini"
-                class="demo-form-inline"
-                label-width="100px"
-            >
-                <el-row>
-                    <el-col :span="12">
-                        <el-form-item label="题号">
-                            <el-input v-model="formInline.oldNumber"></el-input>
-                        </el-form-item>
-                        <el-form-item label="名称">
-                            <el-input v-model="formInline.name"></el-input>
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="12">
-                        <el-form-item label="新题号">
-                            <span>{{formInline.question_number}}</span>
-                            <!-- <el-input placeholder="请输入题号" v-model="questionNumber"></el-input> -->
-                        </el-form-item>
-                        <el-form-item label="新名称">
-                            <el-input v-model="formInline.question_name" placeholder="请输入名称"></el-input>
-                        </el-form-item>
-                    </el-col>
-                </el-row>
-            </el-form>
-            <span slot="footer" class="dialog-footer">
-                <el-button @click="sure">确 定</el-button>
-                <el-button @click="dialogVisible = false">取 消</el-button>
-            </span>
-        </el-dialog>
+                <el-dialog title="提示" :visible.sync="dialogVisible" width="600px">
+                    <el-form
+                        :inline="true"
+                        :model="formInline"
+                        size="mini"
+                        class="demo-form-inline"
+                        label-width="100px"
+                    >
+                        <el-row>
+                            <el-col :span="12">
+                                <el-form-item label="题号">
+                                    <el-input v-model="formInline.oldNumber"></el-input>
+                                </el-form-item>
+                                <el-form-item label="名称">
+                                    <el-input v-model="formInline.name"></el-input>
+                                </el-form-item>
+                            </el-col>
+                            <el-col :span="12">
+                                <el-form-item label="新题号">
+                                    <span>{{formInline.question_number}}</span>
+                                    <!-- <el-input placeholder="请输入题号" v-model="questionNumber"></el-input> -->
+                                </el-form-item>
+                                <el-form-item label="新名称">
+                                    <el-input
+                                        v-model="formInline.question_name"
+                                        placeholder="请输入名称"
+                                    ></el-input>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                    </el-form>
+                    <span slot="footer" class="dialog-footer">
+                        <el-button @click="sure">确 定</el-button>
+                        <el-button @click="dialogVisible = false">取 消</el-button>
+                    </span>
+                </el-dialog>
                 <!-- 分页 -->
                 <div class="block">
                     <el-pagination
@@ -246,14 +279,14 @@ export default {
             pagesizes: [10, 20, 30, 40],
             aRoleid: sessionStorage.aRoleid,
             activeName: "second",
-            dialogVisible:false,
-             formInline: {
+            dialogVisible: false,
+            formInline: {
                 question_number: "",
                 question_name: "",
                 oldNumber: "",
                 name: "",
                 question_uuid: ""
-            },
+            }
         };
     },
 
@@ -267,8 +300,8 @@ export default {
     },
 
     methods: {
-        clear(){
-             this.form.content = "";
+        clear() {
+            this.form.content = "";
             this.form.bank_id = "";
             this.form.level = "";
             this.form.open = "";
@@ -290,12 +323,12 @@ export default {
                     }
                 });
         },
-          copy(row) {
+        copy(row) {
             this.formInline.oldNumber = row.number;
             this.formInline.name = row.name;
             this.formInline.question_uuid = row.practice_question_uuid;
             this.$utils
-                .post(this.reqApi.shuiwuUrl + "/common/getDateNumber")
+                .post(this.reqApi.shuiwuUrl + "/common/getDateNumber",  qs.stringify({type: 'P'}))
                 .then(res => {
                     if (res.data.code === "0000") {
                         this.formInline.question_number = res.data.dateNumber;
@@ -324,14 +357,42 @@ export default {
         toBatch() {
             this.$router.push({
                 name: "batchLeadQuestion",
-                query:{
-                    practical:1
+                query: {
+                    practical: 1
                 }
             });
         },
         // 锁定
         lockQuestion(row) {
-            this.$utils
+            if (row.locked == 1) {
+                this.$confirm("确认解锁该题目？", "提示", {
+                    confirmButtonText: "确定",
+                    cancelButtonText: "取消"
+                }).then(() => {
+                    this.$utils
+                        .post(
+                            this.reqApi.shuiwuUrl + "/question/prc/unlock",
+                            qs.stringify({
+                                question_uuid:
+                                    row.practice_question_uuid
+                            })
+                        )
+                        .then(res => {
+                            if (res.data.code === "0000") {
+                                this.$message.success("解锁成功");
+                                this.getManageQuestion();
+                            }else {
+                                return this.$message.error(res.data.msg)
+                            }
+                        })
+                }).catch(() => {
+                            this.$message({
+                                type: "info",
+                                message: "已取消"
+                            });
+                        });
+            }else {
+                 this.$utils
                 .post(
                     this.reqApi.xinls + "/exam/grade/point",
                     qs.stringify({
@@ -362,6 +423,8 @@ export default {
                         this.$message.error(res.data.msg);
                     }
                 });
+            }
+
         },
         // 获取试题列表
         getManageQuestion() {
