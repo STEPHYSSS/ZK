@@ -12,7 +12,7 @@
     "axios": "^0.18.0",
     "core-js": "^3.3.2",
     "lib-flexible": "^0.3.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "postcss-pxtorem": "^4.0.1",
     "qs": "^6.9.0",
     "vant": "^2.2.9",
